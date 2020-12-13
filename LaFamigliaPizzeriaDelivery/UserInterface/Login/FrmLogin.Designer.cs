@@ -38,9 +38,9 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.Title = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.CopyRight = new System.Windows.Forms.Label();
+            this.lblVersion = new System.Windows.Forms.Label();
+            this.Title = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -135,12 +135,36 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Moccasin;
             this.panel1.Controls.Add(this.CopyRight);
-            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.lblVersion);
             this.panel1.Controls.Add(this.Title);
             this.panel1.Location = new System.Drawing.Point(616, 504);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(430, 143);
             this.panel1.TabIndex = 7;
+            // 
+            // CopyRight
+            // 
+            this.CopyRight.Font = new System.Drawing.Font("Futura Bk BT", 8.830189F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CopyRight.Location = new System.Drawing.Point(8, 119);
+            this.CopyRight.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.CopyRight.Name = "CopyRight";
+            this.CopyRight.Size = new System.Drawing.Size(416, 17);
+            this.CopyRight.TabIndex = 5;
+            this.CopyRight.Text = "₢ Moretto Code Studio - 2020";
+            this.CopyRight.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // lblVersion
+            // 
+            this.lblVersion.BackColor = System.Drawing.Color.Wheat;
+            this.lblVersion.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblVersion.Font = new System.Drawing.Font("Futura Bk BT", 10.18868F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVersion.Location = new System.Drawing.Point(75, 73);
+            this.lblVersion.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblVersion.Name = "lblVersion";
+            this.lblVersion.Size = new System.Drawing.Size(288, 26);
+            this.lblVersion.TabIndex = 4;
+            this.lblVersion.Text = "Version: {0}.{1}.{2}.{3}";
+            this.lblVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Title
             // 
@@ -153,30 +177,6 @@
             this.Title.TabIndex = 3;
             this.Title.Text = "La Famiglia Pizzeria Delivery System";
             this.Title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.Color.Wheat;
-            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label2.Font = new System.Drawing.Font("Futura Bk BT", 10.18868F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(75, 73);
-            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(288, 26);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Version: 1.0 - Beta";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // CopyRight
-            // 
-            this.CopyRight.Font = new System.Drawing.Font("Futura Bk BT", 8.830189F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CopyRight.Location = new System.Drawing.Point(8, 119);
-            this.CopyRight.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.CopyRight.Name = "CopyRight";
-            this.CopyRight.Size = new System.Drawing.Size(416, 17);
-            this.CopyRight.TabIndex = 5;
-            this.CopyRight.Text = "₢ Moretto Code Studio - 2020";
-            this.CopyRight.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // FrmLogin
             // 
@@ -203,6 +203,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.FrmLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -222,7 +223,7 @@
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label CopyRight;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblVersion;
         private System.Windows.Forms.Label Title;
     }
 }
