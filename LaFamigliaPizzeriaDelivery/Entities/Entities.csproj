@@ -49,6 +49,7 @@
     <Compile Include="People\UserType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="System\CmbUsersItens.cs" />
+    <Compile Include="System\Session.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

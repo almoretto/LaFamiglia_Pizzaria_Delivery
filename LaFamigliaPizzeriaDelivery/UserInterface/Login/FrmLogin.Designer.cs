@@ -103,6 +103,8 @@
             // 
             // txtPassword
             // 
+            this.txtPassword.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPassword.Location = new System.Drawing.Point(710, 396);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(336, 29);
@@ -119,6 +121,7 @@
             this.btnLogin.TabIndex = 5;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // btnExit
             // 
@@ -130,6 +133,7 @@
             this.btnExit.TabIndex = 6;
             this.btnExit.Text = "Sair";
             this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // panel1
             // 
