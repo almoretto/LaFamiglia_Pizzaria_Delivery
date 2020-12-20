@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using UserInterface.Login;
+using UserInterface.People;
 
 namespace UserInterface
 {
@@ -10,7 +11,6 @@ namespace UserInterface
         {
             InitializeComponent();
         }
-
         private void MDIForm_Load(object sender, EventArgs e)
         {
             mnsMdiPrincipal.Visible = false;
@@ -33,9 +33,18 @@ namespace UserInterface
             }
             mnsMdiPrincipal.Visible = true;
         }
-        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
+        private void SairToolStripMenuItem_Click(object sender, EventArgs e)
+        { Application.Exit(); }
+        private void UsuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        { OpenForms(new frmUserCRUD());}
+        private void OpenForms(Form selectedForm)
         {
-            Application.Exit();
+            selectedForm.WindowState = FormWindowState.Normal;
+            selectedForm.StartPosition = FormStartPosition.Manual;
+            selectedForm.MdiParent = this;
+            selectedForm.Top = 25;
+            selectedForm.Left = 25;
+            selectedForm.Show();
         }
     }
 }

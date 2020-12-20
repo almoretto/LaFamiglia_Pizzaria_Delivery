@@ -31,11 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MDIForm));
             this.mnsMdiPrincipal = new System.Windows.Forms.MenuStrip();
             this.arquivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rotinasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pessoasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usuáriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnsMdiPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,8 +64,17 @@
             this.arquivoToolStripMenuItem.Size = new System.Drawing.Size(81, 23);
             this.arquivoToolStripMenuItem.Text = "Programa";
             // 
+            // sairToolStripMenuItem
+            // 
+            this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(106, 24);
+            this.sairToolStripMenuItem.Text = "Sair";
+            this.sairToolStripMenuItem.Click += new System.EventHandler(this.SairToolStripMenuItem_Click);
+            // 
             // cadastrosToolStripMenuItem
             // 
+            this.cadastrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pessoasToolStripMenuItem});
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
             this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(82, 23);
             this.cadastrosToolStripMenuItem.Text = "Cadastros";
@@ -86,12 +97,20 @@
             this.sobreToolStripMenuItem.Size = new System.Drawing.Size(56, 23);
             this.sobreToolStripMenuItem.Text = "Sobre";
             // 
-            // sairToolStripMenuItem
+            // pessoasToolStripMenuItem
             // 
-            this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(198, 24);
-            this.sairToolStripMenuItem.Text = "Sair";
-            this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
+            this.pessoasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.usuáriosToolStripMenuItem});
+            this.pessoasToolStripMenuItem.Name = "pessoasToolStripMenuItem";
+            this.pessoasToolStripMenuItem.Size = new System.Drawing.Size(198, 24);
+            this.pessoasToolStripMenuItem.Text = "Pessoas";
+            // 
+            // usuáriosToolStripMenuItem
+            // 
+            this.usuáriosToolStripMenuItem.Name = "usuáriosToolStripMenuItem";
+            this.usuáriosToolStripMenuItem.Size = new System.Drawing.Size(198, 24);
+            this.usuáriosToolStripMenuItem.Text = "Usuários";
+            this.usuáriosToolStripMenuItem.Click += new System.EventHandler(this.UsuariosToolStripMenuItem_Click);
             // 
             // MDIForm
             // 
@@ -126,6 +145,8 @@
         private System.Windows.Forms.ToolStripMenuItem relatóriosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sobreToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pessoasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem usuáriosToolStripMenuItem;
     }
 }
 

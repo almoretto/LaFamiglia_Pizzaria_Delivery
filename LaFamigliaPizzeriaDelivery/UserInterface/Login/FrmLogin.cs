@@ -34,7 +34,7 @@ namespace UserInterface.Login
 
         private void LoadUsers()
         {
-            var uList = new UserBus().GetUsers();
+            var uList = new UserBus().GetActiveUsers();
             if (uList.Count > 0)
             {
                 foreach (var item in uList)

@@ -48,6 +48,7 @@
             this.lblDspUserType = new System.Windows.Forms.Label();
             this.txtPasswordConfirmation = new System.Windows.Forms.TextBox();
             this.lblUserPasswordConfirmation = new System.Windows.Forms.Label();
+            this.userSituacaoCTRL1 = new UserInterface.Controls.UserSituacaoCTRL();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,7 +58,7 @@
             this.flowLayoutPanel1.Controls.Add(this.btnDelete);
             this.flowLayoutPanel1.Controls.Add(this.btnSave);
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(346, 284);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(347, 197);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(325, 50);
             this.flowLayoutPanel1.TabIndex = 0;
@@ -116,6 +117,7 @@
             this.btnUserSearch.Size = new System.Drawing.Size(22, 20);
             this.btnUserSearch.TabIndex = 2;
             this.btnUserSearch.UseVisualStyleBackColor = true;
+            this.btnUserSearch.Click += new System.EventHandler(this.btnUserSearch_Click);
             // 
             // lblUserId
             // 
@@ -133,7 +135,7 @@
             this.lblUserLogin.AutoSize = true;
             this.lblUserLogin.Font = new System.Drawing.Font("Futura Md BT", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUserLogin.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblUserLogin.Location = new System.Drawing.Point(166, 69);
+            this.lblUserLogin.Location = new System.Drawing.Point(166, 59);
             this.lblUserLogin.Name = "lblUserLogin";
             this.lblUserLogin.Size = new System.Drawing.Size(53, 19);
             this.lblUserLogin.TabIndex = 4;
@@ -144,7 +146,7 @@
             this.lblUserPassword.AutoSize = true;
             this.lblUserPassword.Font = new System.Drawing.Font("Futura Md BT", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUserPassword.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblUserPassword.Location = new System.Drawing.Point(423, 69);
+            this.lblUserPassword.Location = new System.Drawing.Point(423, 59);
             this.lblUserPassword.Name = "lblUserPassword";
             this.lblUserPassword.Size = new System.Drawing.Size(59, 19);
             this.lblUserPassword.TabIndex = 5;
@@ -159,14 +161,14 @@
             // 
             // txtUserLogin
             // 
-            this.txtUserLogin.Location = new System.Drawing.Point(170, 91);
+            this.txtUserLogin.Location = new System.Drawing.Point(170, 81);
             this.txtUserLogin.Name = "txtUserLogin";
             this.txtUserLogin.Size = new System.Drawing.Size(244, 20);
             this.txtUserLogin.TabIndex = 7;
             // 
             // txtUserPassword
             // 
-            this.txtUserPassword.Location = new System.Drawing.Point(427, 91);
+            this.txtUserPassword.Location = new System.Drawing.Point(427, 81);
             this.txtUserPassword.Name = "txtUserPassword";
             this.txtUserPassword.Size = new System.Drawing.Size(244, 20);
             this.txtUserPassword.TabIndex = 8;
@@ -176,7 +178,7 @@
             this.lblUserType.AutoSize = true;
             this.lblUserType.Font = new System.Drawing.Font("Futura Md BT", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUserType.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblUserType.Location = new System.Drawing.Point(7, 153);
+            this.lblUserType.Location = new System.Drawing.Point(166, 108);
             this.lblUserType.Name = "lblUserType";
             this.lblUserType.Size = new System.Drawing.Size(123, 19);
             this.lblUserType.TabIndex = 9;
@@ -195,7 +197,7 @@
             // 
             // txtUserType
             // 
-            this.txtUserType.Location = new System.Drawing.Point(11, 175);
+            this.txtUserType.Location = new System.Drawing.Point(170, 130);
             this.txtUserType.Name = "txtUserType";
             this.txtUserType.Size = new System.Drawing.Size(119, 20);
             this.txtUserType.TabIndex = 11;
@@ -203,11 +205,12 @@
             // btnUserTypeSearch
             // 
             this.btnUserTypeSearch.Image = global::UserInterface.Properties.Resources.busca;
-            this.btnUserTypeSearch.Location = new System.Drawing.Point(136, 176);
+            this.btnUserTypeSearch.Location = new System.Drawing.Point(304, 130);
             this.btnUserTypeSearch.Name = "btnUserTypeSearch";
             this.btnUserTypeSearch.Size = new System.Drawing.Size(22, 20);
             this.btnUserTypeSearch.TabIndex = 12;
             this.btnUserTypeSearch.UseVisualStyleBackColor = true;
+            this.btnUserTypeSearch.Click += new System.EventHandler(this.btnUserTypeSearch_Click);
             // 
             // lblDspUserType
             // 
@@ -215,7 +218,7 @@
             this.lblDspUserType.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblDspUserType.Font = new System.Drawing.Font("Futura Md BT", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDspUserType.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblDspUserType.Location = new System.Drawing.Point(170, 176);
+            this.lblDspUserType.Location = new System.Drawing.Point(169, 163);
             this.lblDspUserType.Name = "lblDspUserType";
             this.lblDspUserType.Size = new System.Drawing.Size(502, 19);
             this.lblDspUserType.TabIndex = 13;
@@ -223,7 +226,7 @@
             // 
             // txtPasswordConfirmation
             // 
-            this.txtPasswordConfirmation.Location = new System.Drawing.Point(427, 140);
+            this.txtPasswordConfirmation.Location = new System.Drawing.Point(427, 130);
             this.txtPasswordConfirmation.Name = "txtPasswordConfirmation";
             this.txtPasswordConfirmation.Size = new System.Drawing.Size(244, 20);
             this.txtPasswordConfirmation.TabIndex = 15;
@@ -233,18 +236,27 @@
             this.lblUserPasswordConfirmation.AutoSize = true;
             this.lblUserPasswordConfirmation.Font = new System.Drawing.Font("Futura Md BT", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUserPasswordConfirmation.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblUserPasswordConfirmation.Location = new System.Drawing.Point(423, 118);
+            this.lblUserPasswordConfirmation.Location = new System.Drawing.Point(423, 108);
             this.lblUserPasswordConfirmation.Name = "lblUserPasswordConfirmation";
             this.lblUserPasswordConfirmation.Size = new System.Drawing.Size(156, 19);
             this.lblUserPasswordConfirmation.TabIndex = 14;
             this.lblUserPasswordConfirmation.Text = "Confirmação Senha:";
+            // 
+            // userSituacaoCTRL1
+            // 
+            this.userSituacaoCTRL1.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.userSituacaoCTRL1.Location = new System.Drawing.Point(38, 81);
+            this.userSituacaoCTRL1.Name = "userSituacaoCTRL1";
+            this.userSituacaoCTRL1.Size = new System.Drawing.Size(100, 100);
+            this.userSituacaoCTRL1.TabIndex = 16;
             // 
             // frmUserCRUD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Desktop;
-            this.ClientSize = new System.Drawing.Size(684, 355);
+            this.ClientSize = new System.Drawing.Size(684, 255);
+            this.Controls.Add(this.userSituacaoCTRL1);
             this.Controls.Add(this.txtPasswordConfirmation);
             this.Controls.Add(this.lblUserPasswordConfirmation);
             this.Controls.Add(this.lblDspUserType);
@@ -295,5 +307,6 @@
         private System.Windows.Forms.Label lblDspUserType;
         private System.Windows.Forms.TextBox txtPasswordConfirmation;
         private System.Windows.Forms.Label lblUserPasswordConfirmation;
+        private Controls.UserSituacaoCTRL userSituacaoCTRL1;
     }
 }

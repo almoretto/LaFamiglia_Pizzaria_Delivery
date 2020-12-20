@@ -29,7 +29,7 @@ namespace UserInterface.Controls
                 rbtInactive.Checked = true;
             }
         }
-        private void rbtActive_CheckedChanged(object sender, EventArgs e)
+        private void RbtActive_CheckedChanged(object sender, EventArgs e)
         {
             if (DesignMode) { return; }
             if (rbtInactive.Checked)
@@ -37,7 +37,7 @@ namespace UserInterface.Controls
                 CurrentStatus = Status.Ativo;
             }
         }
-        private void rbtInactive_CheckedChanged(object sender, EventArgs e)
+        private void RbtInactive_CheckedChanged(object sender, EventArgs e)
         {
             if (DesignMode) { return; }
             if (rbtInactive.Checked)

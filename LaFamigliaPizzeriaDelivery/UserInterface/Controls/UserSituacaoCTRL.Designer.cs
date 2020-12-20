@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.grpStatus = new System.Windows.Forms.GroupBox();
-            this.rbtActive = new System.Windows.Forms.RadioButton();
             this.rbtInactive = new System.Windows.Forms.RadioButton();
+            this.rbtActive = new System.Windows.Forms.RadioButton();
             this.grpStatus.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -38,36 +38,37 @@
             // 
             this.grpStatus.Controls.Add(this.rbtInactive);
             this.grpStatus.Controls.Add(this.rbtActive);
-            this.grpStatus.Location = new System.Drawing.Point(20, 14);
+            this.grpStatus.Font = new System.Drawing.Font("Futura Bk BT", 8.150944F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpStatus.Location = new System.Drawing.Point(10, 10);
             this.grpStatus.Name = "grpStatus";
-            this.grpStatus.Size = new System.Drawing.Size(162, 47);
+            this.grpStatus.Size = new System.Drawing.Size(80, 80);
             this.grpStatus.TabIndex = 0;
             this.grpStatus.TabStop = false;
             this.grpStatus.Text = "Status";
             // 
-            // rbtActive
-            // 
-            this.rbtActive.AutoSize = true;
-            this.rbtActive.Location = new System.Drawing.Point(15, 19);
-            this.rbtActive.Name = "rbtActive";
-            this.rbtActive.Size = new System.Drawing.Size(50, 19);
-            this.rbtActive.TabIndex = 0;
-            this.rbtActive.TabStop = true;
-            this.rbtActive.Text = "Ativo";
-            this.rbtActive.UseVisualStyleBackColor = true;
-            this.rbtActive.CheckedChanged += new System.EventHandler(this.rbtActive_CheckedChanged);
-            // 
             // rbtInactive
             // 
             this.rbtInactive.AutoSize = true;
-            this.rbtInactive.Location = new System.Drawing.Point(82, 19);
+            this.rbtInactive.Location = new System.Drawing.Point(6, 47);
             this.rbtInactive.Name = "rbtInactive";
-            this.rbtInactive.Size = new System.Drawing.Size(60, 19);
+            this.rbtInactive.Size = new System.Drawing.Size(69, 20);
             this.rbtInactive.TabIndex = 1;
             this.rbtInactive.TabStop = true;
             this.rbtInactive.Text = "Inativo";
             this.rbtInactive.UseVisualStyleBackColor = true;
-            this.rbtInactive.CheckedChanged += new System.EventHandler(this.rbtInactive_CheckedChanged);
+            this.rbtInactive.CheckedChanged += new System.EventHandler(this.RbtInactive_CheckedChanged);
+            // 
+            // rbtActive
+            // 
+            this.rbtActive.AutoSize = true;
+            this.rbtActive.Location = new System.Drawing.Point(6, 21);
+            this.rbtActive.Name = "rbtActive";
+            this.rbtActive.Size = new System.Drawing.Size(58, 20);
+            this.rbtActive.TabIndex = 0;
+            this.rbtActive.TabStop = true;
+            this.rbtActive.Text = "Ativo";
+            this.rbtActive.UseVisualStyleBackColor = true;
+            this.rbtActive.CheckedChanged += new System.EventHandler(this.RbtActive_CheckedChanged);
             // 
             // UserSituacaoCTRL
             // 
@@ -75,7 +76,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.grpStatus);
             this.Name = "UserSituacaoCTRL";
-            this.Size = new System.Drawing.Size(199, 69);
+            this.Size = new System.Drawing.Size(100, 100);
             this.Load += new System.EventHandler(this.UserSituacaoCTRL_Load);
             this.grpStatus.ResumeLayout(false);
             this.grpStatus.PerformLayout();

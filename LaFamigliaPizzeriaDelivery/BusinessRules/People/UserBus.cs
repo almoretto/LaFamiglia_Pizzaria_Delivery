@@ -1,5 +1,7 @@
 ﻿using DataContext.People;
+using Entities.Enums;
 using Entities.People;
+using Entities.Views;
 using System.Collections.Generic;
 
 namespace BusinessRules.People
@@ -8,6 +10,11 @@ namespace BusinessRules.People
     {
         private readonly SvcUsersDb _svcUsersDb;
         public UserBus() { _svcUsersDb = new SvcUsersDb(); }
-        public List<User> GetUsers() { return _svcUsersDb.GetUsers(); }
+
+        public List<EntityViewSearch> GetEntityViewSearch(Status status)
+        { return _svcUsersDb.GetEntityViewSearch(status); }
+        public List<User> GetActiveUsers()
+        { return _svcUsersDb.GetActiveUsers(); }
+
     }
 }
