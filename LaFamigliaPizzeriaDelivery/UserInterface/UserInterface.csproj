@@ -65,6 +65,7 @@
       <DependentUpon>MDIForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Modules\Functions.cs" />
+    <Compile Include="Modules\IdFieldMasks.cs" />
     <Compile Include="People\frmUserCRUD.cs">
       <SubType>Form</SubType>
     </Compile>

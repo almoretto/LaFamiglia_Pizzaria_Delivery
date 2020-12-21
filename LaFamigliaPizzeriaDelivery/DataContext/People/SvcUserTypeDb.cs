@@ -42,5 +42,38 @@ namespace DataContext.People
             }
             return usersType;
         }
+        public UserType GetUserTypeById(int id)
+        {
+            UserType userType = new UserType();
+            using (MySqlConnection dbContext = DbContext.GetInstance().GetConnection())
+            {
+                try
+                {
+                    dbContext.Open();
+                    MySqlCommand command = new MySqlCommand();
+                    
+                    command = dbContext.CreateCommand();
+                    command.CommandText = @"select * from tipousuario where Id = @id;";
+                    command.Parameters.AddWithValue("Id", id);
+                    
+                    MySqlDataReader dataReader = command.ExecuteReader();
+
+                    while (dataReader.Read())
+                    {
+                        userType.Id = Convert.ToInt32(dataReader["Id"].ToString());
+                        userType.Description = dataReader["Descricao"].ToString();
+                    }
+                }
+                catch (MySqlException ex)
+                {
+                    throw new System.Exception(ex.Message);
+                }
+                finally
+                {
+                    dbContext.Close();
+                }
+            }
+            return userType;
+        }
     }
 }

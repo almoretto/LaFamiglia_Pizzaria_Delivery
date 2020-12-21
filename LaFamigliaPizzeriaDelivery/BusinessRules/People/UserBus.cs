@@ -15,6 +15,8 @@ namespace BusinessRules.People
         { return _svcUsersDb.GetEntityViewSearch(status); }
         public List<User> GetActiveUsers()
         { return _svcUsersDb.GetActiveUsers(); }
+        public User FindById(int id)
+        { return _svcUsersDb.FindById(id); }
 
     }
 }

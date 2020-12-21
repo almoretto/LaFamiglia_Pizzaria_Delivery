@@ -48,7 +48,7 @@
             this.lblDspUserType = new System.Windows.Forms.Label();
             this.txtPasswordConfirmation = new System.Windows.Forms.TextBox();
             this.lblUserPasswordConfirmation = new System.Windows.Forms.Label();
-            this.userSituacaoCTRL1 = new UserInterface.Controls.UserSituacaoCTRL();
+            this.uscStatus = new UserInterface.Controls.UserSituacaoCTRL();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,6 +75,7 @@
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnDelete
             // 
@@ -88,6 +89,7 @@
             this.btnDelete.Text = "Excluir";
             this.btnDelete.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnSave
             // 
@@ -101,6 +103,7 @@
             this.btnSave.Text = "Salvar";
             this.btnSave.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // txtUserId
             // 
@@ -108,6 +111,7 @@
             this.txtUserId.Name = "txtUserId";
             this.txtUserId.Size = new System.Drawing.Size(100, 20);
             this.txtUserId.TabIndex = 1;
+            this.txtUserId.Validating += new System.ComponentModel.CancelEventHandler(this.txtUserId_Validating);
             // 
             // btnUserSearch
             // 
@@ -201,6 +205,7 @@
             this.txtUserType.Name = "txtUserType";
             this.txtUserType.Size = new System.Drawing.Size(119, 20);
             this.txtUserType.TabIndex = 11;
+            this.txtUserType.Validating += new System.ComponentModel.CancelEventHandler(this.txtUserType_Validating);
             // 
             // btnUserTypeSearch
             // 
@@ -242,13 +247,13 @@
             this.lblUserPasswordConfirmation.TabIndex = 14;
             this.lblUserPasswordConfirmation.Text = "Confirmação Senha:";
             // 
-            // userSituacaoCTRL1
+            // uscStatus
             // 
-            this.userSituacaoCTRL1.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.userSituacaoCTRL1.Location = new System.Drawing.Point(38, 81);
-            this.userSituacaoCTRL1.Name = "userSituacaoCTRL1";
-            this.userSituacaoCTRL1.Size = new System.Drawing.Size(100, 100);
-            this.userSituacaoCTRL1.TabIndex = 16;
+            this.uscStatus.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.uscStatus.Location = new System.Drawing.Point(38, 81);
+            this.uscStatus.Name = "uscStatus";
+            this.uscStatus.Size = new System.Drawing.Size(100, 100);
+            this.uscStatus.TabIndex = 16;
             // 
             // frmUserCRUD
             // 
@@ -256,7 +261,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Desktop;
             this.ClientSize = new System.Drawing.Size(684, 255);
-            this.Controls.Add(this.userSituacaoCTRL1);
+            this.Controls.Add(this.uscStatus);
             this.Controls.Add(this.txtPasswordConfirmation);
             this.Controls.Add(this.lblUserPasswordConfirmation);
             this.Controls.Add(this.lblDspUserType);
@@ -280,6 +285,7 @@
             this.Name = "frmUserCRUD";
             this.ShowInTaskbar = false;
             this.Text = "Cadastros e Manutenção de Usuários";
+            this.Load += new System.EventHandler(this.frmUserCRUD_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -307,6 +313,6 @@
         private System.Windows.Forms.Label lblDspUserType;
         private System.Windows.Forms.TextBox txtPasswordConfirmation;
         private System.Windows.Forms.Label lblUserPasswordConfirmation;
-        private Controls.UserSituacaoCTRL userSituacaoCTRL1;
+        private Controls.UserSituacaoCTRL uscStatus;
     }
 }

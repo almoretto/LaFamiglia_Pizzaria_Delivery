@@ -16,7 +16,7 @@ namespace UserInterface.Controls
             if (DesignMode) { return; }
             StartStatus(Status.Ativo);
         }
-        private void StartStatus(Status status)
+        public void StartStatus(Status status)
         {
             if (DesignMode) { return; }
             CurrentStatus = status;

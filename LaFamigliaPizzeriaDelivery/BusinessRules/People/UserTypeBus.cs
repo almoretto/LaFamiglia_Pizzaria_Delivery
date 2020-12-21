@@ -8,5 +8,6 @@ namespace BusinessRules.People
         private readonly SvcUserTypeDb _svcUserTypeDb;
         public UserTypeBus() { _svcUserTypeDb = new SvcUserTypeDb(); }
         public UserType GetUserType(int id) { return _svcUserTypeDb.GetUserType(id); }
+        public UserType GetUserTypeById(int id) { return _svcUserTypeDb.GetUserTypeById(id); }
     }
 }

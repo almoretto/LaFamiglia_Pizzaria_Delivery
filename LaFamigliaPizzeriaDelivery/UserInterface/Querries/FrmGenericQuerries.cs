@@ -73,11 +73,6 @@ namespace UserInterface.Querries
             }
             Functions.ListViewColor(lstResult);
         }
-        public void ClearForm()
-        {
-            txtGenericSearch.Text = string.Empty;
-            returnControl = 0;
-        }
 
         private void lstResult_DoubleClick(object sender, EventArgs e)
         {
@@ -87,11 +82,6 @@ namespace UserInterface.Querries
 
         private void btnConfirmation_Click(object sender, EventArgs e)
         {
-            Close();
-        }
-
-        private void btnExit_Click(object sender, EventArgs e)
-        {
             if (lstResult.SelectedIndices.Count <= 0) { return; }
             var selectedIndex = Convert.ToInt32(lstResult.SelectedIndices[0]);
             if (selectedIndex >= 0)//Verifies if the index is a valid index
@@ -100,6 +90,12 @@ namespace UserInterface.Querries
                 returnControl = Convert.ToInt32(lstResult.Items[selectedIndex].Text);
                 btnExit_Click(btnExit, new EventArgs());
             }
+            
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Close();
         }
 
         private void rbtAllActive_CheckedChanged(object sender, EventArgs e)
@@ -133,6 +129,12 @@ namespace UserInterface.Querries
                 select u);
 
             FillListView(listQ);
+        }
+       
+        public void ClearForm()
+        {
+            txtGenericSearch.Text = string.Empty;
+            returnControl = 0;
         }
     }
 }
