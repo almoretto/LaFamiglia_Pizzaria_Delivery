@@ -1,14 +1,9 @@
 ﻿using BusinessRules.People;
+using UserInterface.Querries;
 using Entities.Enums;
 using Entities.Views;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace UserInterface.People
@@ -33,7 +28,10 @@ namespace UserInterface.People
                 return;
             }
             //send list to Generic search form
-
+            FrmGenericQuerries userQuery = new FrmGenericQuerries("Pesquisa de Usuários", Status.Todos);
+            userQuery.queryList = users;
+            userQuery.ShowDialog();
+            int returnControl = userQuery.returnControl;
         }
 
         private void btnUserTypeSearch_Click(object sender, EventArgs e)

@@ -64,6 +64,7 @@
     <Compile Include="MDIForm.Designer.cs">
       <DependentUpon>MDIForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modules\Functions.cs" />
     <Compile Include="People\frmUserCRUD.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +73,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Querries\FrmGenericQuerries.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Querries\FrmGenericQuerries.Designer.cs">
+      <DependentUpon>FrmGenericQuerries.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Controls\UserSituacaoCTRL.resx">
       <DependentUpon>UserSituacaoCTRL.cs</DependentUpon>
     </EmbeddedResource>
@@ -94,6 +101,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Querries\FrmGenericQuerries.resx">
+      <DependentUpon>FrmGenericQuerries.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
