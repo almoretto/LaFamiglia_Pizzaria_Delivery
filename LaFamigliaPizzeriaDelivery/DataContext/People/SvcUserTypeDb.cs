@@ -1,6 +1,9 @@
-﻿using Entities.People;
+﻿using Entities.Enums;
+using Entities.People;
+using Entities.Views;
 using MySql.Data.MySqlClient;
 using System;
+using System.Collections.Generic;
 
 namespace DataContext.People
 {
@@ -42,6 +45,7 @@ namespace DataContext.People
             }
             return usersType;
         }
+        
         public UserType GetUserTypeById(int id)
         {
             UserType userType = new UserType();
@@ -51,11 +55,11 @@ namespace DataContext.People
                 {
                     dbContext.Open();
                     MySqlCommand command = new MySqlCommand();
-                    
+
                     command = dbContext.CreateCommand();
                     command.CommandText = @"select * from tipousuario where Id = @id;";
                     command.Parameters.AddWithValue("Id", id);
-                    
+
                     MySqlDataReader dataReader = command.ExecuteReader();
 
                     while (dataReader.Read())
@@ -74,6 +78,46 @@ namespace DataContext.People
                 }
             }
             return userType;
+        }
+
+        public List<EntityViewSearch> GetEntityViewSearch()
+        {
+            List<EntityViewSearch> entityList = new List<EntityViewSearch>();
+            using (MySqlConnection dbContext = DbContext.GetInstance().GetConnection())
+            {
+                try
+                {
+                    dbContext.Open();
+                    MySqlCommand command = new MySqlCommand();
+                    command = dbContext.CreateCommand();
+
+                    command.CommandText = @"Select Id, Descricao, '1' as situacao 
+                                            From tipousuario";
+
+                    MySqlDataReader dataReader = command.ExecuteReader();
+
+                    while (dataReader.Read())
+                    {
+                        EntityViewSearch newEntity = new EntityViewSearch
+                        {
+                            Id = Convert.ToInt32(dataReader["Id"].ToString()),
+                            Description = dataReader["Descricao"].ToString(),
+                            Status = (Status)Convert.ToInt32(dataReader["Situacao"])
+                        };
+
+                        entityList.Add(newEntity);
+                    }
+                }
+                catch (MySqlException ex)
+                {
+                    throw new System.Exception(ex.Message);
+                }
+                finally
+                {
+                    dbContext.Close();
+                }
+            }
+            return entityList;
         }
     }
 }

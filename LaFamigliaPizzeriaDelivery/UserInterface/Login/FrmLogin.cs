@@ -44,6 +44,7 @@ namespace UserInterface.Login
             }
 
         }
+        
         private void btnExit_Click(object sender, EventArgs e)
         {
             Dispose();//This method close the FRMLogin, but need to Closse in this case ALL the Application
@@ -86,6 +87,19 @@ namespace UserInterface.Login
             Session.User = new Entity(selectedItem.Id, selectedItem.Login);
             Session.UserType = new UserTypeBus().GetUserType(selectedItem.Id);
             this.Close();
+        }
+
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnLogin_Click(btnLogin, new EventArgs());
+            }
+            else
+            {
+                return;
+            }
+           
         }
     }
 }

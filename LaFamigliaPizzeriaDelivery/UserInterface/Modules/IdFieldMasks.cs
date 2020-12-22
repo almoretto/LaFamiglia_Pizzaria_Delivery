@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace UserInterface.Modules
@@ -33,7 +29,7 @@ namespace UserInterface.Modules
         public static void OnlyNumericValues(object sender, KeyPressEventArgs k)
         {
             TextBox txt = (TextBox)sender;
-            if (char.IsDigit(k.KeyChar) && k.KeyChar != Convert.ToChar(Keys.Back))
+            if (!char.IsDigit(k.KeyChar) && k.KeyChar != Convert.ToChar(Keys.Back))
             {
                 k.Handled = true;
             }

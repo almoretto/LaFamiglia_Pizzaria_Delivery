@@ -8,22 +8,26 @@ using System.Windows.Forms;
 using System.ComponentModel;
 using Entities.People;
 using UserInterface.Modules;
+using Entities.System;
 
 namespace UserInterface.People
 {
     public partial class frmUserCRUD : Form
     {
         private bool newregister;
+
         public frmUserCRUD()
         {
             InitializeComponent();
             IdFieldMasks.AplyEvents(txtUserId);
             IdFieldMasks.AplyEvents(txtUserType);
         }
+
         private void frmUserCRUD_Load(object sender, EventArgs e)
         {
-
+            ClearForm();
         }
+
         private void btnUserSearch_Click(object sender, EventArgs e)
         {
             List<EntityViewSearch> users = new UserBus().GetEntityViewSearch(Status.Todos);
@@ -47,10 +51,34 @@ namespace UserInterface.People
 
             txtUserId.Text = returnControl.ToString();
             txtUserId_Validating(txtUserId, new CancelEventArgs());
+            btnUserSearch.Focus();
         }
 
         private void btnUserTypeSearch_Click(object sender, EventArgs e)
         {
+            List<EntityViewSearch> userTypes = new UserTypeBus().GetEntityViewSearch();
+            if (userTypes.Count < 1)
+            {
+                //verify if list is empty
+                MessageBox.Show("Sem dados para exibir!",
+                    this.Text,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+                return;
+            }
+            //send list to Generic search form
+            FrmGenericQuerries formUserTypeQuery = new FrmGenericQuerries("Pesquisa de Tipos de Usuários", Status.Todos);
+            formUserTypeQuery.queryList = userTypes;
+            formUserTypeQuery.ShowDialog();
+
+            int returnControl = formUserTypeQuery.returnControl;
+            //Break if returno control is invalid
+            if (returnControl < 1) { return; }
+
+            txtUserType.Text = returnControl.ToString();
+            txtUserType_Validating(txtUserType, new CancelEventArgs());
+            IdFieldMasks.MakeMask(txtUserType, new EventArgs());
+            btnUserTypeSearch.Focus();
 
         }
 
@@ -60,14 +88,15 @@ namespace UserInterface.People
 
             User userToDisplay = new UserBus()
                 .FindById(Convert.ToInt32(txtUserId.Text.Trim()));
-            
-            if (userToDisplay==null)
+
+            if (userToDisplay == null)
             {
                 btnDelete.Enabled = false;
+                ClearForm();
                 return;
             }
             newregister = false;
-            
+
             txtUserName.Text = userToDisplay.Name;
             txtUserLogin.Text = userToDisplay.Login;
             txtUserPassword.Text = userToDisplay.Password;
@@ -82,31 +111,16 @@ namespace UserInterface.People
             btnDelete.Enabled = true;
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void txtUserType_Validating(object sender, CancelEventArgs e)
         {
-            if (txtUserType.Text.Trim()==string.Empty)
+            if (txtUserType.Text.Trim() == string.Empty)
             {
                 lblDspUserType.Text = string.Empty;
                 return;
             }
             UserType typeToDisplay = new UserTypeBus()
                 .GetUserTypeById(Convert.ToInt32(txtUserType.Text.Trim()));
-            if (typeToDisplay==null)
+            if (typeToDisplay == null)
             {
                 MessageBox.Show("Tipo de usuário não encontrado",
                     this.Text,
@@ -118,9 +132,117 @@ namespace UserInterface.People
 
             lblDspUserType.Text = typeToDisplay.Description;
         }
-        public void ClearForm()
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            ClearForm();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (!FieldsVerification()) { return; }
+            UserBus _userBus = new UserBus();
+            User userToCreate = new User();
+            UserType type = new UserType();
+            type = new UserTypeBus().GetUserTypeById(Convert.ToInt32(txtUserType.Text.Trim()));
+            userToCreate.Name = txtUserName.Text.Trim();
+            userToCreate.Login = txtUserLogin.Text.Trim();
+            userToCreate.Password = txtUserPassword.Text.Trim();
+            userToCreate.UserType = type;
+            userToCreate.UserStatus = uscStatus.CurrentStatus;
+            userToCreate.LastChangeUserId = Session.User.Id;
+
+            if (newregister)//Record new register to DB
+            {
+                if (_userBus.CreateUser(userToCreate))
+                {
+                    MessageBox.Show("Usuário cadastrado com sucesso!",
+                        this.Text,
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                    ClearForm();
+                }
+                else
+                {
+                    MessageBox.Show("Não foi possível concluir o registro!",
+                        this.Text,
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+            }
+            else //Alters existent register on Db
+            {
+
+            }
+
+        }
+
+        private bool FieldsVerification()
+        {
+            if (txtUserName.Text.Trim() == string.Empty)
+            {
+                MessageBox.Show("Você deve informar um nome de usuário!",
+                    this.Text,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return false;
+            }
+            if (txtUserLogin.Text.Trim() == string.Empty)
+            {
+                MessageBox.Show("Você deve informar um login de usuário!",
+                    this.Text,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return false;
+            }
+            if (txtUserPassword.Text.Trim() == string.Empty)
+            {
+                MessageBox.Show("Você deve informar uma senha!",
+                    this.Text,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return false;
+            }
+            if (txtUserPassword.Text.Trim() != txtPasswordConfirmation.Text.Trim())
+            {
+                MessageBox.Show("Senha e Confirmação não coincidem!",
+                   this.Text,
+                   MessageBoxButtons.OK,
+                   MessageBoxIcon.Error);
+                return false;
+            }
+            if ((txtUserType.Text.Trim() == string.Empty) || (lblDspUserType.Text == string.Empty))
+            {
+                MessageBox.Show("Você deve Selecionar um perfil de acesso!",
+                    this.Text,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
+        }
+
+        public void ClearForm()
+        {
+            txtUserId.Text = string.Empty;
+            txtUserId.Text = new UserBus().FindNextCode().ToString();
+            txtUserName.Text = string.Empty;
+            txtUserLogin.Text = string.Empty;
+            txtUserPassword.Text = string.Empty;
+            txtPasswordConfirmation.Text = string.Empty;
+            txtUserType.Text = string.Empty;
+            lblDspUserType.Text = string.Empty;
+            btnDelete.Enabled = false;
+            uscStatus.StartStatus(Status.Ativo);
+            IdFieldMasks.MakeMask(txtUserId, new EventArgs());
+            IdFieldMasks.MakeMask(txtUserType, new EventArgs());
+            newregister = true;
+            Functions.SetSelectedFocus(txtUserName);
         }
     }
 }

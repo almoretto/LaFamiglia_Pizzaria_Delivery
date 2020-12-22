@@ -19,5 +19,11 @@ namespace UserInterface.Modules
                 }
             }
         }
+
+        public static void SetSelectedFocus(TextBox textBox)
+        {
+            textBox.Focus();
+            textBox.Select();
+        }
     }
 }

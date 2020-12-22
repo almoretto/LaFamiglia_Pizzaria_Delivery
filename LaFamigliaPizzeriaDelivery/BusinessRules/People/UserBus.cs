@@ -11,12 +11,18 @@ namespace BusinessRules.People
         private readonly SvcUsersDb _svcUsersDb;
         public UserBus() { _svcUsersDb = new SvcUsersDb(); }
 
+        public bool CreateUser(User newUser)
+        { return _svcUsersDb.CreateUser(newUser); }
         public List<EntityViewSearch> GetEntityViewSearch(Status status)
         { return _svcUsersDb.GetEntityViewSearch(status); }
+
         public List<User> GetActiveUsers()
         { return _svcUsersDb.GetActiveUsers(); }
+
         public User FindById(int id)
         { return _svcUsersDb.FindById(id); }
 
+        public int FindNextCode()
+        { return _svcUsersDb.FindNextCode(); }
     }
 }
