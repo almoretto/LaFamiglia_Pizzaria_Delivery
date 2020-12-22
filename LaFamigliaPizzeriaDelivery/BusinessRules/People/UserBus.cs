@@ -24,5 +24,11 @@ namespace BusinessRules.People
 
         public int FindNextCode()
         { return _svcUsersDb.FindNextCode(); }
+
+        public bool UpdateUser(User userToUpdate)
+        { return _svcUsersDb.UpdateUser(userToUpdate); }
+
+        public bool DeleteUser(User userToDelete)
+        { return _svcUsersDb.DeleteUser(userToDelete); }
     }
 }

@@ -143,6 +143,7 @@ namespace DataContext.People
             }
             return userFounded;
         }
+        
         public bool CreateUser(User newUser)
         {
             bool returnValue = false;
@@ -196,6 +197,88 @@ namespace DataContext.People
             }
         }
 
+        public bool UpdateUser(User userToUpdate)
+        {
+            bool returnValue = false;
+            using (MySqlConnection dbContext = DbContext.GetInstance().GetConnection())
+            {
+                try
+                {
+                    dbContext.Open();
+                    MySqlCommand command = new MySqlCommand();
+                    command = dbContext.CreateCommand();
+
+                    //Sql command for Create new register on DB
+                    command.CommandText = @"UPDATE usuario SET 
+                                            Id_TipoUsuario = @Id_TipoUsuario,
+                                            Nome = @Nome, 
+                                            Login = @Login, 
+                                            Senha = @Senha,
+                                            Situacao = @Situacao,
+                                            DataAlteracao = Now(),
+                                            Id_Usuario_Alteracao = @Id_Usuario_Alteracao
+                                            WHERE Id = @id";
+                    //Insert parameters
+                    command.Parameters.AddWithValue("Id", userToUpdate.Id);
+                    command.Parameters.AddWithValue("Id_TipoUsuario", userToUpdate.UserType.Id);
+                    command.Parameters.AddWithValue("Nome", userToUpdate.Name);
+                    command.Parameters.AddWithValue("Login", userToUpdate.Login);
+                    command.Parameters.AddWithValue("Senha", userToUpdate.Password);
+                    command.Parameters.AddWithValue("Situacao", (int)userToUpdate.UserStatus);
+                    command.Parameters.AddWithValue("Id_Usuario_Alteracao", userToUpdate.LastChangeUserId);
+
+                    //Execute Insert
+                    int insertResult = command.ExecuteNonQuery();
+
+                    if (insertResult < 1) { returnValue = false; }
+                    else { returnValue = true; }
+                }
+                catch (MySqlException ex)
+                {
+                    throw new System.Exception(ex.Message);
+                }
+                finally
+                {
+                    dbContext.Close();
+                }
+                return returnValue;
+            }
+        }
+
+        public bool DeleteUser(User userToDelete)
+        {
+            bool returnValue = false;
+            using (MySqlConnection dbContext = DbContext.GetInstance().GetConnection())
+            {
+                try
+                {
+                    dbContext.Open();
+                    MySqlCommand command = new MySqlCommand();
+                    command = dbContext.CreateCommand();
+
+                    //Sql command for Create new register on DB
+                    command.CommandText = @"DELETE from usuario 
+                                            WHERE Id = @id";
+                    //Insert parameters
+                    command.Parameters.AddWithValue("Id", userToDelete.Id);
+
+                    //Execute Insert
+                    int insertResult = command.ExecuteNonQuery();
+
+                    if (insertResult < 1) { returnValue = false; }
+                    else { returnValue = true; }
+                }
+                catch (MySqlException ex)
+                {
+                    throw new System.Exception(ex.Message);
+                }
+                finally
+                {
+                    dbContext.Close();
+                }
+                return returnValue;
+            }
+        }
         public int FindNextCode()
         {
             string sql = "Show table status like 'usuario';";

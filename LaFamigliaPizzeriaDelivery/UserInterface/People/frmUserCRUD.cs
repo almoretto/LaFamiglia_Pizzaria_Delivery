@@ -140,7 +140,31 @@ namespace UserInterface.People
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            if ((txtUserId.Text.Trim() == string.Empty) || (newregister)) { return; }
 
+            User userToDelete = new UserBus().FindById(Convert.ToInt32(txtUserId.Text.Trim()));
+            
+            if (MessageBox.Show("Realmente deseja excluir?",
+                this.Text, MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                if (new UserBus().DeleteUser(userToDelete))
+                {
+                    MessageBox.Show("Usuário excluído com sucesso!",
+                           this.Text,
+                           MessageBoxButtons.OK,
+                           MessageBoxIcon.Information);
+                    ClearForm();
+                }
+                else
+                {
+                    MessageBox.Show("Não foi possível concluir a exclusão!",
+                            this.Text,
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                }
+            }
+            else { return; }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -148,8 +172,7 @@ namespace UserInterface.People
             if (!FieldsVerification()) { return; }
             UserBus _userBus = new UserBus();
             User userToCreate = new User();
-            UserType type = new UserType();
-            type = new UserTypeBus().GetUserTypeById(Convert.ToInt32(txtUserType.Text.Trim()));
+            UserType type = new UserTypeBus().GetUserTypeById(Convert.ToInt32(txtUserType.Text.Trim()));
             userToCreate.Name = txtUserName.Text.Trim();
             userToCreate.Login = txtUserLogin.Text.Trim();
             userToCreate.Password = txtUserPassword.Text.Trim();
@@ -177,7 +200,22 @@ namespace UserInterface.People
             }
             else //Alters existent register on Db
             {
-
+                userToCreate.Id = Convert.ToInt32(txtUserId.Text.Trim());
+                if (_userBus.UpdateUser(userToCreate))
+                {
+                    MessageBox.Show("Usuário Atualizado com sucesso!",
+                        this.Text,
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                    ClearForm();
+                }
+                else
+                {
+                    MessageBox.Show("Não foi possível concluir o atualização!",
+                        this.Text,
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
             }
 
         }
