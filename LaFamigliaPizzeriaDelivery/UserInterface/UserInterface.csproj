@@ -66,6 +66,12 @@
     </Compile>
     <Compile Include="Modules\Functions.cs" />
     <Compile Include="Modules\IdFieldMasks.cs" />
+    <Compile Include="People\FrmClientCRUD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="People\FrmClientCRUD.Designer.cs">
+      <DependentUpon>FrmClientCRUD.cs</DependentUpon>
+    </Compile>
     <Compile Include="People\frmUserCRUD.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +94,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MDIForm.resx">
       <DependentUpon>MDIForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="People\FrmClientCRUD.resx">
+      <DependentUpon>FrmClientCRUD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="People\frmUserCRUD.resx">
       <DependentUpon>frmUserCRUD.cs</DependentUpon>
