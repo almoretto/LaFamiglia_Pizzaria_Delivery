@@ -31,10 +31,10 @@ namespace UserInterface.People
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmClientCRUD));
             this.lblUserName = new System.Windows.Forms.Label();
-            this.txtUserName = new System.Windows.Forms.TextBox();
+            this.txtClientName = new System.Windows.Forms.TextBox();
             this.lblUserId = new System.Windows.Forms.Label();
-            this.btnUserSearch = new System.Windows.Forms.Button();
-            this.txtUserId = new System.Windows.Forms.TextBox();
+            this.btnClientSearch = new System.Windows.Forms.Button();
+            this.txtClientId = new System.Windows.Forms.TextBox();
             this.uscStatus = new UserInterface.Controls.UserSituacaoCTRL();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -45,17 +45,21 @@ namespace UserInterface.People
             this.mTxtCellPhone = new System.Windows.Forms.MaskedTextBox();
             this.lblCellPhone = new System.Windows.Forms.Label();
             this.grpAddress = new System.Windows.Forms.GroupBox();
-            this.txtAddress = new System.Windows.Forms.TextBox();
-            this.lblAddress = new System.Windows.Forms.Label();
-            this.txtStNumber = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtDistrict = new System.Windows.Forms.TextBox();
-            this.lblDistrict = new System.Windows.Forms.Label();
-            this.txtAddress2nd = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnDeleteAddress = new System.Windows.Forms.Button();
+            this.lstAddresses = new System.Windows.Forms.ListView();
+            this.btnAddressSave = new System.Windows.Forms.Button();
+            this.chkStdAddress = new System.Windows.Forms.CheckBox();
             this.txtCity = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.chkStdAddress = new System.Windows.Forms.CheckBox();
+            this.txtAddress2nd = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtDistrict = new System.Windows.Forms.TextBox();
+            this.lblDistrict = new System.Windows.Forms.Label();
+            this.txtStNumber = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtAddress = new System.Windows.Forms.TextBox();
+            this.lblAddress = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             this.grpAddress.SuspendLayout();
             this.SuspendLayout();
@@ -66,11 +70,11 @@ namespace UserInterface.People
             this.lblUserName.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblUserName.Name = "lblUserName";
             // 
-            // txtUserName
+            // txtClientName
             // 
-            this.txtUserName.BackColor = System.Drawing.Color.SeaShell;
-            resources.ApplyResources(this.txtUserName, "txtUserName");
-            this.txtUserName.Name = "txtUserName";
+            this.txtClientName.BackColor = System.Drawing.Color.SeaShell;
+            resources.ApplyResources(this.txtClientName, "txtClientName");
+            this.txtClientName.Name = "txtClientName";
             // 
             // lblUserId
             // 
@@ -78,18 +82,20 @@ namespace UserInterface.People
             this.lblUserId.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblUserId.Name = "lblUserId";
             // 
-            // btnUserSearch
+            // btnClientSearch
             // 
-            this.btnUserSearch.Image = global::UserInterface.Properties.Resources.busca;
-            resources.ApplyResources(this.btnUserSearch, "btnUserSearch");
-            this.btnUserSearch.Name = "btnUserSearch";
-            this.btnUserSearch.UseVisualStyleBackColor = true;
+            this.btnClientSearch.Image = global::UserInterface.Properties.Resources.busca;
+            resources.ApplyResources(this.btnClientSearch, "btnClientSearch");
+            this.btnClientSearch.Name = "btnClientSearch";
+            this.btnClientSearch.UseVisualStyleBackColor = true;
+            this.btnClientSearch.Click += new System.EventHandler(this.btnClientSearch_Click);
             // 
-            // txtUserId
+            // txtClientId
             // 
-            this.txtUserId.BackColor = System.Drawing.Color.SeaShell;
-            resources.ApplyResources(this.txtUserId, "txtUserId");
-            this.txtUserId.Name = "txtUserId";
+            this.txtClientId.BackColor = System.Drawing.Color.SeaShell;
+            resources.ApplyResources(this.txtClientId, "txtClientId");
+            this.txtClientId.Name = "txtClientId";
+            this.txtClientId.Validating += new System.ComponentModel.CancelEventHandler(this.txtClientId_Validating);
             // 
             // uscStatus
             // 
@@ -112,6 +118,7 @@ namespace UserInterface.People
             this.btnCancel.Image = global::UserInterface.Properties.Resources.cancelar;
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnDelete
             // 
@@ -120,6 +127,7 @@ namespace UserInterface.People
             this.btnDelete.Image = global::UserInterface.Properties.Resources.excluir;
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnSave
             // 
@@ -128,6 +136,7 @@ namespace UserInterface.People
             this.btnSave.Image = global::UserInterface.Properties.Resources.confirmar;
             this.btnSave.Name = "btnSave";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // lblPhone
             // 
@@ -136,11 +145,13 @@ namespace UserInterface.People
             // 
             // mTxtPhone
             // 
+            this.mTxtPhone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             resources.ApplyResources(this.mTxtPhone, "mTxtPhone");
             this.mTxtPhone.Name = "mTxtPhone";
             // 
             // mTxtCellPhone
             // 
+            this.mTxtCellPhone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             resources.ApplyResources(this.mTxtCellPhone, "mTxtCellPhone");
             this.mTxtCellPhone.Name = "mTxtCellPhone";
             // 
@@ -151,6 +162,11 @@ namespace UserInterface.People
             // 
             // grpAddress
             // 
+            this.grpAddress.BackColor = System.Drawing.Color.Snow;
+            this.grpAddress.Controls.Add(this.button1);
+            this.grpAddress.Controls.Add(this.btnDeleteAddress);
+            this.grpAddress.Controls.Add(this.lstAddresses);
+            this.grpAddress.Controls.Add(this.btnAddressSave);
             this.grpAddress.Controls.Add(this.chkStdAddress);
             this.grpAddress.Controls.Add(this.txtCity);
             this.grpAddress.Controls.Add(this.label3);
@@ -162,57 +178,59 @@ namespace UserInterface.People
             this.grpAddress.Controls.Add(this.label1);
             this.grpAddress.Controls.Add(this.txtAddress);
             this.grpAddress.Controls.Add(this.lblAddress);
+            this.grpAddress.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             resources.ApplyResources(this.grpAddress, "grpAddress");
             this.grpAddress.Name = "grpAddress";
             this.grpAddress.TabStop = false;
             // 
-            // txtAddress
+            // button1
             // 
-            this.txtAddress.BackColor = System.Drawing.Color.SeaShell;
-            resources.ApplyResources(this.txtAddress, "txtAddress");
-            this.txtAddress.Name = "txtAddress";
+            this.button1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            resources.ApplyResources(this.button1, "button1");
+            this.button1.Image = global::UserInterface.Properties.Resources.editar;
+            this.button1.Name = "button1";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // lblAddress
+            // btnDeleteAddress
             // 
-            resources.ApplyResources(this.lblAddress, "lblAddress");
-            this.lblAddress.Name = "lblAddress";
+            this.btnDeleteAddress.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            resources.ApplyResources(this.btnDeleteAddress, "btnDeleteAddress");
+            this.btnDeleteAddress.Image = global::UserInterface.Properties.Resources.excluir;
+            this.btnDeleteAddress.Name = "btnDeleteAddress";
+            this.btnDeleteAddress.UseVisualStyleBackColor = false;
+            this.btnDeleteAddress.Click += new System.EventHandler(this.btnDeleteAddress_Click);
             // 
-            // txtStNumber
+            // lstAddresses
             // 
-            this.txtStNumber.BackColor = System.Drawing.Color.SeaShell;
-            resources.ApplyResources(this.txtStNumber, "txtStNumber");
-            this.txtStNumber.Name = "txtStNumber";
+            this.lstAddresses.BackColor = System.Drawing.SystemColors.Window;
+            this.lstAddresses.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lstAddresses.FullRowSelect = true;
+            this.lstAddresses.GridLines = true;
+            this.lstAddresses.HideSelection = false;
+            resources.ApplyResources(this.lstAddresses, "lstAddresses");
+            this.lstAddresses.Name = "lstAddresses";
+            this.lstAddresses.UseCompatibleStateImageBehavior = false;
             // 
-            // label1
+            // btnAddressSave
             // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
+            this.btnAddressSave.BackColor = System.Drawing.SystemColors.ButtonFace;
+            resources.ApplyResources(this.btnAddressSave, "btnAddressSave");
+            this.btnAddressSave.Image = global::UserInterface.Properties.Resources.confirmar;
+            this.btnAddressSave.Name = "btnAddressSave";
+            this.btnAddressSave.UseVisualStyleBackColor = false;
+            this.btnAddressSave.Click += new System.EventHandler(this.btnAddressSave_Click);
             // 
-            // txtDistrict
+            // chkStdAddress
             // 
-            this.txtDistrict.BackColor = System.Drawing.Color.SeaShell;
-            resources.ApplyResources(this.txtDistrict, "txtDistrict");
-            this.txtDistrict.Name = "txtDistrict";
-            // 
-            // lblDistrict
-            // 
-            resources.ApplyResources(this.lblDistrict, "lblDistrict");
-            this.lblDistrict.Name = "lblDistrict";
-            // 
-            // txtAddress2nd
-            // 
-            this.txtAddress2nd.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.txtAddress2nd, "txtAddress2nd");
-            this.txtAddress2nd.Name = "txtAddress2nd";
-            // 
-            // label2
-            // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.Name = "label2";
+            resources.ApplyResources(this.chkStdAddress, "chkStdAddress");
+            this.chkStdAddress.Name = "chkStdAddress";
+            this.chkStdAddress.UseVisualStyleBackColor = true;
             // 
             // txtCity
             // 
             this.txtCity.BackColor = System.Drawing.Color.SeaShell;
+            this.txtCity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             resources.ApplyResources(this.txtCity, "txtCity");
             this.txtCity.Name = "txtCity";
             // 
@@ -221,11 +239,53 @@ namespace UserInterface.People
             resources.ApplyResources(this.label3, "label3");
             this.label3.Name = "label3";
             // 
-            // chkStdAddress
+            // txtAddress2nd
             // 
-            resources.ApplyResources(this.chkStdAddress, "chkStdAddress");
-            this.chkStdAddress.Name = "chkStdAddress";
-            this.chkStdAddress.UseVisualStyleBackColor = true;
+            this.txtAddress2nd.BackColor = System.Drawing.Color.White;
+            this.txtAddress2nd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.txtAddress2nd, "txtAddress2nd");
+            this.txtAddress2nd.Name = "txtAddress2nd";
+            // 
+            // label2
+            // 
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.Name = "label2";
+            // 
+            // txtDistrict
+            // 
+            this.txtDistrict.BackColor = System.Drawing.Color.SeaShell;
+            this.txtDistrict.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.txtDistrict, "txtDistrict");
+            this.txtDistrict.Name = "txtDistrict";
+            // 
+            // lblDistrict
+            // 
+            resources.ApplyResources(this.lblDistrict, "lblDistrict");
+            this.lblDistrict.Name = "lblDistrict";
+            // 
+            // txtStNumber
+            // 
+            this.txtStNumber.BackColor = System.Drawing.Color.SeaShell;
+            this.txtStNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.txtStNumber, "txtStNumber");
+            this.txtStNumber.Name = "txtStNumber";
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
+            // 
+            // txtAddress
+            // 
+            this.txtAddress.BackColor = System.Drawing.Color.SeaShell;
+            this.txtAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.txtAddress, "txtAddress");
+            this.txtAddress.Name = "txtAddress";
+            // 
+            // lblAddress
+            // 
+            resources.ApplyResources(this.lblAddress, "lblAddress");
+            this.lblAddress.Name = "lblAddress";
             // 
             // FrmClientCRUD
             // 
@@ -240,15 +300,16 @@ namespace UserInterface.People
             this.Controls.Add(this.uscStatus);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.lblUserName);
-            this.Controls.Add(this.txtUserName);
+            this.Controls.Add(this.txtClientName);
             this.Controls.Add(this.lblUserId);
-            this.Controls.Add(this.btnUserSearch);
-            this.Controls.Add(this.txtUserId);
+            this.Controls.Add(this.btnClientSearch);
+            this.Controls.Add(this.txtClientId);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmClientCRUD";
             this.ShowInTaskbar = false;
+            this.Load += new System.EventHandler(this.FrmClientCRUD_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.grpAddress.ResumeLayout(false);
             this.grpAddress.PerformLayout();
@@ -260,10 +321,10 @@ namespace UserInterface.People
         #endregion
 
         private System.Windows.Forms.Label lblUserName;
-        private System.Windows.Forms.TextBox txtUserName;
+        private System.Windows.Forms.TextBox txtClientName;
         private System.Windows.Forms.Label lblUserId;
-        private System.Windows.Forms.Button btnUserSearch;
-        private System.Windows.Forms.TextBox txtUserId;
+        private System.Windows.Forms.Button btnClientSearch;
+        private System.Windows.Forms.TextBox txtClientId;
         private Controls.UserSituacaoCTRL uscStatus;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button btnCancel;
@@ -285,5 +346,9 @@ namespace UserInterface.People
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtDistrict;
         private System.Windows.Forms.Label lblDistrict;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnDeleteAddress;
+        private System.Windows.Forms.ListView lstAddresses;
+        private System.Windows.Forms.Button btnAddressSave;
     }
 }

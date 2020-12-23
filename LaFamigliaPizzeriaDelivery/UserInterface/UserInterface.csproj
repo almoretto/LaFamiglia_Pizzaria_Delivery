@@ -72,14 +72,20 @@
     <Compile Include="People\FrmClientCRUD.Designer.cs">
       <DependentUpon>FrmClientCRUD.cs</DependentUpon>
     </Compile>
-    <Compile Include="People\frmUserCRUD.cs">
+    <Compile Include="People\FrmUserCRUD.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="People\frmUserCRUD.Designer.cs">
-      <DependentUpon>frmUserCRUD.cs</DependentUpon>
+    <Compile Include="People\FrmUserCRUD.Designer.cs">
+      <DependentUpon>FrmUserCRUD.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Querries\FrmGenericQuerriesClient .cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Querries\FrmGenericQuerriesClient .Designer.cs">
+      <DependentUpon>FrmGenericQuerriesClient .cs</DependentUpon>
+    </Compile>
     <Compile Include="Querries\FrmGenericQuerries.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,8 +104,8 @@
     <EmbeddedResource Include="People\FrmClientCRUD.resx">
       <DependentUpon>FrmClientCRUD.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="People\frmUserCRUD.resx">
-      <DependentUpon>frmUserCRUD.cs</DependentUpon>
+    <EmbeddedResource Include="People\FrmUserCRUD.resx">
+      <DependentUpon>FrmUserCRUD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -111,6 +117,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Querries\FrmGenericQuerriesClient .resx">
+      <DependentUpon>FrmGenericQuerriesClient .cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Querries\FrmGenericQuerries.resx">
       <DependentUpon>FrmGenericQuerries.cs</DependentUpon>
     </EmbeddedResource>

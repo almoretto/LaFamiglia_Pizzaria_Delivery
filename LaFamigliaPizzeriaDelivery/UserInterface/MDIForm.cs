@@ -26,17 +26,27 @@ namespace UserInterface
             }
             FrmLogin formLogin = new FrmLogin(); //instance of the login form
             formLogin.ShowDialog();
-            if (formLogin.flgLogin==false)//test of the flag
+            if (formLogin.flgLogin == false)//test of the flag
             {
                 Application.Exit();
                 //This test verifies if the Form of the login concluded the validation if not the application is closed.
             }
             mnsMdiPrincipal.Visible = true;
         }
+
+        #region --== Menu buttons region ==--
         private void SairToolStripMenuItem_Click(object sender, EventArgs e)
         { Application.Exit(); }
         private void UsuariosToolStripMenuItem_Click(object sender, EventArgs e)
-        { OpenForms(new frmUserCRUD());}
+        { OpenForms(new FrmUserCRUD()); }
+
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        { OpenForms(new FrmClientCRUD()); }
+
+        #endregion
+
+
+        #region --== Auxiliary Methods ==--
         private void OpenForms(Form selectedForm)
         {
             selectedForm.WindowState = FormWindowState.Normal;
@@ -46,5 +56,7 @@ namespace UserInterface
             selectedForm.Left = 25;
             selectedForm.Show();
         }
+        #endregion
+
     }
 }

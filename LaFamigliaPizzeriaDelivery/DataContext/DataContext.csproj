@@ -89,6 +89,8 @@
   <ItemGroup>
     <Compile Include="DbContext.cs" />
     <Compile Include="Modules\DbFunctions.cs" />
+    <Compile Include="People\SvcAddressDb.cs" />
+    <Compile Include="People\SvcClientDb.cs" />
     <Compile Include="People\SvcUsersDb.cs" />
     <Compile Include="People\SvcUserTypeDb.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

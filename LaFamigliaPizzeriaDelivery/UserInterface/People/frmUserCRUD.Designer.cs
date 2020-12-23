@@ -1,6 +1,6 @@
 ﻿namespace UserInterface.People
 {
-    partial class frmUserCRUD
+    partial class FrmUserCRUD
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUserCRUD));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmUserCRUD));
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -125,7 +125,7 @@
             this.btnUserSearch.Image = global::UserInterface.Properties.Resources.busca;
             this.btnUserSearch.Location = new System.Drawing.Point(116, 33);
             this.btnUserSearch.Name = "btnUserSearch";
-            this.btnUserSearch.Size = new System.Drawing.Size(22, 20);
+            this.btnUserSearch.Size = new System.Drawing.Size(22, 21);
             this.btnUserSearch.TabIndex = 2;
             this.btnUserSearch.UseVisualStyleBackColor = true;
             this.btnUserSearch.Click += new System.EventHandler(this.btnUserSearch_Click);
@@ -269,7 +269,7 @@
             this.uscStatus.Size = new System.Drawing.Size(100, 100);
             this.uscStatus.TabIndex = 16;
             // 
-            // frmUserCRUD
+            // FrmUserCRUD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -296,7 +296,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmUserCRUD";
+            this.Name = "FrmUserCRUD";
             this.ShowInTaskbar = false;
             this.Text = "Cadastros e Manutenção de Usuários";
             this.Load += new System.EventHandler(this.frmUserCRUD_Load);

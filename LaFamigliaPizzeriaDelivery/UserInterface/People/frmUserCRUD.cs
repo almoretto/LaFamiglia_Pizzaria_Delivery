@@ -12,11 +12,11 @@ using Entities.System;
 
 namespace UserInterface.People
 {
-    public partial class frmUserCRUD : Form
+    public partial class FrmUserCRUD : Form
     {
         private bool newregister;
 
-        public frmUserCRUD()
+        public FrmUserCRUD()
         {
             InitializeComponent();
             IdFieldMasks.AplyEvents(txtUserId);

@@ -114,9 +114,9 @@ namespace DataContext.People
                     command = dbContext.CreateCommand();
 
                     //Sql command
-                    command.CommandText = "select * from usuario where id = @codigo;";
+                    command.CommandText = "select * from usuario where id = @Id;";
                     //Sql Parameter
-                    command.Parameters.AddWithValue("codigo", id);
+                    command.Parameters.AddWithValue("Id", id);
 
                     MySqlDataReader dataReader = command.ExecuteReader();
 
