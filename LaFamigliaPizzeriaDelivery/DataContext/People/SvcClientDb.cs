@@ -115,6 +115,8 @@ namespace DataContext.People
                         clientFounded.Status = (Status)Convert.ToInt32(dataReader["Situacao"]);
                         clientFounded.LastChangeDateTime = Convert.ToDateTime(dataReader["DataAlteracao"].ToString());
                         clientFounded.LastChangeUserId = Convert.ToInt32(dataReader["IdUsuarioAlteracao"].ToString());
+                        
+                        clientFounded.Addresses = new SvcAddressDb().FindByClientId(clientFounded.Id);
                     }
                 }
                 catch (MySqlException ex)

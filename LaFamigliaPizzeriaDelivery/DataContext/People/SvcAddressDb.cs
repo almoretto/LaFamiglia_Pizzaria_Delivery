@@ -9,6 +9,7 @@ namespace DataContext.People
     public class SvcAddressDb
     {
         private readonly DbFunctions _dbFunctions = new DbFunctions();
+        
         public List<Address> FindByClientId(int clientId)
         {
             List<Address> listAddress = new List<Address>();
@@ -68,6 +69,7 @@ namespace DataContext.People
             }
             return listAddress;
         }
+        
         public int FindNextCode()
         {
             string sql = "Show table status like 'endereco';";
