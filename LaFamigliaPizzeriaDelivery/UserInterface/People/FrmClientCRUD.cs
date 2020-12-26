@@ -25,20 +25,21 @@ namespace UserInterface.People
         private void FrmClientCRUD_Load(object sender, EventArgs e)
         {
             ListViewConstructor();
-            btnCancel_Click(btnCancel, new EventArgs());
+            ClearForm();
 
-            if (EditControlCode>0)
+
+            if (EditControlCode > 0)
             {
                 txtClientId.Enabled = false;
-                
+
                 btnClientSearch.Enabled = false;
                 btnCancel.Enabled = false;
-                
+
                 txtClientId.Text = EditControlCode.ToString();
                 txtClientId_Validating(txtClientId, new CancelEventArgs());
             }
         }
-        
+
         #region --== Buttons ==--
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -52,12 +53,60 @@ namespace UserInterface.People
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-
+            ClearForm();
         }
 
         private void btnAddressSave_Click(object sender, EventArgs e)
         {
+            Address addressToAdd = new Address();
+            if (txtAddress.Text.Trim() == string.Empty)
+            {
+                MessageBox.Show("Endereço é obrigatório!",
+                    this.Text,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+            }
+            if (txtStNumber.Text.Trim() == string.Empty)
+            {
+                MessageBox.Show("Número é obrigatório!",
+                    this.Text,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+            }
+            if (txtDistrict.Text.Trim() == string.Empty)
+            {
+                MessageBox.Show("Bairro é obrigatório!",
+                    this.Text,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+            }
+            if (txtCity.Text.Trim() == string.Empty)
+            {
+                MessageBox.Show("Cidade é obrigatória!",
+                    this.Text,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+            }
 
+            addressToAdd.Adrress = txtAddress.Text.Trim();
+            addressToAdd.Number = Convert.ToInt32(txtStNumber.Text);
+            addressToAdd.Address2nd = txtAddress2nd.Text.Trim();
+            addressToAdd.District = txtDistrict.Text.Trim();
+            addressToAdd.City = txtCity.Text.Trim();
+
+            if (!RecordControl)
+            {
+                addressToAdd.Client = new ClientBus().FindById(Convert.ToInt32(txtClientId.Text.Trim()));
+            }
+
+            addressToAdd.DeliveryAddress = chkStdAddress.Checked;
+
+            FillAddressList(addressToAdd);
+            ClearAddressFields();
         }
 
         private void btnDeleteAddress_Click(object sender, EventArgs e)
@@ -81,7 +130,8 @@ namespace UserInterface.People
             if (returnControl < 1) { return; }
 
             txtClientId.Text = returnControl.ToString();
-            //validating
+            lstAddresses.Items.Clear();
+            txtClientId_Validating(txtClientId, new CancelEventArgs());
 
             btnClientSearch.Focus();
 
@@ -93,7 +143,7 @@ namespace UserInterface.People
             Client clientToFind = new ClientBus().FindById(Convert.ToInt32(txtClientId.Text.Trim()));
             if (clientToFind == null)
             {
-                if (EditControlCode>0)
+                if (EditControlCode > 0)
                 {
                     MessageBox.Show("Não foi possível alterar este registro!\nEste formulário será fechado",
                     this.Text,
@@ -121,12 +171,13 @@ namespace UserInterface.People
                 FillAddressList(end);
             }
             uscStatus.StartStatus(clientToFind.Status);
-            
+
             IdFieldMasks.MakeMask(txtClientId, new EventArgs());
+            btnClientSearch.Focus();
             btnDelete.Enabled = true;
         }
 
-       
+
 
         #endregion
 
@@ -136,7 +187,7 @@ namespace UserInterface.People
             SuccessControl = false;
             EditControlCode = editCode;
         }
-        
+
         private void ListViewConstructor()
         {
             lstAddresses.Clear();
@@ -144,10 +195,27 @@ namespace UserInterface.People
             lstAddresses.View = View.Details;
             lstAddresses.Columns.Add("Delivery", 50, HorizontalAlignment.Right);
             lstAddresses.Columns.Add("Rua", 180, HorizontalAlignment.Left);
-            lstAddresses.Columns.Add("Número", 50, HorizontalAlignment.Right);
+            lstAddresses.Columns.Add("Número", 80, HorizontalAlignment.Right);
             lstAddresses.Columns.Add("Complemento", 160, HorizontalAlignment.Left);
             lstAddresses.Columns.Add("Bairro", 80, HorizontalAlignment.Left);
-            lstAddresses.Columns.Add("Cidade", 80, HorizontalAlignment.Left);
+            lstAddresses.Columns.Add("Cidade", 180, HorizontalAlignment.Left);
+        }
+
+        private void ClearForm()
+        {
+            ClearAddressFields();
+            txtClientId.Text = new ClientBus().FindNextCode().ToString();
+            txtClientName.Text = string.Empty;
+            mTxtPhone.Text = string.Empty;
+            mTxtCellPhone.Text = string.Empty;
+
+            lstAddresses.Items.Clear();
+            btnDelete.Enabled = false;
+            IdFieldMasks.MakeMask(txtClientId, new EventArgs());
+
+            uscStatus.StartStatus(Status.Ativo);
+            RecordControl = true;
+            Functions.SetSelectedFocus(txtClientName);
         }
 
         private void ClearAddressFields()

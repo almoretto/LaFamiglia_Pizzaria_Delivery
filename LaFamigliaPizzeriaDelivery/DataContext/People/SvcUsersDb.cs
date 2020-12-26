@@ -279,6 +279,7 @@ namespace DataContext.People
                 return returnValue;
             }
         }
+        
         public int FindNextCode()
         {
             string sql = "Show table status like 'usuario';";

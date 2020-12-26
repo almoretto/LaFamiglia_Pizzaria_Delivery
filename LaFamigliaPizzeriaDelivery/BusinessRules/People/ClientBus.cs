@@ -18,5 +18,8 @@ namespace BusinessRules.People
 
         public Client FindById(int id)
         { return _svcClientDb.FindById(id); }
+
+        public int FindNextCode()
+        { return _svcClientDb.FindNextCode(); }
     }
 }

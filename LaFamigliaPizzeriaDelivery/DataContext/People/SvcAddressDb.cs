@@ -9,12 +9,12 @@ namespace DataContext.People
     public class SvcAddressDb
     {
         private readonly DbFunctions _dbFunctions = new DbFunctions();
-        
+
         public List<Address> FindByClientId(int clientId)
         {
             List<Address> listAddress = new List<Address>();
-            Address addressFound = new Address();
-            Client client;
+
+            Client client = new SvcClientDb().FindClientById(clientId); ;
             using (MySqlConnection dbContext = DbContext.GetInstance().GetConnection())
             {
                 try
@@ -32,9 +32,8 @@ namespace DataContext.People
 
                     while (dataReader.Read())
                     {
+                        Address addressFound = new Address();
                         addressFound.Id = Convert.ToInt32(dataReader["Id"].ToString());
-                        client = new SvcClientDb()
-                            .FindById(Convert.ToInt32(dataReader["IdCliente"].ToString()));
                         addressFound.Client = client;
                         addressFound.Adrress = dataReader["Logradouro"].ToString();
                         addressFound.Number = Convert.ToInt32(dataReader["Numero"].ToString());
@@ -45,7 +44,7 @@ namespace DataContext.People
                         }
                         addressFound.District = dataReader["Bairro"].ToString();
                         addressFound.City = dataReader["Cidade"].ToString();
-                        
+
                         if (addressFound.Id == FindDeliveryAddress(clientId))
                         {//Get the relation of delivery address if equals to actual address id then sets to true.
                             addressFound.DeliveryAddress = true;
@@ -54,8 +53,8 @@ namespace DataContext.People
                         {
                             addressFound.DeliveryAddress = false;
                         }
-
                         listAddress.Add(addressFound);
+
                     }
                 }
                 catch (MySqlException ex)
@@ -69,7 +68,7 @@ namespace DataContext.People
             }
             return listAddress;
         }
-        
+
         public int FindNextCode()
         {
             string sql = "Show table status like 'endereco';";
@@ -96,7 +95,7 @@ namespace DataContext.People
 
                     while (dataReader.Read())
                     {
-                        return Convert.ToInt32(dataReader["Id"].ToString());
+                        return Convert.ToInt32(dataReader["IdEndereco"].ToString());
                     }
                 }
                 catch (MySqlException ex)
@@ -110,5 +109,6 @@ namespace DataContext.People
             }
             return -1;
         }
+
     }
 }
