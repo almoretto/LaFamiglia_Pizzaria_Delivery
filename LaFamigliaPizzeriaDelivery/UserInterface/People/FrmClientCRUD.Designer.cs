@@ -45,7 +45,7 @@ namespace UserInterface.People
             this.mTxtCellPhone = new System.Windows.Forms.MaskedTextBox();
             this.lblCellPhone = new System.Windows.Forms.Label();
             this.grpAddress = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAddressEdit = new System.Windows.Forms.Button();
             this.btnDeleteAddress = new System.Windows.Forms.Button();
             this.lstAddresses = new System.Windows.Forms.ListView();
             this.btnAddressSave = new System.Windows.Forms.Button();
@@ -163,7 +163,7 @@ namespace UserInterface.People
             // grpAddress
             // 
             this.grpAddress.BackColor = System.Drawing.Color.Snow;
-            this.grpAddress.Controls.Add(this.button1);
+            this.grpAddress.Controls.Add(this.btnAddressEdit);
             this.grpAddress.Controls.Add(this.btnDeleteAddress);
             this.grpAddress.Controls.Add(this.lstAddresses);
             this.grpAddress.Controls.Add(this.btnAddressSave);
@@ -183,14 +183,14 @@ namespace UserInterface.People
             this.grpAddress.Name = "grpAddress";
             this.grpAddress.TabStop = false;
             // 
-            // button1
+            // btnAddressEdit
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            resources.ApplyResources(this.button1, "button1");
-            this.button1.Image = global::UserInterface.Properties.Resources.editar;
-            this.button1.Name = "button1";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnAddressEdit.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            resources.ApplyResources(this.btnAddressEdit, "btnAddressEdit");
+            this.btnAddressEdit.Image = global::UserInterface.Properties.Resources.editar;
+            this.btnAddressEdit.Name = "btnAddressEdit";
+            this.btnAddressEdit.UseVisualStyleBackColor = false;
+            this.btnAddressEdit.Click += new System.EventHandler(this.btnAddressEdit_Click);
             // 
             // btnDeleteAddress
             // 
@@ -211,6 +211,10 @@ namespace UserInterface.People
             resources.ApplyResources(this.lstAddresses, "lstAddresses");
             this.lstAddresses.Name = "lstAddresses";
             this.lstAddresses.UseCompatibleStateImageBehavior = false;
+            this.lstAddresses.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.lstAddresses_ItemCheck);
+            this.lstAddresses.DoubleClick += new System.EventHandler(this.lstAddresses_DoubleClick);
+            this.lstAddresses.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lstAddresses_MouseDown);
+            this.lstAddresses.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lstAddresses_MouseUp);
             // 
             // btnAddressSave
             // 
@@ -346,7 +350,7 @@ namespace UserInterface.People
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtDistrict;
         private System.Windows.Forms.Label lblDistrict;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAddressEdit;
         private System.Windows.Forms.Button btnDeleteAddress;
         private System.Windows.Forms.ListView lstAddresses;
         private System.Windows.Forms.Button btnAddressSave;

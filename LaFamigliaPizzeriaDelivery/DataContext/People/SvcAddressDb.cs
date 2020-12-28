@@ -36,7 +36,7 @@ namespace DataContext.People
                         addressFound.Id = Convert.ToInt32(dataReader["Id"].ToString());
                         addressFound.Client = client;
                         addressFound.Adrress = dataReader["Logradouro"].ToString();
-                        addressFound.Number = Convert.ToInt32(dataReader["Numero"].ToString());
+                        addressFound.Number = dataReader["Numero"].ToString();
 
                         if (dataReader["Complemento"] != null)
                         {

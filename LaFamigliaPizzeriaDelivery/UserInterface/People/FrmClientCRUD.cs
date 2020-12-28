@@ -7,6 +7,8 @@ using System.Windows.Forms;
 using UserInterface.Modules;
 using UserInterface.Querries;
 using UserInterface.Controls;
+using Entities.System;
+using System.Collections.Generic;
 
 namespace UserInterface.People
 {
@@ -14,6 +16,7 @@ namespace UserInterface.People
     {
         public bool RecordControl;
         public bool SuccessControl;
+        private bool PermitCheck;
         public int EditControlCode;
 
         public FrmClientCRUD()
@@ -43,6 +46,27 @@ namespace UserInterface.People
         #region --== Buttons ==--
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if (!ValidadeClientFields()) { return; }
+
+            Client clientToCreate = new Client();
+            clientToCreate.Name = txtClientName.Text.Trim();
+            clientToCreate.Phone = Functions.RemoveMaskFromMaskedFields(mTxtPhone);
+            clientToCreate.CellPhone = Functions.RemoveMaskFromMaskedFields(mTxtCellPhone);
+
+            clientToCreate.LastChangeDateTime = DateTime.Now;
+            clientToCreate.LastChangeUserId = Session.User.Id;
+            clientToCreate.Status = uscStatus.CurrentStatus;
+
+            clientToCreate.Addresses = CreateAddressList();
+
+            if (RecordControl) //insert into BD
+            {
+
+            }
+            else //Edit
+            {
+
+            }
 
         }
 
@@ -59,41 +83,11 @@ namespace UserInterface.People
         private void btnAddressSave_Click(object sender, EventArgs e)
         {
             Address addressToAdd = new Address();
-            if (txtAddress.Text.Trim() == string.Empty)
-            {
-                MessageBox.Show("Endereço é obrigatório!",
-                    this.Text,
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-                return;
-            }
-            if (txtStNumber.Text.Trim() == string.Empty)
-            {
-                MessageBox.Show("Número é obrigatório!",
-                    this.Text,
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-                return;
-            }
-            if (txtDistrict.Text.Trim() == string.Empty)
-            {
-                MessageBox.Show("Bairro é obrigatório!",
-                    this.Text,
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-                return;
-            }
-            if (txtCity.Text.Trim() == string.Empty)
-            {
-                MessageBox.Show("Cidade é obrigatória!",
-                    this.Text,
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-                return;
-            }
+
+            if (!ValidadeAddressFields()) { return; }
 
             addressToAdd.Adrress = txtAddress.Text.Trim();
-            addressToAdd.Number = Convert.ToInt32(txtStNumber.Text);
+            addressToAdd.Number = txtStNumber.Text;
             addressToAdd.Address2nd = txtAddress2nd.Text.Trim();
             addressToAdd.District = txtDistrict.Text.Trim();
             addressToAdd.City = txtCity.Text.Trim();
@@ -109,14 +103,41 @@ namespace UserInterface.People
             ClearAddressFields();
         }
 
-        private void btnDeleteAddress_Click(object sender, EventArgs e)
+        private void lstAddresses_DoubleClick(object sender, EventArgs e)
         {
-
+            btnAddressEdit_Click(btnAddressEdit, new EventArgs());
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnDeleteAddress_Click(object sender, EventArgs e)
         {
+            if (lstAddresses.SelectedIndices.Count <= 0) { return; }
 
+            int selectedAddressIndex = Convert.ToInt32(lstAddresses.SelectedIndices[0]);
+
+            if (selectedAddressIndex >= 0) { lstAddresses.Items[selectedAddressIndex].Remove(); }
+        }
+
+        private void btnAddressEdit_Click(object sender, EventArgs e)
+        {
+            if (lstAddresses.SelectedIndices.Count <= 0) { return; }
+
+            int selectedAddressIndex = Convert.ToInt32(lstAddresses.SelectedIndices[0]);
+
+            if (selectedAddressIndex >= 0)
+            {
+                Address addressToEdit = new Address();
+                addressToEdit.DeliveryAddress = lstAddresses.Items[selectedAddressIndex].Checked;
+                addressToEdit.Adrress = lstAddresses.Items[selectedAddressIndex].SubItems[1].Text;
+                addressToEdit.Number = lstAddresses.Items[selectedAddressIndex].SubItems[2].Text;
+                addressToEdit.Address2nd = lstAddresses.Items[selectedAddressIndex].SubItems[3].Text;
+                addressToEdit.District = lstAddresses.Items[selectedAddressIndex].SubItems[4].Text;
+                addressToEdit.City = lstAddresses.Items[selectedAddressIndex].SubItems[5].Text;
+                addressToEdit.Client = new ClientBus().FindClientById(Convert.ToInt32(txtClientId.Text));
+
+                FillAddressFields(addressToEdit);
+
+                lstAddresses.Items[selectedAddressIndex].Remove();
+            }
         }
 
         private void btnClientSearch_Click(object sender, EventArgs e)
@@ -191,6 +212,7 @@ namespace UserInterface.People
         private void ListViewConstructor()
         {
             lstAddresses.Clear();
+            lstAddresses.MultiSelect = false;
             lstAddresses.CheckBoxes = true;
             lstAddresses.View = View.Details;
             lstAddresses.Columns.Add("Delivery", 50, HorizontalAlignment.Right);
@@ -228,19 +250,19 @@ namespace UserInterface.People
             chkStdAddress.Checked = false;
         }
 
-        private void FillAddressList(Address end)
+        private void FillAddressList(Address address)
         {
             string[] addressLine = new string[6];
 
             addressLine[0] = string.Empty;
-            addressLine[1] = end.Adrress;
-            addressLine[2] = end.Number.ToString();
-            addressLine[3] = end.Address2nd;
-            addressLine[4] = end.District;
-            addressLine[5] = end.City;
+            addressLine[1] = address.Adrress;
+            addressLine[2] = address.Number.ToString();
+            addressLine[3] = address.Address2nd;
+            addressLine[4] = address.District;
+            addressLine[5] = address.City;
 
             ListViewItem lineItem = new ListViewItem(addressLine);
-            if (end.DeliveryAddress)
+            if (address.DeliveryAddress)
             {
                 lineItem.Checked = true;
             }
@@ -248,6 +270,172 @@ namespace UserInterface.People
             lstAddresses.Items.Add(lineItem);
         }
 
+        private void FillAddressFields(Address address)
+        {
+            txtAddress.Text = address.Adrress;
+            txtAddress2nd.Text = address.Address2nd;
+            txtCity.Text = address.City;
+            txtDistrict.Text = address.District;
+            txtStNumber.Text = address.Number;
+            chkStdAddress.Checked = address.DeliveryAddress;
+
+        }
+
+        private bool CheckUniqueDlvryAddress()
+        {
+            foreach (ListViewItem item in lstAddresses.Items)
+            {
+                if (item.Checked) { return true; }
+            }
+            return false;
+        }
+
+        private bool ValidadeAddressFields()
+        {
+            if (txtAddress.Text.Trim() == string.Empty)
+            {
+                MessageBox.Show("Endereço é obrigatório!",
+                    this.Text,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return false;
+            }
+            if (txtStNumber.Text.Trim() == string.Empty)
+            {
+                MessageBox.Show("Número é obrigatório!",
+                    this.Text,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return false;
+            }
+            if (txtDistrict.Text.Trim() == string.Empty)
+            {
+                MessageBox.Show("Bairro é obrigatório!",
+                    this.Text,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return false;
+            }
+            if (txtCity.Text.Trim() == string.Empty)
+            {
+                MessageBox.Show("Cidade é obrigatória!",
+                    this.Text,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool ValidadeClientFields()
+        {
+            if (txtClientName.Text.Trim() == string.Empty)
+            {
+                MessageBox.Show("Nome do cliente é obrigatório!",
+                    this.Text,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return false;
+            }
+            if ((mTxtPhone.Text.Trim() == string.Empty) && (mTxtCellPhone.Text.Trim() == string.Empty))
+            {
+                MessageBox.Show("Pelo menos um número de telefone é obrigatório!",
+                    this.Text,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return false;
+            }
+            if (lstAddresses.Items.Count < 1)
+            {
+                MessageBox.Show("Pelo menos um endereço é obrigatório!",
+                    this.Text,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return false;
+            }
+            int countChk = 0;
+            foreach (ListViewItem item in lstAddresses.Items)
+            {
+                if (item.Checked)
+                {
+                    countChk++;
+                }
+            }
+            if (countChk == 0)
+            {
+                MessageBox.Show("Deve haver um e apenas um endereço padrão informado!",
+                      this.Text,
+                      MessageBoxButtons.OK,
+                      MessageBoxIcon.Error);
+                return false;
+            }
+            if (countChk > 1)
+            {
+                MessageBox.Show("Existe mais de um endereço padrão apenas 1 é permitido!",
+                     this.Text,
+                     MessageBoxButtons.OK,
+                     MessageBoxIcon.Error);
+                return false;
+            }
+
+            return true;
+        }
+
+        private List<Address> CreateAddressList()
+        {
+            List<Address> addresses = new List<Address>();
+            Client cli = new Client();
+            foreach (ListViewItem item in lstAddresses.Items)
+            {
+                Address addressToAdd = new Address();
+                if (!RecordControl)
+                {
+                    cli = new ClientBus()
+                       .FindById(Convert.ToInt32(txtClientId.Text.Trim()));
+                }
+                addressToAdd.Client = cli;
+                addressToAdd.DeliveryAddress = item.Checked;
+                addressToAdd.Adrress = item.SubItems[1].Text;
+                addressToAdd.Number = item.SubItems[2].Text;
+                addressToAdd.Address2nd = item.SubItems[3].Text;
+                addressToAdd.District = item.SubItems[4].Text;
+                addressToAdd.City = item.SubItems[5].Text;
+                addresses.Add(addressToAdd);
+            }
+
+            return addresses;
+        }
+        #endregion
+
+        #region --== Events ==--
+        private void lstAddresses_MouseDown(object sender, MouseEventArgs e)
+        {
+            PermitCheck = true;
+        }
+
+        private void lstAddresses_MouseUp(object sender, MouseEventArgs e)
+        {
+            PermitCheck = false;
+        }
+
+        private void lstAddresses_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            if (PermitCheck)
+            {
+                e.NewValue = e.CurrentValue;
+                return;
+            }
+
+            if (CheckUniqueDlvryAddress() && e.NewValue == CheckState.Checked)
+            {
+                e.NewValue = CheckState.Unchecked;
+                MessageBox.Show("Deve existir apenas um endereço padrão!",
+                    this.Text,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            }
+        }
         #endregion
     }
 }
