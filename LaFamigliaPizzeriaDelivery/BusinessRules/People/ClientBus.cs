@@ -27,5 +27,11 @@ namespace BusinessRules.People
 
         public bool CreateClient(Client clientToCreate)
         { return _svcClientDb.CreateClient(clientToCreate); }
+
+        public bool EditClient(Client clientToEdit)
+        { return _svcClientDb.EditClient(clientToEdit); }
+
+        public bool DeleteClient(Client clientToDelete)
+        { return _svcClientDb.DeleteClient(clientToDelete); }
     }
 }

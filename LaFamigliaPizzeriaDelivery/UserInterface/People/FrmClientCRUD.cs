@@ -14,7 +14,7 @@ namespace UserInterface.People
 {
     public partial class FrmClientCRUD : Form
     {
-        public bool RecordControl;
+        public bool NewRecord;
         public bool SuccessControl;
         private bool PermitCheck;
         public int EditControlCode;
@@ -48,27 +48,27 @@ namespace UserInterface.People
         {
             if (!ValidadeClientFields()) { return; }
 
-            Client clientToCreate = new Client();
-            clientToCreate.Name = txtClientName.Text.Trim();
-            clientToCreate.Phone = Functions.RemoveMaskFromMaskedFields(mTxtPhone);
-            clientToCreate.CellPhone = Functions.RemoveMaskFromMaskedFields(mTxtCellPhone);
+            Client clientToSendToDB = new Client();
+            clientToSendToDB.Name = txtClientName.Text.Trim();
+            clientToSendToDB.Phone = Functions.RemoveMaskFromMaskedFields(mTxtPhone);
+            clientToSendToDB.CellPhone = Functions.RemoveMaskFromMaskedFields(mTxtCellPhone);
 
-            clientToCreate.LastChangeDateTime = DateTime.Now;
-            clientToCreate.LastChangeUserId = Session.User.Id;
-            clientToCreate.Status = uscStatus.CurrentStatus;
+            clientToSendToDB.LastChangeDateTime = DateTime.Now;
+            clientToSendToDB.LastChangeUserId = Session.User.Id;
+            clientToSendToDB.Status = uscStatus.CurrentStatus;
 
-            clientToCreate.Addresses = CreateAddressList();
+            clientToSendToDB.Addresses = CreateAddressList();
 
             ClientBus clientBus = new ClientBus();
 
-            if (RecordControl) //insert into BD
+            if (NewRecord) //insert into BD
             {
-                if (clientBus.CreateClient(clientToCreate))
+                if (clientBus.CreateClient(clientToSendToDB))
                 {
                     MessageBox.Show(
                         "Cliente inserido com sucesso!",
                         this.Text,
-                        MessageBoxButtons.OK, 
+                        MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
                     ClearForm();
                 }
@@ -83,14 +83,78 @@ namespace UserInterface.People
             }
             else //Edit
             {
+                clientToSendToDB.Id = Convert.ToInt32(txtClientId.Text);
 
+                if (clientBus.EditClient(clientToSendToDB))
+                {
+                    MessageBox.Show(
+                        "Cliente alterado com sucesso!",
+                        this.Text,
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                    ClearForm();
+                }
+                else
+                {
+                    MessageBox.Show(
+                        "Cliente não foi alterado, operação em RollBack!",
+                        this.Text,
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
             }
 
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            if (txtClientId.Text.Trim() == string.Empty) { return; }
 
+            ClientBus clientBus = new ClientBus();
+            Client clientToDelete = clientBus.FindById(Convert.ToInt32(txtClientId.Text.Trim()));
+
+            if (clientToDelete == null)
+            {
+                if (EditControlCode > 0)
+                {
+                    MessageBox.Show("Não foi possível deletar este registro!\nEste formulário será fechado",
+                    this.Text,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                    this.Close();
+                }
+                MessageBox.Show("Nada encontrado!",
+                    this.Text,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                btnDelete.Enabled = false;
+                return;
+            }
+            NewRecord = false;
+            if (MessageBox.Show("Registro será apagado tem certeza?",
+                this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                if (clientBus.DeleteClient(clientToDelete))
+                {
+                    MessageBox.Show("Deletado com secesso!",
+                       this.Text,
+                       MessageBoxButtons.OK,
+                       MessageBoxIcon.Information);
+                    ClearForm();
+                }
+                else
+                {
+                    MessageBox.Show("Registro não pode ser deletado",
+                       this.Text,
+                       MessageBoxButtons.OK,
+                       MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                return;
+            }
+            
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -109,10 +173,12 @@ namespace UserInterface.People
             addressToAdd.Address2nd = txtAddress2nd.Text.Trim();
             addressToAdd.District = txtDistrict.Text.Trim();
             addressToAdd.City = txtCity.Text.Trim();
+            addressToAdd.Id = 0;
 
-            if (!RecordControl)
+            if (!NewRecord)
             {
                 addressToAdd.Client = new ClientBus().FindById(Convert.ToInt32(txtClientId.Text.Trim()));
+                addressToAdd.Id = Convert.ToInt32(lblAddressId.Text);
             }
 
             addressToAdd.DeliveryAddress = chkStdAddress.Checked;
@@ -151,6 +217,7 @@ namespace UserInterface.People
                 addressToEdit.District = lstAddresses.Items[selectedAddressIndex].SubItems[4].Text;
                 addressToEdit.City = lstAddresses.Items[selectedAddressIndex].SubItems[5].Text;
                 addressToEdit.Client = new ClientBus().FindClientById(Convert.ToInt32(txtClientId.Text));
+                addressToEdit.Id = Convert.ToInt32(lstAddresses.Items[selectedAddressIndex].SubItems[6].Text);
 
                 FillAddressFields(addressToEdit);
 
@@ -179,7 +246,9 @@ namespace UserInterface.People
         private void txtClientId_Validating(object sender, CancelEventArgs e)
         {
             if (txtClientId.Text.Trim() == string.Empty) { return; }
+
             Client clientToFind = new ClientBus().FindById(Convert.ToInt32(txtClientId.Text.Trim()));
+
             if (clientToFind == null)
             {
                 if (EditControlCode > 0)
@@ -197,7 +266,7 @@ namespace UserInterface.People
                 btnDelete.Enabled = false;
                 return;
             }
-            RecordControl = false;
+            NewRecord = false;
 
             txtClientName.Text = clientToFind.Name;
             mTxtPhone.Text = clientToFind.Phone.ToString();
@@ -239,6 +308,8 @@ namespace UserInterface.People
             lstAddresses.Columns.Add("Complemento", 160, HorizontalAlignment.Left);
             lstAddresses.Columns.Add("Bairro", 80, HorizontalAlignment.Left);
             lstAddresses.Columns.Add("Cidade", 180, HorizontalAlignment.Left);
+            lstAddresses.Columns.Add("Id", 10);
+
         }
 
         private void ClearForm()
@@ -254,7 +325,7 @@ namespace UserInterface.People
             IdFieldMasks.MakeMask(txtClientId, new EventArgs());
 
             uscStatus.StartStatus(Status.Ativo);
-            RecordControl = true;
+            NewRecord = true;
             Functions.SetSelectedFocus(txtClientName);
         }
 
@@ -278,6 +349,7 @@ namespace UserInterface.People
             addressLine[3] = address.Address2nd;
             addressLine[4] = address.District;
             addressLine[5] = address.City;
+            addressLine[6] = address.Id.ToString();
 
             ListViewItem lineItem = new ListViewItem(addressLine);
             if (address.DeliveryAddress)
@@ -296,6 +368,7 @@ namespace UserInterface.People
             txtDistrict.Text = address.District;
             txtStNumber.Text = address.Number;
             chkStdAddress.Checked = address.DeliveryAddress;
+            lblAddressId.Text = address.Id.ToString();
 
         }
 
@@ -407,11 +480,14 @@ namespace UserInterface.People
             foreach (ListViewItem item in lstAddresses.Items)
             {
                 Address addressToAdd = new Address();
-                if (!RecordControl)
+                addressToAdd.Id = 0;
+                if (!NewRecord)
                 {
                     cli = new ClientBus()
                        .FindById(Convert.ToInt32(txtClientId.Text.Trim()));
+                    addressToAdd.Id = Convert.ToInt32(item.SubItems[6].Text);
                 }
+
                 addressToAdd.Client = cli;
                 addressToAdd.DeliveryAddress = item.Checked;
                 addressToAdd.Adrress = item.SubItems[1].Text;

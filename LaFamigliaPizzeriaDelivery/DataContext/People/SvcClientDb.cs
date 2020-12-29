@@ -101,7 +101,7 @@ namespace DataContext.People
                         clientFounded.Id = Convert.ToInt32(dataReader["Id"].ToString());
                         clientFounded.Name = dataReader["Nome"].ToString();
 
-                        if (dataReader["Telefone"] != null 
+                        if (dataReader["Telefone"] != null
                             &&
                             dataReader["Telefone"].ToString() != string.Empty)
                         {
@@ -109,7 +109,7 @@ namespace DataContext.People
                                 .ToInt64(dataReader["Telefone"].ToString());
                         }
 
-                        if (dataReader["Celular"] != null 
+                        if (dataReader["Celular"] != null
                             &&
                             dataReader["Celular"].ToString() != string.Empty)
                         {
@@ -158,7 +158,7 @@ namespace DataContext.People
                     {
                         clientFounded.Id = Convert.ToInt32(dataReader["Id"].ToString());
                         clientFounded.Name = dataReader["Nome"].ToString();
-                        
+
                         //Other way to make the same test as above method
                         if (!(dataReader["Telefone"] is DBNull))
                         {
@@ -330,7 +330,7 @@ namespace DataContext.People
                             sqlCommand.Parameters.AddWithValue("IdEndereco", addressId);
 
                             queryResult = sqlCommand.ExecuteNonQuery();
-                            
+
                             if (queryResult < 1)
                             {
                                 success = false;
@@ -373,6 +373,254 @@ namespace DataContext.People
             return success;
         }
 
+        public bool EditClient(Client clientToEdit)
+        {
+            bool success = false;
+            using (MySqlConnection dbContext = DbContext.GetInstance().GetConnection())
+            {
+                MySqlTransaction clientTransact = null;
+                int queryResult = 0;
+
+                try
+                {
+                    dbContext.Open();
+
+                    #region --== creation of a trasaction on db ==--
+                    clientTransact = dbContext.BeginTransaction();
+                    MySqlCommand sqlCommand = new MySqlCommand();
+                    sqlCommand.Connection = dbContext;
+                    sqlCommand.Transaction = clientTransact;
+                    #endregion
+
+
+                    #region --== Client Edit ==--
+                    sqlCommand.CommandText = @"Update cliente
+                                               SET     
+                                                     Nome = @Nome, 
+                                                     Telefone = @Telefone,
+                                                     Celular = @Celular, 
+                                                     Situacao = @Situacao, 
+                                                     DataAlteracao = @DataAlteracao,
+                                                     IdUsuarioAlteracao =  @IdUsuarioAlteracao
+                                               Where Id = @Id;";
+
+                    sqlCommand.Parameters.AddWithValue("Id", clientToEdit.Id);
+                    sqlCommand.Parameters.AddWithValue("Nome", clientToEdit.Name);
+                    sqlCommand.Parameters.AddWithValue("Telefone", clientToEdit.Phone);
+                    sqlCommand.Parameters.AddWithValue("Celular", clientToEdit.CellPhone);
+                    sqlCommand.Parameters.AddWithValue("Situacao", (int)clientToEdit.Status);
+                    sqlCommand.Parameters.AddWithValue("DataAlteracao", clientToEdit.LastChangeDateTime);
+                    sqlCommand.Parameters.AddWithValue("IdUsuarioAlteracao", clientToEdit.LastChangeUserId);
+
+                    queryResult = sqlCommand.ExecuteNonQuery();
+                    if (queryResult < 1)
+                    {
+                        success = false;
+                        return success;
+                    }
+                    sqlCommand.CommandText = string.Empty;
+                    sqlCommand.Parameters.Clear();
+                    #endregion
+
+
+                    #region --== Addresses Edit ==--
+                    foreach (Address address in clientToEdit.Addresses)
+                    {
+                        address.Client = clientToEdit;
+
+                        sqlCommand.CommandText = @"Update endereco
+                                                    SET                                                        
+                                                       IdCliente = @IdCliente,
+                                                       Logradouro = @Logradouro, 
+                                                       Numero = @Numero, 
+                                                       Complemento = @Complemento, 
+                                                       Bairro = @Bairro, 
+                                                       Cidade =  @Cidade
+                                                    Where Id = @Id 
+                                                      And IdCliente = @IdCliente";
+
+                        sqlCommand.Parameters.AddWithValue("Id", address.Id);
+                        sqlCommand.Parameters.AddWithValue("IdCliente", address.Client.Id);
+                        sqlCommand.Parameters.AddWithValue("Logradouro", address.Adrress);
+                        sqlCommand.Parameters.AddWithValue("Numero", address.Number);
+                        sqlCommand.Parameters.AddWithValue("Complemento", address.Address2nd);
+                        sqlCommand.Parameters.AddWithValue("Bairro", address.District);
+                        sqlCommand.Parameters.AddWithValue("Cidade", address.City);
+
+                        queryResult = sqlCommand.ExecuteNonQuery();
+
+                        if (queryResult < 1)
+                        {
+                            success = false;
+                            return success;
+                        }
+                        sqlCommand.CommandText = string.Empty;
+                        sqlCommand.Parameters.Clear();
+
+                        if (address.DeliveryAddress)
+                        {
+
+
+                            sqlCommand.CommandText = @"Update enderecopadrao
+                                                       SET IdEndereco = @IdEndereco
+                                                       Where IdCliente = @IdCliente;";
+
+                            sqlCommand.Parameters.AddWithValue("IdEndereco", address.Id);
+                            sqlCommand.Parameters.AddWithValue("IdCliente", address.Client.Id);
+
+
+                            queryResult = sqlCommand.ExecuteNonQuery();
+                        }
+
+                        if (queryResult < 1)
+                        {
+                            success = false;
+                            return success;
+                        }
+                        sqlCommand.CommandText = string.Empty;
+                        sqlCommand.Parameters.Clear();
+                    }
+
+                    #endregion
+
+                    success = true;
+                }
+                catch (MySqlException ex)
+                {
+                    success = false;
+                    if (ex.InnerException != null)
+                    {
+                        MessageBox.Show(ex.InnerException.Message,
+                       "MySql Error",
+                       MessageBoxButtons.OK,
+                       MessageBoxIcon.Error);
+                    }
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    if (success)
+                    {
+                        clientTransact.Commit();
+                    }
+                    else
+                    {
+                        clientTransact.Rollback();
+                    }
+                    dbContext.Close();
+                }
+            }
+            return success;
+        }
+
+        public bool DeleteClient(Client clientToDelete)
+        {
+            bool success = false;
+            using (MySqlConnection dbContext = DbContext.GetInstance().GetConnection())
+            {
+                MySqlTransaction clientTransact = null;
+                int queryResult = 0;
+
+                try
+                {
+                    dbContext.Open();
+
+                    #region --== creation of a trasaction on db ==--
+                    clientTransact = dbContext.BeginTransaction();
+                    MySqlCommand sqlCommand = new MySqlCommand();
+                    sqlCommand.Connection = dbContext;
+                    sqlCommand.Transaction = clientTransact;
+                    #endregion
+                    
+                    
+                    #region --== Addresses Delete ==--
+                    foreach (Address address in clientToDelete.Addresses)
+                    {
+                        if (address.DeliveryAddress)
+                        {
+                            sqlCommand.CommandText = @"Delete from enderecopadrao
+                                                       Where IdCliente = @IdCliente;";
+
+                            sqlCommand.Parameters.AddWithValue("IdCliente", clientToDelete.Id);
+
+                            queryResult = sqlCommand.ExecuteNonQuery();
+                        }
+                        sqlCommand.CommandText = string.Empty;
+                        sqlCommand.Parameters.Clear();
+
+                        if (queryResult < 1)
+                        {
+                            success = false;
+                            return success;
+                        }
+                        
+                        sqlCommand.CommandText = @"Delete from endereco
+                                                    Where IdCliente = @IdCliente";
+
+                        sqlCommand.Parameters.AddWithValue("IdCliente", clientToDelete.Id);
+
+                        queryResult = sqlCommand.ExecuteNonQuery();
+
+                        if (queryResult < 1)
+                        {
+                            success = false;
+                            return success;
+                        }
+                        sqlCommand.CommandText = string.Empty;
+                        sqlCommand.Parameters.Clear();
+                    }
+
+                    #endregion
+
+
+                    #region --== Client Delete ==--
+                    sqlCommand.CommandText = @"Delete from cliente
+                                                   Where Id = @Id;";
+
+                    sqlCommand.Parameters.AddWithValue("Id", clientToDelete.Id);
+
+                    queryResult = sqlCommand.ExecuteNonQuery();
+                    
+                    if (queryResult < 1)
+                    {
+                        success = false;
+                        return success;
+                    }
+
+                    sqlCommand.CommandText = string.Empty;
+                    sqlCommand.Parameters.Clear();
+                    
+                    #endregion
+
+                    success = true;
+                }
+                catch (MySqlException ex)
+                {
+                    success = false;
+                    if (ex.InnerException != null)
+                    {
+                        MessageBox.Show(ex.InnerException.Message,
+                       "MySql Error",
+                       MessageBoxButtons.OK,
+                       MessageBoxIcon.Error);
+                    }
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    if (success)
+                    {
+                        clientTransact.Commit();
+                    }
+                    else
+                    {
+                        clientTransact.Rollback();
+                    }
+                    dbContext.Close();
+                }
+            }
+            return success;
+        }
         public int FindNextCode()
         {
             string sql = "Show table status like 'cliente';";

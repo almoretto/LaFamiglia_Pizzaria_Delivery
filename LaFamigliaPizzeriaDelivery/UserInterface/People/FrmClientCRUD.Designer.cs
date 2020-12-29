@@ -60,6 +60,7 @@ namespace UserInterface.People
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.lblAddress = new System.Windows.Forms.Label();
             this.uscStatus = new UserInterface.Controls.UserSituacaoCTRL();
+            this.lblAddressId = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             this.grpAddress.SuspendLayout();
             this.SuspendLayout();
@@ -157,6 +158,7 @@ namespace UserInterface.People
             // grpAddress
             // 
             this.grpAddress.BackColor = System.Drawing.Color.Snow;
+            this.grpAddress.Controls.Add(this.lblAddressId);
             this.grpAddress.Controls.Add(this.btnAddressEdit);
             this.grpAddress.Controls.Add(this.btnDeleteAddress);
             this.grpAddress.Controls.Add(this.lstAddresses);
@@ -291,6 +293,12 @@ namespace UserInterface.People
             resources.ApplyResources(this.uscStatus, "uscStatus");
             this.uscStatus.Name = "uscStatus";
             // 
+            // lblAddressId
+            // 
+            resources.ApplyResources(this.lblAddressId, "lblAddressId");
+            this.lblAddressId.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblAddressId.Name = "lblAddressId";
+            // 
             // FrmClientCRUD
             // 
             resources.ApplyResources(this, "$this");
@@ -354,5 +362,6 @@ namespace UserInterface.People
         private System.Windows.Forms.Button btnDeleteAddress;
         private System.Windows.Forms.ListView lstAddresses;
         private System.Windows.Forms.Button btnAddressSave;
+        private System.Windows.Forms.Label lblAddressId;
     }
 }
