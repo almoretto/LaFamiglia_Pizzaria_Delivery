@@ -101,13 +101,17 @@ namespace DataContext.People
                         clientFounded.Id = Convert.ToInt32(dataReader["Id"].ToString());
                         clientFounded.Name = dataReader["Nome"].ToString();
 
-                        if (dataReader["Telefone"] != null)
+                        if (dataReader["Telefone"] != null 
+                            &&
+                            dataReader["Telefone"].ToString() != string.Empty)
                         {
                             clientFounded.Phone = Convert
                                 .ToInt64(dataReader["Telefone"].ToString());
                         }
 
-                        if (dataReader["Celular"] != null)
+                        if (dataReader["Celular"] != null 
+                            &&
+                            dataReader["Celular"].ToString() != string.Empty)
                         {
                             clientFounded.CellPhone = Convert
                                 .ToInt64(dataReader["Celular"].ToString());
@@ -154,14 +158,16 @@ namespace DataContext.People
                     {
                         clientFounded.Id = Convert.ToInt32(dataReader["Id"].ToString());
                         clientFounded.Name = dataReader["Nome"].ToString();
-
-                        if (dataReader["Telefone"] != null)
+                        
+                        //Other way to make the same test as above method
+                        if (!(dataReader["Telefone"] is DBNull))
                         {
                             clientFounded.Phone = Convert
                                 .ToInt64(dataReader["Telefone"].ToString());
                         }
 
-                        if (dataReader["Celular"] != null)
+                        //Other way to make the same test as above method
+                        if (!(dataReader["Celular"] is DBNull))
                         {
                             clientFounded.CellPhone = Convert
                                 .ToInt64(dataReader["Celular"].ToString());
@@ -191,7 +197,8 @@ namespace DataContext.People
             {
                 MySqlTransaction clientTransact = null;
                 int queryResult = 0;
-                int clientId=0;
+                int clientId = 0;
+                int addressId = 0;
                 try
                 {
                     dbContext.Open();
@@ -203,7 +210,7 @@ namespace DataContext.People
                     sqlCommand.Transaction = clientTransact;
                     #endregion
 
-                    
+
                     #region --== Client Insert ==--
                     sqlCommand.CommandText = @"insert into cliente
                                                  (Nome, 
@@ -237,6 +244,7 @@ namespace DataContext.People
                     sqlCommand.Parameters.Clear();
                     #endregion
 
+
                     #region --== Find ClientId ==--
                     sqlCommand.CommandText = @"Select Distinct 
                                                     Id 
@@ -244,7 +252,7 @@ namespace DataContext.People
                                                Where Lower(Nome)=@Name;";
 
                     sqlCommand.Parameters.AddWithValue("Name", clientToCreate.Name.ToLower());
-                    
+
                     using (MySqlDataReader dataReader = sqlCommand.ExecuteReader())
                     {
                         while (dataReader.Read())
@@ -257,13 +265,85 @@ namespace DataContext.People
                     clientToCreate.Id = clientId;
                     #endregion
 
+
                     #region --== Addresses Insert ==--
                     foreach (Address address in clientToCreate.Addresses)
                     {
                         address.Client = clientToCreate;
-                    }
 
+                        sqlCommand.CommandText = @"Insert Into endereco
+                                                        (IdCliente,
+                                                         Logradouro, 
+                                                         Numero, 
+                                                         Complemento, 
+                                                         Bairro, 
+                                                         Cidade)
+                                                   Values
+                                                        (@IdCliente,
+                                                         @Logradouro, 
+                                                         @Numero, 
+                                                         @Complemento, 
+                                                         @Bairro, 
+                                                         @Cidade);";
+
+                        sqlCommand.Parameters.AddWithValue("IdCliente", address.Client.Id);
+                        sqlCommand.Parameters.AddWithValue("Logradouro", address.Adrress);
+                        sqlCommand.Parameters.AddWithValue("Numero", address.Number);
+                        sqlCommand.Parameters.AddWithValue("Complemento", address.Address2nd);
+                        sqlCommand.Parameters.AddWithValue("Bairro", address.District);
+                        sqlCommand.Parameters.AddWithValue("Cidade", address.City);
+
+                        queryResult = sqlCommand.ExecuteNonQuery();
+
+                        if (queryResult < 1)
+                        {
+                            success = false;
+                            return success;
+                        }
+                        sqlCommand.CommandText = string.Empty;
+                        sqlCommand.Parameters.Clear();
+
+                        if (address.DeliveryAddress)
+                        {
+                            sqlCommand.CommandText = "Show table status like 'endereco';";
+                            //Get Last Address Inserted
+                            using (MySqlDataReader dataReader = sqlCommand.ExecuteReader())
+                            {
+                                while (dataReader.Read())
+                                {
+                                    addressId = Convert.ToInt32(dataReader["Auto_increment"].ToString());
+
+                                }
+                                addressId -= 1;
+                            }
+                            sqlCommand.CommandText = string.Empty;
+                            sqlCommand.Parameters.Clear();
+
+                            //Insert delivery address table relation
+
+                            sqlCommand.CommandText = @"Insert into enderecopadrao
+                                                            (IdCliente, IdEndereco)
+                                                       Values
+                                                            (@IdCliente, @IdEndereco);";
+
+                            sqlCommand.Parameters.AddWithValue("IdCliente", address.Client.Id);
+                            sqlCommand.Parameters.AddWithValue("IdEndereco", addressId);
+
+                            queryResult = sqlCommand.ExecuteNonQuery();
+                            
+                            if (queryResult < 1)
+                            {
+                                success = false;
+                                return success;
+                            }
+                            sqlCommand.CommandText = string.Empty;
+                            sqlCommand.Parameters.Clear();
+                        }
+
+                    }
                     #endregion
+
+                    success = true;
                 }
                 catch (MySqlException ex)
                 {
@@ -275,7 +355,6 @@ namespace DataContext.People
                        MessageBoxButtons.OK,
                        MessageBoxIcon.Error);
                     }
-
                     throw new Exception(ex.Message);
                 }
                 finally
@@ -287,14 +366,10 @@ namespace DataContext.People
                     else
                     {
                         clientTransact.Commit();
-                        success = true;
                     }
                     dbContext.Close();
                 }
-
             }
-
-
             return success;
         }
 

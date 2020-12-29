@@ -58,9 +58,10 @@
             this.flowLayoutPanel1.Controls.Add(this.btnDelete);
             this.flowLayoutPanel1.Controls.Add(this.btnSave);
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(347, 197);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(474, 271);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(325, 50);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(370, 69);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // btnCancel
@@ -70,9 +71,10 @@
             this.btnCancel.Font = new System.Drawing.Font("Futura Bk BT", 8.150944F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Image = global::UserInterface.Properties.Resources.cancelar;
             this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnCancel.Location = new System.Drawing.Point(221, 3);
+            this.btnCancel.Location = new System.Drawing.Point(255, 4);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(101, 39);
+            this.btnCancel.Size = new System.Drawing.Size(111, 43);
             this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -86,9 +88,10 @@
             this.btnDelete.Font = new System.Drawing.Font("Futura Bk BT", 8.150944F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.Image = global::UserInterface.Properties.Resources.excluir;
             this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnDelete.Location = new System.Drawing.Point(114, 3);
+            this.btnDelete.Location = new System.Drawing.Point(136, 4);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(101, 39);
+            this.btnDelete.Size = new System.Drawing.Size(111, 43);
             this.btnDelete.TabIndex = 1;
             this.btnDelete.Text = "Excluir";
             this.btnDelete.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -102,9 +105,10 @@
             this.btnSave.Font = new System.Drawing.Font("Futura Bk BT", 8.150944F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Image = global::UserInterface.Properties.Resources.confirmar;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnSave.Location = new System.Drawing.Point(7, 3);
+            this.btnSave.Location = new System.Drawing.Point(17, 4);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(101, 39);
+            this.btnSave.Size = new System.Drawing.Size(111, 43);
             this.btnSave.TabIndex = 0;
             this.btnSave.Text = "Salvar";
             this.btnSave.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -114,18 +118,20 @@
             // txtUserId
             // 
             this.txtUserId.BackColor = System.Drawing.Color.SeaShell;
-            this.txtUserId.Location = new System.Drawing.Point(10, 33);
+            this.txtUserId.Location = new System.Drawing.Point(15, 46);
+            this.txtUserId.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtUserId.Name = "txtUserId";
-            this.txtUserId.Size = new System.Drawing.Size(100, 20);
+            this.txtUserId.Size = new System.Drawing.Size(148, 25);
             this.txtUserId.TabIndex = 1;
             this.txtUserId.Validating += new System.ComponentModel.CancelEventHandler(this.txtUserId_Validating);
             // 
             // btnUserSearch
             // 
             this.btnUserSearch.Image = global::UserInterface.Properties.Resources.busca;
-            this.btnUserSearch.Location = new System.Drawing.Point(116, 33);
+            this.btnUserSearch.Location = new System.Drawing.Point(174, 46);
+            this.btnUserSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnUserSearch.Name = "btnUserSearch";
-            this.btnUserSearch.Size = new System.Drawing.Size(22, 21);
+            this.btnUserSearch.Size = new System.Drawing.Size(33, 29);
             this.btnUserSearch.TabIndex = 2;
             this.btnUserSearch.UseVisualStyleBackColor = true;
             this.btnUserSearch.Click += new System.EventHandler(this.btnUserSearch_Click);
@@ -135,7 +141,8 @@
             this.lblUserId.AutoSize = true;
             this.lblUserId.Font = new System.Drawing.Font("Futura Md BT", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUserId.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblUserId.Location = new System.Drawing.Point(6, 9);
+            this.lblUserId.Location = new System.Drawing.Point(9, 12);
+            this.lblUserId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUserId.Name = "lblUserId";
             this.lblUserId.Size = new System.Drawing.Size(65, 19);
             this.lblUserId.TabIndex = 3;
@@ -146,7 +153,8 @@
             this.lblUserLogin.AutoSize = true;
             this.lblUserLogin.Font = new System.Drawing.Font("Futura Md BT", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUserLogin.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblUserLogin.Location = new System.Drawing.Point(166, 59);
+            this.lblUserLogin.Location = new System.Drawing.Point(249, 82);
+            this.lblUserLogin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUserLogin.Name = "lblUserLogin";
             this.lblUserLogin.Size = new System.Drawing.Size(53, 19);
             this.lblUserLogin.TabIndex = 4;
@@ -157,7 +165,8 @@
             this.lblUserPassword.AutoSize = true;
             this.lblUserPassword.Font = new System.Drawing.Font("Futura Md BT", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUserPassword.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblUserPassword.Location = new System.Drawing.Point(423, 59);
+            this.lblUserPassword.Location = new System.Drawing.Point(634, 82);
+            this.lblUserPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUserPassword.Name = "lblUserPassword";
             this.lblUserPassword.Size = new System.Drawing.Size(59, 19);
             this.lblUserPassword.TabIndex = 5;
@@ -166,26 +175,29 @@
             // txtUserName
             // 
             this.txtUserName.BackColor = System.Drawing.Color.SeaShell;
-            this.txtUserName.Location = new System.Drawing.Point(170, 34);
+            this.txtUserName.Location = new System.Drawing.Point(255, 47);
+            this.txtUserName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(501, 20);
+            this.txtUserName.Size = new System.Drawing.Size(589, 25);
             this.txtUserName.TabIndex = 6;
             // 
             // txtUserLogin
             // 
             this.txtUserLogin.BackColor = System.Drawing.Color.SeaShell;
-            this.txtUserLogin.Location = new System.Drawing.Point(170, 81);
+            this.txtUserLogin.Location = new System.Drawing.Point(255, 112);
+            this.txtUserLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtUserLogin.Name = "txtUserLogin";
-            this.txtUserLogin.Size = new System.Drawing.Size(244, 20);
+            this.txtUserLogin.Size = new System.Drawing.Size(364, 25);
             this.txtUserLogin.TabIndex = 7;
             // 
             // txtUserPassword
             // 
             this.txtUserPassword.BackColor = System.Drawing.Color.SeaShell;
-            this.txtUserPassword.Location = new System.Drawing.Point(427, 81);
+            this.txtUserPassword.Location = new System.Drawing.Point(640, 112);
+            this.txtUserPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtUserPassword.Name = "txtUserPassword";
             this.txtUserPassword.PasswordChar = '*';
-            this.txtUserPassword.Size = new System.Drawing.Size(244, 20);
+            this.txtUserPassword.Size = new System.Drawing.Size(204, 25);
             this.txtUserPassword.TabIndex = 8;
             // 
             // lblUserType
@@ -193,7 +205,8 @@
             this.lblUserType.AutoSize = true;
             this.lblUserType.Font = new System.Drawing.Font("Futura Md BT", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUserType.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblUserType.Location = new System.Drawing.Point(166, 108);
+            this.lblUserType.Location = new System.Drawing.Point(249, 150);
+            this.lblUserType.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUserType.Name = "lblUserType";
             this.lblUserType.Size = new System.Drawing.Size(123, 19);
             this.lblUserType.TabIndex = 9;
@@ -204,7 +217,8 @@
             this.lblUserName.AutoSize = true;
             this.lblUserName.Font = new System.Drawing.Font("Futura Md BT", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUserName.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblUserName.Location = new System.Drawing.Point(166, 9);
+            this.lblUserName.Location = new System.Drawing.Point(249, 12);
+            this.lblUserName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUserName.Name = "lblUserName";
             this.lblUserName.Size = new System.Drawing.Size(59, 19);
             this.lblUserName.TabIndex = 10;
@@ -213,18 +227,20 @@
             // txtUserType
             // 
             this.txtUserType.BackColor = System.Drawing.Color.SeaShell;
-            this.txtUserType.Location = new System.Drawing.Point(170, 130);
+            this.txtUserType.Location = new System.Drawing.Point(255, 180);
+            this.txtUserType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtUserType.Name = "txtUserType";
-            this.txtUserType.Size = new System.Drawing.Size(119, 20);
+            this.txtUserType.Size = new System.Drawing.Size(176, 25);
             this.txtUserType.TabIndex = 11;
             this.txtUserType.Validating += new System.ComponentModel.CancelEventHandler(this.txtUserType_Validating);
             // 
             // btnUserTypeSearch
             // 
             this.btnUserTypeSearch.Image = global::UserInterface.Properties.Resources.busca;
-            this.btnUserTypeSearch.Location = new System.Drawing.Point(304, 130);
+            this.btnUserTypeSearch.Location = new System.Drawing.Point(456, 180);
+            this.btnUserTypeSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnUserTypeSearch.Name = "btnUserTypeSearch";
-            this.btnUserTypeSearch.Size = new System.Drawing.Size(22, 20);
+            this.btnUserTypeSearch.Size = new System.Drawing.Size(33, 28);
             this.btnUserTypeSearch.TabIndex = 12;
             this.btnUserTypeSearch.UseVisualStyleBackColor = true;
             this.btnUserTypeSearch.Click += new System.EventHandler(this.btnUserTypeSearch_Click);
@@ -235,19 +251,21 @@
             this.lblDspUserType.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblDspUserType.Font = new System.Drawing.Font("Futura Md BT", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDspUserType.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblDspUserType.Location = new System.Drawing.Point(170, 158);
+            this.lblDspUserType.Location = new System.Drawing.Point(255, 219);
+            this.lblDspUserType.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDspUserType.Name = "lblDspUserType";
-            this.lblDspUserType.Size = new System.Drawing.Size(502, 23);
+            this.lblDspUserType.Size = new System.Drawing.Size(589, 32);
             this.lblDspUserType.TabIndex = 13;
             this.lblDspUserType.Text = "label6";
             // 
             // txtPasswordConfirmation
             // 
             this.txtPasswordConfirmation.BackColor = System.Drawing.Color.SeaShell;
-            this.txtPasswordConfirmation.Location = new System.Drawing.Point(427, 130);
+            this.txtPasswordConfirmation.Location = new System.Drawing.Point(640, 180);
+            this.txtPasswordConfirmation.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPasswordConfirmation.Name = "txtPasswordConfirmation";
             this.txtPasswordConfirmation.PasswordChar = '*';
-            this.txtPasswordConfirmation.Size = new System.Drawing.Size(244, 20);
+            this.txtPasswordConfirmation.Size = new System.Drawing.Size(204, 25);
             this.txtPasswordConfirmation.TabIndex = 15;
             // 
             // lblUserPasswordConfirmation
@@ -255,7 +273,8 @@
             this.lblUserPasswordConfirmation.AutoSize = true;
             this.lblUserPasswordConfirmation.Font = new System.Drawing.Font("Futura Md BT", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUserPasswordConfirmation.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblUserPasswordConfirmation.Location = new System.Drawing.Point(423, 108);
+            this.lblUserPasswordConfirmation.Location = new System.Drawing.Point(634, 150);
+            this.lblUserPasswordConfirmation.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUserPasswordConfirmation.Name = "lblUserPasswordConfirmation";
             this.lblUserPasswordConfirmation.Size = new System.Drawing.Size(156, 19);
             this.lblUserPasswordConfirmation.TabIndex = 14;
@@ -264,17 +283,18 @@
             // uscStatus
             // 
             this.uscStatus.BackColor = System.Drawing.Color.Bisque;
-            this.uscStatus.Location = new System.Drawing.Point(38, 81);
+            this.uscStatus.Location = new System.Drawing.Point(45, 113);
+            this.uscStatus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.uscStatus.Name = "uscStatus";
-            this.uscStatus.Size = new System.Drawing.Size(100, 100);
+            this.uscStatus.Size = new System.Drawing.Size(150, 138);
             this.uscStatus.TabIndex = 16;
             // 
             // FrmUserCRUD
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(684, 255);
+            this.ClientSize = new System.Drawing.Size(860, 353);
             this.Controls.Add(this.uscStatus);
             this.Controls.Add(this.txtPasswordConfirmation);
             this.Controls.Add(this.lblUserPasswordConfirmation);
@@ -292,8 +312,10 @@
             this.Controls.Add(this.btnUserSearch);
             this.Controls.Add(this.txtUserId);
             this.Controls.Add(this.flowLayoutPanel1);
+            this.Font = new System.Drawing.Font("Futura Md BT", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmUserCRUD";

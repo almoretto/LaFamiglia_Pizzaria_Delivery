@@ -39,7 +39,7 @@ namespace DataContext.Modules
                     dbContext.Close();
                 }
             }
-            return actualId+1;
+            return actualId;
         }
     }
 }

@@ -24,5 +24,8 @@ namespace BusinessRules.People
 
         public int FindNextCode()
         { return _svcClientDb.FindNextCode(); }
+
+        public bool CreateClient(Client clientToCreate)
+        { return _svcClientDb.CreateClient(clientToCreate); }
     }
 }

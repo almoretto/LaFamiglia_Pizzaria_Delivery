@@ -59,9 +59,27 @@ namespace UserInterface.People
 
             clientToCreate.Addresses = CreateAddressList();
 
+            ClientBus clientBus = new ClientBus();
+
             if (RecordControl) //insert into BD
             {
-
+                if (clientBus.CreateClient(clientToCreate))
+                {
+                    MessageBox.Show(
+                        "Cliente inserido com sucesso!",
+                        this.Text,
+                        MessageBoxButtons.OK, 
+                        MessageBoxIcon.Information);
+                    ClearForm();
+                }
+                else
+                {
+                    MessageBox.Show(
+                        "Cliente não foi inserido, operação em RollBack!",
+                        this.Text,
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
             }
             else //Edit
             {

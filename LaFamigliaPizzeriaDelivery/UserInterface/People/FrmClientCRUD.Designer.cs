@@ -35,7 +35,6 @@ namespace UserInterface.People
             this.lblUserId = new System.Windows.Forms.Label();
             this.btnClientSearch = new System.Windows.Forms.Button();
             this.txtClientId = new System.Windows.Forms.TextBox();
-            this.uscStatus = new UserInterface.Controls.UserSituacaoCTRL();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -60,6 +59,7 @@ namespace UserInterface.People
             this.label1 = new System.Windows.Forms.Label();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.lblAddress = new System.Windows.Forms.Label();
+            this.uscStatus = new UserInterface.Controls.UserSituacaoCTRL();
             this.flowLayoutPanel1.SuspendLayout();
             this.grpAddress.SuspendLayout();
             this.SuspendLayout();
@@ -96,12 +96,6 @@ namespace UserInterface.People
             resources.ApplyResources(this.txtClientId, "txtClientId");
             this.txtClientId.Name = "txtClientId";
             this.txtClientId.Validating += new System.ComponentModel.CancelEventHandler(this.txtClientId_Validating);
-            // 
-            // uscStatus
-            // 
-            this.uscStatus.BackColor = System.Drawing.Color.Bisque;
-            resources.ApplyResources(this.uscStatus, "uscStatus");
-            this.uscStatus.Name = "uscStatus";
             // 
             // flowLayoutPanel1
             // 
@@ -290,6 +284,12 @@ namespace UserInterface.People
             // 
             resources.ApplyResources(this.lblAddress, "lblAddress");
             this.lblAddress.Name = "lblAddress";
+            // 
+            // uscStatus
+            // 
+            this.uscStatus.BackColor = System.Drawing.Color.Bisque;
+            resources.ApplyResources(this.uscStatus, "uscStatus");
+            this.uscStatus.Name = "uscStatus";
             // 
             // FrmClientCRUD
             // 
