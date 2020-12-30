@@ -44,6 +44,7 @@ namespace UserInterface.People
             this.mTxtCellPhone = new System.Windows.Forms.MaskedTextBox();
             this.lblCellPhone = new System.Windows.Forms.Label();
             this.grpAddress = new System.Windows.Forms.GroupBox();
+            this.lblAddressId = new System.Windows.Forms.Label();
             this.btnAddressEdit = new System.Windows.Forms.Button();
             this.btnDeleteAddress = new System.Windows.Forms.Button();
             this.lstAddresses = new System.Windows.Forms.ListView();
@@ -60,7 +61,6 @@ namespace UserInterface.People
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.lblAddress = new System.Windows.Forms.Label();
             this.uscStatus = new UserInterface.Controls.UserSituacaoCTRL();
-            this.lblAddressId = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             this.grpAddress.SuspendLayout();
             this.SuspendLayout();
@@ -74,6 +74,7 @@ namespace UserInterface.People
             // txtClientName
             // 
             this.txtClientName.BackColor = System.Drawing.Color.SeaShell;
+            this.txtClientName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             resources.ApplyResources(this.txtClientName, "txtClientName");
             this.txtClientName.Name = "txtClientName";
             // 
@@ -94,6 +95,7 @@ namespace UserInterface.People
             // txtClientId
             // 
             this.txtClientId.BackColor = System.Drawing.Color.SeaShell;
+            this.txtClientId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             resources.ApplyResources(this.txtClientId, "txtClientId");
             this.txtClientId.Name = "txtClientId";
             this.txtClientId.Validating += new System.ComponentModel.CancelEventHandler(this.txtClientId_Validating);
@@ -178,6 +180,12 @@ namespace UserInterface.People
             resources.ApplyResources(this.grpAddress, "grpAddress");
             this.grpAddress.Name = "grpAddress";
             this.grpAddress.TabStop = false;
+            // 
+            // lblAddressId
+            // 
+            resources.ApplyResources(this.lblAddressId, "lblAddressId");
+            this.lblAddressId.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblAddressId.Name = "lblAddressId";
             // 
             // btnAddressEdit
             // 
@@ -292,12 +300,6 @@ namespace UserInterface.People
             this.uscStatus.BackColor = System.Drawing.Color.Bisque;
             resources.ApplyResources(this.uscStatus, "uscStatus");
             this.uscStatus.Name = "uscStatus";
-            // 
-            // lblAddressId
-            // 
-            resources.ApplyResources(this.lblAddressId, "lblAddressId");
-            this.lblAddressId.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblAddressId.Name = "lblAddressId";
             // 
             // FrmClientCRUD
             // 

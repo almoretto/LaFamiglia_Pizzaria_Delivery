@@ -94,6 +94,7 @@
     <Compile Include="People\SvcClientDb.cs" />
     <Compile Include="People\SvcUsersDb.cs" />
     <Compile Include="People\SvcUserTypeDb.cs" />
+    <Compile Include="Products\SvcAdditionalDb.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

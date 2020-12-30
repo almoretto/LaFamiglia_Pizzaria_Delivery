@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using UserInterface.Login;
 using UserInterface.People;
+using UserInterface.Products;
 
 namespace UserInterface
 {
@@ -35,14 +36,16 @@ namespace UserInterface
         }
 
         #region --== Menu buttons region ==--
-        private void SairToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         { Application.Exit(); }
-        private void UsuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        private void UsersToolStripMenuItem_Click(object sender, EventArgs e)
         { OpenForms(new FrmUserCRUD()); }
 
-        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ClientsToolStripMenuItem_Click(object sender, EventArgs e)
         { OpenForms(new FrmClientCRUD()); }
 
+        private void AddtionalToolStripMenuItem_Click(object sender, EventArgs e)
+        { OpenForms(new FrmAdditionalCRUD()); }
         #endregion
 
 
@@ -57,6 +60,7 @@ namespace UserInterface
             selectedForm.Show();
         }
         #endregion
+
 
     }
 }

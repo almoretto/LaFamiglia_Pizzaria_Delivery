@@ -46,5 +46,6 @@ namespace UserInterface.Modules
         {
             return strg.Trim().Replace(" ", "");
         }
+    
     }
 }

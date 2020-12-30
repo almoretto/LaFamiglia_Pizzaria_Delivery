@@ -22,11 +22,12 @@ namespace UserInterface.People
             IdFieldMasks.AplyEvents(txtUserId);
             IdFieldMasks.AplyEvents(txtUserType);
         }
-
         private void frmUserCRUD_Load(object sender, EventArgs e)
         {
             ClearForm();
         }
+
+        #region --== Buttons ==--
 
         private void btnUserSearch_Click(object sender, EventArgs e)
         {
@@ -82,57 +83,6 @@ namespace UserInterface.People
 
         }
 
-        private void txtUserId_Validating(object sender, CancelEventArgs e)
-        {
-            if (txtUserId.Text.Trim() == string.Empty) { return; }
-
-            User userToDisplay = new UserBus()
-                .FindById(Convert.ToInt32(txtUserId.Text.Trim()));
-
-            if (userToDisplay == null)
-            {
-                btnDelete.Enabled = false;
-                ClearForm();
-                return;
-            }
-            newregister = false;
-
-            txtUserName.Text = userToDisplay.Name;
-            txtUserLogin.Text = userToDisplay.Login;
-            txtUserPassword.Text = userToDisplay.Password;
-            txtUserType.Text = userToDisplay.UserType.Id.ToString();
-
-            txtUserType_Validating(txtUserType, new CancelEventArgs());
-
-            IdFieldMasks.MakeMask(txtUserId, new EventArgs());
-            IdFieldMasks.MakeMask(txtUserType, new EventArgs());
-
-            uscStatus.StartStatus(userToDisplay.UserStatus);
-            btnDelete.Enabled = true;
-        }
-
-        private void txtUserType_Validating(object sender, CancelEventArgs e)
-        {
-            if (txtUserType.Text.Trim() == string.Empty)
-            {
-                lblDspUserType.Text = string.Empty;
-                return;
-            }
-            UserType typeToDisplay = new UserTypeBus()
-                .GetUserTypeById(Convert.ToInt32(txtUserType.Text.Trim()));
-            if (typeToDisplay == null)
-            {
-                MessageBox.Show("Tipo de usuário não encontrado",
-                    this.Text,
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-                txtUserType.Select();
-                return;
-            }
-
-            lblDspUserType.Text = typeToDisplay.Description;
-        }
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
             ClearForm();
@@ -143,7 +93,7 @@ namespace UserInterface.People
             if ((txtUserId.Text.Trim() == string.Empty) || (newregister)) { return; }
 
             User userToDelete = new UserBus().FindById(Convert.ToInt32(txtUserId.Text.Trim()));
-            
+
             if (MessageBox.Show("Realmente deseja excluir?",
                 this.Text, MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question) == DialogResult.Yes)
@@ -220,6 +170,63 @@ namespace UserInterface.People
 
         }
 
+        #endregion
+
+        #region --== Event Methods ==--
+        private void txtUserId_Validating(object sender, CancelEventArgs e)
+        {
+            if (txtUserId.Text.Trim() == string.Empty) { return; }
+
+            User userToDisplay = new UserBus()
+                .FindById(Convert.ToInt32(txtUserId.Text.Trim()));
+
+            if (userToDisplay == null)
+            {
+                btnDelete.Enabled = false;
+                ClearForm();
+                return;
+            }
+            newregister = false;
+
+            txtUserName.Text = userToDisplay.Name;
+            txtUserLogin.Text = userToDisplay.Login;
+            txtUserPassword.Text = userToDisplay.Password;
+            txtUserType.Text = userToDisplay.UserType.Id.ToString();
+
+            txtUserType_Validating(txtUserType, new CancelEventArgs());
+
+            IdFieldMasks.MakeMask(txtUserId, new EventArgs());
+            IdFieldMasks.MakeMask(txtUserType, new EventArgs());
+
+            uscStatus.StartStatus(userToDisplay.UserStatus);
+            btnDelete.Enabled = true;
+        }
+
+        private void txtUserType_Validating(object sender, CancelEventArgs e)
+        {
+            if (txtUserType.Text.Trim() == string.Empty)
+            {
+                lblDspUserType.Text = string.Empty;
+                return;
+            }
+            UserType typeToDisplay = new UserTypeBus()
+                .GetUserTypeById(Convert.ToInt32(txtUserType.Text.Trim()));
+            if (typeToDisplay == null)
+            {
+                MessageBox.Show("Tipo de usuário não encontrado",
+                    this.Text,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                txtUserType.Select();
+                return;
+            }
+
+            lblDspUserType.Text = typeToDisplay.Description;
+        }
+
+        #endregion
+
+        #region --== Auxiliary Method ==--
         private bool FieldsVerification()
         {
             if (txtUserName.Text.Trim() == string.Empty)
@@ -282,5 +289,7 @@ namespace UserInterface.People
             newregister = true;
             Functions.SetSelectedFocus(txtUserName);
         }
+
+        #endregion
     }
 }

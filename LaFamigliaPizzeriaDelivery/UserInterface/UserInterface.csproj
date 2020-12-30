@@ -66,6 +66,7 @@
     </Compile>
     <Compile Include="Modules\Functions.cs" />
     <Compile Include="Modules\IdFieldMasks.cs" />
+    <Compile Include="Modules\MonetaryMask.cs" />
     <Compile Include="People\FrmClientCRUD.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +78,12 @@
     </Compile>
     <Compile Include="People\FrmUserCRUD.Designer.cs">
       <DependentUpon>FrmUserCRUD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Products\FrmAdditionalCRUD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Products\FrmAdditionalCRUD.Designer.cs">
+      <DependentUpon>FrmAdditionalCRUD.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -106,6 +113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="People\FrmUserCRUD.resx">
       <DependentUpon>FrmUserCRUD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Products\FrmAdditionalCRUD.resx">
+      <DependentUpon>FrmAdditionalCRUD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

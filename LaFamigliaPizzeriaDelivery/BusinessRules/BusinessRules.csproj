@@ -46,6 +46,7 @@
     <Compile Include="People\ClientBus.cs" />
     <Compile Include="People\UserBus.cs" />
     <Compile Include="People\UserTypeBus.cs" />
+    <Compile Include="Products\AdditionalBus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

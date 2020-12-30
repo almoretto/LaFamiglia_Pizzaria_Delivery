@@ -14,7 +14,7 @@ namespace UserInterface.People
 {
     public partial class FrmClientCRUD : Form
     {
-        public bool NewRecord;
+        public bool NewRecord = false;
         public bool SuccessControl;
         private bool PermitCheck;
         public int EditControlCode;
@@ -70,6 +70,7 @@ namespace UserInterface.People
                         this.Text,
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
+                    txtClientId.Text = string.Empty;
                     ClearForm();
                 }
                 else
@@ -92,6 +93,7 @@ namespace UserInterface.People
                         this.Text,
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
+                    txtClientId.Text = string.Empty;
                     ClearForm();
                 }
                 else
@@ -103,7 +105,7 @@ namespace UserInterface.People
                         MessageBoxIcon.Error);
                 }
             }
-
+            
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -154,7 +156,7 @@ namespace UserInterface.People
             {
                 return;
             }
-            
+
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -175,7 +177,7 @@ namespace UserInterface.People
             addressToAdd.City = txtCity.Text.Trim();
             addressToAdd.Id = 0;
 
-            if (!NewRecord)
+            if (NewRecord == false)
             {
                 addressToAdd.Client = new ClientBus().FindById(Convert.ToInt32(txtClientId.Text.Trim()));
                 addressToAdd.Id = Convert.ToInt32(lblAddressId.Text);
@@ -285,8 +287,6 @@ namespace UserInterface.People
             btnDelete.Enabled = true;
         }
 
-
-
         #endregion
 
         #region --== Auxiliary Methods ==--
@@ -341,7 +341,7 @@ namespace UserInterface.People
 
         private void FillAddressList(Address address)
         {
-            string[] addressLine = new string[6];
+            string[] addressLine = new string[7];
 
             addressLine[0] = string.Empty;
             addressLine[1] = address.Adrress;
