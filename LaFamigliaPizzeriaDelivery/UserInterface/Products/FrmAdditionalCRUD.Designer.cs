@@ -55,7 +55,7 @@ namespace UserInterface.Products
             this.lblAdditionalDescription.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lblAdditionalDescription.Location = new System.Drawing.Point(168, 6);
             this.lblAdditionalDescription.Name = "lblAdditionalDescription";
-            this.lblAdditionalDescription.Size = new System.Drawing.Size(84, 19);
+            this.lblAdditionalDescription.Size = new System.Drawing.Size(74, 16);
             this.lblAdditionalDescription.TabIndex = 7;
             this.lblAdditionalDescription.Text = "Descrição:";
             // 
@@ -65,7 +65,7 @@ namespace UserInterface.Products
             this.txtAdditionalDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtAdditionalDescription.Location = new System.Drawing.Point(172, 31);
             this.txtAdditionalDescription.Name = "txtAdditionalDescription";
-            this.txtAdditionalDescription.Size = new System.Drawing.Size(604, 25);
+            this.txtAdditionalDescription.Size = new System.Drawing.Size(604, 24);
             this.txtAdditionalDescription.TabIndex = 8;
             // 
             // lblAdditionalId
@@ -76,7 +76,7 @@ namespace UserInterface.Products
             this.lblAdditionalId.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lblAdditionalId.Location = new System.Drawing.Point(8, 6);
             this.lblAdditionalId.Name = "lblAdditionalId";
-            this.lblAdditionalId.Size = new System.Drawing.Size(65, 19);
+            this.lblAdditionalId.Size = new System.Drawing.Size(59, 16);
             this.lblAdditionalId.TabIndex = 5;
             this.lblAdditionalId.Text = "Codigo:";
             // 
@@ -97,8 +97,9 @@ namespace UserInterface.Products
             this.txtAdditionalId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtAdditionalId.Location = new System.Drawing.Point(12, 30);
             this.txtAdditionalId.Name = "txtAdditionalId";
-            this.txtAdditionalId.Size = new System.Drawing.Size(100, 25);
+            this.txtAdditionalId.Size = new System.Drawing.Size(100, 24);
             this.txtAdditionalId.TabIndex = 6;
+            this.txtAdditionalId.Validating += new System.ComponentModel.CancelEventHandler(this.txtAdditionalId_Validating);
             // 
             // flowLayoutPanel1
             // 
@@ -170,7 +171,7 @@ namespace UserInterface.Products
             this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label1.Location = new System.Drawing.Point(168, 213);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 19);
+            this.label1.Size = new System.Drawing.Size(47, 16);
             this.label1.TabIndex = 15;
             this.label1.Text = "Valor:";
             // 
@@ -179,7 +180,7 @@ namespace UserInterface.Products
             this.lblAdditionalRemark.AutoSize = true;
             this.lblAdditionalRemark.Location = new System.Drawing.Point(168, 69);
             this.lblAdditionalRemark.Name = "lblAdditionalRemark";
-            this.lblAdditionalRemark.Size = new System.Drawing.Size(101, 19);
+            this.lblAdditionalRemark.Size = new System.Drawing.Size(89, 16);
             this.lblAdditionalRemark.TabIndex = 17;
             this.lblAdditionalRemark.Text = "Observação:";
             // 
@@ -209,12 +210,12 @@ namespace UserInterface.Products
             // 
             // txtAdditionalPrice
             // 
-            this.txtAdditionalPrice.BackColor = System.Drawing.Color.White;
+            this.txtAdditionalPrice.BackColor = System.Drawing.Color.SeaShell;
             this.txtAdditionalPrice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtAdditionalPrice.Cursor = System.Windows.Forms.Cursors.Default;
             this.txtAdditionalPrice.Location = new System.Drawing.Point(172, 235);
             this.txtAdditionalPrice.Name = "txtAdditionalPrice";
-            this.txtAdditionalPrice.Size = new System.Drawing.Size(258, 25);
+            this.txtAdditionalPrice.Size = new System.Drawing.Size(258, 24);
             this.txtAdditionalPrice.TabIndex = 16;
             // 
             // FrmAdditionalCRUD

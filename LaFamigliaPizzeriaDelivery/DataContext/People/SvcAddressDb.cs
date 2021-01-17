@@ -72,7 +72,7 @@ namespace DataContext.People
         public int FindNextCode()
         {
             string sql = "Show table status like 'endereco';";
-            return _dbFunctions.FindNextCode(sql);
+            return _dbFunctions.FindNextCode(sql, "endereco");
         }
 
         public int FindDeliveryAddress(int clientId)

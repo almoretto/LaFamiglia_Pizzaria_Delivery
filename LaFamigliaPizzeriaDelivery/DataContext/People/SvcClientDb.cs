@@ -624,7 +624,7 @@ namespace DataContext.People
         public int FindNextCode()
         {
             string sql = "Show table status like 'cliente';";
-            return _dbFunctions.FindNextCode(sql);
+            return _dbFunctions.FindNextCode(sql, "cliente");
         }
     }
 }

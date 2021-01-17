@@ -1,12 +1,10 @@
 ﻿using DataContext.Modules;
 using Entities.Enums;
+using Entities.Products;
 using Entities.Views;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataContext.Products
 {
@@ -29,14 +27,18 @@ namespace DataContext.Products
                                      From 
                                         adicional";
 
-                    if (status != Status.Todos) 
-                    { 
-                        query += " Where " 
-                                +"situacao = @status;";
-                        command.Parameters.AddWithValue("situacao", (int)status);
+                    if (status != Status.Todos)
+                    {
+                        query += " Where "
+                                + "situacao = @status;";
                     }
 
                     command.CommandText = query;
+
+                    if (status != Status.Todos)
+                    {
+                        command.Parameters.AddWithValue("situacao", (int)status);
+                    }
 
                     MySqlDataReader dataReader = command.ExecuteReader();
 
@@ -64,9 +66,10 @@ namespace DataContext.Products
             return entityList;
         }
 
-        public List<User> GetActiveUsers()
+        public List<Additional> GetActiveAdditional()
         {
-            List<User> usersList = new List<User>();
+            List<Additional> additionalList = new List<Additional>();
+
             using (MySqlConnection dbContext = DbContext.GetInstance().GetConnection())
             {
                 try
@@ -74,42 +77,46 @@ namespace DataContext.Products
                     dbContext.Open();
                     MySqlCommand command = new MySqlCommand();
                     command = dbContext.CreateCommand();
-                    command.CommandText = "select * from usuario where Situacao=1;";
+                    command.CommandText = "select * from adicional where Situacao=1;";
 
                     MySqlDataReader dataReader = command.ExecuteReader();
 
                     while (dataReader.Read())
                     {
-                        User newUser = new User
-                        {
-                            Id = Convert.ToInt32(dataReader["Id"].ToString()),
-                            UserType = new UserType(Convert.ToInt32(dataReader["Id_TipoUsuario"].ToString()), string.Empty),
-                            Name = dataReader["Nome"].ToString(),
-                            Login = dataReader["Login"].ToString(),
-                            Password = dataReader["Senha"].ToString(),
-                            UserStatus = (Status)Convert.ToInt32(dataReader["Situacao"]),
-                            LastChangeDate = Convert.ToDateTime(dataReader["DataAlteracao"].ToString()),
-                            LastChangeUserId = Convert.ToInt32(dataReader["Id_Usuario_Alteracao"].ToString())
-                        };
 
-                        usersList.Add(newUser);
+                        Additional newAdditional = new Additional();
+
+                        newAdditional.Id = Convert.ToInt32(dataReader["Id"].ToString());
+                        newAdditional.Description = dataReader["Descricao"].ToString();
+
+                        if (!(dataReader["Observacao"] is DBNull))
+                        {
+                            newAdditional.Remark = dataReader["Observacao"].ToString();
+                        }
+
+                        newAdditional.Price = Convert.ToDecimal(dataReader["Valor"].ToString());
+                        newAdditional.AdditionalStatus = (Status)Convert.ToInt32(dataReader["Situacao"]);
+                        newAdditional.LastChangeDate = Convert.ToDateTime(dataReader["DataAlteracao"].ToString());
+                        newAdditional.LastChangeUserId = Convert.ToInt32(dataReader["IdUsuarioAlteracao"].ToString());
+
+                        additionalList.Add(newAdditional);
                     }
                 }
                 catch (MySqlException ex)
                 {
-                    throw new System.Exception(ex.Message);
+                    throw new Exception(ex.Message);
                 }
                 finally
                 {
                     dbContext.Close();
                 }
             }
-            return usersList;
+            return additionalList;
         }
 
-        public User FindById(int id)
+        public Additional FindById(int id)
         {
-            User userFounded = new User();
+            Additional additionalFound = new Additional();
             using (MySqlConnection dbContext = DbContext.GetInstance().GetConnection())
             {
                 try
@@ -119,7 +126,7 @@ namespace DataContext.Products
                     command = dbContext.CreateCommand();
 
                     //Sql command
-                    command.CommandText = "select * from usuario where id = @Id;";
+                    command.CommandText = "select * from adicional where id = @Id;";
                     //Sql Parameter
                     command.Parameters.AddWithValue("Id", id);
 
@@ -127,14 +134,18 @@ namespace DataContext.Products
 
                     while (dataReader.Read())
                     {
-                        userFounded.Id = Convert.ToInt32(dataReader["Id"].ToString());
-                        userFounded.UserType = new UserType(Convert.ToInt32(dataReader["Id_TipoUsuario"].ToString()), string.Empty);
-                        userFounded.Name = dataReader["Nome"].ToString();
-                        userFounded.Login = dataReader["Login"].ToString();
-                        userFounded.Password = dataReader["Senha"].ToString();
-                        userFounded.UserStatus = (Status)Convert.ToInt32(dataReader["Situacao"]);
-                        userFounded.LastChangeDate = Convert.ToDateTime(dataReader["DataAlteracao"].ToString());
-                        userFounded.LastChangeUserId = Convert.ToInt32(dataReader["Id_Usuario_Alteracao"].ToString());
+                        additionalFound.Id = Convert.ToInt32(dataReader["Id"].ToString());
+                        additionalFound.Description = dataReader["Descricao"].ToString();
+
+                        if (!(dataReader["Observacao"] is DBNull))
+                        {
+                            additionalFound.Remark = dataReader["Observacao"].ToString();
+                        }
+
+                        additionalFound.Price = Convert.ToDecimal(dataReader["Valor"].ToString());
+                        additionalFound.AdditionalStatus = (Status)Convert.ToInt32(dataReader["Situacao"]);
+                        additionalFound.LastChangeDate = Convert.ToDateTime(dataReader["DataAlteracao"].ToString());
+                        additionalFound.LastChangeUserId = Convert.ToInt32(dataReader["IdUsuarioAlteracao"].ToString());
                     }
                 }
                 catch (MySqlException ex)
@@ -146,150 +157,150 @@ namespace DataContext.Products
                     dbContext.Close();
                 }
             }
-            return userFounded;
+            return additionalFound;
         }
 
+        public bool CreateAdditional(Additional newAdditional)
+        {
+            bool returnValue = false;
+            using (MySqlConnection dbContext = DbContext.GetInstance().GetConnection())
+            {
+                try
+                {
+                    dbContext.Open();
+                    MySqlCommand command = new MySqlCommand();
+                    command = dbContext.CreateCommand();
+
+                    //Sql command for Create new register on DB
+                    command.CommandText = @"INSERT INTO adicional (
+                                                        Descricao, 
+                                                        Observacao, 
+                                                        Valor, 
+                                                        Situacao,   
+                                                        DataAlteracao, 
+                                                        IdUsuarioAlteracao)
+                                                    VALUES (
+                                                        @Descricao,
+                                                        @Observacao, 
+                                                        @Valor, 
+                                                        @Situacao, 
+                                                        @DataAlteracao, 
+                                                        @IdUsuarioAlteracao);";
+                    //Insert parameters
+                    command.Parameters.AddWithValue("Descricao", newAdditional.Description);
+                    command.Parameters.AddWithValue("Observacao", newAdditional.Remark);
+                    command.Parameters.AddWithValue("Valor", newAdditional.Price);
+                    command.Parameters.AddWithValue("Situacao", (int)newAdditional.AdditionalStatus);
+                    command.Parameters.AddWithValue("DataAlteracao", newAdditional.LastChangeDate);
+                    command.Parameters.AddWithValue("IdUsuarioAlteracao", newAdditional.LastChangeUserId);
+
+                    //Execute Insert
+                    int insertResult = command.ExecuteNonQuery();
+
+                    if (insertResult < 1) { returnValue = false; }
+                    else { returnValue = true; }
+                }
+                catch (MySqlException ex)
+                {
+                    throw new System.Exception(ex.Message);
+                }
+                finally
+                {
+                    dbContext.Close();
+                }
+                return returnValue;
+            }
+        }
+        
         /*
-        public bool CreateUser(User newUser)
-        {
-            bool returnValue = false;
-            using (MySqlConnection dbContext = DbContext.GetInstance().GetConnection())
-            {
-                try
-                {
-                    dbContext.Open();
-                    MySqlCommand command = new MySqlCommand();
-                    command = dbContext.CreateCommand();
+       public bool UpdateUser(User userToUpdate)
+       {
+           bool returnValue = false;
+           using (MySqlConnection dbContext = DbContext.GetInstance().GetConnection())
+           {
+               try
+               {
+                   dbContext.Open();
+                   MySqlCommand command = new MySqlCommand();
+                   command = dbContext.CreateCommand();
 
-                    //Sql command for Create new register on DB
-                    command.CommandText = @"insert into 
-                                            usuario(Id_TipoUsuario, 
-                                                    Nome, 
-                                                    Login, 
-                                                    Senha, 
-                                                    Situacao, 
-                                                    DataAlteracao, 
-                                                    Id_Usuario_Alteracao)
-                                            values (@Id_TipoUsuario,
-                                                    @Nome, 
-                                                    @Login, 
-                                                    @Senha,     
-                                                    @Situacao, 
-                                                    Now(),  
-                                                    @Id_Usuario_Alteracao);";
-                    //Insert parameters
-                    command.Parameters.AddWithValue("Id_TipoUsuario", newUser.UserType.Id);
-                    command.Parameters.AddWithValue("Nome", newUser.Name);
-                    command.Parameters.AddWithValue("Login", newUser.Login);
-                    command.Parameters.AddWithValue("Senha", newUser.Password);
-                    command.Parameters.AddWithValue("Situacao", (int)newUser.UserStatus);
-                    command.Parameters.AddWithValue("Id_Usuario_Alteracao", newUser.LastChangeUserId);
+                   //Sql command for Create new register on DB
+                   command.CommandText = @"UPDATE usuario SET 
+                                           Id_TipoUsuario = @Id_TipoUsuario,
+                                           Nome = @Nome, 
+                                           Login = @Login, 
+                                           Senha = @Senha,
+                                           Situacao = @Situacao,
+                                           DataAlteracao = Now(),
+                                           Id_Usuario_Alteracao = @Id_Usuario_Alteracao
+                                           WHERE Id = @id";
+                   //Insert parameters
+                   command.Parameters.AddWithValue("Id", userToUpdate.Id);
+                   command.Parameters.AddWithValue("Id_TipoUsuario", userToUpdate.UserType.Id);
+                   command.Parameters.AddWithValue("Nome", userToUpdate.Name);
+                   command.Parameters.AddWithValue("Login", userToUpdate.Login);
+                   command.Parameters.AddWithValue("Senha", userToUpdate.Password);
+                   command.Parameters.AddWithValue("Situacao", (int)userToUpdate.UserStatus);
+                   command.Parameters.AddWithValue("Id_Usuario_Alteracao", userToUpdate.LastChangeUserId);
 
-                    //Execute Insert
-                    int insertResult = command.ExecuteNonQuery();
+                   //Execute Insert
+                   int insertResult = command.ExecuteNonQuery();
 
-                    if (insertResult < 1) { returnValue = false; }
-                    else { returnValue = true; }
-                }
-                catch (MySqlException ex)
-                {
-                    throw new System.Exception(ex.Message);
-                }
-                finally
-                {
-                    dbContext.Close();
-                }
-                return returnValue;
-            }
-        }
+                   if (insertResult < 1) { returnValue = false; }
+                   else { returnValue = true; }
+               }
+               catch (MySqlException ex)
+               {
+                   throw new System.Exception(ex.Message);
+               }
+               finally
+               {
+                   dbContext.Close();
+               }
+               return returnValue;
+           }
+       }
 
-        public bool UpdateUser(User userToUpdate)
-        {
-            bool returnValue = false;
-            using (MySqlConnection dbContext = DbContext.GetInstance().GetConnection())
-            {
-                try
-                {
-                    dbContext.Open();
-                    MySqlCommand command = new MySqlCommand();
-                    command = dbContext.CreateCommand();
+       public bool DeleteUser(User userToDelete)
+       {
+           bool returnValue = false;
+           using (MySqlConnection dbContext = DbContext.GetInstance().GetConnection())
+           {
+               try
+               {
+                   dbContext.Open();
+                   MySqlCommand command = new MySqlCommand();
+                   command = dbContext.CreateCommand();
 
-                    //Sql command for Create new register on DB
-                    command.CommandText = @"UPDATE usuario SET 
-                                            Id_TipoUsuario = @Id_TipoUsuario,
-                                            Nome = @Nome, 
-                                            Login = @Login, 
-                                            Senha = @Senha,
-                                            Situacao = @Situacao,
-                                            DataAlteracao = Now(),
-                                            Id_Usuario_Alteracao = @Id_Usuario_Alteracao
-                                            WHERE Id = @id";
-                    //Insert parameters
-                    command.Parameters.AddWithValue("Id", userToUpdate.Id);
-                    command.Parameters.AddWithValue("Id_TipoUsuario", userToUpdate.UserType.Id);
-                    command.Parameters.AddWithValue("Nome", userToUpdate.Name);
-                    command.Parameters.AddWithValue("Login", userToUpdate.Login);
-                    command.Parameters.AddWithValue("Senha", userToUpdate.Password);
-                    command.Parameters.AddWithValue("Situacao", (int)userToUpdate.UserStatus);
-                    command.Parameters.AddWithValue("Id_Usuario_Alteracao", userToUpdate.LastChangeUserId);
+                   //Sql command for Create new register on DB
+                   command.CommandText = @"DELETE from usuario 
+                                           WHERE Id = @id";
+                   //Insert parameters
+                   command.Parameters.AddWithValue("Id", userToDelete.Id);
 
-                    //Execute Insert
-                    int insertResult = command.ExecuteNonQuery();
+                   //Execute Insert
+                   int insertResult = command.ExecuteNonQuery();
 
-                    if (insertResult < 1) { returnValue = false; }
-                    else { returnValue = true; }
-                }
-                catch (MySqlException ex)
-                {
-                    throw new System.Exception(ex.Message);
-                }
-                finally
-                {
-                    dbContext.Close();
-                }
-                return returnValue;
-            }
-        }
+                   if (insertResult < 1) { returnValue = false; }
+                   else { returnValue = true; }
+               }
+               catch (MySqlException ex)
+               {
+                   throw new System.Exception(ex.Message);
+               }
+               finally
+               {
+                   dbContext.Close();
+               }
+               return returnValue;
+           }
+       }
+       */
 
-        public bool DeleteUser(User userToDelete)
-        {
-            bool returnValue = false;
-            using (MySqlConnection dbContext = DbContext.GetInstance().GetConnection())
-            {
-                try
-                {
-                    dbContext.Open();
-                    MySqlCommand command = new MySqlCommand();
-                    command = dbContext.CreateCommand();
-
-                    //Sql command for Create new register on DB
-                    command.CommandText = @"DELETE from usuario 
-                                            WHERE Id = @id";
-                    //Insert parameters
-                    command.Parameters.AddWithValue("Id", userToDelete.Id);
-
-                    //Execute Insert
-                    int insertResult = command.ExecuteNonQuery();
-
-                    if (insertResult < 1) { returnValue = false; }
-                    else { returnValue = true; }
-                }
-                catch (MySqlException ex)
-                {
-                    throw new System.Exception(ex.Message);
-                }
-                finally
-                {
-                    dbContext.Close();
-                }
-                return returnValue;
-            }
-        }
-        */
         public int FindNextCode()
         {
             string sql = "Show table status like 'adicional';";
-            return _dbFunctions.FindNextCode(sql);
+            return _dbFunctions.FindNextCode(sql, "adicional");
         }
 
     }

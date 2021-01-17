@@ -26,5 +26,6 @@ namespace DataContext
             string dbConnection = ConfigurationManager.ConnectionStrings["DataContextConection"].ToString();
             return new MySqlConnection(dbConnection);
         }
+
     }
 }

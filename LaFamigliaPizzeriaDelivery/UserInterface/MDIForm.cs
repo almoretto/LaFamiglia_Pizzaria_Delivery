@@ -3,6 +3,8 @@ using System.Windows.Forms;
 using UserInterface.Login;
 using UserInterface.People;
 using UserInterface.Products;
+using BusinessRules;
+
 
 namespace UserInterface
 {
@@ -46,6 +48,27 @@ namespace UserInterface
 
         private void AddtionalToolStripMenuItem_Click(object sender, EventArgs e)
         { OpenForms(new FrmAdditionalCRUD()); }
+
+        private void atualizarIndicesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string otimized;
+            FunctionBus _buzinessFunction = new FunctionBus();
+            otimized = _buzinessFunction.OptimizeTables();
+            if (otimized == "ok")
+            {
+                MessageBox.Show("Otimização concluída", 
+                    "Pizzeria La Famiglia!", 
+                    MessageBoxButtons.OK, 
+                    MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Houve uma falha tente novamente!",
+                    "Pizzeria La Famiglia!",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
         #endregion
 
 
@@ -59,6 +82,7 @@ namespace UserInterface
             selectedForm.Left = 25;
             selectedForm.Show();
         }
+
         #endregion
 
 
