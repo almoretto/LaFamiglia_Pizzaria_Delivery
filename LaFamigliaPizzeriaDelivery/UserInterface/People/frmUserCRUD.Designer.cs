@@ -79,7 +79,7 @@
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // btnDelete
             // 
@@ -96,7 +96,7 @@
             this.btnDelete.Text = "Excluir";
             this.btnDelete.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // btnSave
             // 
@@ -113,7 +113,7 @@
             this.btnSave.Text = "Salvar";
             this.btnSave.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // txtUserId
             // 
@@ -123,7 +123,7 @@
             this.txtUserId.Name = "txtUserId";
             this.txtUserId.Size = new System.Drawing.Size(148, 25);
             this.txtUserId.TabIndex = 1;
-            this.txtUserId.Validating += new System.ComponentModel.CancelEventHandler(this.txtUserId_Validating);
+            this.txtUserId.Validating += new System.ComponentModel.CancelEventHandler(this.TxtUserId_Validating);
             // 
             // btnUserSearch
             // 
@@ -134,7 +134,7 @@
             this.btnUserSearch.Size = new System.Drawing.Size(33, 29);
             this.btnUserSearch.TabIndex = 2;
             this.btnUserSearch.UseVisualStyleBackColor = true;
-            this.btnUserSearch.Click += new System.EventHandler(this.btnUserSearch_Click);
+            this.btnUserSearch.Click += new System.EventHandler(this.BtnUserSearch_Click);
             // 
             // lblUserId
             // 
@@ -232,7 +232,7 @@
             this.txtUserType.Name = "txtUserType";
             this.txtUserType.Size = new System.Drawing.Size(176, 25);
             this.txtUserType.TabIndex = 11;
-            this.txtUserType.Validating += new System.ComponentModel.CancelEventHandler(this.txtUserType_Validating);
+            this.txtUserType.Validating += new System.ComponentModel.CancelEventHandler(this.TxtUserType_Validating);
             // 
             // btnUserTypeSearch
             // 
@@ -243,7 +243,7 @@
             this.btnUserTypeSearch.Size = new System.Drawing.Size(33, 28);
             this.btnUserTypeSearch.TabIndex = 12;
             this.btnUserTypeSearch.UseVisualStyleBackColor = true;
-            this.btnUserTypeSearch.Click += new System.EventHandler(this.btnUserTypeSearch_Click);
+            this.btnUserTypeSearch.Click += new System.EventHandler(this.BtnUserTypeSearch_Click);
             // 
             // lblDspUserType
             // 
@@ -321,7 +321,7 @@
             this.Name = "FrmUserCRUD";
             this.ShowInTaskbar = false;
             this.Text = "Cadastros e Manutenção de Usuários";
-            this.Load += new System.EventHandler(this.frmUserCRUD_Load);
+            this.Load += new System.EventHandler(this.FrmUserCRUD_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

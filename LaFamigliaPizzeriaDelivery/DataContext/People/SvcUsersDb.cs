@@ -209,15 +209,17 @@ namespace DataContext.People
                     command = dbContext.CreateCommand();
 
                     //Sql command for Create new register on DB
-                    command.CommandText = @"UPDATE usuario SET 
-                                            Id_TipoUsuario = @Id_TipoUsuario,
-                                            Nome = @Nome, 
-                                            Login = @Login, 
-                                            Senha = @Senha,
-                                            Situacao = @Situacao,
-                                            DataAlteracao = Now(),
-                                            Id_Usuario_Alteracao = @Id_Usuario_Alteracao
-                                            WHERE Id = @id";
+                    command.CommandText = @"UPDATE usuario 
+                                                SET
+                                                    Id_TipoUsuario = @Id_TipoUsuario,
+                                                    Nome = @Nome, 
+                                                    Login = @Login, 
+                                                    Senha = @Senha,
+                                                    Situacao = @Situacao,
+                                                    DataAlteracao = Now(),
+                                                    Id_Usuario_Alteracao = @Id_Usuario_Alteracao
+                                                WHERE 
+                                                    Id = @id";
                     //Insert parameters
                     command.Parameters.AddWithValue("Id", userToUpdate.Id);
                     command.Parameters.AddWithValue("Id_TipoUsuario", userToUpdate.UserType.Id);

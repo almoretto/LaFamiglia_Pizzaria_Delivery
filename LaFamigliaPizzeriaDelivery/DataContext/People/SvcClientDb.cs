@@ -395,14 +395,15 @@ namespace DataContext.People
 
                     #region --== Client Edit ==--
                     sqlCommand.CommandText = @"Update cliente
-                                               SET     
-                                                     Nome = @Nome, 
-                                                     Telefone = @Telefone,
-                                                     Celular = @Celular, 
-                                                     Situacao = @Situacao, 
-                                                     DataAlteracao = @DataAlteracao,
-                                                     IdUsuarioAlteracao =  @IdUsuarioAlteracao
-                                               Where Id = @Id;";
+                                                    SET     
+                                                         Nome = @Nome, 
+                                                         Telefone = @Telefone,
+                                                         Celular = @Celular, 
+                                                         Situacao = @Situacao, 
+                                                         DataAlteracao = @DataAlteracao,
+                                                         IdUsuarioAlteracao =  @IdUsuarioAlteracao
+                                                    Where 
+                                                         Id = @Id;";
 
                     sqlCommand.Parameters.AddWithValue("Id", clientToEdit.Id);
                     sqlCommand.Parameters.AddWithValue("Nome", clientToEdit.Name);
@@ -621,6 +622,7 @@ namespace DataContext.People
             }
             return success;
         }
+        
         public int FindNextCode()
         {
             string sql = "Show table status like 'cliente';";

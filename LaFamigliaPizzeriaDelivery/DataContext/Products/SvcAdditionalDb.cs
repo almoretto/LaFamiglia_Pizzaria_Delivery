@@ -1,5 +1,6 @@
 ﻿using DataContext.Modules;
 using Entities.Enums;
+using Entities.Products;
 using Entities.Views;
 using MySql.Data.MySqlClient;
 using System;
@@ -33,11 +34,15 @@ namespace DataContext.Products
                     { 
                         query += " Where " 
                                 +"situacao = @status;";
-                        command.Parameters.AddWithValue("situacao", (int)status);
                     }
 
                     command.CommandText = query;
 
+                    if (status != Status.Todos)
+                    {
+                        command.Parameters.AddWithValue("situacao", (int)status);
+                    }
+                    
                     MySqlDataReader dataReader = command.ExecuteReader();
 
                     while (dataReader.Read())
@@ -64,9 +69,10 @@ namespace DataContext.Products
             return entityList;
         }
 
-        public List<User> GetActiveUsers()
+        public List<Additional> GetActiveAdditional()
         {
-            List<User> usersList = new List<User>();
+            List<Additional> additionalList = new List<Additional>();
+            
             using (MySqlConnection dbContext = DbContext.GetInstance().GetConnection())
             {
                 try
@@ -74,42 +80,46 @@ namespace DataContext.Products
                     dbContext.Open();
                     MySqlCommand command = new MySqlCommand();
                     command = dbContext.CreateCommand();
-                    command.CommandText = "select * from usuario where Situacao=1;";
+                    command.CommandText = "select * from adicional where Situacao=1;";
 
                     MySqlDataReader dataReader = command.ExecuteReader();
 
                     while (dataReader.Read())
                     {
-                        User newUser = new User
-                        {
-                            Id = Convert.ToInt32(dataReader["Id"].ToString()),
-                            UserType = new UserType(Convert.ToInt32(dataReader["Id_TipoUsuario"].ToString()), string.Empty),
-                            Name = dataReader["Nome"].ToString(),
-                            Login = dataReader["Login"].ToString(),
-                            Password = dataReader["Senha"].ToString(),
-                            UserStatus = (Status)Convert.ToInt32(dataReader["Situacao"]),
-                            LastChangeDate = Convert.ToDateTime(dataReader["DataAlteracao"].ToString()),
-                            LastChangeUserId = Convert.ToInt32(dataReader["Id_Usuario_Alteracao"].ToString())
-                        };
 
-                        usersList.Add(newUser);
+                        Additional newAdditional = new Additional();
+
+                        newAdditional.Id = Convert.ToInt32(dataReader["Id"].ToString());
+                        newAdditional.Description = dataReader["Descricao"].ToString();
+                        
+                        if (!(dataReader["Observacao"] is DBNull))
+                        {
+                            newAdditional.Remark = dataReader["Observacao"].ToString();
+                        }
+                        
+                        newAdditional.Price = Convert.ToDouble(dataReader["Valor"].ToString());
+                        newAdditional.AdditionalStatus = (Status)Convert.ToInt32(dataReader["Situacao"]);
+                        newAdditional.LastChangeDate = Convert.ToDateTime(dataReader["DataAlteracao"].ToString());
+                        newAdditional.LastChangeUserId = Convert.ToInt32(dataReader["IdUsuarioAlteracao"].ToString());
+                        
+                        additionalList.Add(newAdditional);
                     }
                 }
                 catch (MySqlException ex)
                 {
-                    throw new System.Exception(ex.Message);
+                    throw new Exception(ex.Message);
                 }
                 finally
                 {
                     dbContext.Close();
                 }
             }
-            return usersList;
+            return additionalList;
         }
 
-        public User FindById(int id)
+        public Additional FindById(int id)
         {
-            User userFounded = new User();
+            Additional additionalFound = new Additional();
             using (MySqlConnection dbContext = DbContext.GetInstance().GetConnection())
             {
                 try
@@ -119,7 +129,7 @@ namespace DataContext.Products
                     command = dbContext.CreateCommand();
 
                     //Sql command
-                    command.CommandText = "select * from usuario where id = @Id;";
+                    command.CommandText = "select * from adicional where id = @Id;";
                     //Sql Parameter
                     command.Parameters.AddWithValue("Id", id);
 
@@ -127,14 +137,18 @@ namespace DataContext.Products
 
                     while (dataReader.Read())
                     {
-                        userFounded.Id = Convert.ToInt32(dataReader["Id"].ToString());
-                        userFounded.UserType = new UserType(Convert.ToInt32(dataReader["Id_TipoUsuario"].ToString()), string.Empty);
-                        userFounded.Name = dataReader["Nome"].ToString();
-                        userFounded.Login = dataReader["Login"].ToString();
-                        userFounded.Password = dataReader["Senha"].ToString();
-                        userFounded.UserStatus = (Status)Convert.ToInt32(dataReader["Situacao"]);
-                        userFounded.LastChangeDate = Convert.ToDateTime(dataReader["DataAlteracao"].ToString());
-                        userFounded.LastChangeUserId = Convert.ToInt32(dataReader["Id_Usuario_Alteracao"].ToString());
+                        additionalFound.Id = Convert.ToInt32(dataReader["Id"].ToString());
+                        additionalFound.Description = dataReader["Descricao"].ToString();
+                        
+                        if (!(dataReader["Observacao"] is DBNull))
+                        {
+                            additionalFound.Remark = dataReader["Observacao"].ToString();
+                        }
+                        
+                        additionalFound.Price = Convert.ToDouble(dataReader["Valor"].ToString());
+                        additionalFound.AdditionalStatus = (Status)Convert.ToInt32(dataReader["Situacao"]);
+                        additionalFound.LastChangeDate = Convert.ToDateTime(dataReader["DataAlteracao"].ToString());
+                        additionalFound.LastChangeUserId = Convert.ToInt32(dataReader["IdUsuarioAlteracao"].ToString());
                     }
                 }
                 catch (MySqlException ex)
@@ -146,11 +160,10 @@ namespace DataContext.Products
                     dbContext.Close();
                 }
             }
-            return userFounded;
+            return additionalFound;
         }
 
-        /*
-        public bool CreateUser(User newUser)
+        public bool CreateAdditional(Additional newAdditional)
         {
             bool returnValue = false;
             using (MySqlConnection dbContext = DbContext.GetInstance().GetConnection())
@@ -163,27 +176,27 @@ namespace DataContext.Products
 
                     //Sql command for Create new register on DB
                     command.CommandText = @"insert into 
-                                            usuario(Id_TipoUsuario, 
-                                                    Nome, 
-                                                    Login, 
-                                                    Senha, 
-                                                    Situacao, 
-                                                    DataAlteracao, 
-                                                    Id_Usuario_Alteracao)
-                                            values (@Id_TipoUsuario,
-                                                    @Nome, 
-                                                    @Login, 
-                                                    @Senha,     
-                                                    @Situacao, 
-                                                    Now(),  
-                                                    @Id_Usuario_Alteracao);";
+                                            adicional( 
+                                                Descricao, 
+                                                Observacao, 
+                                                Valor, 
+                                                Situacao, 
+                                                DataAlteracao, 
+                                                IdUsuarioAlteracao)
+                                            values( 
+                                                @Descricao, 
+                                                @Observacao, 
+                                                @Valor, 
+                                                @Situacao, 
+                                                @DataAlteracao, 
+                                                @IdUsuarioAlteracao);";
                     //Insert parameters
-                    command.Parameters.AddWithValue("Id_TipoUsuario", newUser.UserType.Id);
-                    command.Parameters.AddWithValue("Nome", newUser.Name);
-                    command.Parameters.AddWithValue("Login", newUser.Login);
-                    command.Parameters.AddWithValue("Senha", newUser.Password);
-                    command.Parameters.AddWithValue("Situacao", (int)newUser.UserStatus);
-                    command.Parameters.AddWithValue("Id_Usuario_Alteracao", newUser.LastChangeUserId);
+                    command.Parameters.AddWithValue("Descricao", newAdditional.Description);
+                    command.Parameters.AddWithValue("Observacao", newAdditional.Remark);
+                    command.Parameters.AddWithValue("Valor", newAdditional.Price);
+                    command.Parameters.AddWithValue("Situacao", (int)newAdditional.AdditionalStatus);
+                    command.Parameters.AddWithValue("DataAlteracao", newAdditional.LastChangeDate);
+                    command.Parameters.AddWithValue("Id_Usuario_Alteracao", newAdditional.LastChangeUserId);
 
                     //Execute Insert
                     int insertResult = command.ExecuteNonQuery();
@@ -202,8 +215,8 @@ namespace DataContext.Products
                 return returnValue;
             }
         }
-
-        public bool UpdateUser(User userToUpdate)
+        
+        public bool UpdateAdditional(Additional additionalToUpdate)
         {
             bool returnValue = false;
             using (MySqlConnection dbContext = DbContext.GetInstance().GetConnection())
@@ -215,23 +228,24 @@ namespace DataContext.Products
                     command = dbContext.CreateCommand();
 
                     //Sql command for Create new register on DB
-                    command.CommandText = @"UPDATE usuario SET 
-                                            Id_TipoUsuario = @Id_TipoUsuario,
-                                            Nome = @Nome, 
-                                            Login = @Login, 
-                                            Senha = @Senha,
-                                            Situacao = @Situacao,
-                                            DataAlteracao = Now(),
-                                            Id_Usuario_Alteracao = @Id_Usuario_Alteracao
-                                            WHERE Id = @id";
+                    command.CommandText = @"update adicional 
+                                                set  
+                                                    Descricao = @Descricao, 
+                                                    Observacao = @Observacao, 
+                                                    Valor = @Valor, 
+                                                    Situacao = @Situacao, 
+                                                    DataAlteracao = @DataAlteracao, 
+                                                    IdUsuarioAlteracao = @IdUsuarioAlteracao
+                                                WHERE 
+                                                    Id = @id";
                     //Insert parameters
-                    command.Parameters.AddWithValue("Id", userToUpdate.Id);
-                    command.Parameters.AddWithValue("Id_TipoUsuario", userToUpdate.UserType.Id);
-                    command.Parameters.AddWithValue("Nome", userToUpdate.Name);
-                    command.Parameters.AddWithValue("Login", userToUpdate.Login);
-                    command.Parameters.AddWithValue("Senha", userToUpdate.Password);
-                    command.Parameters.AddWithValue("Situacao", (int)userToUpdate.UserStatus);
-                    command.Parameters.AddWithValue("Id_Usuario_Alteracao", userToUpdate.LastChangeUserId);
+                    command.Parameters.AddWithValue("Id", additionalToUpdate.Id);
+                    command.Parameters.AddWithValue("Descricao", additionalToUpdate.Description);
+                    command.Parameters.AddWithValue("Observacao", additionalToUpdate.Remark);
+                    command.Parameters.AddWithValue("Valor", additionalToUpdate.Price);
+                    command.Parameters.AddWithValue("Situacao", (int)additionalToUpdate.AdditionalStatus);
+                    command.Parameters.AddWithValue("DataAlteracao", additionalToUpdate.LastChangeDate);
+                    command.Parameters.AddWithValue("Id_Usuario_Alteracao", additionalToUpdate.LastChangeUserId);
 
                     //Execute Insert
                     int insertResult = command.ExecuteNonQuery();
@@ -241,7 +255,7 @@ namespace DataContext.Products
                 }
                 catch (MySqlException ex)
                 {
-                    throw new System.Exception(ex.Message);
+                    throw new Exception(ex.Message);
                 }
                 finally
                 {
@@ -250,6 +264,12 @@ namespace DataContext.Products
                 return returnValue;
             }
         }
+
+
+        /*
+       
+
+        
 
         public bool DeleteUser(User userToDelete)
         {
@@ -286,6 +306,7 @@ namespace DataContext.Products
             }
         }
         */
+
         public int FindNextCode()
         {
             string sql = "Show table status like 'adicional';";

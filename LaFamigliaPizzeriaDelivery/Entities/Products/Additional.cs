@@ -15,8 +15,8 @@ namespace Entities.Products
         public double Price { get; set; }
         public Status AdditionalStatus { get; set; }
         public DateTime LastChangeDate { get; set; }
-        public User LastChangeUser { get; set; }
-        
+        public int LastChangeUserId { get; set; }
+
         public Additional(int id, string description)
         {
             Id = id;

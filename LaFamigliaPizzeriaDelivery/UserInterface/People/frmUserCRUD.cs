@@ -22,14 +22,14 @@ namespace UserInterface.People
             IdFieldMasks.AplyEvents(txtUserId);
             IdFieldMasks.AplyEvents(txtUserType);
         }
-        private void frmUserCRUD_Load(object sender, EventArgs e)
+        private void FrmUserCRUD_Load(object sender, EventArgs e)
         {
             ClearForm();
         }
 
         #region --== Buttons ==--
 
-        private void btnUserSearch_Click(object sender, EventArgs e)
+        private void BtnUserSearch_Click(object sender, EventArgs e)
         {
             List<EntityViewSearch> users = new UserBus().GetEntityViewSearch(Status.Todos);
             if (users.Count < 1)
@@ -51,11 +51,11 @@ namespace UserInterface.People
             if (returnControl < 1) { return; }
 
             txtUserId.Text = returnControl.ToString();
-            txtUserId_Validating(txtUserId, new CancelEventArgs());
+            TxtUserId_Validating(txtUserId, new CancelEventArgs());
             btnUserSearch.Focus();
         }
 
-        private void btnUserTypeSearch_Click(object sender, EventArgs e)
+        private void BtnUserTypeSearch_Click(object sender, EventArgs e)
         {
             List<EntityViewSearch> userTypes = new UserTypeBus().GetEntityViewSearch();
             if (userTypes.Count < 1)
@@ -77,18 +77,18 @@ namespace UserInterface.People
             if (returnControl < 1) { return; }
 
             txtUserType.Text = returnControl.ToString();
-            txtUserType_Validating(txtUserType, new CancelEventArgs());
+            TxtUserType_Validating(txtUserType, new CancelEventArgs());
             IdFieldMasks.MakeMask(txtUserType, new EventArgs());
             btnUserTypeSearch.Focus();
 
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void BtnCancel_Click(object sender, EventArgs e)
         {
             ClearForm();
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void BtnDelete_Click(object sender, EventArgs e)
         {
             if ((txtUserId.Text.Trim() == string.Empty) || (newregister)) { return; }
 
@@ -117,7 +117,7 @@ namespace UserInterface.People
             else { return; }
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private void BtnSave_Click(object sender, EventArgs e)
         {
             if (!FieldsVerification()) { return; }
             UserBus _userBus = new UserBus();
@@ -173,7 +173,7 @@ namespace UserInterface.People
         #endregion
 
         #region --== Event Methods ==--
-        private void txtUserId_Validating(object sender, CancelEventArgs e)
+        private void TxtUserId_Validating(object sender, CancelEventArgs e)
         {
             if (txtUserId.Text.Trim() == string.Empty) { return; }
 
@@ -193,7 +193,7 @@ namespace UserInterface.People
             txtUserPassword.Text = userToDisplay.Password;
             txtUserType.Text = userToDisplay.UserType.Id.ToString();
 
-            txtUserType_Validating(txtUserType, new CancelEventArgs());
+            TxtUserType_Validating(txtUserType, new CancelEventArgs());
 
             IdFieldMasks.MakeMask(txtUserId, new EventArgs());
             IdFieldMasks.MakeMask(txtUserType, new EventArgs());
@@ -202,7 +202,7 @@ namespace UserInterface.People
             btnDelete.Enabled = true;
         }
 
-        private void txtUserType_Validating(object sender, CancelEventArgs e)
+        private void TxtUserType_Validating(object sender, CancelEventArgs e)
         {
             if (txtUserType.Text.Trim() == string.Empty)
             {
