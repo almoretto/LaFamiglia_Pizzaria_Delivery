@@ -2,11 +2,7 @@
 using Entities.Enums;
 using Entities.Products;
 using Entities.Views;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BusinessRules.Products
 {
@@ -33,5 +29,7 @@ namespace BusinessRules.Products
         public bool UpdateAdditional(Additional additionalToUpdate) 
         { return _svcAdditionalDb.UpdateAdditional(additionalToUpdate); }
 
+        public bool DeleteAdditional(int additionalToDelete)
+        { return _svcAdditionalDb.DeleteAdditional(additionalToDelete); }
     }
 }

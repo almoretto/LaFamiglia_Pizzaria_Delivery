@@ -17,8 +17,8 @@ namespace UserInterface.Modules
                 UnMakeMask(sender, e);
                 return;
             }
-            //This line is responsible to create a mask like if id is 100 mask is R$100,00
-            txt.Text = Double.Parse(txt.Text).ToString("C2", CultureInfo.CurrentCulture);
+            //This line is responsible to create a mask like if price is 100 mask is R$100,00
+            txt.Text = double.Parse(txt.Text).ToString("C2", CultureInfo.CurrentCulture);
         }
         
         public static void UnMakeMask(object sender, EventArgs e)

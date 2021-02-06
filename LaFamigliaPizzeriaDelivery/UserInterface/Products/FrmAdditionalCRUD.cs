@@ -26,7 +26,7 @@ namespace UserInterface.Products
         #region --== Buttons ==--
         private void FrmAdditionalCRUD_Load(object sender, EventArgs e)
         {
-
+            ClearForm();
         }
 
         private void BtnSave_Click(object sender, EventArgs e)
@@ -47,7 +47,7 @@ namespace UserInterface.Products
             {
                 if (_adtBus.CreateAdditional(additionalToCreate))
                 {
-                    MessageBox.Show("Usuário cadastrado com sucesso!",
+                    MessageBox.Show("Adicional cadastrado com sucesso!",
                         this.Text,
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
@@ -66,7 +66,7 @@ namespace UserInterface.Products
                 additionalToCreate.Id = Convert.ToInt32(txtAdditionalId.Text.Trim());
                 if (_adtBus.UpdateAdditional(additionalToCreate))
                 {
-                    MessageBox.Show("Usuário Atualizado com sucesso!",
+                    MessageBox.Show("Adicional Atualizado com sucesso!",
                         this.Text,
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
@@ -84,12 +84,30 @@ namespace UserInterface.Products
 
         private void BtnDelete_Click(object sender, EventArgs e)
         {
-
+            IdFieldMasks.UnMakeMask(txtAdditionalId, new EventArgs());
+            int additionalToDelete = Convert.ToInt32(txtAdditionalId.Text.Trim());
+            AdditionalBus _adtBus = new AdditionalBus();
+            if (_adtBus.DeleteAdditional(additionalToDelete))
+            {
+                MessageBox.Show("Adicional excluído com sucesso!",
+                                      this.Text,
+                                      MessageBoxButtons.OK,
+                                      MessageBoxIcon.Information);
+                ClearForm();
+            }
+            else
+            {
+                MessageBox.Show("Não foi possível excluir o registro!",
+                    this.Text,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
         {
-
+            ClearForm();
+            this.Close();
         }
 
         private void BtnAdditionalSearch_Click(object sender, EventArgs e)
@@ -119,9 +137,6 @@ namespace UserInterface.Products
         }
 
 
-
-
-
         #endregion
 
         #region --== Event Methods ==--
@@ -148,7 +163,6 @@ namespace UserInterface.Products
             btnDelete.Enabled = true;
 
             IdFieldMasks.MakeMask(txtAdditionalId, new EventArgs());
-            MonetaryMask.MakeMask(txtAdditionalPrice, new EventArgs());
         }
 
         #endregion

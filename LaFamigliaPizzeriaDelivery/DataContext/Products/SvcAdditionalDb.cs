@@ -5,9 +5,6 @@ using Entities.Views;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataContext.Products
 {
@@ -196,7 +193,7 @@ namespace DataContext.Products
                     command.Parameters.AddWithValue("Valor", newAdditional.Price);
                     command.Parameters.AddWithValue("Situacao", (int)newAdditional.AdditionalStatus);
                     command.Parameters.AddWithValue("DataAlteracao", newAdditional.LastChangeDate);
-                    command.Parameters.AddWithValue("Id_Usuario_Alteracao", newAdditional.LastChangeUserId);
+                    command.Parameters.AddWithValue("IdUsuarioAlteracao", newAdditional.LastChangeUserId);
 
                     //Execute Insert
                     int insertResult = command.ExecuteNonQuery();
@@ -245,7 +242,7 @@ namespace DataContext.Products
                     command.Parameters.AddWithValue("Valor", additionalToUpdate.Price);
                     command.Parameters.AddWithValue("Situacao", (int)additionalToUpdate.AdditionalStatus);
                     command.Parameters.AddWithValue("DataAlteracao", additionalToUpdate.LastChangeDate);
-                    command.Parameters.AddWithValue("Id_Usuario_Alteracao", additionalToUpdate.LastChangeUserId);
+                    command.Parameters.AddWithValue("IdUsuarioAlteracao", additionalToUpdate.LastChangeUserId);
 
                     //Execute Insert
                     int insertResult = command.ExecuteNonQuery();
@@ -265,13 +262,7 @@ namespace DataContext.Products
             }
         }
 
-
-        /*
-       
-
-        
-
-        public bool DeleteUser(User userToDelete)
+        public bool DeleteAdditional(int additionalToDelete)
         {
             bool returnValue = false;
             using (MySqlConnection dbContext = DbContext.GetInstance().GetConnection())
@@ -283,10 +274,10 @@ namespace DataContext.Products
                     command = dbContext.CreateCommand();
 
                     //Sql command for Create new register on DB
-                    command.CommandText = @"DELETE from usuario 
+                    command.CommandText = @"DELETE from adicional 
                                             WHERE Id = @id";
                     //Insert parameters
-                    command.Parameters.AddWithValue("Id", userToDelete.Id);
+                    command.Parameters.AddWithValue("Id", additionalToDelete);
 
                     //Execute Insert
                     int insertResult = command.ExecuteNonQuery();
@@ -305,8 +296,7 @@ namespace DataContext.Products
                 return returnValue;
             }
         }
-        */
-
+   
         public int FindNextCode()
         {
             string sql = "Show table status like 'adicional';";
