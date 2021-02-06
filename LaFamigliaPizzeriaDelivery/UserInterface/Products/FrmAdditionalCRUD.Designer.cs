@@ -66,7 +66,7 @@ namespace UserInterface.Products
             this.txtAdditionalDescription.Location = new System.Drawing.Point(172, 31);
             this.txtAdditionalDescription.Name = "txtAdditionalDescription";
             this.txtAdditionalDescription.Size = new System.Drawing.Size(604, 28);
-            this.txtAdditionalDescription.TabIndex = 8;
+            this.txtAdditionalDescription.TabIndex = 2;
             // 
             // lblAdditionalId
             // 
@@ -77,7 +77,7 @@ namespace UserInterface.Products
             this.lblAdditionalId.Location = new System.Drawing.Point(8, 6);
             this.lblAdditionalId.Name = "lblAdditionalId";
             this.lblAdditionalId.Size = new System.Drawing.Size(71, 20);
-            this.lblAdditionalId.TabIndex = 5;
+            this.lblAdditionalId.TabIndex = 0;
             this.lblAdditionalId.Text = "Codigo:";
             // 
             // btnAdditionalSearch
@@ -98,7 +98,7 @@ namespace UserInterface.Products
             this.txtAdditionalId.Location = new System.Drawing.Point(12, 30);
             this.txtAdditionalId.Name = "txtAdditionalId";
             this.txtAdditionalId.Size = new System.Drawing.Size(100, 28);
-            this.txtAdditionalId.TabIndex = 6;
+            this.txtAdditionalId.TabIndex = 1;
             this.txtAdditionalId.Validating += new System.ComponentModel.CancelEventHandler(this.TxtAdditionalId_Validating);
             // 
             // flowLayoutPanel1
@@ -110,7 +110,7 @@ namespace UserInterface.Products
             this.flowLayoutPanel1.Location = new System.Drawing.Point(451, 210);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(325, 50);
-            this.flowLayoutPanel1.TabIndex = 14;
+            this.flowLayoutPanel1.TabIndex = 5;
             // 
             // btnCancel
             // 
@@ -193,7 +193,7 @@ namespace UserInterface.Products
             this.txtAdditionalRemark.Multiline = true;
             this.txtAdditionalRemark.Name = "txtAdditionalRemark";
             this.txtAdditionalRemark.Size = new System.Drawing.Size(604, 110);
-            this.txtAdditionalRemark.TabIndex = 18;
+            this.txtAdditionalRemark.TabIndex = 3;
             // 
             // adcStatus
             // 
@@ -206,7 +206,7 @@ namespace UserInterface.Products
             this.adcStatus.Name = "adcStatus";
             this.adcStatus.Padding = new System.Windows.Forms.Padding(10);
             this.adcStatus.Size = new System.Drawing.Size(145, 135);
-            this.adcStatus.TabIndex = 13;
+            this.adcStatus.TabIndex = 4;
             // 
             // txtAdditionalPrice
             // 
@@ -216,7 +216,7 @@ namespace UserInterface.Products
             this.txtAdditionalPrice.Location = new System.Drawing.Point(172, 235);
             this.txtAdditionalPrice.Name = "txtAdditionalPrice";
             this.txtAdditionalPrice.Size = new System.Drawing.Size(258, 28);
-            this.txtAdditionalPrice.TabIndex = 16;
+            this.txtAdditionalPrice.TabIndex = 4;
             // 
             // FrmAdditionalCRUD
             // 
