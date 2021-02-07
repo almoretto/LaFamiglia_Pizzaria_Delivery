@@ -30,10 +30,10 @@ namespace UserInterface.Products
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPizzaFlavorCRUD));
-            this.txtAdditionalRemark = new System.Windows.Forms.TextBox();
+            this.txtFlavorRemark = new System.Windows.Forms.TextBox();
             this.lblFlavorRemark = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtAdditionalPrice = new System.Windows.Forms.TextBox();
+            this.txtFlavorPriceAdditional = new System.Windows.Forms.TextBox();
             this.flvStatus = new UserInterface.Controls.UserSituacaoCTRL();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -47,16 +47,16 @@ namespace UserInterface.Products
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // txtAdditionalRemark
+            // txtFlavorRemark
             // 
-            this.txtAdditionalRemark.BackColor = System.Drawing.Color.White;
-            this.txtAdditionalRemark.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtAdditionalRemark.Font = new System.Drawing.Font("Futura Md BT", 8.150944F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAdditionalRemark.Location = new System.Drawing.Point(176, 98);
-            this.txtAdditionalRemark.Multiline = true;
-            this.txtAdditionalRemark.Name = "txtAdditionalRemark";
-            this.txtAdditionalRemark.Size = new System.Drawing.Size(604, 110);
-            this.txtAdditionalRemark.TabIndex = 2;
+            this.txtFlavorRemark.BackColor = System.Drawing.Color.White;
+            this.txtFlavorRemark.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtFlavorRemark.Font = new System.Drawing.Font("Futura Md BT", 8.150944F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFlavorRemark.Location = new System.Drawing.Point(176, 98);
+            this.txtFlavorRemark.Multiline = true;
+            this.txtFlavorRemark.Name = "txtFlavorRemark";
+            this.txtFlavorRemark.Size = new System.Drawing.Size(604, 110);
+            this.txtFlavorRemark.TabIndex = 2;
             // 
             // lblFlavorRemark
             // 
@@ -79,15 +79,15 @@ namespace UserInterface.Products
             this.label1.TabIndex = 26;
             this.label1.Text = "Valor Adicional:";
             // 
-            // txtAdditionalPrice
+            // txtFlavorPriceAdditional
             // 
-            this.txtAdditionalPrice.BackColor = System.Drawing.Color.White;
-            this.txtAdditionalPrice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtAdditionalPrice.Cursor = System.Windows.Forms.Cursors.Default;
-            this.txtAdditionalPrice.Location = new System.Drawing.Point(176, 239);
-            this.txtAdditionalPrice.Name = "txtAdditionalPrice";
-            this.txtAdditionalPrice.Size = new System.Drawing.Size(258, 28);
-            this.txtAdditionalPrice.TabIndex = 3;
+            this.txtFlavorPriceAdditional.BackColor = System.Drawing.Color.White;
+            this.txtFlavorPriceAdditional.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtFlavorPriceAdditional.Cursor = System.Windows.Forms.Cursors.Default;
+            this.txtFlavorPriceAdditional.Location = new System.Drawing.Point(176, 239);
+            this.txtFlavorPriceAdditional.Name = "txtFlavorPriceAdditional";
+            this.txtFlavorPriceAdditional.Size = new System.Drawing.Size(258, 28);
+            this.txtFlavorPriceAdditional.TabIndex = 3;
             // 
             // flvStatus
             // 
@@ -223,10 +223,10 @@ namespace UserInterface.Products
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(793, 276);
-            this.Controls.Add(this.txtAdditionalRemark);
+            this.Controls.Add(this.txtFlavorRemark);
             this.Controls.Add(this.lblFlavorRemark);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtAdditionalPrice);
+            this.Controls.Add(this.txtFlavorPriceAdditional);
             this.Controls.Add(this.flvStatus);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.lblAdditionalDescription);
@@ -252,10 +252,10 @@ namespace UserInterface.Products
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtAdditionalRemark;
+        private System.Windows.Forms.TextBox txtFlavorRemark;
         private System.Windows.Forms.Label lblFlavorRemark;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtAdditionalPrice;
+        private System.Windows.Forms.TextBox txtFlavorPriceAdditional;
         private Controls.UserSituacaoCTRL flvStatus;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button btnCancel;
