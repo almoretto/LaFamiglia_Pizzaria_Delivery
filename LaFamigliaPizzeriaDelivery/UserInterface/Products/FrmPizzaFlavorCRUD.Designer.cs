@@ -216,6 +216,7 @@ namespace UserInterface.Products
             this.txtFlavorId.Name = "txtFlavorId";
             this.txtFlavorId.Size = new System.Drawing.Size(100, 28);
             this.txtFlavorId.TabIndex = 0;
+            this.txtFlavorId.Validating += new System.ComponentModel.CancelEventHandler(this.TxtFlavorId_Validating);
             // 
             // FrmPizzaFlavorCRUD
             // 

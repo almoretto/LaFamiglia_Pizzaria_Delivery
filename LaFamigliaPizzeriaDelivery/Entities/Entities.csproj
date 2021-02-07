@@ -49,6 +49,7 @@
     <Compile Include="People\User.cs" />
     <Compile Include="People\UserType.cs" />
     <Compile Include="Products\Additional.cs" />
+    <Compile Include="Products\PizzaFlavor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="System\CmbUsersItens.cs" />
     <Compile Include="System\Session.cs" />

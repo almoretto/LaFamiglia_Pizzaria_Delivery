@@ -93,12 +93,12 @@ namespace DataContext.Products
                         {
                             newAdditional.Remark = dataReader["Observacao"].ToString();
                         }
-                        
-                        newAdditional.Price = Convert.ToDouble(dataReader["Valor"].ToString());
+
+                        newAdditional.Price = Convert.ToDouble(dataReader["ValorAcrescimo"].ToString());
                         newAdditional.AdditionalStatus = (Status)Convert.ToInt32(dataReader["Situacao"]);
                         newAdditional.LastChangeDate = Convert.ToDateTime(dataReader["DataAlteracao"].ToString());
                         newAdditional.LastChangeUserId = Convert.ToInt32(dataReader["IdUsuarioAlteracao"].ToString());
-                        
+
                         additionalList.Add(newAdditional);
                     }
                 }

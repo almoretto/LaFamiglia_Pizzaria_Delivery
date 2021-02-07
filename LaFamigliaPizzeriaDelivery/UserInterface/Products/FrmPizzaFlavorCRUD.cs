@@ -51,9 +51,13 @@ namespace UserInterface.Products
 
         #endregion
 
-
         #region --== Auxiliary Methods ==--
 
         #endregion
+
+        private void TxtFlavorId_Validating(object sender, CancelEventArgs e)
+        {
+
+        }
     }
 }
