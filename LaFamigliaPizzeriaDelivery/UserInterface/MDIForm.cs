@@ -46,6 +46,10 @@ namespace UserInterface
 
         private void AddtionalToolStripMenuItem_Click(object sender, EventArgs e)
         { OpenForms(new FrmAdditionalCRUD()); }
+        
+        private void saboresToolStripMenuItem1_Click(object sender, EventArgs e)
+        { OpenForms(new FrmPizzaFlavorCRUD()); }
+
         #endregion
 
 
@@ -59,6 +63,8 @@ namespace UserInterface
             selectedForm.Left = 25;
             selectedForm.Show();
         }
+
+
         #endregion
 
 
