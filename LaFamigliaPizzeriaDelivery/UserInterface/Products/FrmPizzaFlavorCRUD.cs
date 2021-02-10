@@ -32,12 +32,14 @@ namespace UserInterface.Products
         private void FrmPizzaFlavorCRUD_Load(object sender, EventArgs e)
         {
             ClearForm();
+            txtFlavorId.Text = "0";
+            IdFieldMasks.MakeMask(txtFlavorId, new EventArgs());
         }
 
         #region --== Button Methods ==--
         private void BtnFlavorSearch_Click(object sender, EventArgs e)
         {
-            List<EntityViewSearch> pizzaFlavors = new AdditionalBus().GetEntityViewSearch(Status.Todos);
+            List<EntityViewSearch> pizzaFlavors = new PizzaFlavorBus().GetEntityViewSearch(Status.Todos);
             if (pizzaFlavors.Count < 1)
             {
                 //verify if list is empty
