@@ -172,9 +172,9 @@ namespace UserInterface.Products
             this.lblAdditionalDescription.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lblAdditionalDescription.Location = new System.Drawing.Point(172, 10);
             this.lblAdditionalDescription.Name = "lblAdditionalDescription";
-            this.lblAdditionalDescription.Size = new System.Drawing.Size(90, 20);
+            this.lblAdditionalDescription.Size = new System.Drawing.Size(60, 20);
             this.lblAdditionalDescription.TabIndex = 21;
-            this.lblAdditionalDescription.Text = "Descrição:";
+            this.lblAdditionalDescription.Text = "Sabor:";
             // 
             // txtFlavorDescription
             // 
