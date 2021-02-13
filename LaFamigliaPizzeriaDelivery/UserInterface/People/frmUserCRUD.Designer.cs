@@ -49,6 +49,7 @@
             this.txtPasswordConfirmation = new System.Windows.Forms.TextBox();
             this.lblUserPasswordConfirmation = new System.Windows.Forms.Label();
             this.uscStatus = new UserInterface.Controls.UserSituacaoCTRL();
+            this.lblSaveOptimize = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,7 +60,7 @@
             this.flowLayoutPanel1.Controls.Add(this.btnSave);
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(474, 271);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(370, 69);
             this.flowLayoutPanel1.TabIndex = 0;
@@ -72,7 +73,7 @@
             this.btnCancel.Image = global::UserInterface.Properties.Resources.cancelar;
             this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnCancel.Location = new System.Drawing.Point(255, 4);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(111, 43);
             this.btnCancel.TabIndex = 2;
@@ -89,7 +90,7 @@
             this.btnDelete.Image = global::UserInterface.Properties.Resources.excluir;
             this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnDelete.Location = new System.Drawing.Point(136, 4);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(111, 43);
             this.btnDelete.TabIndex = 1;
@@ -106,7 +107,7 @@
             this.btnSave.Image = global::UserInterface.Properties.Resources.confirmar;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnSave.Location = new System.Drawing.Point(17, 4);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(111, 43);
             this.btnSave.TabIndex = 0;
@@ -119,9 +120,9 @@
             // 
             this.txtUserId.BackColor = System.Drawing.Color.SeaShell;
             this.txtUserId.Location = new System.Drawing.Point(15, 46);
-            this.txtUserId.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUserId.Margin = new System.Windows.Forms.Padding(4);
             this.txtUserId.Name = "txtUserId";
-            this.txtUserId.Size = new System.Drawing.Size(148, 25);
+            this.txtUserId.Size = new System.Drawing.Size(148, 28);
             this.txtUserId.TabIndex = 1;
             this.txtUserId.Validating += new System.ComponentModel.CancelEventHandler(this.TxtUserId_Validating);
             // 
@@ -129,7 +130,7 @@
             // 
             this.btnUserSearch.Image = global::UserInterface.Properties.Resources.busca;
             this.btnUserSearch.Location = new System.Drawing.Point(174, 46);
-            this.btnUserSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUserSearch.Margin = new System.Windows.Forms.Padding(4);
             this.btnUserSearch.Name = "btnUserSearch";
             this.btnUserSearch.Size = new System.Drawing.Size(33, 29);
             this.btnUserSearch.TabIndex = 2;
@@ -144,7 +145,7 @@
             this.lblUserId.Location = new System.Drawing.Point(9, 12);
             this.lblUserId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUserId.Name = "lblUserId";
-            this.lblUserId.Size = new System.Drawing.Size(65, 19);
+            this.lblUserId.Size = new System.Drawing.Size(71, 20);
             this.lblUserId.TabIndex = 3;
             this.lblUserId.Text = "Codigo:";
             // 
@@ -156,7 +157,7 @@
             this.lblUserLogin.Location = new System.Drawing.Point(249, 82);
             this.lblUserLogin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUserLogin.Name = "lblUserLogin";
-            this.lblUserLogin.Size = new System.Drawing.Size(53, 19);
+            this.lblUserLogin.Size = new System.Drawing.Size(57, 20);
             this.lblUserLogin.TabIndex = 4;
             this.lblUserLogin.Text = "Login:";
             // 
@@ -168,7 +169,7 @@
             this.lblUserPassword.Location = new System.Drawing.Point(634, 82);
             this.lblUserPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUserPassword.Name = "lblUserPassword";
-            this.lblUserPassword.Size = new System.Drawing.Size(59, 19);
+            this.lblUserPassword.Size = new System.Drawing.Size(63, 20);
             this.lblUserPassword.TabIndex = 5;
             this.lblUserPassword.Text = "Senha:";
             // 
@@ -176,28 +177,28 @@
             // 
             this.txtUserName.BackColor = System.Drawing.Color.SeaShell;
             this.txtUserName.Location = new System.Drawing.Point(255, 47);
-            this.txtUserName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUserName.Margin = new System.Windows.Forms.Padding(4);
             this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(589, 25);
+            this.txtUserName.Size = new System.Drawing.Size(589, 28);
             this.txtUserName.TabIndex = 6;
             // 
             // txtUserLogin
             // 
             this.txtUserLogin.BackColor = System.Drawing.Color.SeaShell;
             this.txtUserLogin.Location = new System.Drawing.Point(255, 112);
-            this.txtUserLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUserLogin.Margin = new System.Windows.Forms.Padding(4);
             this.txtUserLogin.Name = "txtUserLogin";
-            this.txtUserLogin.Size = new System.Drawing.Size(364, 25);
+            this.txtUserLogin.Size = new System.Drawing.Size(364, 28);
             this.txtUserLogin.TabIndex = 7;
             // 
             // txtUserPassword
             // 
             this.txtUserPassword.BackColor = System.Drawing.Color.SeaShell;
             this.txtUserPassword.Location = new System.Drawing.Point(640, 112);
-            this.txtUserPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUserPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtUserPassword.Name = "txtUserPassword";
             this.txtUserPassword.PasswordChar = '*';
-            this.txtUserPassword.Size = new System.Drawing.Size(204, 25);
+            this.txtUserPassword.Size = new System.Drawing.Size(204, 28);
             this.txtUserPassword.TabIndex = 8;
             // 
             // lblUserType
@@ -208,7 +209,7 @@
             this.lblUserType.Location = new System.Drawing.Point(249, 150);
             this.lblUserType.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUserType.Name = "lblUserType";
-            this.lblUserType.Size = new System.Drawing.Size(123, 19);
+            this.lblUserType.Size = new System.Drawing.Size(131, 20);
             this.lblUserType.TabIndex = 9;
             this.lblUserType.Text = "Tipo de Usuário";
             // 
@@ -220,7 +221,7 @@
             this.lblUserName.Location = new System.Drawing.Point(249, 12);
             this.lblUserName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(59, 19);
+            this.lblUserName.Size = new System.Drawing.Size(63, 20);
             this.lblUserName.TabIndex = 10;
             this.lblUserName.Text = "Nome:";
             // 
@@ -228,9 +229,9 @@
             // 
             this.txtUserType.BackColor = System.Drawing.Color.SeaShell;
             this.txtUserType.Location = new System.Drawing.Point(255, 180);
-            this.txtUserType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUserType.Margin = new System.Windows.Forms.Padding(4);
             this.txtUserType.Name = "txtUserType";
-            this.txtUserType.Size = new System.Drawing.Size(176, 25);
+            this.txtUserType.Size = new System.Drawing.Size(176, 28);
             this.txtUserType.TabIndex = 11;
             this.txtUserType.Validating += new System.ComponentModel.CancelEventHandler(this.TxtUserType_Validating);
             // 
@@ -238,7 +239,7 @@
             // 
             this.btnUserTypeSearch.Image = global::UserInterface.Properties.Resources.busca;
             this.btnUserTypeSearch.Location = new System.Drawing.Point(456, 180);
-            this.btnUserTypeSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUserTypeSearch.Margin = new System.Windows.Forms.Padding(4);
             this.btnUserTypeSearch.Name = "btnUserTypeSearch";
             this.btnUserTypeSearch.Size = new System.Drawing.Size(33, 28);
             this.btnUserTypeSearch.TabIndex = 12;
@@ -262,10 +263,10 @@
             // 
             this.txtPasswordConfirmation.BackColor = System.Drawing.Color.SeaShell;
             this.txtPasswordConfirmation.Location = new System.Drawing.Point(640, 180);
-            this.txtPasswordConfirmation.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPasswordConfirmation.Margin = new System.Windows.Forms.Padding(4);
             this.txtPasswordConfirmation.Name = "txtPasswordConfirmation";
             this.txtPasswordConfirmation.PasswordChar = '*';
-            this.txtPasswordConfirmation.Size = new System.Drawing.Size(204, 25);
+            this.txtPasswordConfirmation.Size = new System.Drawing.Size(204, 28);
             this.txtPasswordConfirmation.TabIndex = 15;
             // 
             // lblUserPasswordConfirmation
@@ -276,25 +277,39 @@
             this.lblUserPasswordConfirmation.Location = new System.Drawing.Point(634, 150);
             this.lblUserPasswordConfirmation.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUserPasswordConfirmation.Name = "lblUserPasswordConfirmation";
-            this.lblUserPasswordConfirmation.Size = new System.Drawing.Size(156, 19);
+            this.lblUserPasswordConfirmation.Size = new System.Drawing.Size(168, 20);
             this.lblUserPasswordConfirmation.TabIndex = 14;
             this.lblUserPasswordConfirmation.Text = "Confirmação Senha:";
             // 
             // uscStatus
             // 
             this.uscStatus.BackColor = System.Drawing.Color.Bisque;
+            this.uscStatus.Font = new System.Drawing.Font("Futura Bk BT", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uscStatus.Location = new System.Drawing.Point(45, 113);
-            this.uscStatus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.uscStatus.Margin = new System.Windows.Forms.Padding(4);
+            this.uscStatus.MaximumSize = new System.Drawing.Size(195, 195);
+            this.uscStatus.MinimumSize = new System.Drawing.Size(137, 137);
             this.uscStatus.Name = "uscStatus";
+            this.uscStatus.Padding = new System.Windows.Forms.Padding(10);
             this.uscStatus.Size = new System.Drawing.Size(150, 138);
             this.uscStatus.TabIndex = 16;
             // 
+            // lblSaveOptimize
+            // 
+            this.lblSaveOptimize.AutoSize = true;
+            this.lblSaveOptimize.Font = new System.Drawing.Font("Futura Bk BT", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSaveOptimize.Location = new System.Drawing.Point(45, 300);
+            this.lblSaveOptimize.Name = "lblSaveOptimize";
+            this.lblSaveOptimize.Size = new System.Drawing.Size(0, 16);
+            this.lblSaveOptimize.TabIndex = 17;
+            // 
             // FrmUserCRUD
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(860, 353);
+            this.Controls.Add(this.lblSaveOptimize);
             this.Controls.Add(this.uscStatus);
             this.Controls.Add(this.txtPasswordConfirmation);
             this.Controls.Add(this.lblUserPasswordConfirmation);
@@ -315,7 +330,7 @@
             this.Font = new System.Drawing.Font("Futura Md BT", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmUserCRUD";
@@ -350,5 +365,6 @@
         private System.Windows.Forms.TextBox txtPasswordConfirmation;
         private System.Windows.Forms.Label lblUserPasswordConfirmation;
         private Controls.UserSituacaoCTRL uscStatus;
+        private System.Windows.Forms.Label lblSaveOptimize;
     }
 }

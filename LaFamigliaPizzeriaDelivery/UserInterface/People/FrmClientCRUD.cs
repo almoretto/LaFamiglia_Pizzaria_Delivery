@@ -71,7 +71,17 @@ namespace UserInterface.People
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
                     txtClientId.Text = string.Empty;
-                    ClearForm();
+                    if (Functions.OptimizeAll())
+                    {
+                        lblSaveOptimize.Text = "DBOTMZ";
+                        ClearForm();
+                    }
+                    else
+                    {
+                        lblSaveOptimize.Text = "DB!OTMZ";
+                        ClearForm();
+                        this.Close();
+                    }
                 }
                 else
                 {

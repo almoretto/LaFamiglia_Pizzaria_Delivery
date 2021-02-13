@@ -61,6 +61,7 @@ namespace UserInterface.People
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.lblAddress = new System.Windows.Forms.Label();
             this.uscStatus = new UserInterface.Controls.UserSituacaoCTRL();
+            this.lblSaveOptimize = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             this.grpAddress.SuspendLayout();
             this.SuspendLayout();
@@ -301,11 +302,17 @@ namespace UserInterface.People
             resources.ApplyResources(this.uscStatus, "uscStatus");
             this.uscStatus.Name = "uscStatus";
             // 
+            // lblSaveOptimize
+            // 
+            resources.ApplyResources(this.lblSaveOptimize, "lblSaveOptimize");
+            this.lblSaveOptimize.Name = "lblSaveOptimize";
+            // 
             // FrmClientCRUD
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.lblSaveOptimize);
             this.Controls.Add(this.grpAddress);
             this.Controls.Add(this.mTxtCellPhone);
             this.Controls.Add(this.lblCellPhone);
@@ -365,5 +372,6 @@ namespace UserInterface.People
         private System.Windows.Forms.ListView lstAddresses;
         private System.Windows.Forms.Button btnAddressSave;
         private System.Windows.Forms.Label lblAddressId;
+        private System.Windows.Forms.Label lblSaveOptimize;
     }
 }

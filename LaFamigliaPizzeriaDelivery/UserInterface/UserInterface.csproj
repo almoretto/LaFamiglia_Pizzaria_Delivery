@@ -85,6 +85,12 @@
     <Compile Include="Products\FrmAdditionalCRUD.Designer.cs">
       <DependentUpon>FrmAdditionalCRUD.cs</DependentUpon>
     </Compile>
+    <Compile Include="Products\FrmPizzaEdgeCRUD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Products\FrmPizzaEdgeCRUD.Designer.cs">
+      <DependentUpon>FrmPizzaEdgeCRUD.cs</DependentUpon>
+    </Compile>
     <Compile Include="Products\FrmPizzaFlavorCRUD.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Products\FrmAdditionalCRUD.resx">
       <DependentUpon>FrmAdditionalCRUD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Products\FrmPizzaEdgeCRUD.resx">
+      <DependentUpon>FrmPizzaEdgeCRUD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Products\FrmPizzaFlavorCRUD.resx">
       <DependentUpon>FrmPizzaFlavorCRUD.cs</DependentUpon>

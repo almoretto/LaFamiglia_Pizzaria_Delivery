@@ -10,11 +10,11 @@ namespace UserInterface
 {
     public partial class MDIForm : Form
     {
-         
+
         public MDIForm()
         {
             InitializeComponent();
-           
+
         }
         private void MDIForm_Load(object sender, EventArgs e)
         {
@@ -44,7 +44,7 @@ namespace UserInterface
                 strpStatusLabel.ForeColor = Color.White;
                 strpStatusLabel.Text = "BD Otimizado!";
             }
-            else 
+            else
             {
                 strpStatusLabel.BackColor = Color.Firebrick;
                 strpStatusLabel.ForeColor = Color.White;
@@ -63,10 +63,12 @@ namespace UserInterface
 
         private void AddtionalToolStripMenuItem_Click(object sender, EventArgs e)
         { OpenForms(new FrmAdditionalCRUD()); }
-        
+
         private void SaboresToolStripMenuItem1_Click(object sender, EventArgs e)
         { OpenForms(new FrmPizzaFlavorCRUD()); }
 
+        private void bordasToolStripMenuItem_Click(object sender, EventArgs e)
+        { OpenForms(new FrmPizzaEdgeCRUD()); }
         #endregion
 
 
@@ -80,6 +82,7 @@ namespace UserInterface
             selectedForm.Left = 25;
             selectedForm.Show();
         }
+
 
 
         #endregion

@@ -130,10 +130,10 @@
     <value>NoControl</value>
   </data>
   <data name="lblUserName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>164, 7</value>
+    <value>182, 8</value>
   </data>
   <data name="lblUserName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>59, 19</value>
+    <value>63, 20</value>
   </data>
   <data name="lblUserName.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -151,13 +151,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblUserName.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="txtClientName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>168, 32</value>
+    <value>187, 36</value>
   </data>
   <data name="txtClientName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>604, 25</value>
+    <value>671, 28</value>
   </data>
   <data name="txtClientName.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -172,7 +172,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtClientName.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="lblUserId.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -184,10 +184,10 @@
     <value>NoControl</value>
   </data>
   <data name="lblUserId.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 7</value>
+    <value>4, 8</value>
   </data>
   <data name="lblUserId.Size" type="System.Drawing.Size, System.Drawing">
-    <value>65, 19</value>
+    <value>71, 20</value>
   </data>
   <data name="lblUserId.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -205,16 +205,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblUserId.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="btnClientSearch.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="btnClientSearch.Location" type="System.Drawing.Point, System.Drawing">
-    <value>114, 31</value>
+    <value>127, 34</value>
   </data>
   <data name="btnClientSearch.Size" type="System.Drawing.Size, System.Drawing">
-    <value>26, 26</value>
+    <value>29, 29</value>
   </data>
   <data name="btnClientSearch.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -229,13 +229,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnClientSearch.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="txtClientId.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 31</value>
+    <value>9, 34</value>
   </data>
   <data name="txtClientId.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 25</value>
+    <value>111, 28</value>
   </data>
   <data name="txtClientId.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -250,67 +250,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtClientId.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="&gt;&gt;btnCancel.Name" xml:space="preserve">
-    <value>btnCancel</value>
-  </data>
-  <data name="&gt;&gt;btnCancel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnCancel.Parent" xml:space="preserve">
-    <value>flowLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;btnCancel.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;btnDelete.Name" xml:space="preserve">
-    <value>btnDelete</value>
-  </data>
-  <data name="&gt;&gt;btnDelete.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnDelete.Parent" xml:space="preserve">
-    <value>flowLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;btnDelete.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;btnSave.Name" xml:space="preserve">
-    <value>btnSave</value>
-  </data>
-  <data name="&gt;&gt;btnSave.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnSave.Parent" xml:space="preserve">
-    <value>flowLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;btnSave.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="flowLayoutPanel1.FlowDirection" type="System.Windows.Forms.FlowDirection, System.Windows.Forms">
-    <value>RightToLeft</value>
-  </data>
-  <data name="flowLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>447, 547</value>
-  </data>
-  <data name="flowLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 50</value>
-  </data>
-  <data name="flowLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
-  </data>
-  <data name="&gt;&gt;flowLayoutPanel1.Name" xml:space="preserve">
-    <value>flowLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;flowLayoutPanel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;flowLayoutPanel1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;flowLayoutPanel1.ZOrder" xml:space="preserve">
-    <value>6</value>
   </data>
   <data name="btnCancel.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -325,10 +265,10 @@
     <value>NoControl</value>
   </data>
   <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>221, 3</value>
+    <value>246, 3</value>
   </data>
   <data name="btnCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>101, 39</value>
+    <value>112, 43</value>
   </data>
   <data name="btnCancel.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -364,10 +304,10 @@
     <value>NoControl</value>
   </data>
   <data name="btnDelete.Location" type="System.Drawing.Point, System.Drawing">
-    <value>114, 3</value>
+    <value>128, 3</value>
   </data>
   <data name="btnDelete.Size" type="System.Drawing.Size, System.Drawing">
-    <value>101, 39</value>
+    <value>112, 43</value>
   </data>
   <data name="btnDelete.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -403,10 +343,10 @@
     <value>NoControl</value>
   </data>
   <data name="btnSave.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 3</value>
+    <value>10, 3</value>
   </data>
   <data name="btnSave.Size" type="System.Drawing.Size, System.Drawing">
-    <value>101, 39</value>
+    <value>112, 43</value>
   </data>
   <data name="btnSave.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -429,6 +369,30 @@
   <data name="&gt;&gt;btnSave.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="flowLayoutPanel1.FlowDirection" type="System.Windows.Forms.FlowDirection, System.Windows.Forms">
+    <value>RightToLeft</value>
+  </data>
+  <data name="flowLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>497, 608</value>
+  </data>
+  <data name="flowLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>361, 56</value>
+  </data>
+  <data name="flowLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;flowLayoutPanel1.Name" xml:space="preserve">
+    <value>flowLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;flowLayoutPanel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;flowLayoutPanel1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;flowLayoutPanel1.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
   <data name="lblPhone.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -436,10 +400,10 @@
     <value>NoControl</value>
   </data>
   <data name="lblPhone.Location" type="System.Drawing.Point, System.Drawing">
-    <value>168, 64</value>
+    <value>187, 71</value>
   </data>
   <data name="lblPhone.Size" type="System.Drawing.Size, System.Drawing">
-    <value>71, 19</value>
+    <value>74, 20</value>
   </data>
   <data name="lblPhone.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -457,16 +421,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblPhone.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="mTxtPhone.Location" type="System.Drawing.Point, System.Drawing">
-    <value>168, 87</value>
+    <value>187, 97</value>
   </data>
   <data name="mTxtPhone.Mask" xml:space="preserve">
     <value>(99) 0000-0000</value>
   </data>
   <data name="mTxtPhone.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 25</value>
+    <value>162, 28</value>
   </data>
   <data name="mTxtPhone.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -481,16 +445,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;mTxtPhone.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="mTxtCellPhone.Location" type="System.Drawing.Point, System.Drawing">
-    <value>320, 87</value>
+    <value>356, 97</value>
   </data>
   <data name="mTxtCellPhone.Mask" xml:space="preserve">
     <value>(99) 0 0000-0000</value>
   </data>
   <data name="mTxtCellPhone.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 25</value>
+    <value>162, 28</value>
   </data>
   <data name="mTxtCellPhone.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -505,7 +469,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;mTxtCellPhone.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="lblCellPhone.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -514,10 +478,10 @@
     <value>NoControl</value>
   </data>
   <data name="lblCellPhone.Location" type="System.Drawing.Point, System.Drawing">
-    <value>320, 64</value>
+    <value>356, 71</value>
   </data>
   <data name="lblCellPhone.Size" type="System.Drawing.Size, System.Drawing">
-    <value>61, 19</value>
+    <value>64, 20</value>
   </data>
   <data name="lblCellPhone.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -535,7 +499,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblCellPhone.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="lblAddressId.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -544,10 +508,10 @@
     <value>False</value>
   </data>
   <data name="lblAddressId.Location" type="System.Drawing.Point, System.Drawing">
-    <value>101, 307</value>
+    <value>112, 341</value>
   </data>
   <data name="lblAddressId.Size" type="System.Drawing.Size, System.Drawing">
-    <value>0, 19</value>
+    <value>0, 20</value>
   </data>
   <data name="lblAddressId.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
@@ -574,10 +538,10 @@
     <value>NoControl</value>
   </data>
   <data name="btnAddressEdit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>60, 305</value>
+    <value>67, 339</value>
   </data>
   <data name="btnAddressEdit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 23</value>
+    <value>39, 26</value>
   </data>
   <data name="btnAddressEdit.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -601,10 +565,10 @@
     <value>NoControl</value>
   </data>
   <data name="btnDeleteAddress.Location" type="System.Drawing.Point, System.Drawing">
-    <value>19, 305</value>
+    <value>21, 339</value>
   </data>
   <data name="btnDeleteAddress.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 23</value>
+    <value>39, 26</value>
   </data>
   <data name="btnDeleteAddress.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -622,10 +586,10 @@
     <value>2</value>
   </data>
   <data name="lstAddresses.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 158</value>
+    <value>16, 176</value>
   </data>
   <data name="lstAddresses.Size" type="System.Drawing.Size, System.Drawing">
-    <value>739, 141</value>
+    <value>821, 156</value>
   </data>
   <data name="lstAddresses.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -652,10 +616,10 @@
     <value>NoControl</value>
   </data>
   <data name="btnAddressSave.Location" type="System.Drawing.Point, System.Drawing">
-    <value>605, 117</value>
+    <value>672, 130</value>
   </data>
   <data name="btnAddressSave.Size" type="System.Drawing.Size, System.Drawing">
-    <value>148, 35</value>
+    <value>164, 39</value>
   </data>
   <data name="btnAddressSave.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -688,10 +652,10 @@
     <value>NoControl</value>
   </data>
   <data name="chkStdAddress.Location" type="System.Drawing.Point, System.Drawing">
-    <value>439, 119</value>
+    <value>488, 132</value>
   </data>
   <data name="chkStdAddress.Size" type="System.Drawing.Size, System.Drawing">
-    <value>158, 23</value>
+    <value>167, 24</value>
   </data>
   <data name="chkStdAddress.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -712,10 +676,10 @@
     <value>5</value>
   </data>
   <data name="txtCity.Location" type="System.Drawing.Point, System.Drawing">
-    <value>77, 86</value>
+    <value>86, 96</value>
   </data>
   <data name="txtCity.Size" type="System.Drawing.Size, System.Drawing">
-    <value>676, 25</value>
+    <value>751, 28</value>
   </data>
   <data name="txtCity.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -739,10 +703,10 @@
     <value>NoControl</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 89</value>
+    <value>11, 99</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>70, 19</value>
+    <value>75, 20</value>
   </data>
   <data name="label3.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -763,10 +727,10 @@
     <value>7</value>
   </data>
   <data name="txtAddress2nd.Location" type="System.Drawing.Point, System.Drawing">
-    <value>77, 117</value>
+    <value>86, 130</value>
   </data>
   <data name="txtAddress2nd.Size" type="System.Drawing.Size, System.Drawing">
-    <value>356, 25</value>
+    <value>395, 28</value>
   </data>
   <data name="txtAddress2nd.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -790,10 +754,10 @@
     <value>NoControl</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 120</value>
+    <value>11, 133</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>66, 19</value>
+    <value>71, 20</value>
   </data>
   <data name="label2.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -814,10 +778,10 @@
     <value>9</value>
   </data>
   <data name="txtDistrict.Location" type="System.Drawing.Point, System.Drawing">
-    <value>276, 55</value>
+    <value>307, 61</value>
   </data>
   <data name="txtDistrict.Size" type="System.Drawing.Size, System.Drawing">
-    <value>477, 25</value>
+    <value>530, 28</value>
   </data>
   <data name="txtDistrict.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -841,10 +805,10 @@
     <value>NoControl</value>
   </data>
   <data name="lblDistrict.Location" type="System.Drawing.Point, System.Drawing">
-    <value>216, 56</value>
+    <value>240, 62</value>
   </data>
   <data name="lblDistrict.Size" type="System.Drawing.Size, System.Drawing">
-    <value>62, 19</value>
+    <value>66, 20</value>
   </data>
   <data name="lblDistrict.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -865,10 +829,10 @@
     <value>11</value>
   </data>
   <data name="txtStNumber.Location" type="System.Drawing.Point, System.Drawing">
-    <value>77, 55</value>
+    <value>86, 61</value>
   </data>
   <data name="txtStNumber.Size" type="System.Drawing.Size, System.Drawing">
-    <value>133, 25</value>
+    <value>148, 28</value>
   </data>
   <data name="txtStNumber.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -892,10 +856,10 @@
     <value>NoControl</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 58</value>
+    <value>11, 64</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>39, 19</value>
+    <value>41, 20</value>
   </data>
   <data name="label1.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -916,10 +880,10 @@
     <value>13</value>
   </data>
   <data name="txtAddress.Location" type="System.Drawing.Point, System.Drawing">
-    <value>77, 24</value>
+    <value>86, 27</value>
   </data>
   <data name="txtAddress.Size" type="System.Drawing.Size, System.Drawing">
-    <value>676, 25</value>
+    <value>751, 28</value>
   </data>
   <data name="txtAddress.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -943,10 +907,10 @@
     <value>NoControl</value>
   </data>
   <data name="lblAddress.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 25</value>
+    <value>11, 28</value>
   </data>
   <data name="lblAddress.Size" type="System.Drawing.Size, System.Drawing">
-    <value>46, 19</value>
+    <value>50, 20</value>
   </data>
   <data name="lblAddress.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -967,10 +931,10 @@
     <value>15</value>
   </data>
   <data name="grpAddress.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 118</value>
+    <value>14, 131</value>
   </data>
   <data name="grpAddress.Size" type="System.Drawing.Size, System.Drawing">
-    <value>759, 334</value>
+    <value>843, 371</value>
   </data>
   <data name="grpAddress.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -988,16 +952,28 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;grpAddress.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
+  </data>
+  <data name="uscStatus.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Futura Bk BT, 10.18868pt</value>
   </data>
   <data name="uscStatus.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 458</value>
+    <value>16, 509</value>
   </data>
   <data name="uscStatus.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
   </data>
+  <data name="uscStatus.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>217, 217</value>
+  </data>
+  <data name="uscStatus.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>152, 152</value>
+  </data>
+  <data name="uscStatus.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>11, 11, 11, 11</value>
+  </data>
   <data name="uscStatus.Size" type="System.Drawing.Size, System.Drawing">
-    <value>144, 137</value>
+    <value>160, 152</value>
   </data>
   <data name="uscStatus.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -1012,16 +988,46 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;uscStatus.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
+  </data>
+  <metadata name="lblSaveOptimize.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="lblSaveOptimize.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblSaveOptimize.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Symbol, 8.25pt</value>
+  </data>
+  <data name="lblSaveOptimize.Location" type="System.Drawing.Point, System.Drawing">
+    <value>191, 643</value>
+  </data>
+  <data name="lblSaveOptimize.Size" type="System.Drawing.Size, System.Drawing">
+    <value>0, 17</value>
+  </data>
+  <data name="lblSaveOptimize.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;lblSaveOptimize.Name" xml:space="preserve">
+    <value>lblSaveOptimize</value>
+  </data>
+  <data name="&gt;&gt;lblSaveOptimize.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblSaveOptimize.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblSaveOptimize.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>9, 18</value>
+    <value>10, 20</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>784, 609</value>
+    <value>871, 677</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Futura Md BT, 10.18868pt</value>

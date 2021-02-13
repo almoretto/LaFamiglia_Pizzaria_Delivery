@@ -51,7 +51,17 @@ namespace UserInterface.Products
                         this.Text,
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
-                    ClearForm();
+                    if (Functions.OptimizeAll())
+                    {
+                        lblSaveOptimize.Text = "DBOTMZ";
+                        ClearForm();
+                    }
+                    else
+                    {
+                        lblSaveOptimize.Text = "DB!OTMZ";
+                        ClearForm();
+                        this.Close();
+                    }
                 }
                 else
                 {

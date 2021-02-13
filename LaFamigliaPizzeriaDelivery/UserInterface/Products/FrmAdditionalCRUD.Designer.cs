@@ -35,16 +35,17 @@ namespace UserInterface.Products
             this.lblAdditionalId = new System.Windows.Forms.Label();
             this.btnAdditionalSearch = new System.Windows.Forms.Button();
             this.txtAdditionalId = new System.Windows.Forms.TextBox();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flwAddtitionalCRUD = new System.Windows.Forms.FlowLayoutPanel();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblAddticionalPrice = new System.Windows.Forms.Label();
             this.lblAdditionalRemark = new System.Windows.Forms.Label();
             this.txtAdditionalRemark = new System.Windows.Forms.TextBox();
             this.adcStatus = new UserInterface.Controls.UserSituacaoCTRL();
             this.txtAdditionalPrice = new System.Windows.Forms.TextBox();
-            this.flowLayoutPanel1.SuspendLayout();
+            this.lblSaveOptimize = new System.Windows.Forms.Label();
+            this.flwAddtitionalCRUD.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblAdditionalDescription
@@ -101,16 +102,16 @@ namespace UserInterface.Products
             this.txtAdditionalId.TabIndex = 1;
             this.txtAdditionalId.Validating += new System.ComponentModel.CancelEventHandler(this.TxtAdditionalId_Validating);
             // 
-            // flowLayoutPanel1
+            // flwAddtitionalCRUD
             // 
-            this.flowLayoutPanel1.Controls.Add(this.btnCancel);
-            this.flowLayoutPanel1.Controls.Add(this.btnDelete);
-            this.flowLayoutPanel1.Controls.Add(this.btnSave);
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(451, 210);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(325, 50);
-            this.flowLayoutPanel1.TabIndex = 5;
+            this.flwAddtitionalCRUD.Controls.Add(this.btnCancel);
+            this.flwAddtitionalCRUD.Controls.Add(this.btnDelete);
+            this.flwAddtitionalCRUD.Controls.Add(this.btnSave);
+            this.flwAddtitionalCRUD.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flwAddtitionalCRUD.Location = new System.Drawing.Point(451, 210);
+            this.flwAddtitionalCRUD.Name = "flwAddtitionalCRUD";
+            this.flwAddtitionalCRUD.Size = new System.Drawing.Size(325, 50);
+            this.flwAddtitionalCRUD.TabIndex = 5;
             // 
             // btnCancel
             // 
@@ -163,17 +164,17 @@ namespace UserInterface.Products
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
-            // label1
+            // lblAddticionalPrice
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Futura Md BT", 10.18868F);
-            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label1.Location = new System.Drawing.Point(168, 213);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 20);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "Valor:";
+            this.lblAddticionalPrice.AutoSize = true;
+            this.lblAddticionalPrice.Font = new System.Drawing.Font("Futura Md BT", 10.18868F);
+            this.lblAddticionalPrice.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblAddticionalPrice.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblAddticionalPrice.Location = new System.Drawing.Point(168, 213);
+            this.lblAddticionalPrice.Name = "lblAddticionalPrice";
+            this.lblAddticionalPrice.Size = new System.Drawing.Size(56, 20);
+            this.lblAddticionalPrice.TabIndex = 15;
+            this.lblAddticionalPrice.Text = "Valor:";
             // 
             // lblAdditionalRemark
             // 
@@ -218,17 +219,27 @@ namespace UserInterface.Products
             this.txtAdditionalPrice.Size = new System.Drawing.Size(258, 28);
             this.txtAdditionalPrice.TabIndex = 4;
             // 
+            // lblSaveOptimize
+            // 
+            this.lblSaveOptimize.AutoSize = true;
+            this.lblSaveOptimize.Font = new System.Drawing.Font("Futura Bk BT", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSaveOptimize.Location = new System.Drawing.Point(12, 245);
+            this.lblSaveOptimize.Name = "lblSaveOptimize";
+            this.lblSaveOptimize.Size = new System.Drawing.Size(0, 16);
+            this.lblSaveOptimize.TabIndex = 18;
+            // 
             // FrmAdditionalCRUD
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(793, 276);
+            this.Controls.Add(this.lblSaveOptimize);
             this.Controls.Add(this.txtAdditionalRemark);
             this.Controls.Add(this.lblAdditionalRemark);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblAddticionalPrice);
             this.Controls.Add(this.txtAdditionalPrice);
             this.Controls.Add(this.adcStatus);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.flwAddtitionalCRUD);
             this.Controls.Add(this.lblAdditionalDescription);
             this.Controls.Add(this.txtAdditionalDescription);
             this.Controls.Add(this.lblAdditionalId);
@@ -245,7 +256,7 @@ namespace UserInterface.Products
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Cadastro de Adicionais";
             this.Load += new System.EventHandler(this.FrmAdditionalCRUD_Load);
-            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flwAddtitionalCRUD.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -259,13 +270,14 @@ namespace UserInterface.Products
         private System.Windows.Forms.Button btnAdditionalSearch;
         private System.Windows.Forms.TextBox txtAdditionalId;
         private Controls.UserSituacaoCTRL adcStatus;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel flwAddtitionalCRUD;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblAddticionalPrice;
         private System.Windows.Forms.Label lblAdditionalRemark;
         private System.Windows.Forms.TextBox txtAdditionalRemark;
         private System.Windows.Forms.TextBox txtAdditionalPrice;
+        private System.Windows.Forms.Label lblSaveOptimize;
     }
 }

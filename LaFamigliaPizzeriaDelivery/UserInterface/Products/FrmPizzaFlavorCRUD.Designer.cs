@@ -32,20 +32,20 @@ namespace UserInterface.Products
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPizzaFlavorCRUD));
             this.txtFlavorRemark = new System.Windows.Forms.TextBox();
             this.lblFlavorRemark = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblFlavorAdditionalPrice = new System.Windows.Forms.Label();
             this.txtFlavorPriceAdditional = new System.Windows.Forms.TextBox();
             this.flvStatus = new UserInterface.Controls.UserSituacaoCTRL();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flwFlavorCRUD = new System.Windows.Forms.FlowLayoutPanel();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.lblAdditionalDescription = new System.Windows.Forms.Label();
+            this.lblFlavorDescription = new System.Windows.Forms.Label();
             this.txtFlavorDescription = new System.Windows.Forms.TextBox();
-            this.lblAdditionalId = new System.Windows.Forms.Label();
+            this.lblFlavorId = new System.Windows.Forms.Label();
             this.btnFlavorSearch = new System.Windows.Forms.Button();
             this.txtFlavorId = new System.Windows.Forms.TextBox();
             this.lblSaveOptimize = new System.Windows.Forms.Label();
-            this.flowLayoutPanel1.SuspendLayout();
+            this.flwFlavorCRUD.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtFlavorRemark
@@ -68,17 +68,17 @@ namespace UserInterface.Products
             this.lblFlavorRemark.TabIndex = 28;
             this.lblFlavorRemark.Text = "Observação:";
             // 
-            // label1
+            // lblFlavorAdditionalPrice
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Futura Md BT", 10.18868F);
-            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label1.Location = new System.Drawing.Point(172, 217);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(132, 20);
-            this.label1.TabIndex = 26;
-            this.label1.Text = "Valor Adicional:";
+            this.lblFlavorAdditionalPrice.AutoSize = true;
+            this.lblFlavorAdditionalPrice.Font = new System.Drawing.Font("Futura Md BT", 10.18868F);
+            this.lblFlavorAdditionalPrice.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblFlavorAdditionalPrice.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblFlavorAdditionalPrice.Location = new System.Drawing.Point(172, 217);
+            this.lblFlavorAdditionalPrice.Name = "lblFlavorAdditionalPrice";
+            this.lblFlavorAdditionalPrice.Size = new System.Drawing.Size(132, 20);
+            this.lblFlavorAdditionalPrice.TabIndex = 26;
+            this.lblFlavorAdditionalPrice.Text = "Valor Adicional:";
             // 
             // txtFlavorPriceAdditional
             // 
@@ -103,16 +103,16 @@ namespace UserInterface.Products
             this.flvStatus.Size = new System.Drawing.Size(145, 135);
             this.flvStatus.TabIndex = 4;
             // 
-            // flowLayoutPanel1
+            // flwFlavorCRUD
             // 
-            this.flowLayoutPanel1.Controls.Add(this.btnCancel);
-            this.flowLayoutPanel1.Controls.Add(this.btnDelete);
-            this.flowLayoutPanel1.Controls.Add(this.btnSave);
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(455, 214);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(325, 50);
-            this.flowLayoutPanel1.TabIndex = 5;
+            this.flwFlavorCRUD.Controls.Add(this.btnCancel);
+            this.flwFlavorCRUD.Controls.Add(this.btnDelete);
+            this.flwFlavorCRUD.Controls.Add(this.btnSave);
+            this.flwFlavorCRUD.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flwFlavorCRUD.Location = new System.Drawing.Point(455, 214);
+            this.flwFlavorCRUD.Name = "flwFlavorCRUD";
+            this.flwFlavorCRUD.Size = new System.Drawing.Size(325, 50);
+            this.flwFlavorCRUD.TabIndex = 5;
             // 
             // btnCancel
             // 
@@ -165,17 +165,17 @@ namespace UserInterface.Products
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
-            // lblAdditionalDescription
+            // lblFlavorDescription
             // 
-            this.lblAdditionalDescription.AutoSize = true;
-            this.lblAdditionalDescription.Font = new System.Drawing.Font("Futura Md BT", 10.18868F);
-            this.lblAdditionalDescription.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblAdditionalDescription.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblAdditionalDescription.Location = new System.Drawing.Point(172, 10);
-            this.lblAdditionalDescription.Name = "lblAdditionalDescription";
-            this.lblAdditionalDescription.Size = new System.Drawing.Size(60, 20);
-            this.lblAdditionalDescription.TabIndex = 21;
-            this.lblAdditionalDescription.Text = "Sabor:";
+            this.lblFlavorDescription.AutoSize = true;
+            this.lblFlavorDescription.Font = new System.Drawing.Font("Futura Md BT", 10.18868F);
+            this.lblFlavorDescription.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblFlavorDescription.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblFlavorDescription.Location = new System.Drawing.Point(172, 10);
+            this.lblFlavorDescription.Name = "lblFlavorDescription";
+            this.lblFlavorDescription.Size = new System.Drawing.Size(60, 20);
+            this.lblFlavorDescription.TabIndex = 21;
+            this.lblFlavorDescription.Text = "Sabor:";
             // 
             // txtFlavorDescription
             // 
@@ -186,17 +186,17 @@ namespace UserInterface.Products
             this.txtFlavorDescription.Size = new System.Drawing.Size(604, 28);
             this.txtFlavorDescription.TabIndex = 1;
             // 
-            // lblAdditionalId
+            // lblFlavorId
             // 
-            this.lblAdditionalId.AutoSize = true;
-            this.lblAdditionalId.Font = new System.Drawing.Font("Futura Md BT", 10.18868F);
-            this.lblAdditionalId.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblAdditionalId.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblAdditionalId.Location = new System.Drawing.Point(12, 10);
-            this.lblAdditionalId.Name = "lblAdditionalId";
-            this.lblAdditionalId.Size = new System.Drawing.Size(71, 20);
-            this.lblAdditionalId.TabIndex = 19;
-            this.lblAdditionalId.Text = "Codigo:";
+            this.lblFlavorId.AutoSize = true;
+            this.lblFlavorId.Font = new System.Drawing.Font("Futura Md BT", 10.18868F);
+            this.lblFlavorId.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblFlavorId.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblFlavorId.Location = new System.Drawing.Point(12, 10);
+            this.lblFlavorId.Name = "lblFlavorId";
+            this.lblFlavorId.Size = new System.Drawing.Size(71, 20);
+            this.lblFlavorId.TabIndex = 19;
+            this.lblFlavorId.Text = "Codigo:";
             // 
             // btnFlavorSearch
             // 
@@ -223,10 +223,11 @@ namespace UserInterface.Products
             // 
             this.lblSaveOptimize.AutoSize = true;
             this.lblSaveOptimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblSaveOptimize.Font = new System.Drawing.Font("Futura Bk BT", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSaveOptimize.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.lblSaveOptimize.Location = new System.Drawing.Point(16, 249);
             this.lblSaveOptimize.Name = "lblSaveOptimize";
-            this.lblSaveOptimize.Size = new System.Drawing.Size(0, 20);
+            this.lblSaveOptimize.Size = new System.Drawing.Size(0, 16);
             this.lblSaveOptimize.TabIndex = 29;
             // 
             // FrmPizzaFlavorCRUD
@@ -237,13 +238,13 @@ namespace UserInterface.Products
             this.Controls.Add(this.lblSaveOptimize);
             this.Controls.Add(this.txtFlavorRemark);
             this.Controls.Add(this.lblFlavorRemark);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblFlavorAdditionalPrice);
             this.Controls.Add(this.txtFlavorPriceAdditional);
             this.Controls.Add(this.flvStatus);
-            this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.lblAdditionalDescription);
+            this.Controls.Add(this.flwFlavorCRUD);
+            this.Controls.Add(this.lblFlavorDescription);
             this.Controls.Add(this.txtFlavorDescription);
-            this.Controls.Add(this.lblAdditionalId);
+            this.Controls.Add(this.lblFlavorId);
             this.Controls.Add(this.btnFlavorSearch);
             this.Controls.Add(this.txtFlavorId);
             this.Font = new System.Drawing.Font("Futura Md BT", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -256,7 +257,7 @@ namespace UserInterface.Products
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Cadastro de Sabores";
             this.Load += new System.EventHandler(this.FrmPizzaFlavorCRUD_Load);
-            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flwFlavorCRUD.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -266,16 +267,16 @@ namespace UserInterface.Products
 
         private System.Windows.Forms.TextBox txtFlavorRemark;
         private System.Windows.Forms.Label lblFlavorRemark;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblFlavorAdditionalPrice;
         private System.Windows.Forms.TextBox txtFlavorPriceAdditional;
         private Controls.UserSituacaoCTRL flvStatus;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel flwFlavorCRUD;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Label lblAdditionalDescription;
+        private System.Windows.Forms.Label lblFlavorDescription;
         private System.Windows.Forms.TextBox txtFlavorDescription;
-        private System.Windows.Forms.Label lblAdditionalId;
+        private System.Windows.Forms.Label lblFlavorId;
         private System.Windows.Forms.Button btnFlavorSearch;
         private System.Windows.Forms.TextBox txtFlavorId;
         private System.Windows.Forms.Label lblSaveOptimize;
