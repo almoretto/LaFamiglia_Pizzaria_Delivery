@@ -143,7 +143,7 @@ namespace DataContext.Products
                             pizzaFlavorFound.FlavorRemark = dataReader["Observacao"].ToString();
                         }
 
-                        pizzaFlavorFound.AdditionalPrice = Convert.ToDouble(dataReader["Valor"].ToString());
+                        pizzaFlavorFound.AdditionalPrice = Convert.ToDouble(dataReader["ValorAcrescimo"].ToString());
                         pizzaFlavorFound.FlavorStatus = (Status)Convert.ToInt32(dataReader["Situacao"]);
                         pizzaFlavorFound.LastChangeDate = Convert.ToDateTime(dataReader["DataAlteracao"].ToString());
                         pizzaFlavorFound.LastChangeUserId = Convert.ToInt32(dataReader["IdUsuarioAlteracao"].ToString());

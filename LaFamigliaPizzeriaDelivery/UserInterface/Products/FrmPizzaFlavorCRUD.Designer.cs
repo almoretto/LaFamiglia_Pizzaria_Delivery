@@ -44,6 +44,7 @@ namespace UserInterface.Products
             this.lblAdditionalId = new System.Windows.Forms.Label();
             this.btnFlavorSearch = new System.Windows.Forms.Button();
             this.txtFlavorId = new System.Windows.Forms.TextBox();
+            this.lblSaveOptimize = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -218,11 +219,22 @@ namespace UserInterface.Products
             this.txtFlavorId.TabIndex = 0;
             this.txtFlavorId.Validating += new System.ComponentModel.CancelEventHandler(this.TxtFlavorId_Validating);
             // 
+            // lblSaveOptimize
+            // 
+            this.lblSaveOptimize.AutoSize = true;
+            this.lblSaveOptimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblSaveOptimize.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lblSaveOptimize.Location = new System.Drawing.Point(16, 249);
+            this.lblSaveOptimize.Name = "lblSaveOptimize";
+            this.lblSaveOptimize.Size = new System.Drawing.Size(0, 20);
+            this.lblSaveOptimize.TabIndex = 29;
+            // 
             // FrmPizzaFlavorCRUD
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(793, 276);
+            this.Controls.Add(this.lblSaveOptimize);
             this.Controls.Add(this.txtFlavorRemark);
             this.Controls.Add(this.lblFlavorRemark);
             this.Controls.Add(this.label1);
@@ -266,5 +278,6 @@ namespace UserInterface.Products
         private System.Windows.Forms.Label lblAdditionalId;
         private System.Windows.Forms.Button btnFlavorSearch;
         private System.Windows.Forms.TextBox txtFlavorId;
+        private System.Windows.Forms.Label lblSaveOptimize;
     }
 }

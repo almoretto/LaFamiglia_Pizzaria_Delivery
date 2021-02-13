@@ -1,9 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data;
+using System.Windows.Forms;
 
 namespace DataContext.Modules
 {
@@ -39,7 +37,47 @@ namespace DataContext.Modules
                     dbContext.Close();
                 }
             }
-            return actualId+1;
+            return actualId;
+        }
+       
+        public bool OptimizeAll()
+        {
+            /*Runs a Stored Procedure for optimize and analize all tables in database
+             * This SP recalculate the Auto Incremental PK fields for the show table status works properly
+             * This method was created because the find next code above never brings the real
+             * next ID number 
+             */
+
+            bool result = false;
+            //string message="Não Executado";
+            using (MySqlConnection dbContext = DbContext.GetInstance().GetConnection())
+            {
+                try
+                {
+                  //Creating the comand and indicating the SP, conn
+                    MySqlCommand command = new MySqlCommand("SPOptimizeAll", dbContext);
+                  //Configuring the type of command  
+                    command.CommandType = CommandType.StoredProcedure;
+                    //Opening DB Connection
+                    dbContext.Open();
+                    //Executing Command
+                    command.ExecuteNonQuery();
+                    //Closing Connection
+                    dbContext.Close();
+                    //Returning true valeu for validation 
+                    result = true;
+                    
+                }
+                catch (DBConcurrencyException ex)
+                {
+                    MessageBox.Show(ex.Message, 
+                        "Databade Error", 
+                        MessageBoxButtons.OK, 
+                        MessageBoxIcon.Error);
+                    throw new DBConcurrencyException(ex.Message);
+                }
+            }
+            return result;
         }
     }
 }

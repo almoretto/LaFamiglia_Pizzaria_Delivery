@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BusinessRules;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -6,6 +7,8 @@ namespace UserInterface.Modules
 {
     public class Functions
     {
+        public static object MdiParent { get; private set; }
+
         public static void ListViewColor(ListView list)
         {
             foreach (ListViewItem line in list.Items)
@@ -33,8 +36,8 @@ namespace UserInterface.Modules
             string mTextBoxContent = RemoveBlanks(mTextBox.Text);
             mTextBox.TextMaskFormat = MaskFormat.IncludePromptAndLiterals;
             if (mTextBoxContent == string.Empty)
-            { 
-                return null; 
+            {
+                return null;
             }
             else
             {
@@ -46,6 +49,14 @@ namespace UserInterface.Modules
         {
             return strg.Trim().Replace(" ", "");
         }
-    
+
+        public static bool OptimizeAll()
+        {
+            ProgramGeneralBus _pgBus = new ProgramGeneralBus();
+            if (_pgBus.OptimizeAll())
+            { return true; }
+            else
+            { return false; }
+        }
     }
 }

@@ -90,7 +90,7 @@ namespace UserInterface.People
             resources.ApplyResources(this.btnClientSearch, "btnClientSearch");
             this.btnClientSearch.Name = "btnClientSearch";
             this.btnClientSearch.UseVisualStyleBackColor = true;
-            this.btnClientSearch.Click += new System.EventHandler(this.btnClientSearch_Click);
+            this.btnClientSearch.Click += new System.EventHandler(this.BtnClientSearch_Click);
             // 
             // txtClientId
             // 
@@ -98,7 +98,7 @@ namespace UserInterface.People
             this.txtClientId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             resources.ApplyResources(this.txtClientId, "txtClientId");
             this.txtClientId.Name = "txtClientId";
-            this.txtClientId.Validating += new System.ComponentModel.CancelEventHandler(this.txtClientId_Validating);
+            this.txtClientId.Validating += new System.ComponentModel.CancelEventHandler(this.TxtClientId_Validating);
             // 
             // flowLayoutPanel1
             // 
@@ -115,7 +115,7 @@ namespace UserInterface.People
             this.btnCancel.Image = global::UserInterface.Properties.Resources.cancelar;
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // btnDelete
             // 
@@ -124,7 +124,7 @@ namespace UserInterface.People
             this.btnDelete.Image = global::UserInterface.Properties.Resources.excluir;
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // btnSave
             // 
@@ -133,7 +133,7 @@ namespace UserInterface.People
             this.btnSave.Image = global::UserInterface.Properties.Resources.confirmar;
             this.btnSave.Name = "btnSave";
             this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // lblPhone
             // 
@@ -194,7 +194,7 @@ namespace UserInterface.People
             this.btnAddressEdit.Image = global::UserInterface.Properties.Resources.editar;
             this.btnAddressEdit.Name = "btnAddressEdit";
             this.btnAddressEdit.UseVisualStyleBackColor = false;
-            this.btnAddressEdit.Click += new System.EventHandler(this.btnAddressEdit_Click);
+            this.btnAddressEdit.Click += new System.EventHandler(this.BtnAddressEdit_Click);
             // 
             // btnDeleteAddress
             // 
@@ -203,7 +203,7 @@ namespace UserInterface.People
             this.btnDeleteAddress.Image = global::UserInterface.Properties.Resources.excluir;
             this.btnDeleteAddress.Name = "btnDeleteAddress";
             this.btnDeleteAddress.UseVisualStyleBackColor = false;
-            this.btnDeleteAddress.Click += new System.EventHandler(this.btnDeleteAddress_Click);
+            this.btnDeleteAddress.Click += new System.EventHandler(this.BtnDeleteAddress_Click);
             // 
             // lstAddresses
             // 
@@ -215,10 +215,10 @@ namespace UserInterface.People
             resources.ApplyResources(this.lstAddresses, "lstAddresses");
             this.lstAddresses.Name = "lstAddresses";
             this.lstAddresses.UseCompatibleStateImageBehavior = false;
-            this.lstAddresses.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.lstAddresses_ItemCheck);
-            this.lstAddresses.DoubleClick += new System.EventHandler(this.lstAddresses_DoubleClick);
-            this.lstAddresses.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lstAddresses_MouseDown);
-            this.lstAddresses.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lstAddresses_MouseUp);
+            this.lstAddresses.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.LstAddresses_ItemCheck);
+            this.lstAddresses.DoubleClick += new System.EventHandler(this.LstAddresses_DoubleClick);
+            this.lstAddresses.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LstAddresses_MouseDown);
+            this.lstAddresses.MouseUp += new System.Windows.Forms.MouseEventHandler(this.LstAddresses_MouseUp);
             // 
             // btnAddressSave
             // 
@@ -227,7 +227,7 @@ namespace UserInterface.People
             this.btnAddressSave.Image = global::UserInterface.Properties.Resources.confirmar;
             this.btnAddressSave.Name = "btnAddressSave";
             this.btnAddressSave.UseVisualStyleBackColor = false;
-            this.btnAddressSave.Click += new System.EventHandler(this.btnAddressSave_Click);
+            this.btnAddressSave.Click += new System.EventHandler(this.BtnAddressSave_Click);
             // 
             // chkStdAddress
             // 

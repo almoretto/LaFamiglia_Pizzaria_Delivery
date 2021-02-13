@@ -45,12 +45,12 @@ namespace UserInterface.Login
 
         }
         
-        private void btnExit_Click(object sender, EventArgs e)
+        private void BtnExit_Click(object sender, EventArgs e)
         {
             Dispose();//This method close the FRMLogin, but need to Closse in this case ALL the Application
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        private void BtnLogin_Click(object sender, EventArgs e)
         {
             if (cmbUsers.SelectedItem.ToString() == string.Empty)
             {
@@ -89,11 +89,11 @@ namespace UserInterface.Login
             this.Close();
         }
 
-        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        private void TxtPassword_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                btnLogin_Click(btnLogin, new EventArgs());
+                BtnLogin_Click(btnLogin, new EventArgs());
             }
             else
             {

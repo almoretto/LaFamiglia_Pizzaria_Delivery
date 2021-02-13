@@ -39,11 +39,14 @@
             this.ProductsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AdditionalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saboresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saboresToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.rotinasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saboresToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.stsFooter = new System.Windows.Forms.StatusStrip();
+            this.strpStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.mnsMdiPrincipal.SuspendLayout();
+            this.stsFooter.SuspendLayout();
             this.SuspendLayout();
             // 
             // mnsMdiPrincipal
@@ -59,7 +62,7 @@
             this.sobreToolStripMenuItem});
             this.mnsMdiPrincipal.Location = new System.Drawing.Point(0, 0);
             this.mnsMdiPrincipal.Name = "mnsMdiPrincipal";
-            this.mnsMdiPrincipal.Size = new System.Drawing.Size(1602, 28);
+            this.mnsMdiPrincipal.Size = new System.Drawing.Size(1602, 30);
             this.mnsMdiPrincipal.TabIndex = 1;
             this.mnsMdiPrincipal.Text = "MenuPrincipal";
             // 
@@ -68,7 +71,7 @@
             this.ProgramToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ExitToolStripMenuItem});
             this.ProgramToolStripMenuItem.Name = "ProgramToolStripMenuItem";
-            this.ProgramToolStripMenuItem.Size = new System.Drawing.Size(110, 24);
+            this.ProgramToolStripMenuItem.Size = new System.Drawing.Size(110, 26);
             this.ProgramToolStripMenuItem.Text = "Programa";
             // 
             // ExitToolStripMenuItem
@@ -84,7 +87,7 @@
             this.PeopleToolStripMenuItem,
             this.ProductsToolStripMenuItem});
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
-            this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(108, 24);
+            this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(108, 26);
             this.cadastrosToolStripMenuItem.Text = "Cadastros";
             // 
             // PeopleToolStripMenuItem
@@ -93,7 +96,7 @@
             this.ClientsToolStripMenuItem,
             this.UsersToolStripMenuItem});
             this.PeopleToolStripMenuItem.Name = "PeopleToolStripMenuItem";
-            this.PeopleToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.PeopleToolStripMenuItem.Size = new System.Drawing.Size(169, 26);
             this.PeopleToolStripMenuItem.Text = "Pessoas";
             // 
             // ClientsToolStripMenuItem
@@ -116,13 +119,13 @@
             this.AdditionalToolStripMenuItem,
             this.saboresToolStripMenuItem});
             this.ProductsToolStripMenuItem.Name = "ProductsToolStripMenuItem";
-            this.ProductsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.ProductsToolStripMenuItem.Size = new System.Drawing.Size(169, 26);
             this.ProductsToolStripMenuItem.Text = "Produtos";
             // 
             // AdditionalToolStripMenuItem
             // 
             this.AdditionalToolStripMenuItem.Name = "AdditionalToolStripMenuItem";
-            this.AdditionalToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.AdditionalToolStripMenuItem.Size = new System.Drawing.Size(179, 26);
             this.AdditionalToolStripMenuItem.Text = "Adicionais";
             this.AdditionalToolStripMenuItem.Click += new System.EventHandler(this.AddtionalToolStripMenuItem_Click);
             // 
@@ -131,33 +134,58 @@
             this.saboresToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.saboresToolStripMenuItem1});
             this.saboresToolStripMenuItem.Name = "saboresToolStripMenuItem";
-            this.saboresToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.saboresToolStripMenuItem.Size = new System.Drawing.Size(179, 26);
             this.saboresToolStripMenuItem.Text = "Pizzas";
+            // 
+            // saboresToolStripMenuItem1
+            // 
+            this.saboresToolStripMenuItem1.Name = "saboresToolStripMenuItem1";
+            this.saboresToolStripMenuItem1.Size = new System.Drawing.Size(161, 26);
+            this.saboresToolStripMenuItem1.Text = "Sabores";
+            this.saboresToolStripMenuItem1.Click += new System.EventHandler(this.SaboresToolStripMenuItem1_Click);
             // 
             // rotinasToolStripMenuItem
             // 
             this.rotinasToolStripMenuItem.Name = "rotinasToolStripMenuItem";
-            this.rotinasToolStripMenuItem.Size = new System.Drawing.Size(86, 24);
+            this.rotinasToolStripMenuItem.Size = new System.Drawing.Size(86, 26);
             this.rotinasToolStripMenuItem.Text = "Rotinas";
             // 
             // relatóriosToolStripMenuItem
             // 
             this.relatóriosToolStripMenuItem.Name = "relatóriosToolStripMenuItem";
-            this.relatóriosToolStripMenuItem.Size = new System.Drawing.Size(109, 24);
+            this.relatóriosToolStripMenuItem.Size = new System.Drawing.Size(109, 26);
             this.relatóriosToolStripMenuItem.Text = "Relatórios";
             // 
             // sobreToolStripMenuItem
             // 
             this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
-            this.sobreToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
+            this.sobreToolStripMenuItem.Size = new System.Drawing.Size(73, 26);
             this.sobreToolStripMenuItem.Text = "Sobre";
             // 
-            // saboresToolStripMenuItem1
+            // stsFooter
             // 
-            this.saboresToolStripMenuItem1.Name = "saboresToolStripMenuItem1";
-            this.saboresToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
-            this.saboresToolStripMenuItem1.Text = "Sabores";
-            this.saboresToolStripMenuItem1.Click += new System.EventHandler(this.saboresToolStripMenuItem1_Click);
+            this.stsFooter.BackColor = System.Drawing.Color.White;
+            this.stsFooter.Font = new System.Drawing.Font("Futura Md BT", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.stsFooter.GripMargin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.stsFooter.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.stsFooter.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.strpStatusLabel});
+            this.stsFooter.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
+            this.stsFooter.Location = new System.Drawing.Point(0, 1013);
+            this.stsFooter.Name = "stsFooter";
+            this.stsFooter.Size = new System.Drawing.Size(1602, 26);
+            this.stsFooter.TabIndex = 3;
+            // 
+            // strpStatusLabel
+            // 
+            this.strpStatusLabel.ActiveLinkColor = System.Drawing.Color.Red;
+            this.strpStatusLabel.BackColor = System.Drawing.Color.SeaShell;
+            this.strpStatusLabel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.strpStatusLabel.Font = new System.Drawing.Font("Futura Md BT", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.strpStatusLabel.ForeColor = System.Drawing.Color.DimGray;
+            this.strpStatusLabel.Name = "strpStatusLabel";
+            this.strpStatusLabel.Size = new System.Drawing.Size(148, 20);
+            this.strpStatusLabel.Text = "System Opening...";
             // 
             // MDIForm
             // 
@@ -166,6 +194,7 @@
             this.BackColor = System.Drawing.SystemColors.WindowText;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1602, 1039);
+            this.Controls.Add(this.stsFooter);
             this.Controls.Add(this.mnsMdiPrincipal);
             this.Font = new System.Drawing.Font("Futura Md BT", 12.22642F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -178,6 +207,8 @@
             this.Load += new System.EventHandler(this.MDIForm_Load);
             this.mnsMdiPrincipal.ResumeLayout(false);
             this.mnsMdiPrincipal.PerformLayout();
+            this.stsFooter.ResumeLayout(false);
+            this.stsFooter.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -199,6 +230,8 @@
         private System.Windows.Forms.ToolStripMenuItem AdditionalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saboresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saboresToolStripMenuItem1;
+        private System.Windows.Forms.StatusStrip stsFooter;
+        private System.Windows.Forms.ToolStripStatusLabel strpStatusLabel;
     }
 }
 

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BusinessRules;
+using System;
+using System.Drawing;
 using System.Windows.Forms;
 using UserInterface.Login;
 using UserInterface.People;
@@ -8,9 +10,11 @@ namespace UserInterface
 {
     public partial class MDIForm : Form
     {
+         
         public MDIForm()
         {
             InitializeComponent();
+           
         }
         private void MDIForm_Load(object sender, EventArgs e)
         {
@@ -33,6 +37,19 @@ namespace UserInterface
                 //This test verifies if the Form of the login concluded the validation if not the application is closed.
             }
             mnsMdiPrincipal.Visible = true;
+            ProgramGeneralBus _pgBus = new ProgramGeneralBus();
+            if (_pgBus.OptimizeAll())
+            {
+                strpStatusLabel.BackColor = Color.DarkOliveGreen;
+                strpStatusLabel.ForeColor = Color.White;
+                strpStatusLabel.Text = "BD Otimizado!";
+            }
+            else 
+            {
+                strpStatusLabel.BackColor = Color.Firebrick;
+                strpStatusLabel.ForeColor = Color.White;
+                strpStatusLabel.Text = "Erro Chame Admin!";
+            }
         }
 
         #region --== Menu buttons region ==--
@@ -47,7 +64,7 @@ namespace UserInterface
         private void AddtionalToolStripMenuItem_Click(object sender, EventArgs e)
         { OpenForms(new FrmAdditionalCRUD()); }
         
-        private void saboresToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void SaboresToolStripMenuItem1_Click(object sender, EventArgs e)
         { OpenForms(new FrmPizzaFlavorCRUD()); }
 
         #endregion

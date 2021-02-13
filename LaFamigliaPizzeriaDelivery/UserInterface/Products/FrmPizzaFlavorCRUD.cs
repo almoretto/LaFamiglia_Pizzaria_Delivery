@@ -1,4 +1,5 @@
-﻿using BusinessRules.Products;
+﻿using BusinessRules;
+using BusinessRules.Products;
 using Entities.Enums;
 using Entities.Products;
 using Entities.System;
@@ -6,11 +7,6 @@ using Entities.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using UserInterface.Modules;
 using UserInterface.Querries;
@@ -32,8 +28,6 @@ namespace UserInterface.Products
         private void FrmPizzaFlavorCRUD_Load(object sender, EventArgs e)
         {
             ClearForm();
-            txtFlavorId.Text = "0";
-            IdFieldMasks.MakeMask(txtFlavorId, new EventArgs());
         }
 
         #region --== Button Methods ==--
@@ -81,11 +75,22 @@ namespace UserInterface.Products
             {
                 if (_flvBus.CreatePizzaFlavor(pizzaFlavorToCreate))
                 {
-                    MessageBox.Show("Adicional cadastrado com sucesso!",
+                    MessageBox.Show("Sabor cadastrado com sucesso!",
                         this.Text,
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
-                    ClearForm();
+                    if (Functions.OptimizeAll()) 
+                    { 
+                        lblSaveOptimize.Text = "DBOTMZ";
+                        ClearForm();
+                    }
+                    else
+                    {
+                        lblSaveOptimize.Text = "DB!OTMZ";
+                        ClearForm();
+                        this.Close();
+                    }
+                    
                 }
                 else
                 {
@@ -100,7 +105,7 @@ namespace UserInterface.Products
                 pizzaFlavorToCreate.Id = Convert.ToInt32(txtFlavorId.Text.Trim());
                 if (_flvBus.UpdatePizzaFlavor(pizzaFlavorToCreate))
                 {
-                    MessageBox.Show("Adicional Atualizado com sucesso!",
+                    MessageBox.Show("Sabor Atualizado com sucesso!",
                         this.Text,
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
@@ -123,7 +128,7 @@ namespace UserInterface.Products
             PizzaFlavorBus _flvBus = new PizzaFlavorBus();
             if (_flvBus.DeletePizzaFlavor(pizzaFlavorToDelete))
             {
-                MessageBox.Show("Adicional excluído com sucesso!",
+                MessageBox.Show("Sabor excluído com sucesso!",
                                       this.Text,
                                       MessageBoxButtons.OK,
                                       MessageBoxIcon.Information);
@@ -177,17 +182,19 @@ namespace UserInterface.Products
         #region --== Auxiliary Methods ==--
         public void ClearForm()
         {
-            txtFlavorId.Text = string.Empty;
+            
+            txtFlavorId.Text = string.Empty; 
             txtFlavorId.Text = new PizzaFlavorBus().FindNextCode().ToString();
             txtFlavorDescription.Text = string.Empty;
             txtFlavorRemark.Text = string.Empty;
             txtFlavorPriceAdditional.Text = string.Empty;
             btnDelete.Enabled = false;
             flvStatus.StartStatus(Status.Ativo);
+            newregister = true;
             IdFieldMasks.MakeMask(txtFlavorId, new EventArgs());
             MonetaryMask.MakeMask(txtFlavorPriceAdditional, new EventArgs());
-            newregister = true;
             Functions.SetSelectedFocus(txtFlavorDescription);
+           
         }
 
         private bool FieldsVerification()

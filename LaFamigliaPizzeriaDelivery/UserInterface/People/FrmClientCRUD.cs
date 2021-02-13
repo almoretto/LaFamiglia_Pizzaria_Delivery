@@ -14,7 +14,7 @@ namespace UserInterface.People
 {
     public partial class FrmClientCRUD : Form
     {
-        public bool NewRecord = false;
+        public bool NewRegister = false;
         public bool SuccessControl;
         private bool PermitCheck;
         public int EditControlCode;
@@ -39,12 +39,12 @@ namespace UserInterface.People
                 btnCancel.Enabled = false;
 
                 txtClientId.Text = EditControlCode.ToString();
-                txtClientId_Validating(txtClientId, new CancelEventArgs());
+                TxtClientId_Validating(txtClientId, new CancelEventArgs());
             }
         }
 
         #region --== Buttons ==--
-        private void btnSave_Click(object sender, EventArgs e)
+        private void BtnSave_Click(object sender, EventArgs e)
         {
             if (!ValidadeClientFields()) { return; }
 
@@ -61,7 +61,7 @@ namespace UserInterface.People
 
             ClientBus clientBus = new ClientBus();
 
-            if (NewRecord) //insert into BD
+            if (NewRegister) //insert into BD
             {
                 if (clientBus.CreateClient(clientToSendToDB))
                 {
@@ -108,7 +108,7 @@ namespace UserInterface.People
             
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void BtnDelete_Click(object sender, EventArgs e)
         {
             if (txtClientId.Text.Trim() == string.Empty) { return; }
 
@@ -132,7 +132,7 @@ namespace UserInterface.People
                 btnDelete.Enabled = false;
                 return;
             }
-            NewRecord = false;
+            NewRegister = false;
             if (MessageBox.Show("Registro será apagado tem certeza?",
                 this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
@@ -159,12 +159,12 @@ namespace UserInterface.People
 
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void BtnCancel_Click(object sender, EventArgs e)
         {
             ClearForm();
         }
 
-        private void btnAddressSave_Click(object sender, EventArgs e)
+        private void BtnAddressSave_Click(object sender, EventArgs e)
         {
             Address addressToAdd = new Address();
 
@@ -177,7 +177,7 @@ namespace UserInterface.People
             addressToAdd.City = txtCity.Text.Trim();
             addressToAdd.Id = 0;
 
-            if (NewRecord == false)
+            if (NewRegister == false)
             {
                 addressToAdd.Client = new ClientBus().FindById(Convert.ToInt32(txtClientId.Text.Trim()));
                 addressToAdd.Id = Convert.ToInt32(lblAddressId.Text);
@@ -189,12 +189,12 @@ namespace UserInterface.People
             ClearAddressFields();
         }
 
-        private void lstAddresses_DoubleClick(object sender, EventArgs e)
+        private void LstAddresses_DoubleClick(object sender, EventArgs e)
         {
-            btnAddressEdit_Click(btnAddressEdit, new EventArgs());
+            BtnAddressEdit_Click(btnAddressEdit, new EventArgs());
         }
 
-        private void btnDeleteAddress_Click(object sender, EventArgs e)
+        private void BtnDeleteAddress_Click(object sender, EventArgs e)
         {
             if (lstAddresses.SelectedIndices.Count <= 0) { return; }
 
@@ -203,7 +203,7 @@ namespace UserInterface.People
             if (selectedAddressIndex >= 0) { lstAddresses.Items[selectedAddressIndex].Remove(); }
         }
 
-        private void btnAddressEdit_Click(object sender, EventArgs e)
+        private void BtnAddressEdit_Click(object sender, EventArgs e)
         {
             if (lstAddresses.SelectedIndices.Count <= 0) { return; }
 
@@ -227,7 +227,7 @@ namespace UserInterface.People
             }
         }
 
-        private void btnClientSearch_Click(object sender, EventArgs e)
+        private void BtnClientSearch_Click(object sender, EventArgs e)
         {
             FrmGenericQuerriesClient frmSearchClient = new FrmGenericQuerriesClient(Status.Todos);
             frmSearchClient.grbStatus.Enabled = true;
@@ -239,13 +239,13 @@ namespace UserInterface.People
 
             txtClientId.Text = returnControl.ToString();
             lstAddresses.Items.Clear();
-            txtClientId_Validating(txtClientId, new CancelEventArgs());
+            TxtClientId_Validating(txtClientId, new CancelEventArgs());
 
             btnClientSearch.Focus();
 
         }
 
-        private void txtClientId_Validating(object sender, CancelEventArgs e)
+        private void TxtClientId_Validating(object sender, CancelEventArgs e)
         {
             if (txtClientId.Text.Trim() == string.Empty) { return; }
 
@@ -268,7 +268,7 @@ namespace UserInterface.People
                 btnDelete.Enabled = false;
                 return;
             }
-            NewRecord = false;
+            NewRegister = false;
 
             txtClientName.Text = clientToFind.Name;
             mTxtPhone.Text = clientToFind.Phone.ToString();
@@ -319,13 +319,11 @@ namespace UserInterface.People
             txtClientName.Text = string.Empty;
             mTxtPhone.Text = string.Empty;
             mTxtCellPhone.Text = string.Empty;
-
             lstAddresses.Items.Clear();
             btnDelete.Enabled = false;
             IdFieldMasks.MakeMask(txtClientId, new EventArgs());
-
+            NewRegister = true;
             uscStatus.StartStatus(Status.Ativo);
-            NewRecord = true;
             Functions.SetSelectedFocus(txtClientName);
         }
 
@@ -481,7 +479,7 @@ namespace UserInterface.People
             {
                 Address addressToAdd = new Address();
                 addressToAdd.Id = 0;
-                if (!NewRecord)
+                if (!NewRegister)
                 {
                     cli = new ClientBus()
                        .FindById(Convert.ToInt32(txtClientId.Text.Trim()));
@@ -503,17 +501,17 @@ namespace UserInterface.People
         #endregion
 
         #region --== Events ==--
-        private void lstAddresses_MouseDown(object sender, MouseEventArgs e)
+        private void LstAddresses_MouseDown(object sender, MouseEventArgs e)
         {
             PermitCheck = true;
         }
 
-        private void lstAddresses_MouseUp(object sender, MouseEventArgs e)
+        private void LstAddresses_MouseUp(object sender, MouseEventArgs e)
         {
             PermitCheck = false;
         }
 
-        private void lstAddresses_ItemCheck(object sender, ItemCheckEventArgs e)
+        private void LstAddresses_ItemCheck(object sender, ItemCheckEventArgs e)
         {
             if (PermitCheck)
             {
