@@ -96,6 +96,7 @@
     <Compile Include="People\SvcUserTypeDb.cs" />
     <Compile Include="Products\SvcAdditionalDb.cs" />
     <Compile Include="Products\SvcPizzaEdgeDb.cs" />
+    <Compile Include="Products\SvcPizzaSizeDb.cs" />
     <Compile Include="Products\SvcPizzaFlavorDb.cs" />
     <Compile Include="ProgramGeneralDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
