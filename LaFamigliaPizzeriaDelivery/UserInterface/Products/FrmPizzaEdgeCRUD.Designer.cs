@@ -172,9 +172,9 @@ namespace UserInterface.Products
             this.lblEdgeDescription.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lblEdgeDescription.Location = new System.Drawing.Point(172, 10);
             this.lblEdgeDescription.Name = "lblEdgeDescription";
-            this.lblEdgeDescription.Size = new System.Drawing.Size(60, 20);
+            this.lblEdgeDescription.Size = new System.Drawing.Size(136, 20);
             this.lblEdgeDescription.TabIndex = 21;
-            this.lblEdgeDescription.Text = "Sabor:";
+            this.lblEdgeDescription.Text = "Sabor da borda:";
             // 
             // txtEdgeDescription
             // 

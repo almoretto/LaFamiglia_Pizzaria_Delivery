@@ -174,9 +174,9 @@ namespace UserInterface.Products
             this.lblSizeDescription.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lblSizeDescription.Location = new System.Drawing.Point(172, 10);
             this.lblSizeDescription.Name = "lblSizeDescription";
-            this.lblSizeDescription.Size = new System.Drawing.Size(60, 20);
+            this.lblSizeDescription.Size = new System.Drawing.Size(89, 20);
             this.lblSizeDescription.TabIndex = 21;
-            this.lblSizeDescription.Text = "Sabor:";
+            this.lblSizeDescription.Text = "Tamanho:";
             // 
             // txtSizeDescription
             // 

@@ -95,7 +95,7 @@ namespace DataContext.Products
                             newPizzaSize.SizeRemark = dataReader["Observacao"].ToString();
                         }
                         newPizzaSize.FlvorsQty = Convert.ToInt32(dataReader["Qtesabores"].ToString());
-                        newPizzaSize.AdditionalPrice = Convert.ToDouble(dataReader["ValorAcrescimo"].ToString());
+                        newPizzaSize.AdditionalPrice = Convert.ToDouble(dataReader["Valor"].ToString());
                         newPizzaSize.SizeStatus = (Status)Convert.ToInt32(dataReader["Situacao"]);
                         newPizzaSize.LastChangeDate = Convert.ToDateTime(dataReader["DataAlteracao"].ToString());
                         newPizzaSize.LastChangeUserId = Convert.ToInt32(dataReader["IdUsuarioAlteracao"].ToString());
@@ -143,7 +143,7 @@ namespace DataContext.Products
                             PizzaSizeFound.SizeRemark = dataReader["Observacao"].ToString();
                         }
                         PizzaSizeFound.FlvorsQty = Convert.ToInt32(dataReader["Qtesabores"].ToString());
-                        PizzaSizeFound.AdditionalPrice = Convert.ToDouble(dataReader["ValorAcrescimo"].ToString());
+                        PizzaSizeFound.AdditionalPrice = Convert.ToDouble(dataReader["Valor"].ToString());
                         PizzaSizeFound.SizeStatus = (Status)Convert.ToInt32(dataReader["Situacao"]);
                         PizzaSizeFound.LastChangeDate = Convert.ToDateTime(dataReader["DataAlteracao"].ToString());
                         PizzaSizeFound.LastChangeUserId = Convert.ToInt32(dataReader["IdUsuarioAlteracao"].ToString());
@@ -177,16 +177,16 @@ namespace DataContext.Products
                                             tamanhopizza( 
                                                 Descricao, 
                                                 Observacao,
-                                                Qtesabores
-                                                ValorAcrescimo, 
+                                                Valor,
+                                                Qtesabores,
                                                 Situacao, 
                                                 DataAlteracao, 
                                                 IdUsuarioAlteracao)
                                             values( 
                                                 @Descricao, 
                                                 @Observacao,
+                                                @Valor, 
                                                 @Qtesabores,
-                                                @ValorAcrescimo, 
                                                 @Situacao, 
                                                 @DataAlteracao, 
                                                 @IdUsuarioAlteracao);";
@@ -194,7 +194,7 @@ namespace DataContext.Products
                     command.Parameters.AddWithValue("Descricao", newPizzaSize.Description);
                     command.Parameters.AddWithValue("Observacao", newPizzaSize.SizeRemark);
                     command.Parameters.AddWithValue("Qtesabores", newPizzaSize.FlvorsQty);
-                    command.Parameters.AddWithValue("ValorAcrescimo", newPizzaSize.AdditionalPrice);
+                    command.Parameters.AddWithValue("Valor", newPizzaSize.AdditionalPrice);
                     command.Parameters.AddWithValue("Situacao", (int)newPizzaSize.SizeStatus);
                     command.Parameters.AddWithValue("DataAlteracao", newPizzaSize.LastChangeDate);
                     command.Parameters.AddWithValue("IdUsuarioAlteracao", newPizzaSize.LastChangeUserId);
@@ -233,8 +233,8 @@ namespace DataContext.Products
                                                 set  
                                                     Descricao = @Descricao, 
                                                     Observacao = @Observacao,
-                                                    Qtesabores = @Qtesabores
-                                                    ValorAcrescimo = @ValorAcrescimo, 
+                                                    Valor = @Valor, 
+                                                    Qtesabores = @Qtesabores,
                                                     Situacao = @Situacao, 
                                                     DataAlteracao = @DataAlteracao, 
                                                     IdUsuarioAlteracao = @IdUsuarioAlteracao
@@ -245,7 +245,7 @@ namespace DataContext.Products
                     command.Parameters.AddWithValue("Descricao", SizeToUpdate.Description);
                     command.Parameters.AddWithValue("Observacao", SizeToUpdate.SizeRemark);
                     command.Parameters.AddWithValue("Qtesabores", SizeToUpdate.FlvorsQty);
-                    command.Parameters.AddWithValue("ValorAcrescimo", SizeToUpdate.AdditionalPrice);
+                    command.Parameters.AddWithValue("Valor", SizeToUpdate.AdditionalPrice);
                     command.Parameters.AddWithValue("Situacao", (int)SizeToUpdate.SizeStatus);
                     command.Parameters.AddWithValue("DataAlteracao", SizeToUpdate.LastChangeDate);
                     command.Parameters.AddWithValue("IdUsuarioAlteracao", SizeToUpdate.LastChangeUserId);

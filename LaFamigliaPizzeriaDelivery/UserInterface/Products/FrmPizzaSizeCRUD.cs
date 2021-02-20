@@ -64,6 +64,7 @@ namespace UserInterface.Products
             PizzaSizeBus _szeBus = new PizzaSizeBus();
             PizzaSize pizzaSizeToCreate = new PizzaSize();
             pizzaSizeToCreate.Description = txtSizeDescription.Text.Trim();
+            pizzaSizeToCreate.FlvorsQty = Convert.ToInt32(txtQtyFlavors.Text.Trim());
             pizzaSizeToCreate.SizeRemark = txtSizeRemark.Text.Trim();
             MonetaryMask.UnMakeMask(txtSizePriceAdditional, new EventArgs());
             pizzaSizeToCreate.AdditionalPrice = Convert.ToDouble(txtSizePriceAdditional.Text);
@@ -169,6 +170,7 @@ namespace UserInterface.Products
             newregister = false;
 
             txtSizeDescription.Text = pizzaSizeToDisplay.Description;
+            txtQtyFlavors.Text = pizzaSizeToDisplay.FlvorsQty.ToString();
             txtSizeRemark.Text = pizzaSizeToDisplay.SizeRemark;
             txtSizePriceAdditional.Text = pizzaSizeToDisplay.AdditionalPrice.ToString("C2");
             szeStatus.StartStatus(pizzaSizeToDisplay.SizeStatus);
@@ -186,6 +188,7 @@ namespace UserInterface.Products
             txtSizeId.Text = string.Empty;
             txtSizeId.Text = new PizzaSizeBus().FindNextCode().ToString();
             txtSizeDescription.Text = string.Empty;
+            txtQtyFlavors.Text = string.Empty;
             txtSizeRemark.Text = string.Empty;
             txtSizePriceAdditional.Text = string.Empty;
             btnDelete.Enabled = false;
@@ -207,9 +210,9 @@ namespace UserInterface.Products
                     MessageBoxIcon.Error);
                 return false;
             }
-            if (txtQtyFlavors.Text.Trim() == string.Empty)
+            if ((txtQtyFlavors.Text.Trim() == string.Empty)||Convert.ToInt32(txtQtyFlavors.Text.Trim())<=0)
             {
-                MessageBox.Show("Você deve informar um valor para a qte de sabores!",
+                MessageBox.Show("Você deve informar pelo menos \n uma unidade de quantidade de sabores!",
                     this.Text,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
