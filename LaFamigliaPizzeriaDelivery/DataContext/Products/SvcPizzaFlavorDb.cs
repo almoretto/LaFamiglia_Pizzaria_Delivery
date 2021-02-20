@@ -12,9 +12,9 @@ namespace DataContext.Products
     {
         private readonly DbFunctions _dbFunctions = new DbFunctions();
 
-        public List<EntityViewSearch> GetEntityViewSearch(Status status)
+        public List<EntityViewProducts> GetEntityViewProducts(Status status)
         {
-            List<EntityViewSearch> entityList = new List<EntityViewSearch>();
+            List<EntityViewProducts> entityList = new List<EntityViewProducts>();
             using (MySqlConnection dbContext = DbContext.GetInstance().GetConnection())
             {
                 try
@@ -24,7 +24,7 @@ namespace DataContext.Products
                     command = dbContext.CreateCommand();
 
                     string query = @"Select 
-                                        Id, Descricao, Situacao 
+                                        Id, Descricao, Situacao, Valor 
                                      From 
                                         saborpizza";
 
@@ -45,10 +45,11 @@ namespace DataContext.Products
 
                     while (dataReader.Read())
                     {
-                        EntityViewSearch newEntity = new EntityViewSearch
+                        EntityViewProducts newEntity = new EntityViewProducts
                         {
                             Id = Convert.ToInt32(dataReader["Id"].ToString()),
                             Description = dataReader["Descricao"].ToString(),
+                            Price = Convert.ToDouble(dataReader["Valor"].ToString()),
                             Status = (Status)Convert.ToInt32(dataReader["Situacao"])
                         };
 
@@ -95,7 +96,7 @@ namespace DataContext.Products
                             newPizzaFlavor.FlavorRemark = dataReader["Observacao"].ToString();
                         }
 
-                        newPizzaFlavor.AdditionalPrice = Convert.ToDouble(dataReader["ValorAcrescimo"].ToString());
+                        newPizzaFlavor.AdditionalPrice = Convert.ToDouble(dataReader["Valor"].ToString());
                         newPizzaFlavor.FlavorStatus = (Status)Convert.ToInt32(dataReader["Situacao"]);
                         newPizzaFlavor.LastChangeDate = Convert.ToDateTime(dataReader["DataAlteracao"].ToString());
                         newPizzaFlavor.LastChangeUserId = Convert.ToInt32(dataReader["IdUsuarioAlteracao"].ToString());
@@ -143,7 +144,7 @@ namespace DataContext.Products
                             pizzaFlavorFound.FlavorRemark = dataReader["Observacao"].ToString();
                         }
 
-                        pizzaFlavorFound.AdditionalPrice = Convert.ToDouble(dataReader["ValorAcrescimo"].ToString());
+                        pizzaFlavorFound.AdditionalPrice = Convert.ToDouble(dataReader["Valor"].ToString());
                         pizzaFlavorFound.FlavorStatus = (Status)Convert.ToInt32(dataReader["Situacao"]);
                         pizzaFlavorFound.LastChangeDate = Convert.ToDateTime(dataReader["DataAlteracao"].ToString());
                         pizzaFlavorFound.LastChangeUserId = Convert.ToInt32(dataReader["IdUsuarioAlteracao"].ToString());
@@ -177,21 +178,21 @@ namespace DataContext.Products
                                             saborpizza( 
                                                 Descricao, 
                                                 Observacao, 
-                                                ValorAcrescimo, 
+                                                Valor, 
                                                 Situacao, 
                                                 DataAlteracao, 
                                                 IdUsuarioAlteracao)
                                             values( 
                                                 @Descricao, 
                                                 @Observacao, 
-                                                @ValorAcrescimo, 
+                                                @Valor, 
                                                 @Situacao, 
                                                 @DataAlteracao, 
                                                 @IdUsuarioAlteracao);";
                     //Insert parameters
                     command.Parameters.AddWithValue("Descricao", newPizzaFlavor.Description);
                     command.Parameters.AddWithValue("Observacao", newPizzaFlavor.FlavorRemark);
-                    command.Parameters.AddWithValue("ValorAcrescimo", newPizzaFlavor.AdditionalPrice);
+                    command.Parameters.AddWithValue("Valor", newPizzaFlavor.AdditionalPrice);
                     command.Parameters.AddWithValue("Situacao", (int)newPizzaFlavor.FlavorStatus);
                     command.Parameters.AddWithValue("DataAlteracao", newPizzaFlavor.LastChangeDate);
                     command.Parameters.AddWithValue("IdUsuarioAlteracao", newPizzaFlavor.LastChangeUserId);
@@ -230,7 +231,7 @@ namespace DataContext.Products
                                                 set  
                                                     Descricao = @Descricao, 
                                                     Observacao = @Observacao, 
-                                                    ValorAcrescimo = @ValorAcrescimo, 
+                                                    Valor = @Valor, 
                                                     Situacao = @Situacao, 
                                                     DataAlteracao = @DataAlteracao, 
                                                     IdUsuarioAlteracao = @IdUsuarioAlteracao
@@ -240,7 +241,7 @@ namespace DataContext.Products
                     command.Parameters.AddWithValue("Id", flavorToUpdate.Id);
                     command.Parameters.AddWithValue("Descricao", flavorToUpdate.Description);
                     command.Parameters.AddWithValue("Observacao", flavorToUpdate.FlavorRemark);
-                    command.Parameters.AddWithValue("ValorAcrescimo", flavorToUpdate.AdditionalPrice);
+                    command.Parameters.AddWithValue("Valor", flavorToUpdate.AdditionalPrice);
                     command.Parameters.AddWithValue("Situacao", (int)flavorToUpdate.FlavorStatus);
                     command.Parameters.AddWithValue("DataAlteracao", flavorToUpdate.LastChangeDate);
                     command.Parameters.AddWithValue("IdUsuarioAlteracao", flavorToUpdate.LastChangeUserId);

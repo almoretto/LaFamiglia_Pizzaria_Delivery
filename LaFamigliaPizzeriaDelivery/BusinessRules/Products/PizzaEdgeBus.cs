@@ -11,8 +11,8 @@ namespace BusinessRules.Products
         private readonly SvcPizzaEdgeDb _svcPizzaEdgeDb;
         public PizzaEdgeBus() { _svcPizzaEdgeDb = new SvcPizzaEdgeDb(); }
 
-        public List<EntityViewSearch> GetEntityViewSearch(Status status)
-        { return _svcPizzaEdgeDb.GetEntityViewSearch(status); }
+        public List<EntityViewProducts> GetEntityViewProducts(Status status)
+        { return _svcPizzaEdgeDb.GetEntityViewProducts(status); }
 
         public List<PizzaEdgeFilling> GetActiveEdges()
         { return _svcPizzaEdgeDb.GetActiveEdges(); }

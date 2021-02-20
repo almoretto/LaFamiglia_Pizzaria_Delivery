@@ -33,7 +33,7 @@ namespace UserInterface.Products
         #region --== Button Methods ==--
         private void BtnFlavorSearch_Click(object sender, EventArgs e)
         {
-            List<EntityViewSearch> pizzaFlavors = new PizzaFlavorBus().GetEntityViewSearch(Status.Todos);
+            List<EntityViewProducts> pizzaFlavors = new PizzaFlavorBus().GetEntityViewProducts(Status.Todos);
             if (pizzaFlavors.Count < 1)
             {
                 //verify if list is empty
@@ -44,7 +44,7 @@ namespace UserInterface.Products
                 return;
             }
             //send list to Generic search form
-            FrmGenericQuerries FrmPizzaFlavorQuery = new FrmGenericQuerries("Pesquisa de Adicionais", Status.Todos);
+            FrmGenericQueriesProducts FrmPizzaFlavorQuery = new FrmGenericQueriesProducts("Pesquisa de Adicionais", Status.Todos);
             FrmPizzaFlavorQuery.queryList = pizzaFlavors;
             FrmPizzaFlavorQuery.ShowDialog();
 

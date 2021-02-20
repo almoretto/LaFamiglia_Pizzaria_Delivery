@@ -11,9 +11,9 @@ namespace DataContext.Products
     public class SvcAdditionalDb
     {
         private readonly DbFunctions _dbFunctions = new DbFunctions();
-        public List<EntityViewSearch> GetEntityViewSearch(Status status)
+        public List<EntityViewProducts> GetEntityViewProducts(Status status)
         {
-            List<EntityViewSearch> entityList = new List<EntityViewSearch>();
+            List<EntityViewProducts> entityList = new List<EntityViewProducts>();
             using (MySqlConnection dbContext = DbContext.GetInstance().GetConnection())
             {
                 try
@@ -23,14 +23,14 @@ namespace DataContext.Products
                     command = dbContext.CreateCommand();
 
                     string query = @"Select 
-                                        Id, Descricao, Situacao 
+                                        Id, Descricao, Situacao, Valor 
                                      From 
                                         adicional";
 
-                    if (status != Status.Todos) 
-                    { 
-                        query += " Where " 
-                                +"situacao = @status;";
+                    if (status != Status.Todos)
+                    {
+                        query += " Where "
+                                + "situacao = @status;";
                     }
 
                     command.CommandText = query;
@@ -39,15 +39,16 @@ namespace DataContext.Products
                     {
                         command.Parameters.AddWithValue("situacao", (int)status);
                     }
-                    
+
                     MySqlDataReader dataReader = command.ExecuteReader();
 
                     while (dataReader.Read())
                     {
-                        EntityViewSearch newEntity = new EntityViewSearch
+                        EntityViewProducts newEntity = new EntityViewProducts
                         {
                             Id = Convert.ToInt32(dataReader["Id"].ToString()),
                             Description = dataReader["Descricao"].ToString(),
+                            Price = Convert.ToDouble(dataReader["Valor"].ToString()),
                             Status = (Status)Convert.ToInt32(dataReader["Situacao"])
                         };
 

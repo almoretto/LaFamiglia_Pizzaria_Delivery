@@ -67,10 +67,10 @@ namespace UserInterface
         private void SaboresToolStripMenuItem1_Click(object sender, EventArgs e)
         { OpenForms(new FrmPizzaFlavorCRUD()); }
 
-        private void bordasToolStripMenuItem_Click(object sender, EventArgs e)
+        private void BordasToolStripMenuItem_Click(object sender, EventArgs e)
         { OpenForms(new FrmPizzaEdgeCRUD()); }
 
-        private void tamanhosToolStripMenuItem_Click(object sender, EventArgs e)
+        private void TamanhosToolStripMenuItem_Click(object sender, EventArgs e)
         { OpenForms(new FrmPizzaSizeCRUD()); }
 
         #endregion

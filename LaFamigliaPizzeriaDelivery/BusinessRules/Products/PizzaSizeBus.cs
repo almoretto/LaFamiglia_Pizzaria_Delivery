@@ -11,8 +11,8 @@ namespace BusinessRules.Products
         private readonly SvcPizzaSizeDb _svcPizzaSizeDb;
         public PizzaSizeBus() { _svcPizzaSizeDb = new SvcPizzaSizeDb(); }
 
-        public List<EntityViewSearch> GetEntityViewSearch(Status status)
-        { return _svcPizzaSizeDb.GetEntityViewSearch(status); }
+        public List<EntityViewProducts> GetEntityViewProducts(Status status)
+        { return _svcPizzaSizeDb.GetEntityViewProducts(status); }
 
         public List<PizzaSize> GetActiveSizes()
         { return _svcPizzaSizeDb.GetActiveSizes(); }

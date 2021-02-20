@@ -1,5 +1,4 @@
-﻿using BusinessRules;
-using BusinessRules.Products;
+﻿using BusinessRules.Products;
 using Entities.Enums;
 using Entities.Products;
 using Entities.System;
@@ -32,7 +31,7 @@ namespace UserInterface.Products
         #region --== Button Methods ==--
         private void BtnEdgeSearch_Click(object sender, EventArgs e)
         {
-            List<EntityViewSearch> pizzaEdges = new PizzaEdgeBus().GetEntityViewSearch(Status.Todos);
+            List<EntityViewProducts> pizzaEdges = new PizzaEdgeBus().GetEntityViewProducts(Status.Todos);
             if (pizzaEdges.Count < 1)
             {
                 //verify if list is empty
@@ -43,7 +42,7 @@ namespace UserInterface.Products
                 return;
             }
             //send list to Generic search form
-            FrmGenericQuerries FrmPizzaEdgeQuery = new FrmGenericQuerries("Pesquisa de Sabor de Bordas", Status.Todos);
+            FrmGenericQueriesProducts FrmPizzaEdgeQuery = new FrmGenericQueriesProducts("Pesquisa de Sabor de Bordas", Status.Todos);
             FrmPizzaEdgeQuery.queryList = pizzaEdges;
             FrmPizzaEdgeQuery.ShowDialog();
 

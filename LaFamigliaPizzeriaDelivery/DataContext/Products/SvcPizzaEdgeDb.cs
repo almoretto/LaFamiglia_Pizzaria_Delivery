@@ -12,9 +12,9 @@ namespace DataContext.Products
     {
         private readonly DbFunctions _dbFunctions = new DbFunctions();
 
-        public List<EntityViewSearch> GetEntityViewSearch(Status status)
+        public List<EntityViewProducts> GetEntityViewProducts(Status status)
         {
-            List<EntityViewSearch> entityList = new List<EntityViewSearch>();
+            List<EntityViewProducts> entityList = new List<EntityViewProducts>();
             using (MySqlConnection dbContext = DbContext.GetInstance().GetConnection())
             {
                 try
@@ -24,7 +24,7 @@ namespace DataContext.Products
                     command = dbContext.CreateCommand();
 
                     string query = @"Select 
-                                        Id, Descricao, Situacao 
+                                        Id, Descricao, Situacao, Valor 
                                      From 
                                         saborborda";
 
@@ -45,10 +45,11 @@ namespace DataContext.Products
 
                     while (dataReader.Read())
                     {
-                        EntityViewSearch newEntity = new EntityViewSearch
+                        EntityViewProducts newEntity = new EntityViewProducts
                         {
                             Id = Convert.ToInt32(dataReader["Id"].ToString()),
                             Description = dataReader["Descricao"].ToString(),
+                            Price = Convert.ToDouble(dataReader["Valor"].ToString()),
                             Status = (Status)Convert.ToInt32(dataReader["Situacao"])
                         };
 
@@ -95,7 +96,7 @@ namespace DataContext.Products
                             newPizzaEdge.EdgeRemark = dataReader["Observacao"].ToString();
                         }
 
-                        newPizzaEdge.AdditionalPrice = Convert.ToDouble(dataReader["ValorAcrescimo"].ToString());
+                        newPizzaEdge.AdditionalPrice = Convert.ToDouble(dataReader["Valor"].ToString());
                         newPizzaEdge.EdgeStatus = (Status)Convert.ToInt32(dataReader["Situacao"]);
                         newPizzaEdge.LastChangeDate = Convert.ToDateTime(dataReader["DataAlteracao"].ToString());
                         newPizzaEdge.LastChangeUserId = Convert.ToInt32(dataReader["IdUsuarioAlteracao"].ToString());
@@ -143,7 +144,7 @@ namespace DataContext.Products
                             pizzaEdgeFound.EdgeRemark = dataReader["Observacao"].ToString();
                         }
 
-                        pizzaEdgeFound.AdditionalPrice = Convert.ToDouble(dataReader["ValorAcrescimo"].ToString());
+                        pizzaEdgeFound.AdditionalPrice = Convert.ToDouble(dataReader["Valor"].ToString());
                         pizzaEdgeFound.EdgeStatus = (Status)Convert.ToInt32(dataReader["Situacao"]);
                         pizzaEdgeFound.LastChangeDate = Convert.ToDateTime(dataReader["DataAlteracao"].ToString());
                         pizzaEdgeFound.LastChangeUserId = Convert.ToInt32(dataReader["IdUsuarioAlteracao"].ToString());
@@ -177,21 +178,21 @@ namespace DataContext.Products
                                             saborborda( 
                                                 Descricao, 
                                                 Observacao, 
-                                                ValorAcrescimo, 
+                                                Valor, 
                                                 Situacao, 
                                                 DataAlteracao, 
                                                 IdUsuarioAlteracao)
                                             values( 
                                                 @Descricao, 
                                                 @Observacao, 
-                                                @ValorAcrescimo, 
+                                                @Valor, 
                                                 @Situacao, 
                                                 @DataAlteracao, 
                                                 @IdUsuarioAlteracao);";
                     //Insert parameters
                     command.Parameters.AddWithValue("Descricao", newPizzaEdge.Description);
                     command.Parameters.AddWithValue("Observacao", newPizzaEdge.EdgeRemark);
-                    command.Parameters.AddWithValue("ValorAcrescimo", newPizzaEdge.AdditionalPrice);
+                    command.Parameters.AddWithValue("Valor", newPizzaEdge.AdditionalPrice);
                     command.Parameters.AddWithValue("Situacao", (int)newPizzaEdge.EdgeStatus);
                     command.Parameters.AddWithValue("DataAlteracao", newPizzaEdge.LastChangeDate);
                     command.Parameters.AddWithValue("IdUsuarioAlteracao", newPizzaEdge.LastChangeUserId);
@@ -230,7 +231,7 @@ namespace DataContext.Products
                                                 set  
                                                     Descricao = @Descricao, 
                                                     Observacao = @Observacao, 
-                                                    ValorAcrescimo = @ValorAcrescimo, 
+                                                    Valor = @Valor, 
                                                     Situacao = @Situacao, 
                                                     DataAlteracao = @DataAlteracao, 
                                                     IdUsuarioAlteracao = @IdUsuarioAlteracao
@@ -240,7 +241,7 @@ namespace DataContext.Products
                     command.Parameters.AddWithValue("Id", edgeToUpdate.Id);
                     command.Parameters.AddWithValue("Descricao", edgeToUpdate.Description);
                     command.Parameters.AddWithValue("Observacao", edgeToUpdate.EdgeRemark);
-                    command.Parameters.AddWithValue("ValorAcrescimo", edgeToUpdate.AdditionalPrice);
+                    command.Parameters.AddWithValue("Valor", edgeToUpdate.AdditionalPrice);
                     command.Parameters.AddWithValue("Situacao", (int)edgeToUpdate.EdgeStatus);
                     command.Parameters.AddWithValue("DataAlteracao", edgeToUpdate.LastChangeDate);
                     command.Parameters.AddWithValue("IdUsuarioAlteracao", edgeToUpdate.LastChangeUserId);

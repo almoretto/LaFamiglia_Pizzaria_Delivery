@@ -33,7 +33,7 @@ namespace UserInterface.Products
         #region --== Button Methods ==--
         private void BtnSizeSearch_Click(object sender, EventArgs e)
         {
-            List<EntityViewSearch> pizzaSizes = new PizzaSizeBus().GetEntityViewSearch(Status.Todos);
+            List<EntityViewProducts> pizzaSizes = new PizzaSizeBus().GetEntityViewProducts(Status.Todos);
             if (pizzaSizes.Count < 1)
             {
                 //verify if list is empty
@@ -44,11 +44,11 @@ namespace UserInterface.Products
                 return;
             }
             //send list to Generic search form
-            FrmGenericQuerries FrmPizzaSizeQuery = new FrmGenericQuerries("Pesquisa de Adicionais", Status.Todos);
-            FrmPizzaSizeQuery.queryList = pizzaSizes;
-            FrmPizzaSizeQuery.ShowDialog();
+            FrmGenericQueriesProducts FrmPizzaSizeQueryProduct = new FrmGenericQueriesProducts("Pesquisa de Adicionais", Status.Todos);
+            FrmPizzaSizeQueryProduct.queryList = pizzaSizes;
+            FrmPizzaSizeQueryProduct.ShowDialog();
 
-            returnControl = FrmPizzaSizeQuery.returnControl;
+            returnControl = FrmPizzaSizeQueryProduct.returnControl;
             //Break if returno control is invalid
             if (returnControl < 1) { return; }
 
@@ -217,6 +217,15 @@ namespace UserInterface.Products
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 return false;
+            }
+            MonetaryMask.UnMakeMask(txtSizePriceAdditional, new EventArgs());
+            if (Convert.ToDouble(txtSizePriceAdditional.Text.Trim()) <= 0.00) 
+            {
+                    MessageBox.Show("Valor não condizente com a quantidade de sabores,\n favor corrigir!",
+                    this.Text,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                    return false;
             }
 
             return true;

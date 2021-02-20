@@ -11,8 +11,8 @@ namespace BusinessRules.Products
         private readonly SvcPizzaFlavorDb _svcPizzaFlavorDb;
         public PizzaFlavorBus() { _svcPizzaFlavorDb = new SvcPizzaFlavorDb(); }
 
-        public List<EntityViewSearch> GetEntityViewSearch(Status status)
-        { return _svcPizzaFlavorDb.GetEntityViewSearch(status); }
+        public List<EntityViewProducts> GetEntityViewProducts(Status status)
+        { return _svcPizzaFlavorDb.GetEntityViewProducts(status); }
 
         public List<PizzaFlavor> GetActiveFlavors()
         { return _svcPizzaFlavorDb.GetActiveFlavors(); }

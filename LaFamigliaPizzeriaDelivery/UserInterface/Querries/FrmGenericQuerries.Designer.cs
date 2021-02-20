@@ -66,7 +66,7 @@
             this.btnExit.Text = "Sair";
             this.btnExit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            this.btnExit.Click += new System.EventHandler(this.BtnExit_Click);
             // 
             // btnConfirmation
             // 
@@ -79,14 +79,14 @@
             this.btnConfirmation.Text = "Confirmar";
             this.btnConfirmation.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnConfirmation.UseVisualStyleBackColor = true;
-            this.btnConfirmation.Click += new System.EventHandler(this.btnConfirmation_Click);
+            this.btnConfirmation.Click += new System.EventHandler(this.BtnConfirmation_Click);
             // 
             // lblGenericsearch
             // 
             this.lblGenericsearch.AutoSize = true;
             this.lblGenericsearch.Location = new System.Drawing.Point(13, 13);
             this.lblGenericsearch.Name = "lblGenericsearch";
-            this.lblGenericsearch.Size = new System.Drawing.Size(72, 19);
+            this.lblGenericsearch.Size = new System.Drawing.Size(75, 20);
             this.lblGenericsearch.TabIndex = 1;
             this.lblGenericsearch.Text = "Pesquisa";
             // 
@@ -94,9 +94,9 @@
             // 
             this.txtGenericSearch.Location = new System.Drawing.Point(91, 13);
             this.txtGenericSearch.Name = "txtGenericSearch";
-            this.txtGenericSearch.Size = new System.Drawing.Size(481, 25);
+            this.txtGenericSearch.Size = new System.Drawing.Size(481, 28);
             this.txtGenericSearch.TabIndex = 2;
-            this.txtGenericSearch.TextChanged += new System.EventHandler(this.txtGenericSearch_TextChanged);
+            this.txtGenericSearch.TextChanged += new System.EventHandler(this.TxtGenericSearch_TextChanged);
             // 
             // grbStatus
             // 
@@ -115,36 +115,36 @@
             this.rbtAll.AutoSize = true;
             this.rbtAll.Location = new System.Drawing.Point(187, 22);
             this.rbtAll.Name = "rbtAll";
-            this.rbtAll.Size = new System.Drawing.Size(69, 23);
+            this.rbtAll.Size = new System.Drawing.Size(76, 24);
             this.rbtAll.TabIndex = 2;
             this.rbtAll.TabStop = true;
             this.rbtAll.Text = "Todos";
             this.rbtAll.UseVisualStyleBackColor = true;
-            this.rbtAll.CheckedChanged += new System.EventHandler(this.rbtAll_CheckedChanged);
+            this.rbtAll.CheckedChanged += new System.EventHandler(this.RbtAll_CheckedChanged);
             // 
             // rbtAllInactive
             // 
             this.rbtAllInactive.AutoSize = true;
             this.rbtAllInactive.Location = new System.Drawing.Point(98, 22);
             this.rbtAllInactive.Name = "rbtAllInactive";
-            this.rbtAllInactive.Size = new System.Drawing.Size(83, 23);
+            this.rbtAllInactive.Size = new System.Drawing.Size(89, 24);
             this.rbtAllInactive.TabIndex = 1;
             this.rbtAllInactive.TabStop = true;
             this.rbtAllInactive.Text = "Inativos";
             this.rbtAllInactive.UseVisualStyleBackColor = true;
-            this.rbtAllInactive.CheckedChanged += new System.EventHandler(this.rbtAllInactive_CheckedChanged);
+            this.rbtAllInactive.CheckedChanged += new System.EventHandler(this.RbtAllInactive_CheckedChanged);
             // 
             // rbtAllActive
             // 
             this.rbtAllActive.AutoSize = true;
             this.rbtAllActive.Location = new System.Drawing.Point(21, 22);
             this.rbtAllActive.Name = "rbtAllActive";
-            this.rbtAllActive.Size = new System.Drawing.Size(71, 23);
+            this.rbtAllActive.Size = new System.Drawing.Size(75, 24);
             this.rbtAllActive.TabIndex = 0;
             this.rbtAllActive.TabStop = true;
             this.rbtAllActive.Text = "Ativos";
             this.rbtAllActive.UseVisualStyleBackColor = true;
-            this.rbtAllActive.CheckedChanged += new System.EventHandler(this.rbtAllActive_CheckedChanged);
+            this.rbtAllActive.CheckedChanged += new System.EventHandler(this.RbtAllActive_CheckedChanged);
             // 
             // grbResult
             // 
@@ -161,23 +161,25 @@
             // 
             // lstResult
             // 
+            this.lstResult.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lstResult.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lstResult.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lstResult.Font = new System.Drawing.Font("Futura Md BT", 8.150944F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstResult.FullRowSelect = true;
             this.lstResult.GridLines = true;
             this.lstResult.HideSelection = false;
-            this.lstResult.Location = new System.Drawing.Point(3, 21);
+            this.lstResult.Location = new System.Drawing.Point(3, 24);
             this.lstResult.Name = "lstResult";
-            this.lstResult.Size = new System.Drawing.Size(549, 406);
+            this.lstResult.Size = new System.Drawing.Size(549, 403);
             this.lstResult.TabIndex = 0;
             this.lstResult.UseCompatibleStateImageBehavior = false;
-            this.lstResult.DoubleClick += new System.EventHandler(this.lstResult_DoubleClick);
+            this.lstResult.DoubleClick += new System.EventHandler(this.LstResult_DoubleClick);
             // 
             // FrmGenericQuerries
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(584, 609);
             this.Controls.Add(this.grbResult);
             this.Controls.Add(this.grbStatus);

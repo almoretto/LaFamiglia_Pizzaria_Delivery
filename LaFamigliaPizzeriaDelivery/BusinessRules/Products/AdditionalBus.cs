@@ -11,8 +11,8 @@ namespace BusinessRules.Products
         private readonly SvcAdditionalDb _svcAdditionalDb;
         public AdditionalBus() { _svcAdditionalDb = new SvcAdditionalDb(); }
 
-        public List<EntityViewSearch> GetEntityViewSearch(Status status)
-        { return _svcAdditionalDb.GetEntityViewSearch(status); }
+        public List<EntityViewProducts> GetEntityViewProducts(Status status)
+        { return _svcAdditionalDb.GetEntityViewProducts(status); }
 
         public List<Additional> GetActiveAdditional()
         { return _svcAdditionalDb.GetActiveAdditional(); }

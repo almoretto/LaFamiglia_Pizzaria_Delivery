@@ -1,18 +1,19 @@
 ﻿using Entities.Enums;
 using Entities.Views;
 using System;
-using System.Linq;
 using System.Collections.Generic;
+using System.Data;
+using System.Linq;
 using System.Windows.Forms;
 using UserInterface.Modules;
 
 namespace UserInterface.Querries
 {
-    public partial class FrmGenericQuerries : Form
+    public partial class FrmGenericQueriesProducts : Form
     {
-        public List<EntityViewSearch> queryList = new List<EntityViewSearch>();
+        public List<EntityViewProducts> queryList = new List<EntityViewProducts>();
         public int returnControl = 0;
-        public FrmGenericQuerries(string title, Status status)
+        public FrmGenericQueriesProducts(string title, Status status)
         {
             InitializeComponent();
             Text = title;
@@ -28,9 +29,11 @@ namespace UserInterface.Querries
             {
                 rbtAll.Checked = true;
             }
+
+
         }
 
-        private void FrmGenericQuerries_Load(object sender, EventArgs e)
+        private void FrmGenericQueriesProducts_Load(object sender, EventArgs e)
         {
             Form form = new Form()
             {
@@ -43,7 +46,7 @@ namespace UserInterface.Querries
             FillListView(queryList);
         }
 
-        private void FillListView(List<EntityViewSearch> list)
+        private void FillListView(List<EntityViewProducts> list)
         {
             //Method to populate view
             lstResult.Clear();
@@ -51,6 +54,7 @@ namespace UserInterface.Querries
 
             lstResult.Columns.Add("Código", 50, HorizontalAlignment.Right);
             lstResult.Columns.Add("Descrição", 280, HorizontalAlignment.Left);
+            lstResult.Columns.Add("Valor", 80, HorizontalAlignment.Right);
 
             foreach (var item in list)
             {
@@ -65,9 +69,10 @@ namespace UserInterface.Querries
                         continue;
                     }
                 }
-                string[] line = new string[2];
+                string[] line = new string[3];
                 line[0] = item.Id.ToString();
                 line[1] = item.Description;
+                line[2] = item.Price.ToString("C2");
                 ListViewItem listLine = new ListViewItem(line);
                 lstResult.Items.Add(listLine);
             }
@@ -90,12 +95,12 @@ namespace UserInterface.Querries
                 returnControl = Convert.ToInt32(lstResult.Items[selectedIndex].Text);
                 BtnExit_Click(btnExit, new EventArgs());
             }
-            
+
         }
 
         private void BtnExit_Click(object sender, EventArgs e)
         {
-            Close();
+            this.Close();
         }
 
         private void RbtAllActive_CheckedChanged(object sender, EventArgs e)
@@ -122,15 +127,15 @@ namespace UserInterface.Querries
         private void TxtGenericSearch_TextChanged(object sender, EventArgs e)
         {
             if (txtGenericSearch.Text.Trim() == string.Empty) { return; }
-            List<EntityViewSearch> listQ = new List<EntityViewSearch>
+            List<EntityViewProducts> listQ = new List<EntityViewProducts>
                 (from u in queryList
-                where u.Description.ToLower()
-                .Contains(txtGenericSearch.Text.Trim().ToLower()) 
-                select u);
+                 where u.Description.ToLower()
+                 .Contains(txtGenericSearch.Text.Trim().ToLower())
+                 select u);
 
             FillListView(listQ);
         }
-       
+
         public void ClearForm()
         {
             txtGenericSearch.Text = string.Empty;

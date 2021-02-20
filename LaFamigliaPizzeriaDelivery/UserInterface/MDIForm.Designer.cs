@@ -153,7 +153,7 @@
             this.bordasToolStripMenuItem.Name = "bordasToolStripMenuItem";
             this.bordasToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.bordasToolStripMenuItem.Text = "Bordas";
-            this.bordasToolStripMenuItem.Click += new System.EventHandler(this.bordasToolStripMenuItem_Click);
+            this.bordasToolStripMenuItem.Click += new System.EventHandler(this.BordasToolStripMenuItem_Click);
             // 
             // rotinasToolStripMenuItem
             // 
@@ -203,7 +203,7 @@
             this.tamanhosToolStripMenuItem.Name = "tamanhosToolStripMenuItem";
             this.tamanhosToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.tamanhosToolStripMenuItem.Text = "Tamanhos";
-            this.tamanhosToolStripMenuItem.Click += new System.EventHandler(this.tamanhosToolStripMenuItem_Click);
+            this.tamanhosToolStripMenuItem.Click += new System.EventHandler(this.TamanhosToolStripMenuItem_Click);
             // 
             // MDIForm
             // 

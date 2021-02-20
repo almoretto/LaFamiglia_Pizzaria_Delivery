@@ -16,18 +16,20 @@ namespace UserInterface.Products
     {
         private bool newregister;
         int returnControl = 0;
+       
         public FrmAdditionalCRUD()
         {
             InitializeComponent();
             MonetaryMask.AplyEvents(txtAdditionalPrice);
             IdFieldMasks.AplyEvents(txtAdditionalId);
         }
-
-        #region --== Buttons ==--
+        
         private void FrmAdditionalCRUD_Load(object sender, EventArgs e)
         {
             ClearForm();
         }
+        
+        #region --== Buttons ==--
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
@@ -122,7 +124,7 @@ namespace UserInterface.Products
 
         private void BtnAdditionalSearch_Click(object sender, EventArgs e)
         {
-            List<EntityViewSearch> aditional = new AdditionalBus().GetEntityViewSearch(Status.Todos);
+            List<EntityViewProducts> aditional = new AdditionalBus().GetEntityViewProducts(Status.Todos);
             if (aditional.Count < 1)
             {
                 //verify if list is empty
@@ -133,7 +135,7 @@ namespace UserInterface.Products
                 return;
             }
             //send list to Generic search form
-            FrmGenericQuerries frmAdditionalQuery = new FrmGenericQuerries("Pesquisa de Adicionais", Status.Todos);
+            FrmGenericQueriesProducts frmAdditionalQuery = new FrmGenericQueriesProducts("Pesquisa de Adicionais", Status.Todos);
             frmAdditionalQuery.queryList = aditional;
             frmAdditionalQuery.ShowDialog();
 
