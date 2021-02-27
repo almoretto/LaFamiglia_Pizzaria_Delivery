@@ -123,6 +123,12 @@
     <Compile Include="Querries\FrmGenericQuerries.Designer.cs">
       <DependentUpon>FrmGenericQuerries.cs</DependentUpon>
     </Compile>
+    <Compile Include="Routines\FrmOrderRt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Routines\FrmOrderRt.Designer.cs">
+      <DependentUpon>FrmOrderRt.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Controls\UserSituacaoCTRL.resx">
       <DependentUpon>UserSituacaoCTRL.cs</DependentUpon>
     </EmbeddedResource>
@@ -168,6 +174,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Querries\FrmGenericQuerries.resx">
       <DependentUpon>FrmGenericQuerries.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Routines\FrmOrderRt.resx">
+      <DependentUpon>FrmOrderRt.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -258,5 +267,6 @@
   <ItemGroup>
     <None Include="Resources\Pizza.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
