@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using UserInterface.Login;
 using UserInterface.People;
 using UserInterface.Products;
+using UserInterface.Routines;
 
 namespace UserInterface
 {
@@ -73,6 +74,9 @@ namespace UserInterface
         private void TamanhosToolStripMenuItem_Click(object sender, EventArgs e)
         { OpenForms(new FrmPizzaSizeCRUD()); }
 
+        private void pedidosToolStripMenuItem_Click(object sender, EventArgs e)
+        { OpenForms(new FrmOrderRt()); }
+
         #endregion
 
 
@@ -86,6 +90,7 @@ namespace UserInterface
             selectedForm.Left = 25;
             selectedForm.Show();
         }
+
 
 
 

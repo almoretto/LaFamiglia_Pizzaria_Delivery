@@ -78,7 +78,7 @@ namespace DataContext.People
             return entityList;
         }
 
-        public Client FindById(int id)
+        public Client FindClientFullEntity(int id)
         {
             Client clientFounded = new Client();
             using (MySqlConnection dbContext = DbContext.GetInstance().GetConnection())
@@ -189,7 +189,70 @@ namespace DataContext.People
             }
             return clientFounded;
         }
+        
+        public Client FindClientByContact(long contact)
+        {
+            Client clientFounded = new Client();
+            using (MySqlConnection dbContext = DbContext.GetInstance().GetConnection())
+            {
+                try
+                {
+                    dbContext.Open();
+                    MySqlCommand command = new MySqlCommand();
+                    command = dbContext.CreateCommand();
 
+                    //Sql command
+                    command.CommandText = @"select * from cliente 
+                                                     where 
+                                                        Telefone LIKE @NumeroContato
+                                                     OR
+                                                        Celular LIKE @NumeroContato
+                                                     LIMIT 1;";
+                    //Sql Parameter
+                    command.Parameters.AddWithValue("NumeroContato", contact);
+
+                    MySqlDataReader dataReader = command.ExecuteReader();
+
+                    while (dataReader.Read())
+                    {
+                        clientFounded.Id = Convert.ToInt32(dataReader["Id"].ToString());
+                        clientFounded.Name = dataReader["Nome"].ToString();
+
+                        if (dataReader["Telefone"] != null
+                            &&
+                            dataReader["Telefone"].ToString() != string.Empty)
+                        {
+                            clientFounded.Phone = Convert
+                                .ToInt64(dataReader["Telefone"].ToString());
+                        }
+
+                        if (dataReader["Celular"] != null
+                            &&
+                            dataReader["Celular"].ToString() != string.Empty)
+                        {
+                            clientFounded.CellPhone = Convert
+                                .ToInt64(dataReader["Celular"].ToString());
+                        }
+
+                        clientFounded.Status = (Status)Convert.ToInt32(dataReader["Situacao"]);
+                        clientFounded.LastChangeDateTime = Convert.ToDateTime(dataReader["DataAlteracao"].ToString());
+                        clientFounded.LastChangeUserId = Convert.ToInt32(dataReader["IdUsuarioAlteracao"].ToString());
+
+                        clientFounded.Addresses = new SvcAddressDb().FindByClientId(clientFounded.Id);
+                    }
+                }
+                catch (MySqlException ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    dbContext.Close();
+                }
+            }
+            return clientFounded;
+        }
+        
         public bool CreateClient(Client clientToCreate)
         {
             bool success = false;

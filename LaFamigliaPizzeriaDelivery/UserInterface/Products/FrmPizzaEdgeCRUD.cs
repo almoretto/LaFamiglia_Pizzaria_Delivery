@@ -22,7 +22,7 @@ namespace UserInterface.Products
             MonetaryMask.AplyEvents(txtEdgeAdditionalPrice);
             IdFieldMasks.AplyEvents(txtEdgeId);
         }
-        
+
         private void FrmPizzaEdgeCRUD_Load(object sender, EventArgs e)
         {
             ClearForm();
@@ -157,7 +157,7 @@ namespace UserInterface.Products
             PizzaEdgeFilling pizzaEdgeToDisplay = new PizzaEdgeBus()
                 .FindById(Convert.ToInt32(txtEdgeId.Text.Trim()));
 
-            if (pizzaEdgeToDisplay == null)
+            if (pizzaEdgeToDisplay.Description == null || pizzaEdgeToDisplay.Id == 0)
             {
                 btnDelete.Enabled = false;
                 ClearForm();
@@ -205,7 +205,7 @@ namespace UserInterface.Products
                     MessageBoxIcon.Error);
                 return false;
             }
-           
+
 
             return true;
         }

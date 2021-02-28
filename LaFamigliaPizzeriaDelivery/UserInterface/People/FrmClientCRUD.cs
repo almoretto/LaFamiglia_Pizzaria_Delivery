@@ -115,7 +115,7 @@ namespace UserInterface.People
                         MessageBoxIcon.Error);
                 }
             }
-            
+
         }
 
         private void BtnDelete_Click(object sender, EventArgs e)
@@ -123,7 +123,7 @@ namespace UserInterface.People
             if (txtClientId.Text.Trim() == string.Empty) { return; }
 
             ClientBus clientBus = new ClientBus();
-            Client clientToDelete = clientBus.FindById(Convert.ToInt32(txtClientId.Text.Trim()));
+            Client clientToDelete = clientBus.FindClientFullEntity(Convert.ToInt32(txtClientId.Text.Trim()));
 
             if (clientToDelete == null)
             {
@@ -142,7 +142,9 @@ namespace UserInterface.People
                 btnDelete.Enabled = false;
                 return;
             }
+            
             NewRegister = false;
+            
             if (MessageBox.Show("Registro será apagado tem certeza?",
                 this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
@@ -189,7 +191,7 @@ namespace UserInterface.People
 
             if (NewRegister == false)
             {
-                addressToAdd.Client = new ClientBus().FindById(Convert.ToInt32(txtClientId.Text.Trim()));
+                addressToAdd.Client = new ClientBus().FindClientFullEntity(Convert.ToInt32(txtClientId.Text.Trim()));
                 addressToAdd.Id = Convert.ToInt32(lblAddressId.Text);
             }
 
@@ -259,9 +261,9 @@ namespace UserInterface.People
         {
             if (txtClientId.Text.Trim() == string.Empty) { return; }
 
-            Client clientToFind = new ClientBus().FindById(Convert.ToInt32(txtClientId.Text.Trim()));
+            Client clientToFind = new ClientBus().FindClientFullEntity(Convert.ToInt32(txtClientId.Text.Trim()));
 
-            if (clientToFind == null)
+            if (clientToFind.Name == null || clientToFind.Id == 0)
             {
                 if (EditControlCode > 0)
                 {
@@ -492,7 +494,7 @@ namespace UserInterface.People
                 if (!NewRegister)
                 {
                     cli = new ClientBus()
-                       .FindById(Convert.ToInt32(txtClientId.Text.Trim()));
+                       .FindClientFullEntity(Convert.ToInt32(txtClientId.Text.Trim()));
                     addressToAdd.Id = Convert.ToInt32(item.SubItems[6].Text);
                 }
 

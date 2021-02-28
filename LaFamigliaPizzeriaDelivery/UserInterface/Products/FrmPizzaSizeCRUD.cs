@@ -160,7 +160,7 @@ namespace UserInterface.Products
             PizzaSize pizzaSizeToDisplay = new PizzaSizeBus()
                 .FindById(Convert.ToInt32(txtSizeId.Text.Trim()));
 
-            if (pizzaSizeToDisplay == null)
+            if (pizzaSizeToDisplay.Description == null || pizzaSizeToDisplay.Id == 0)
             {
                 btnDelete.Enabled = false;
                 ClearForm();
@@ -210,7 +210,7 @@ namespace UserInterface.Products
                     MessageBoxIcon.Error);
                 return false;
             }
-            if ((txtQtyFlavors.Text.Trim() == string.Empty)||Convert.ToInt32(txtQtyFlavors.Text.Trim())<=0)
+            if ((txtQtyFlavors.Text.Trim() == string.Empty) || Convert.ToInt32(txtQtyFlavors.Text.Trim()) <= 0)
             {
                 MessageBox.Show("Você deve informar pelo menos \n uma unidade de quantidade de sabores!",
                     this.Text,
@@ -219,13 +219,13 @@ namespace UserInterface.Products
                 return false;
             }
             MonetaryMask.UnMakeMask(txtSizePriceAdditional, new EventArgs());
-            if (Convert.ToDouble(txtSizePriceAdditional.Text.Trim()) <= 0.00) 
+            if (Convert.ToDouble(txtSizePriceAdditional.Text.Trim()) <= 0.00)
             {
-                    MessageBox.Show("Valor não condizente com a quantidade de sabores,\n favor corrigir!",
-                    this.Text,
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-                    return false;
+                MessageBox.Show("Valor não condizente com a quantidade de sabores,\n favor corrigir!",
+                this.Text,
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+                return false;
             }
 
             return true;

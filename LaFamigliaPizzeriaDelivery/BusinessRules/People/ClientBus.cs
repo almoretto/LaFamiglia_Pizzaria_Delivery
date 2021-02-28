@@ -16,8 +16,11 @@ namespace BusinessRules.People
         public List<EntityViewClient> GetEntityViewClient(Status status, string term)
         { return _svcClientDb.GetEntityViewClient(status, term); }
 
-        public Client FindById(int id)
-        { return _svcClientDb.FindById(id); }
+        public Client FindClientFullEntity(int id)
+        { return _svcClientDb.FindClientFullEntity(id); }
+
+        public Client FindClientByContact(long contact)
+        { return _svcClientDb.FindClientByContact(contact); }
 
         public Client FindClientById(int id)
         { return _svcClientDb.FindClientById(id); }

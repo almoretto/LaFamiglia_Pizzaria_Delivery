@@ -190,7 +190,7 @@ namespace UserInterface.People
             User userToDisplay = new UserBus()
                 .FindById(Convert.ToInt32(txtUserId.Text.Trim()));
 
-            if (userToDisplay == null)
+            if (userToDisplay.Id == 0 || userToDisplay.Login == null)
             {
                 btnDelete.Enabled = false;
                 ClearForm();
@@ -221,7 +221,7 @@ namespace UserInterface.People
             }
             UserType typeToDisplay = new UserTypeBus()
                 .GetUserTypeById(Convert.ToInt32(txtUserType.Text.Trim()));
-            if (typeToDisplay == null)
+            if (typeToDisplay.Id == 0)
             {
                 MessageBox.Show("Tipo de usuário não encontrado",
                     this.Text,

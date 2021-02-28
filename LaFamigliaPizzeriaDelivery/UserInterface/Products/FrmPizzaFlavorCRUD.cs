@@ -17,7 +17,7 @@ namespace UserInterface.Products
     {
         private bool newregister;
         int returnControl = 0;
-        
+
         public FrmPizzaFlavorCRUD()
         {
             InitializeComponent();
@@ -79,8 +79,8 @@ namespace UserInterface.Products
                         this.Text,
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
-                    if (Functions.OptimizeAll()) 
-                    { 
+                    if (Functions.OptimizeAll())
+                    {
                         lblSaveOptimize.Text = "DBOTMZ";
                         ClearForm();
                     }
@@ -90,7 +90,7 @@ namespace UserInterface.Products
                         ClearForm();
                         this.Close();
                     }
-                    
+
                 }
                 else
                 {
@@ -120,7 +120,7 @@ namespace UserInterface.Products
                 }
             }
         }
-        
+
         private void BtnDelete_Click(object sender, EventArgs e)
         {
             IdFieldMasks.UnMakeMask(txtFlavorId, new EventArgs());
@@ -159,7 +159,7 @@ namespace UserInterface.Products
             PizzaFlavor pizzaFlavorToDisplay = new PizzaFlavorBus()
                 .FindById(Convert.ToInt32(txtFlavorId.Text.Trim()));
 
-            if (pizzaFlavorToDisplay == null)
+            if (pizzaFlavorToDisplay.Description == null || pizzaFlavorToDisplay.Id == 0)
             {
                 btnDelete.Enabled = false;
                 ClearForm();
@@ -176,14 +176,14 @@ namespace UserInterface.Products
 
             IdFieldMasks.MakeMask(txtFlavorId, new EventArgs());
         }
-        
+
         #endregion
 
         #region --== Auxiliary Methods ==--
         public void ClearForm()
         {
-            
-            txtFlavorId.Text = string.Empty; 
+
+            txtFlavorId.Text = string.Empty;
             txtFlavorId.Text = new PizzaFlavorBus().FindNextCode().ToString();
             txtFlavorDescription.Text = string.Empty;
             txtFlavorRemark.Text = string.Empty;
@@ -194,7 +194,7 @@ namespace UserInterface.Products
             IdFieldMasks.MakeMask(txtFlavorId, new EventArgs());
             MonetaryMask.MakeMask(txtFlavorPriceAdditional, new EventArgs());
             Functions.SetSelectedFocus(txtFlavorDescription);
-           
+
         }
 
         private bool FieldsVerification()

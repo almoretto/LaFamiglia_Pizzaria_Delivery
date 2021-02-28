@@ -159,7 +159,7 @@ namespace UserInterface.Products
             Additional additionalToDisplay = new AdditionalBus()
                 .FindById(Convert.ToInt32(txtAdditionalId.Text.Trim()));
 
-            if (additionalToDisplay == null)
+            if (additionalToDisplay.Id  == 0 || additionalToDisplay.Description==null)
             {
                 btnDelete.Enabled = false;
                 ClearForm();

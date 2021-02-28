@@ -32,6 +32,12 @@ namespace UserInterface.Routines
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmOrderRt));
             this.tbcOrders = new System.Windows.Forms.TabControl();
             this.tbpInOrder = new System.Windows.Forms.TabPage();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblOrderTotalPrice = new System.Windows.Forms.Label();
+            this.lblsOrderTotalPrice = new System.Windows.Forms.Label();
             this.grpDeliveryData = new System.Windows.Forms.GroupBox();
             this.lblDeliveryPrice = new System.Windows.Forms.Label();
             this.txtDeliveryPrice = new System.Windows.Forms.TextBox();
@@ -67,12 +73,6 @@ namespace UserInterface.Routines
             this.btnClientSearch = new System.Windows.Forms.Button();
             this.txtClientId = new System.Windows.Forms.TextBox();
             this.tbpProdOrder = new System.Windows.Forms.TabPage();
-            this.lblOrderTotalPrice = new System.Windows.Forms.Label();
-            this.lblsOrderTotalPrice = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.tbcOrders.SuspendLayout();
             this.tbpInOrder.SuspendLayout();
             this.grpDeliveryData.SuspendLayout();
@@ -93,7 +93,7 @@ namespace UserInterface.Routines
             this.tbcOrders.Location = new System.Drawing.Point(0, 0);
             this.tbcOrders.Name = "tbcOrders";
             this.tbcOrders.SelectedIndex = 0;
-            this.tbcOrders.Size = new System.Drawing.Size(1182, 697);
+            this.tbcOrders.Size = new System.Drawing.Size(1182, 641);
             this.tbcOrders.TabIndex = 0;
             // 
             // tbpInOrder
@@ -112,9 +112,76 @@ namespace UserInterface.Routines
             this.tbpInOrder.Location = new System.Drawing.Point(4, 32);
             this.tbpInOrder.Name = "tbpInOrder";
             this.tbpInOrder.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpInOrder.Size = new System.Drawing.Size(1174, 661);
+            this.tbpInOrder.Size = new System.Drawing.Size(1174, 605);
             this.tbpInOrder.TabIndex = 0;
             this.tbpInOrder.Text = "Entrada de Pedido";
+            // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.Color.Beige;
+            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label3.Font = new System.Drawing.Font("Futura Bk BT", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(592, 540);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(208, 24);
+            this.label3.TabIndex = 33;
+            this.label3.Text = "R$";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(414, 542);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(153, 20);
+            this.label4.TabIndex = 32;
+            this.label4.Text = "Valor Adicionais:";
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.Beige;
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label1.Font = new System.Drawing.Font("Futura Bk BT", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(592, 507);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(208, 24);
+            this.label1.TabIndex = 31;
+            this.label1.Text = "R$";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(414, 509);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(116, 20);
+            this.label2.TabIndex = 30;
+            this.label2.Text = "Valor Pizzas:";
+            // 
+            // lblOrderTotalPrice
+            // 
+            this.lblOrderTotalPrice.BackColor = System.Drawing.Color.Olive;
+            this.lblOrderTotalPrice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblOrderTotalPrice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblOrderTotalPrice.Font = new System.Drawing.Font("Futura Bk BT", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOrderTotalPrice.ForeColor = System.Drawing.Color.White;
+            this.lblOrderTotalPrice.Location = new System.Drawing.Point(592, 574);
+            this.lblOrderTotalPrice.Name = "lblOrderTotalPrice";
+            this.lblOrderTotalPrice.Size = new System.Drawing.Size(208, 24);
+            this.lblOrderTotalPrice.TabIndex = 29;
+            this.lblOrderTotalPrice.Text = "R$";
+            this.lblOrderTotalPrice.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblsOrderTotalPrice
+            // 
+            this.lblsOrderTotalPrice.AutoSize = true;
+            this.lblsOrderTotalPrice.Location = new System.Drawing.Point(414, 576);
+            this.lblsOrderTotalPrice.Name = "lblsOrderTotalPrice";
+            this.lblsOrderTotalPrice.Size = new System.Drawing.Size(172, 20);
+            this.lblsOrderTotalPrice.TabIndex = 28;
+            this.lblsOrderTotalPrice.Text = "Valor Total Pedido:";
             // 
             // grpDeliveryData
             // 
@@ -123,7 +190,7 @@ namespace UserInterface.Routines
             this.grpDeliveryData.Controls.Add(this.chkPhoneDelivery);
             this.grpDeliveryData.Location = new System.Drawing.Point(9, 496);
             this.grpDeliveryData.Name = "grpDeliveryData";
-            this.grpDeliveryData.Size = new System.Drawing.Size(314, 100);
+            this.grpDeliveryData.Size = new System.Drawing.Size(373, 100);
             this.grpDeliveryData.TabIndex = 7;
             this.grpDeliveryData.TabStop = false;
             this.grpDeliveryData.Text = "Dados de Entrega";
@@ -131,7 +198,7 @@ namespace UserInterface.Routines
             // lblDeliveryPrice
             // 
             this.lblDeliveryPrice.AutoSize = true;
-            this.lblDeliveryPrice.Location = new System.Drawing.Point(6, 65);
+            this.lblDeliveryPrice.Location = new System.Drawing.Point(33, 65);
             this.lblDeliveryPrice.Name = "lblDeliveryPrice";
             this.lblDeliveryPrice.Size = new System.Drawing.Size(130, 20);
             this.lblDeliveryPrice.TabIndex = 12;
@@ -139,9 +206,10 @@ namespace UserInterface.Routines
             // 
             // txtDeliveryPrice
             // 
-            this.txtDeliveryPrice.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtDeliveryPrice.BackColor = System.Drawing.Color.Olive;
             this.txtDeliveryPrice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDeliveryPrice.Location = new System.Drawing.Point(142, 63);
+            this.txtDeliveryPrice.ForeColor = System.Drawing.Color.White;
+            this.txtDeliveryPrice.Location = new System.Drawing.Point(169, 63);
             this.txtDeliveryPrice.Name = "txtDeliveryPrice";
             this.txtDeliveryPrice.Size = new System.Drawing.Size(166, 28);
             this.txtDeliveryPrice.TabIndex = 11;
@@ -150,7 +218,7 @@ namespace UserInterface.Routines
             // chkPhoneDelivery
             // 
             this.chkPhoneDelivery.AutoSize = true;
-            this.chkPhoneDelivery.Location = new System.Drawing.Point(10, 28);
+            this.chkPhoneDelivery.Location = new System.Drawing.Point(37, 28);
             this.chkPhoneDelivery.Name = "chkPhoneDelivery";
             this.chkPhoneDelivery.Size = new System.Drawing.Size(212, 24);
             this.chkPhoneDelivery.TabIndex = 0;
@@ -162,7 +230,7 @@ namespace UserInterface.Routines
             this.flwAddtitionalCRUD.Controls.Add(this.btnCancel);
             this.flwAddtitionalCRUD.Controls.Add(this.btnSave);
             this.flwAddtitionalCRUD.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flwAddtitionalCRUD.Location = new System.Drawing.Point(841, 606);
+            this.flwAddtitionalCRUD.Location = new System.Drawing.Point(841, 546);
             this.flwAddtitionalCRUD.Name = "flwAddtitionalCRUD";
             this.flwAddtitionalCRUD.Size = new System.Drawing.Size(325, 52);
             this.flwAddtitionalCRUD.TabIndex = 6;
@@ -497,6 +565,7 @@ namespace UserInterface.Routines
             this.mtxtContact.Name = "mtxtContact";
             this.mtxtContact.Size = new System.Drawing.Size(136, 28);
             this.mtxtContact.TabIndex = 13;
+            this.mtxtContact.Validating += new System.ComponentModel.CancelEventHandler(this.MtxtContact_Validating);
             // 
             // lblContact
             // 
@@ -534,82 +603,16 @@ namespace UserInterface.Routines
             this.tbpProdOrder.Location = new System.Drawing.Point(4, 32);
             this.tbpProdOrder.Name = "tbpProdOrder";
             this.tbpProdOrder.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpProdOrder.Size = new System.Drawing.Size(1174, 661);
+            this.tbpProdOrder.Size = new System.Drawing.Size(1174, 605);
             this.tbpProdOrder.TabIndex = 1;
             this.tbpProdOrder.Text = "Produção de Pedidos";
-            // 
-            // lblOrderTotalPrice
-            // 
-            this.lblOrderTotalPrice.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.lblOrderTotalPrice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblOrderTotalPrice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblOrderTotalPrice.Font = new System.Drawing.Font("Futura Bk BT", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOrderTotalPrice.Location = new System.Drawing.Point(958, 563);
-            this.lblOrderTotalPrice.Name = "lblOrderTotalPrice";
-            this.lblOrderTotalPrice.Size = new System.Drawing.Size(208, 24);
-            this.lblOrderTotalPrice.TabIndex = 29;
-            this.lblOrderTotalPrice.Text = "R$";
-            this.lblOrderTotalPrice.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblsOrderTotalPrice
-            // 
-            this.lblsOrderTotalPrice.AutoSize = true;
-            this.lblsOrderTotalPrice.Location = new System.Drawing.Point(780, 565);
-            this.lblsOrderTotalPrice.Name = "lblsOrderTotalPrice";
-            this.lblsOrderTotalPrice.Size = new System.Drawing.Size(172, 20);
-            this.lblsOrderTotalPrice.TabIndex = 28;
-            this.lblsOrderTotalPrice.Text = "Valor Total Pedido:";
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label1.Font = new System.Drawing.Font("Futura Bk BT", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(958, 496);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(208, 24);
-            this.label1.TabIndex = 31;
-            this.label1.Text = "R$";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(780, 498);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(116, 20);
-            this.label2.TabIndex = 30;
-            this.label2.Text = "Valor Pizzas:";
-            // 
-            // label3
-            // 
-            this.label3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label3.Font = new System.Drawing.Font("Futura Bk BT", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(958, 529);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(208, 24);
-            this.label3.TabIndex = 33;
-            this.label3.Text = "R$";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(780, 531);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(153, 20);
-            this.label4.TabIndex = 32;
-            this.label4.Text = "Valor Adicionais:";
             // 
             // FrmOrderRt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1182, 697);
+            this.ClientSize = new System.Drawing.Size(1182, 641);
             this.Controls.Add(this.tbcOrders);
             this.Font = new System.Drawing.Font("Futura Bk BT", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

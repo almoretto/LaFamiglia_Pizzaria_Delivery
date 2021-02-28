@@ -13,6 +13,7 @@ namespace UserInterface.Querries
     {
         public List<EntityViewProducts> queryList = new List<EntityViewProducts>();
         public int returnControl = 0;
+        
         public FrmGenericQueriesProducts(string title, Status status)
         {
             InitializeComponent();

@@ -41,12 +41,13 @@
             this.saboresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saboresToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.bordasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tamanhosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rotinasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stsFooter = new System.Windows.Forms.StatusStrip();
             this.strpStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tamanhosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pedidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnsMdiPrincipal.SuspendLayout();
             this.stsFooter.SuspendLayout();
             this.SuspendLayout();
@@ -98,7 +99,7 @@
             this.ClientsToolStripMenuItem,
             this.UsersToolStripMenuItem});
             this.PeopleToolStripMenuItem.Name = "PeopleToolStripMenuItem";
-            this.PeopleToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.PeopleToolStripMenuItem.Size = new System.Drawing.Size(169, 26);
             this.PeopleToolStripMenuItem.Text = "Pessoas";
             // 
             // ClientsToolStripMenuItem
@@ -121,13 +122,13 @@
             this.AdditionalToolStripMenuItem,
             this.saboresToolStripMenuItem});
             this.ProductsToolStripMenuItem.Name = "ProductsToolStripMenuItem";
-            this.ProductsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.ProductsToolStripMenuItem.Size = new System.Drawing.Size(169, 26);
             this.ProductsToolStripMenuItem.Text = "Produtos";
             // 
             // AdditionalToolStripMenuItem
             // 
             this.AdditionalToolStripMenuItem.Name = "AdditionalToolStripMenuItem";
-            this.AdditionalToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.AdditionalToolStripMenuItem.Size = new System.Drawing.Size(179, 26);
             this.AdditionalToolStripMenuItem.Text = "Adicionais";
             this.AdditionalToolStripMenuItem.Click += new System.EventHandler(this.AddtionalToolStripMenuItem_Click);
             // 
@@ -138,25 +139,34 @@
             this.bordasToolStripMenuItem,
             this.tamanhosToolStripMenuItem});
             this.saboresToolStripMenuItem.Name = "saboresToolStripMenuItem";
-            this.saboresToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.saboresToolStripMenuItem.Size = new System.Drawing.Size(179, 26);
             this.saboresToolStripMenuItem.Text = "Pizzas";
             // 
             // saboresToolStripMenuItem1
             // 
             this.saboresToolStripMenuItem1.Name = "saboresToolStripMenuItem1";
-            this.saboresToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.saboresToolStripMenuItem1.Size = new System.Drawing.Size(180, 26);
             this.saboresToolStripMenuItem1.Text = "Sabores";
             this.saboresToolStripMenuItem1.Click += new System.EventHandler(this.SaboresToolStripMenuItem1_Click);
             // 
             // bordasToolStripMenuItem
             // 
             this.bordasToolStripMenuItem.Name = "bordasToolStripMenuItem";
-            this.bordasToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.bordasToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.bordasToolStripMenuItem.Text = "Bordas";
             this.bordasToolStripMenuItem.Click += new System.EventHandler(this.BordasToolStripMenuItem_Click);
             // 
+            // tamanhosToolStripMenuItem
+            // 
+            this.tamanhosToolStripMenuItem.Name = "tamanhosToolStripMenuItem";
+            this.tamanhosToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.tamanhosToolStripMenuItem.Text = "Tamanhos";
+            this.tamanhosToolStripMenuItem.Click += new System.EventHandler(this.TamanhosToolStripMenuItem_Click);
+            // 
             // rotinasToolStripMenuItem
             // 
+            this.rotinasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pedidosToolStripMenuItem});
             this.rotinasToolStripMenuItem.Name = "rotinasToolStripMenuItem";
             this.rotinasToolStripMenuItem.Size = new System.Drawing.Size(86, 24);
             this.rotinasToolStripMenuItem.Text = "Rotinas";
@@ -198,12 +208,12 @@
             this.strpStatusLabel.Size = new System.Drawing.Size(148, 20);
             this.strpStatusLabel.Text = "System Opening...";
             // 
-            // tamanhosToolStripMenuItem
+            // pedidosToolStripMenuItem
             // 
-            this.tamanhosToolStripMenuItem.Name = "tamanhosToolStripMenuItem";
-            this.tamanhosToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.tamanhosToolStripMenuItem.Text = "Tamanhos";
-            this.tamanhosToolStripMenuItem.Click += new System.EventHandler(this.TamanhosToolStripMenuItem_Click);
+            this.pedidosToolStripMenuItem.Name = "pedidosToolStripMenuItem";
+            this.pedidosToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.pedidosToolStripMenuItem.Text = "Pedidos";
+            this.pedidosToolStripMenuItem.Click += new System.EventHandler(this.pedidosToolStripMenuItem_Click);
             // 
             // MDIForm
             // 
@@ -252,6 +262,7 @@
         private System.Windows.Forms.ToolStripStatusLabel strpStatusLabel;
         private System.Windows.Forms.ToolStripMenuItem bordasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tamanhosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pedidosToolStripMenuItem;
     }
 }
 
