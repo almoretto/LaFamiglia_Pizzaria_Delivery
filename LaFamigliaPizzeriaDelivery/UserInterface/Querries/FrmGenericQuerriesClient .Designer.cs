@@ -52,17 +52,17 @@
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(337, 546);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(235, 51);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(235, 64);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // btnExit
             // 
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.Image = global::UserInterface.Properties.Resources.sair;
+            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
             this.btnExit.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnExit.Location = new System.Drawing.Point(127, 3);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(105, 45);
+            this.btnExit.Size = new System.Drawing.Size(105, 52);
             this.btnExit.TabIndex = 0;
             this.btnExit.Text = "Sair";
             this.btnExit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -72,11 +72,11 @@
             // btnConfirmation
             // 
             this.btnConfirmation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConfirmation.Image = global::UserInterface.Properties.Resources.confirmar;
+            this.btnConfirmation.Image = ((System.Drawing.Image)(resources.GetObject("btnConfirmation.Image")));
             this.btnConfirmation.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnConfirmation.Location = new System.Drawing.Point(16, 3);
             this.btnConfirmation.Name = "btnConfirmation";
-            this.btnConfirmation.Size = new System.Drawing.Size(105, 45);
+            this.btnConfirmation.Size = new System.Drawing.Size(105, 52);
             this.btnConfirmation.TabIndex = 1;
             this.btnConfirmation.Text = "Confirmar";
             this.btnConfirmation.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -88,16 +88,17 @@
             this.lblGenericsearch.AutoSize = true;
             this.lblGenericsearch.Location = new System.Drawing.Point(13, 13);
             this.lblGenericsearch.Name = "lblGenericsearch";
-            this.lblGenericsearch.Size = new System.Drawing.Size(72, 19);
+            this.lblGenericsearch.Size = new System.Drawing.Size(75, 20);
             this.lblGenericsearch.TabIndex = 1;
             this.lblGenericsearch.Text = "Pesquisa";
             // 
             // txtGenericClientSearch
             // 
+            this.txtGenericClientSearch.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtGenericClientSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtGenericClientSearch.Location = new System.Drawing.Point(91, 13);
             this.txtGenericClientSearch.Name = "txtGenericClientSearch";
-            this.txtGenericClientSearch.Size = new System.Drawing.Size(481, 25);
+            this.txtGenericClientSearch.Size = new System.Drawing.Size(481, 28);
             this.txtGenericClientSearch.TabIndex = 2;
             this.txtGenericClientSearch.TextChanged += new System.EventHandler(this.txtGenericSearch_TextChanged);
             // 
@@ -119,7 +120,7 @@
             this.rbtAll.AutoSize = true;
             this.rbtAll.Location = new System.Drawing.Point(187, 22);
             this.rbtAll.Name = "rbtAll";
-            this.rbtAll.Size = new System.Drawing.Size(69, 23);
+            this.rbtAll.Size = new System.Drawing.Size(76, 24);
             this.rbtAll.TabIndex = 2;
             this.rbtAll.TabStop = true;
             this.rbtAll.Text = "Todos";
@@ -131,7 +132,7 @@
             this.rbtAllInactive.AutoSize = true;
             this.rbtAllInactive.Location = new System.Drawing.Point(98, 22);
             this.rbtAllInactive.Name = "rbtAllInactive";
-            this.rbtAllInactive.Size = new System.Drawing.Size(83, 23);
+            this.rbtAllInactive.Size = new System.Drawing.Size(89, 24);
             this.rbtAllInactive.TabIndex = 1;
             this.rbtAllInactive.TabStop = true;
             this.rbtAllInactive.Text = "Inativos";
@@ -143,7 +144,7 @@
             this.rbtAllActive.AutoSize = true;
             this.rbtAllActive.Location = new System.Drawing.Point(21, 22);
             this.rbtAllActive.Name = "rbtAllActive";
-            this.rbtAllActive.Size = new System.Drawing.Size(71, 23);
+            this.rbtAllActive.Size = new System.Drawing.Size(75, 24);
             this.rbtAllActive.TabIndex = 0;
             this.rbtAllActive.TabStop = true;
             this.rbtAllActive.Text = "Ativos";
@@ -152,7 +153,7 @@
             // 
             // grbResult
             // 
-            this.grbResult.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.grbResult.BackColor = System.Drawing.Color.WhiteSmoke;
             this.grbResult.Controls.Add(this.lstResult);
             this.grbResult.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.grbResult.Font = new System.Drawing.Font("Futura Md BT", 10.18868F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -171,17 +172,18 @@
             this.lstResult.FullRowSelect = true;
             this.lstResult.GridLines = true;
             this.lstResult.HideSelection = false;
-            this.lstResult.Location = new System.Drawing.Point(3, 21);
+            this.lstResult.Location = new System.Drawing.Point(3, 24);
             this.lstResult.Name = "lstResult";
-            this.lstResult.Size = new System.Drawing.Size(549, 406);
+            this.lstResult.Size = new System.Drawing.Size(549, 403);
             this.lstResult.TabIndex = 0;
             this.lstResult.UseCompatibleStateImageBehavior = false;
             this.lstResult.DoubleClick += new System.EventHandler(this.lstResult_DoubleClick);
             // 
             // FrmGenericQuerriesClient
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(584, 609);
             this.Controls.Add(this.grbResult);
             this.Controls.Add(this.grbStatus);

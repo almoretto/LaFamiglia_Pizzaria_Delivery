@@ -56,6 +56,7 @@ namespace UserInterface.Routines
             this.lvwPizzaOrder = new System.Windows.Forms.ListView();
             this.grpClient = new System.Windows.Forms.GroupBox();
             this.grpClientAddress = new System.Windows.Forms.GroupBox();
+            this.lblDeliveryAddressId = new System.Windows.Forms.Label();
             this.lblCity = new System.Windows.Forms.Label();
             this.btnChangeDeliveryAddress = new System.Windows.Forms.Button();
             this.lblChangeDeliveryAddress = new System.Windows.Forms.Label();
@@ -240,7 +241,7 @@ namespace UserInterface.Routines
             this.btnCancel.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Futura Bk BT", 8.150944F, System.Drawing.FontStyle.Bold);
-            this.btnCancel.Image = global::UserInterface.Properties.Resources.cancelar;
+            this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
             this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnCancel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnCancel.Location = new System.Drawing.Point(206, 3);
@@ -250,13 +251,14 @@ namespace UserInterface.Routines
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Futura Bk BT", 8.150944F, System.Drawing.FontStyle.Bold);
-            this.btnSave.Image = global::UserInterface.Properties.Resources.confirmar;
+            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnSave.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnSave.Location = new System.Drawing.Point(84, 3);
@@ -295,7 +297,7 @@ namespace UserInterface.Routines
             // button3
             // 
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Image = global::UserInterface.Properties.Resources.adicionar;
+            this.button3.Image = global::UserInterface.Properties.Resources.RedTrash;
             this.button3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.button3.Location = new System.Drawing.Point(1120, 55);
             this.button3.Name = "button3";
@@ -306,7 +308,7 @@ namespace UserInterface.Routines
             // button4
             // 
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Image = global::UserInterface.Properties.Resources.adicionar;
+            this.button4.Image = global::UserInterface.Properties.Resources.Addnew1;
             this.button4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.button4.Location = new System.Drawing.Point(1120, 23);
             this.button4.Name = "button4";
@@ -346,7 +348,7 @@ namespace UserInterface.Routines
             // button2
             // 
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Image = global::UserInterface.Properties.Resources.adicionar;
+            this.button2.Image = global::UserInterface.Properties.Resources.RedTrash;
             this.button2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.button2.Location = new System.Drawing.Point(1120, 54);
             this.button2.Name = "button2";
@@ -357,7 +359,7 @@ namespace UserInterface.Routines
             // button1
             // 
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = global::UserInterface.Properties.Resources.adicionar;
+            this.button1.Image = global::UserInterface.Properties.Resources.Addnew1;
             this.button1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.button1.Location = new System.Drawing.Point(1120, 22);
             this.button1.Name = "button1";
@@ -401,6 +403,7 @@ namespace UserInterface.Routines
             // 
             // grpClientAddress
             // 
+            this.grpClientAddress.Controls.Add(this.lblDeliveryAddressId);
             this.grpClientAddress.Controls.Add(this.lblCity);
             this.grpClientAddress.Controls.Add(this.btnChangeDeliveryAddress);
             this.grpClientAddress.Controls.Add(this.lblChangeDeliveryAddress);
@@ -414,6 +417,15 @@ namespace UserInterface.Routines
             this.grpClientAddress.TabIndex = 19;
             this.grpClientAddress.TabStop = false;
             this.grpClientAddress.Text = "Endereço";
+            // 
+            // lblDeliveryAddressId
+            // 
+            this.lblDeliveryAddressId.AutoSize = true;
+            this.lblDeliveryAddressId.Location = new System.Drawing.Point(270, 100);
+            this.lblDeliveryAddressId.Name = "lblDeliveryAddressId";
+            this.lblDeliveryAddressId.Size = new System.Drawing.Size(0, 20);
+            this.lblDeliveryAddressId.TabIndex = 26;
+            this.lblDeliveryAddressId.Visible = false;
             // 
             // lblCity
             // 
@@ -431,9 +443,9 @@ namespace UserInterface.Routines
             // btnChangeDeliveryAddress
             // 
             this.btnChangeDeliveryAddress.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnChangeDeliveryAddress.Image = global::UserInterface.Properties.Resources.atualizar;
+            this.btnChangeDeliveryAddress.Image = global::UserInterface.Properties.Resources.ChangeAddres2_resize;
             this.btnChangeDeliveryAddress.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnChangeDeliveryAddress.Location = new System.Drawing.Point(237, 95);
+            this.btnChangeDeliveryAddress.Location = new System.Drawing.Point(6, 95);
             this.btnChangeDeliveryAddress.Name = "btnChangeDeliveryAddress";
             this.btnChangeDeliveryAddress.Size = new System.Drawing.Size(26, 26);
             this.btnChangeDeliveryAddress.TabIndex = 24;
@@ -443,11 +455,11 @@ namespace UserInterface.Routines
             // 
             this.lblChangeDeliveryAddress.AutoSize = true;
             this.lblChangeDeliveryAddress.Font = new System.Drawing.Font("Futura Bk BT", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChangeDeliveryAddress.Location = new System.Drawing.Point(6, 98);
+            this.lblChangeDeliveryAddress.Location = new System.Drawing.Point(38, 98);
             this.lblChangeDeliveryAddress.Name = "lblChangeDeliveryAddress";
-            this.lblChangeDeliveryAddress.Size = new System.Drawing.Size(225, 20);
+            this.lblChangeDeliveryAddress.Size = new System.Drawing.Size(220, 20);
             this.lblChangeDeliveryAddress.TabIndex = 23;
-            this.lblChangeDeliveryAddress.Text = "Alterar endereço de entrega:";
+            this.lblChangeDeliveryAddress.Text = "Alterar endereço de entrega";
             // 
             // lblDistrict
             // 
@@ -517,9 +529,9 @@ namespace UserInterface.Routines
             // btnAddClient
             // 
             this.btnAddClient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddClient.Image = global::UserInterface.Properties.Resources.adicionar;
+            this.btnAddClient.Image = ((System.Drawing.Image)(resources.GetObject("btnAddClient.Image")));
             this.btnAddClient.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnAddClient.Location = new System.Drawing.Point(365, 57);
+            this.btnAddClient.Location = new System.Drawing.Point(376, 57);
             this.btnAddClient.Name = "btnAddClient";
             this.btnAddClient.Size = new System.Drawing.Size(26, 26);
             this.btnAddClient.TabIndex = 17;
@@ -529,28 +541,29 @@ namespace UserInterface.Routines
             // 
             this.lblAddClient.AutoSize = true;
             this.lblAddClient.Font = new System.Drawing.Font("Futura Bk BT", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddClient.Location = new System.Drawing.Point(361, 32);
+            this.lblAddClient.Location = new System.Drawing.Point(306, 32);
             this.lblAddClient.Name = "lblAddClient";
-            this.lblAddClient.Size = new System.Drawing.Size(111, 20);
+            this.lblAddClient.Size = new System.Drawing.Size(151, 20);
             this.lblAddClient.TabIndex = 16;
-            this.lblAddClient.Text = "Novo Cliente:";
+            this.lblAddClient.Text = "Busca/Editar/Novo";
             // 
             // btnClientEdit
             // 
             this.btnClientEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClientEdit.Image = global::UserInterface.Properties.Resources.editar;
+            this.btnClientEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnClientEdit.Image")));
             this.btnClientEdit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnClientEdit.Location = new System.Drawing.Point(331, 57);
+            this.btnClientEdit.Location = new System.Drawing.Point(344, 57);
             this.btnClientEdit.Name = "btnClientEdit";
             this.btnClientEdit.Size = new System.Drawing.Size(26, 26);
             this.btnClientEdit.TabIndex = 15;
             this.btnClientEdit.UseVisualStyleBackColor = true;
+            this.btnClientEdit.Click += new System.EventHandler(this.btnClientEdit_Click);
             // 
             // lblClientId
             // 
             this.lblClientId.AutoSize = true;
             this.lblClientId.Font = new System.Drawing.Font("Futura Bk BT", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClientId.Location = new System.Drawing.Point(185, 32);
+            this.lblClientId.Location = new System.Drawing.Point(149, 32);
             this.lblClientId.Name = "lblClientId";
             this.lblClientId.Size = new System.Drawing.Size(151, 20);
             this.lblClientId.TabIndex = 14;
@@ -580,22 +593,24 @@ namespace UserInterface.Routines
             // btnClientSearch
             // 
             this.btnClientSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClientSearch.Image = global::UserInterface.Properties.Resources.busca;
+            this.btnClientSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnClientSearch.Image")));
             this.btnClientSearch.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnClientSearch.Location = new System.Drawing.Point(153, 55);
+            this.btnClientSearch.Location = new System.Drawing.Point(312, 57);
             this.btnClientSearch.Name = "btnClientSearch";
             this.btnClientSearch.Size = new System.Drawing.Size(26, 26);
             this.btnClientSearch.TabIndex = 11;
             this.btnClientSearch.UseVisualStyleBackColor = true;
+            this.btnClientSearch.Click += new System.EventHandler(this.BtnClientSearch_Click);
             // 
             // txtClientId
             // 
             this.txtClientId.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtClientId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtClientId.Location = new System.Drawing.Point(189, 55);
+            this.txtClientId.Location = new System.Drawing.Point(153, 55);
             this.txtClientId.Name = "txtClientId";
             this.txtClientId.Size = new System.Drawing.Size(136, 28);
             this.txtClientId.TabIndex = 10;
+            this.txtClientId.Validating += new System.ComponentModel.CancelEventHandler(this.TxtClientId_Validating);
             // 
             // tbpProdOrder
             // 
@@ -624,6 +639,7 @@ namespace UserInterface.Routines
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrmOrderRt";
+            this.Load += new System.EventHandler(this.FrmOrderRt_Load);
             this.tbcOrders.ResumeLayout(false);
             this.tbpInOrder.ResumeLayout(false);
             this.tbpInOrder.PerformLayout();
@@ -686,5 +702,6 @@ namespace UserInterface.Routines
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblDeliveryAddressId;
     }
 }

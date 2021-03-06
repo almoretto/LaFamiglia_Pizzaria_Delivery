@@ -48,7 +48,7 @@ namespace UserInterface.Querries
             // 
             // grbResult
             // 
-            this.grbResult.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.grbResult.BackColor = System.Drawing.Color.WhiteSmoke;
             this.grbResult.Controls.Add(this.lstResult);
             this.grbResult.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.grbResult.Font = new System.Drawing.Font("Futura Md BT", 10.18868F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -61,7 +61,7 @@ namespace UserInterface.Querries
             // 
             // lstResult
             // 
-            this.lstResult.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lstResult.BackColor = System.Drawing.Color.WhiteSmoke;
             this.lstResult.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lstResult.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lstResult.Font = new System.Drawing.Font("Futura Md BT", 8.150944F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -125,6 +125,7 @@ namespace UserInterface.Querries
             // 
             // txtGenericSearch
             // 
+            this.txtGenericSearch.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtGenericSearch.Location = new System.Drawing.Point(91, 12);
             this.txtGenericSearch.Name = "txtGenericSearch";
             this.txtGenericSearch.Size = new System.Drawing.Size(481, 28);
@@ -147,16 +148,16 @@ namespace UserInterface.Querries
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(337, 545);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(235, 51);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(235, 62);
             this.flowLayoutPanel1.TabIndex = 5;
             // 
             // btnExit
             // 
-            this.btnExit.Image = global::UserInterface.Properties.Resources.sair;
+            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
             this.btnExit.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnExit.Location = new System.Drawing.Point(127, 3);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(105, 45);
+            this.btnExit.Size = new System.Drawing.Size(105, 50);
             this.btnExit.TabIndex = 0;
             this.btnExit.Text = "Sair";
             this.btnExit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -165,11 +166,11 @@ namespace UserInterface.Querries
             // 
             // btnConfirmation
             // 
-            this.btnConfirmation.Image = global::UserInterface.Properties.Resources.confirmar;
+            this.btnConfirmation.Image = ((System.Drawing.Image)(resources.GetObject("btnConfirmation.Image")));
             this.btnConfirmation.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnConfirmation.Location = new System.Drawing.Point(16, 3);
             this.btnConfirmation.Name = "btnConfirmation";
-            this.btnConfirmation.Size = new System.Drawing.Size(105, 45);
+            this.btnConfirmation.Size = new System.Drawing.Size(105, 50);
             this.btnConfirmation.TabIndex = 1;
             this.btnConfirmation.Text = "Confirmar";
             this.btnConfirmation.TextAlign = System.Drawing.ContentAlignment.BottomCenter;

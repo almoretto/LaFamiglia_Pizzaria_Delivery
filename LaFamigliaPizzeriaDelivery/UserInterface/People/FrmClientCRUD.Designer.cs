@@ -60,8 +60,8 @@ namespace UserInterface.People
             this.label1 = new System.Windows.Forms.Label();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.lblAddress = new System.Windows.Forms.Label();
-            this.uscStatus = new UserInterface.Controls.UserSituacaoCTRL();
             this.lblSaveOptimize = new System.Windows.Forms.Label();
+            this.uscStatus = new UserInterface.Controls.UserSituacaoCTRL();
             this.flowLayoutPanel1.SuspendLayout();
             this.grpAddress.SuspendLayout();
             this.SuspendLayout();
@@ -87,7 +87,6 @@ namespace UserInterface.People
             // 
             // btnClientSearch
             // 
-            this.btnClientSearch.Image = global::UserInterface.Properties.Resources.busca;
             resources.ApplyResources(this.btnClientSearch, "btnClientSearch");
             this.btnClientSearch.Name = "btnClientSearch";
             this.btnClientSearch.UseVisualStyleBackColor = true;
@@ -113,7 +112,6 @@ namespace UserInterface.People
             // 
             this.btnCancel.BackColor = System.Drawing.SystemColors.ButtonFace;
             resources.ApplyResources(this.btnCancel, "btnCancel");
-            this.btnCancel.Image = global::UserInterface.Properties.Resources.cancelar;
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
@@ -122,7 +120,7 @@ namespace UserInterface.People
             // 
             this.btnDelete.BackColor = System.Drawing.SystemColors.ButtonFace;
             resources.ApplyResources(this.btnDelete, "btnDelete");
-            this.btnDelete.Image = global::UserInterface.Properties.Resources.excluir;
+            this.btnDelete.Image = global::UserInterface.Properties.Resources.RedTrash;
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
@@ -131,7 +129,6 @@ namespace UserInterface.People
             // 
             this.btnSave.BackColor = System.Drawing.SystemColors.ButtonFace;
             resources.ApplyResources(this.btnSave, "btnSave");
-            this.btnSave.Image = global::UserInterface.Properties.Resources.confirmar;
             this.btnSave.Name = "btnSave";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
@@ -192,7 +189,6 @@ namespace UserInterface.People
             // 
             this.btnAddressEdit.BackColor = System.Drawing.SystemColors.ControlLightLight;
             resources.ApplyResources(this.btnAddressEdit, "btnAddressEdit");
-            this.btnAddressEdit.Image = global::UserInterface.Properties.Resources.editar;
             this.btnAddressEdit.Name = "btnAddressEdit";
             this.btnAddressEdit.UseVisualStyleBackColor = false;
             this.btnAddressEdit.Click += new System.EventHandler(this.BtnAddressEdit_Click);
@@ -201,7 +197,7 @@ namespace UserInterface.People
             // 
             this.btnDeleteAddress.BackColor = System.Drawing.SystemColors.ControlLightLight;
             resources.ApplyResources(this.btnDeleteAddress, "btnDeleteAddress");
-            this.btnDeleteAddress.Image = global::UserInterface.Properties.Resources.excluir;
+            this.btnDeleteAddress.Image = global::UserInterface.Properties.Resources.RedTrash;
             this.btnDeleteAddress.Name = "btnDeleteAddress";
             this.btnDeleteAddress.UseVisualStyleBackColor = false;
             this.btnDeleteAddress.Click += new System.EventHandler(this.BtnDeleteAddress_Click);
@@ -225,7 +221,7 @@ namespace UserInterface.People
             // 
             this.btnAddressSave.BackColor = System.Drawing.SystemColors.ButtonFace;
             resources.ApplyResources(this.btnAddressSave, "btnAddressSave");
-            this.btnAddressSave.Image = global::UserInterface.Properties.Resources.confirmar;
+            this.btnAddressSave.Image = global::UserInterface.Properties.Resources.Addnew1;
             this.btnAddressSave.Name = "btnAddressSave";
             this.btnAddressSave.UseVisualStyleBackColor = false;
             this.btnAddressSave.Click += new System.EventHandler(this.BtnAddressSave_Click);
@@ -296,16 +292,16 @@ namespace UserInterface.People
             resources.ApplyResources(this.lblAddress, "lblAddress");
             this.lblAddress.Name = "lblAddress";
             // 
+            // lblSaveOptimize
+            // 
+            resources.ApplyResources(this.lblSaveOptimize, "lblSaveOptimize");
+            this.lblSaveOptimize.Name = "lblSaveOptimize";
+            // 
             // uscStatus
             // 
             this.uscStatus.BackColor = System.Drawing.Color.Bisque;
             resources.ApplyResources(this.uscStatus, "uscStatus");
             this.uscStatus.Name = "uscStatus";
-            // 
-            // lblSaveOptimize
-            // 
-            resources.ApplyResources(this.lblSaveOptimize, "lblSaveOptimize");
-            this.lblSaveOptimize.Name = "lblSaveOptimize";
             // 
             // FrmClientCRUD
             // 

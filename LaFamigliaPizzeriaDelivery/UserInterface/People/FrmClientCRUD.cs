@@ -6,7 +6,6 @@ using System.ComponentModel;
 using System.Windows.Forms;
 using UserInterface.Modules;
 using UserInterface.Querries;
-using UserInterface.Controls;
 using Entities.System;
 using System.Collections.Generic;
 
@@ -104,7 +103,16 @@ namespace UserInterface.People
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
                     txtClientId.Text = string.Empty;
-                    ClearForm();
+                                       
+                    if (EditControlCode > 0)
+                    {
+                        SuccessControl = true;
+                        this.Close();
+                    }
+                    else
+                    {
+                        ClearForm();
+                    }
                 }
                 else
                 {
@@ -142,9 +150,9 @@ namespace UserInterface.People
                 btnDelete.Enabled = false;
                 return;
             }
-            
+
             NewRegister = false;
-            
+
             if (MessageBox.Show("Registro será apagado tem certeza?",
                 this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {

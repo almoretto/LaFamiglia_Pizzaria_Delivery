@@ -25,13 +25,13 @@ namespace DataContext.People
 
                     string query = @"Select Id, Nome, Telefone, Celular From cliente";
 
-                    if (status != Status.Todos) { query += " Where situacao = @status"; }
+                    if (status != Status.Todos) { query += " WHERE Situacao = @status"; }
 
                     if (!term.Trim().Equals(string.Empty))
                     {
                         if (status == Status.Todos)
                         {
-                            query += " Where ";
+                            query += " WHERE ";
                         }
                         else
                         {
@@ -49,20 +49,36 @@ namespace DataContext.People
 
                     command.CommandText = query;
 
-                    if (status != Status.Todos) { command.Parameters.AddWithValue("situacao", (int)status); }
+                    if (status != Status.Todos) 
+                    { 
+                        command.Parameters.AddWithValue("status", (int)status); 
+                    }
 
                     MySqlDataReader dataReader = command.ExecuteReader();
 
                     while (dataReader.Read())
                     {
-                        EntityViewClient newEntity = new EntityViewClient
+                        EntityViewClient newEntity = new EntityViewClient();
+                        newEntity.Id = Convert.ToInt32(dataReader["Id"].ToString());
+                        newEntity.Name = dataReader["Nome"].ToString();
+                          
+                        if (dataReader["Telefone"] != null
+                           &&
+                           dataReader["Telefone"].ToString() != string.Empty)
                         {
-                            Id = Convert.ToInt32(dataReader["Id"].ToString()),
-                            Name = dataReader["Nome"].ToString(),
-                            Phone = Convert.ToInt64(dataReader["Telefone"]).ToString("(##) ####-####"),
-                            CellPhone = Convert.ToInt64(dataReader["Celular"]).ToString("(##) # ####-####"),
-                        };
+                            newEntity.Phone = Convert
+                                .ToInt64(dataReader["Telefone"])
+                                .ToString("(##) ####-####");
+                        }
 
+                        if (dataReader["Celular"] != null
+                            &&
+                            dataReader["Celular"].ToString() != string.Empty)
+                        {
+                            newEntity.CellPhone = Convert
+                                .ToInt64(dataReader["Celular"])
+                                .ToString("(##) # ####-####");
+                        }
                         entityList.Add(newEntity);
                     }
                 }

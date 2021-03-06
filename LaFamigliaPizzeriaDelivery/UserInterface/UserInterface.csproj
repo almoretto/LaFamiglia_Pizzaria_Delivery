@@ -267,6 +267,50 @@
   <ItemGroup>
     <None Include="Resources\Pizza.ico" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Addnew.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddnewSheet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddPayment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DeleteTrash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Drink.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Order.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pizza.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RedTrash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ChangeAddres2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ChangeAddres2_resize.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ChangeAddress.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ChangeAddress_resize.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

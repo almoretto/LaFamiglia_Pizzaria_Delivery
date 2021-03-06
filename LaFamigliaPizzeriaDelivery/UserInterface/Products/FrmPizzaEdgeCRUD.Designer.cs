@@ -29,6 +29,7 @@ namespace UserInterface.Products
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPizzaEdgeCRUD));
             this.txtEdgeRemark = new System.Windows.Forms.TextBox();
             this.lblEdgeRemark = new System.Windows.Forms.Label();
             this.lblEdgeAdditionalPrice = new System.Windows.Forms.Label();
@@ -110,7 +111,7 @@ namespace UserInterface.Products
             this.flwEdgeCRUD.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flwEdgeCRUD.Location = new System.Drawing.Point(455, 214);
             this.flwEdgeCRUD.Name = "flwEdgeCRUD";
-            this.flwEdgeCRUD.Size = new System.Drawing.Size(325, 50);
+            this.flwEdgeCRUD.Size = new System.Drawing.Size(325, 53);
             this.flwEdgeCRUD.TabIndex = 5;
             // 
             // btnCancel
@@ -118,12 +119,12 @@ namespace UserInterface.Products
             this.btnCancel.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Futura Bk BT", 8.150944F, System.Drawing.FontStyle.Bold);
-            this.btnCancel.Image = global::UserInterface.Properties.Resources.cancelar;
+            this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
             this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnCancel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnCancel.Location = new System.Drawing.Point(221, 3);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(101, 39);
+            this.btnCancel.Size = new System.Drawing.Size(101, 47);
             this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -135,12 +136,12 @@ namespace UserInterface.Products
             this.btnDelete.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("Futura Bk BT", 8.150944F, System.Drawing.FontStyle.Bold);
-            this.btnDelete.Image = global::UserInterface.Properties.Resources.excluir;
+            this.btnDelete.Image = global::UserInterface.Properties.Resources.RedTrash;
             this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnDelete.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnDelete.Location = new System.Drawing.Point(114, 3);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(101, 39);
+            this.btnDelete.Size = new System.Drawing.Size(101, 47);
             this.btnDelete.TabIndex = 1;
             this.btnDelete.Text = "Excluir";
             this.btnDelete.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -152,12 +153,12 @@ namespace UserInterface.Products
             this.btnSave.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Futura Bk BT", 8.150944F, System.Drawing.FontStyle.Bold);
-            this.btnSave.Image = global::UserInterface.Properties.Resources.confirmar;
+            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnSave.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnSave.Location = new System.Drawing.Point(7, 3);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(101, 39);
+            this.btnSave.Size = new System.Drawing.Size(101, 47);
             this.btnSave.TabIndex = 0;
             this.btnSave.Text = "Salvar";
             this.btnSave.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -199,7 +200,7 @@ namespace UserInterface.Products
             // 
             // btnEdgeSearch
             // 
-            this.btnEdgeSearch.Image = global::UserInterface.Properties.Resources.busca;
+            this.btnEdgeSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnEdgeSearch.Image")));
             this.btnEdgeSearch.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnEdgeSearch.Location = new System.Drawing.Point(122, 34);
             this.btnEdgeSearch.Name = "btnEdgeSearch";

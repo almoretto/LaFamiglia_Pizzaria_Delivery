@@ -44,7 +44,7 @@ namespace UserInterface.Login
             }
 
         }
-        
+
         private void BtnExit_Click(object sender, EventArgs e)
         {
             Dispose();//This method close the FRMLogin, but need to Closse in this case ALL the Application
@@ -99,7 +99,7 @@ namespace UserInterface.Login
             {
                 return;
             }
-           
+
         }
     }
 }

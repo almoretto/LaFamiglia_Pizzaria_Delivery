@@ -70,12 +70,12 @@
             this.btnCancel.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Futura Bk BT", 8.150944F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Image = global::UserInterface.Properties.Resources.cancelar;
+            this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
             this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnCancel.Location = new System.Drawing.Point(255, 4);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(111, 43);
+            this.btnCancel.Size = new System.Drawing.Size(111, 51);
             this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -87,12 +87,12 @@
             this.btnDelete.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("Futura Bk BT", 8.150944F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Image = global::UserInterface.Properties.Resources.excluir;
+            this.btnDelete.Image = global::UserInterface.Properties.Resources.RedTrash;
             this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnDelete.Location = new System.Drawing.Point(136, 4);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(111, 43);
+            this.btnDelete.Size = new System.Drawing.Size(111, 51);
             this.btnDelete.TabIndex = 1;
             this.btnDelete.Text = "Excluir";
             this.btnDelete.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -104,12 +104,12 @@
             this.btnSave.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Futura Bk BT", 8.150944F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Image = global::UserInterface.Properties.Resources.confirmar;
+            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnSave.Location = new System.Drawing.Point(17, 4);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(111, 43);
+            this.btnSave.Size = new System.Drawing.Size(111, 51);
             this.btnSave.TabIndex = 0;
             this.btnSave.Text = "Salvar";
             this.btnSave.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -128,7 +128,7 @@
             // 
             // btnUserSearch
             // 
-            this.btnUserSearch.Image = global::UserInterface.Properties.Resources.busca;
+            this.btnUserSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnUserSearch.Image")));
             this.btnUserSearch.Location = new System.Drawing.Point(174, 46);
             this.btnUserSearch.Margin = new System.Windows.Forms.Padding(4);
             this.btnUserSearch.Name = "btnUserSearch";
@@ -237,7 +237,7 @@
             // 
             // btnUserTypeSearch
             // 
-            this.btnUserTypeSearch.Image = global::UserInterface.Properties.Resources.busca;
+            this.btnUserTypeSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnUserTypeSearch.Image")));
             this.btnUserTypeSearch.Location = new System.Drawing.Point(456, 180);
             this.btnUserTypeSearch.Margin = new System.Windows.Forms.Padding(4);
             this.btnUserTypeSearch.Name = "btnUserTypeSearch";
