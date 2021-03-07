@@ -1,7 +1,9 @@
 ﻿using BusinessRules.People;
 using Entities.Enums;
 using Entities.People;
+using Entities.Views;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Linq;
@@ -16,6 +18,8 @@ namespace UserInterface.Routines
     {
         private int ReturnControl = 0;
         private Client ClientInOrder { get; set; }
+
+        //Constructor of the form class
         public FrmOrderRt()
         {
             InitializeComponent();
@@ -69,11 +73,42 @@ namespace UserInterface.Routines
             formClient.InitializeEdition(Convert.ToInt32(txtClientId.Text.Trim()));
             formClient.ShowDialog();
 
-            if (formClient.SuccessControl==true)
+            if (formClient.SuccessControl == true)
             {
                 TxtClientId_Validating(txtClientId, new CancelEventArgs());
             }
         }
+
+        private void btnChangeDeliveryAddress_Click(object sender, EventArgs e)
+        {
+            if (txtClientId.Text.Trim().Equals(string.Empty))
+            { return; }
+
+            List<EntityViewSearch> addressList = new List<EntityViewSearch>();
+            AddressBus _addBus = new AddressBus();
+            addressList = _addBus.GetEntityViewSearch(Convert.ToInt32(txtClientId.Text.Trim()));
+
+            if (addressList.Count < 1)
+            {
+                MessageBox.Show("Não localizado endereços para este Cliente!",
+                               this.Text,
+                               MessageBoxButtons.OK,
+                               MessageBoxIcon.Error);
+                return;
+            }
+
+            FrmGenericQuerries addressQuery = new FrmGenericQuerries("Endereços do Cliente: " + lblClientName.Text, Status.Ativo);
+            addressQuery.grbStatus.Enabled = false;
+            addressQuery.queryList = addressList;
+            addressQuery.ShowDialog();
+
+            int formReturn = addressQuery.returnControl;
+            if (formReturn < 1)
+            { return; }
+
+
+        }
+
         #endregion
 
         #region --== Action Methods ==--
@@ -204,6 +239,7 @@ namespace UserInterface.Routines
             //grpOrder.Enabled = true;
             //grpDeliveryData.Enabled = true;
         }
+
 
         #endregion
 

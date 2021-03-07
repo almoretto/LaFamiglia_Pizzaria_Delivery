@@ -104,6 +104,7 @@
             this.grbStatus.Controls.Add(this.rbtAll);
             this.grbStatus.Controls.Add(this.rbtAllInactive);
             this.grbStatus.Controls.Add(this.rbtAllActive);
+            this.grbStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.grbStatus.Location = new System.Drawing.Point(17, 50);
             this.grbStatus.Name = "grbStatus";
             this.grbStatus.Size = new System.Drawing.Size(272, 53);
@@ -213,11 +214,11 @@
         private System.Windows.Forms.Button btnConfirmation;
         private System.Windows.Forms.Label lblGenericsearch;
         private System.Windows.Forms.TextBox txtGenericSearch;
-        private System.Windows.Forms.GroupBox grbStatus;
         private System.Windows.Forms.RadioButton rbtAll;
         private System.Windows.Forms.RadioButton rbtAllInactive;
         private System.Windows.Forms.RadioButton rbtAllActive;
         private System.Windows.Forms.GroupBox grbResult;
         private System.Windows.Forms.ListView lstResult;
+        public System.Windows.Forms.GroupBox grbStatus;
     }
 }

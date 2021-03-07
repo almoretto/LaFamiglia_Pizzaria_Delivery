@@ -450,6 +450,7 @@ namespace UserInterface.Routines
             this.btnChangeDeliveryAddress.Size = new System.Drawing.Size(26, 26);
             this.btnChangeDeliveryAddress.TabIndex = 24;
             this.btnChangeDeliveryAddress.UseVisualStyleBackColor = true;
+            this.btnChangeDeliveryAddress.Click += new System.EventHandler(this.btnChangeDeliveryAddress_Click);
             // 
             // lblChangeDeliveryAddress
             // 

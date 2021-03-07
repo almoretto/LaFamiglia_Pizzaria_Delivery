@@ -1,5 +1,7 @@
 ﻿using DataContext.Modules;
+using Entities.Enums;
 using Entities.People;
+using Entities.Views;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -14,7 +16,7 @@ namespace DataContext.People
         {
             List<Address> listAddress = new List<Address>();
 
-            Client client = new SvcClientDb().FindClientById(clientId); ;
+            Client client = new SvcClientDb().FindClientById(clientId);
             using (MySqlConnection dbContext = DbContext.GetInstance().GetConnection())
             {
                 try
@@ -67,6 +69,117 @@ namespace DataContext.People
                 }
             }
             return listAddress;
+        }
+
+        public Address FindAddressById(int addressId)
+        {
+            Address addressFound = null;
+            Client client = null;
+
+            using (MySqlConnection dbContext = DbContext.GetInstance().GetConnection())
+            {
+                try
+                {
+                    dbContext.Open();
+                    MySqlCommand command = new MySqlCommand();
+                    command = dbContext.CreateCommand();
+
+                    //Sql command
+                    command.CommandText = "SELECT * FROM endereco WHERE Id = @Id;";
+                    //Sql Parameter
+                    command.Parameters.AddWithValue("Id", addressId);
+
+                    MySqlDataReader dataReader = command.ExecuteReader();
+
+                    while (dataReader.Read())
+                    {
+                        addressFound = new Address();
+                        addressFound.Id = Convert.ToInt32(dataReader["Id"].ToString());
+
+                        client = new SvcClientDb().FindClientById(Convert.ToInt32(dataReader["IdCliente"].ToString()));
+
+                        if (client != null)
+                        { addressFound.Client = client; }
+                        else
+                        { throw new ApplicationException("Cliente não encontrado"); }
+
+                        addressFound.Adrress = dataReader["Logradouro"].ToString();
+                        addressFound.Number = dataReader["Numero"].ToString();
+
+                        if (dataReader["Complemento"] != null)
+                        { addressFound.Address2nd = dataReader["Complemento"].ToString(); }
+
+                        addressFound.District = dataReader["Bairro"].ToString();
+                        addressFound.City = dataReader["Cidade"].ToString();
+
+                    }
+                }
+                catch (MySqlException ex)
+                {
+                    throw new System.Exception(ex.Message);
+                }
+                finally
+                {
+                    dbContext.Close();
+                }
+            }
+            return addressFound;
+        }
+        public List<EntityViewSearch> GetEntityViewSearch(int idClient)
+        {
+            List<EntityViewSearch> entityList = new List<EntityViewSearch>();
+            using (MySqlConnection dbContext = DbContext.GetInstance().GetConnection())
+            {
+                try
+                {
+                    dbContext.Open();
+                    MySqlCommand command = new MySqlCommand();
+                    command = dbContext.CreateCommand();
+
+                    string query = @"SELECT Id, 
+                                            CONCAT(
+                                                    Logradouro,
+                                                    ', Nº: ',NUmero,
+                                                        IF(Complemento LIKE '' Or NULL,
+                                                            CONCAT(''),
+                                                            CONCAT(', ',Complemento)),
+                                                    ', ',Bairro,
+                                                    ', ',Cidade
+                                                    ) AS Descricao,
+                                            '1' AS Status
+                                     FROM endereco 
+                                     WHERE IdCliente=@IdCliente;";
+
+
+                    command.CommandText = query;
+
+                    command.Parameters.AddWithValue("IdCliente", idClient);
+
+
+                    MySqlDataReader dataReader = command.ExecuteReader();
+
+                    while (dataReader.Read())
+                    {
+                        EntityViewSearch newEntity = new EntityViewSearch
+                        {
+                            Id = Convert.ToInt32(dataReader["Id"].ToString()),
+                            Description = dataReader["Descricao"].ToString(),
+                            Status = (Status)Convert.ToInt32(dataReader["Status"])
+                        };
+
+                        entityList.Add(newEntity);
+                    }
+                }
+                catch (MySqlException ex)
+                {
+                    throw new System.Exception(ex.Message);
+                }
+                finally
+                {
+                    dbContext.Close();
+                }
+            }
+            return entityList;
         }
 
         public int FindNextCode()

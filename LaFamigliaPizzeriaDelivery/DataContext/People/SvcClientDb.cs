@@ -49,9 +49,9 @@ namespace DataContext.People
 
                     command.CommandText = query;
 
-                    if (status != Status.Todos) 
-                    { 
-                        command.Parameters.AddWithValue("status", (int)status); 
+                    if (status != Status.Todos)
+                    {
+                        command.Parameters.AddWithValue("status", (int)status);
                     }
 
                     MySqlDataReader dataReader = command.ExecuteReader();
@@ -61,7 +61,7 @@ namespace DataContext.People
                         EntityViewClient newEntity = new EntityViewClient();
                         newEntity.Id = Convert.ToInt32(dataReader["Id"].ToString());
                         newEntity.Name = dataReader["Nome"].ToString();
-                          
+
                         if (dataReader["Telefone"] != null
                            &&
                            dataReader["Telefone"].ToString() != string.Empty)
@@ -205,7 +205,7 @@ namespace DataContext.People
             }
             return clientFounded;
         }
-        
+
         public Client FindClientByContact(long contact)
         {
             Client clientFounded = new Client();
@@ -268,7 +268,7 @@ namespace DataContext.People
             }
             return clientFounded;
         }
-        
+
         public bool CreateClient(Client clientToCreate)
         {
             bool success = false;
@@ -611,8 +611,8 @@ namespace DataContext.People
                     sqlCommand.Connection = dbContext;
                     sqlCommand.Transaction = clientTransact;
                     #endregion
-                    
-                    
+
+
                     #region --== Addresses Delete ==--
                     foreach (Address address in clientToDelete.Addresses)
                     {
@@ -633,7 +633,7 @@ namespace DataContext.People
                             success = false;
                             return success;
                         }
-                        
+
                         sqlCommand.CommandText = @"Delete from endereco
                                                     Where IdCliente = @IdCliente";
 
@@ -660,7 +660,7 @@ namespace DataContext.People
                     sqlCommand.Parameters.AddWithValue("Id", clientToDelete.Id);
 
                     queryResult = sqlCommand.ExecuteNonQuery();
-                    
+
                     if (queryResult < 1)
                     {
                         success = false;
@@ -669,7 +669,7 @@ namespace DataContext.People
 
                     sqlCommand.CommandText = string.Empty;
                     sqlCommand.Parameters.Clear();
-                    
+
                     #endregion
 
                     success = true;
@@ -701,7 +701,7 @@ namespace DataContext.People
             }
             return success;
         }
-        
+
         public int FindNextCode()
         {
             string sql = "Show table status like 'cliente';";
