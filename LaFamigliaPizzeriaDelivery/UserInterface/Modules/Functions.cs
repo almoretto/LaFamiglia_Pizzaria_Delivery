@@ -19,7 +19,7 @@ namespace UserInterface.Modules
                 }
                 else
                 {
-                    line.BackColor = Color.Linen;
+                    line.BackColor = Color.Beige;
                 }
             }
         }

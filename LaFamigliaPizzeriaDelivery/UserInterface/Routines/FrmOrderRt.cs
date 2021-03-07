@@ -18,6 +18,7 @@ namespace UserInterface.Routines
     {
         private int ReturnControl = 0;
         private Client ClientInOrder { get; set; }
+        private Address DeliveryAddress { get; set; }
 
         //Constructor of the form class
         public FrmOrderRt()
@@ -106,7 +107,12 @@ namespace UserInterface.Routines
             if (formReturn < 1)
             { return; }
 
+            Address selectedAddress = _addBus.FindAddressById(formReturn);
+            if (selectedAddress.Adrress == string.Empty || selectedAddress == null)
+            { return; }
 
+            DeliveryAddress = selectedAddress;           
+            FillAddressFields();
         }
 
         #endregion
@@ -163,7 +169,8 @@ namespace UserInterface.Routines
 
                 lblClientName.Text = ClientInOrder.Name;
 
-                FillAddressFields(ClientInOrder);
+                GetDeliveryAddress();
+                FillAddressFields();
 
                 grpOrder.Enabled = true;
                 grpDeliveryData.Enabled = true;
@@ -189,11 +196,14 @@ namespace UserInterface.Routines
             {
                 mtxtContact.Text = ClientInOrder.CellPhone.ToString();
             }
+            
+           
 
             grpClientAddress.Enabled = true;
             btnClientEdit.Enabled = true;
 
-            FillAddressFields(ClientInOrder);
+            GetDeliveryAddress();
+            FillAddressFields();
 
             grpOrder.Enabled = true;
             grpDeliveryData.Enabled = true;
@@ -204,22 +214,26 @@ namespace UserInterface.Routines
 
 
         #region --== Auxiliary Methods ==--
-        private void FillAddressFields(Client client)
+        
+        private void GetDeliveryAddress()
         {
-            Client clientInOrder = new Client();
-            clientInOrder = client;
-            Address stdAddress = (from addr
-                                     in clientInOrder.Addresses
+            DeliveryAddress = (from addr
+                                    in ClientInOrder.Addresses
                                   where addr.DeliveryAddress = true
                                   select addr).FirstOrDefault();
-            if (stdAddress == null) { return; }
-
-            lblDeliveryAddressId.Text = stdAddress.Id.ToString();
-            lblClientStreet.Text = stdAddress.Adrress;
-            lblStreetNumber.Text = stdAddress.Number;
-            lblStreetAdd2.Text = stdAddress.Address2nd;
-            lblDistrict.Text = stdAddress.District;
-            lblCity.Text = stdAddress.City;
+            
+            if (DeliveryAddress == null) 
+            { return; }
+        }
+        private void FillAddressFields()
+        {
+            
+            lblDeliveryAddressId.Text = DeliveryAddress.Id.ToString();
+            lblClientStreet.Text = DeliveryAddress.Adrress;
+            lblStreetNumber.Text = DeliveryAddress.Number;
+            lblStreetAdd2.Text = DeliveryAddress.Address2nd;
+            lblDistrict.Text = DeliveryAddress.District;
+            lblCity.Text = DeliveryAddress.City;
         }
 
         private void ClearForm()

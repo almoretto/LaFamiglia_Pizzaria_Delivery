@@ -50,7 +50,7 @@ namespace UserInterface.Querries
             lstResult.View = View.Details;
 
             lstResult.Columns.Add("Código", 50, HorizontalAlignment.Right);
-            lstResult.Columns.Add("Descrição", 280, HorizontalAlignment.Left);
+            lstResult.Columns.Add("Descrição", 400, HorizontalAlignment.Left);
 
             foreach (var item in list)
             {

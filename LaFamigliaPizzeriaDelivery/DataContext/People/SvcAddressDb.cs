@@ -105,8 +105,8 @@ namespace DataContext.People
 
                         addressFound.Adrress = dataReader["Logradouro"].ToString();
                         addressFound.Number = dataReader["Numero"].ToString();
-
-                        if (dataReader["Complemento"] != null)
+                        
+                        if (dataReader["Complemento"] != null)//DBNull.Value
                         { addressFound.Address2nd = dataReader["Complemento"].ToString(); }
 
                         addressFound.District = dataReader["Bairro"].ToString();
