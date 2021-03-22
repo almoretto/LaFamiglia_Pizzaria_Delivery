@@ -588,7 +588,7 @@ namespace UserInterface.Routines
             User sessionUser = new UserBus().FindById(Session.User.Id);
             PizzaOrder = new PizzaOrder(
                 ClientInOrder,
-                Status.Ativo,
+                OrderStatus.Ativo,
                 false,
                 DateTime.Now,
                 sessionUser,
