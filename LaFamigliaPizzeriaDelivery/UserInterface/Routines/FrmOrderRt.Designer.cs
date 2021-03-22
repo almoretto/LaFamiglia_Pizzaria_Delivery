@@ -32,27 +32,29 @@ namespace UserInterface.Routines
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmOrderRt));
             this.tbcOrders = new System.Windows.Forms.TabControl();
             this.tbpInOrder = new System.Windows.Forms.TabPage();
-            this.label3 = new System.Windows.Forms.Label();
+            this.btnSubTotal = new System.Windows.Forms.Button();
+            this.btnTotalize = new System.Windows.Forms.Button();
+            this.lblSubAdditional = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblSubPizza = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblOrderTotalPrice = new System.Windows.Forms.Label();
-            this.lblsOrderTotalPrice = new System.Windows.Forms.Label();
+            this.lblTitleTotalPrice = new System.Windows.Forms.Label();
             this.grpDeliveryData = new System.Windows.Forms.GroupBox();
             this.lblDeliveryPrice = new System.Windows.Forms.Label();
             this.txtDeliveryPrice = new System.Windows.Forms.TextBox();
             this.chkPhoneDelivery = new System.Windows.Forms.CheckBox();
             this.flwAddtitionalCRUD = new System.Windows.Forms.FlowLayoutPanel();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
+            this.btnSendOrder = new System.Windows.Forms.Button();
             this.grpOrder = new System.Windows.Forms.GroupBox();
             this.grpAdditionalOrder = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.btnAddtionalDelete = new System.Windows.Forms.Button();
+            this.btnAdditionalAdd = new System.Windows.Forms.Button();
+            this.lvwPizzaAdditionals = new System.Windows.Forms.ListView();
             this.grpPizzaOrder = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnPizzaItemDelete = new System.Windows.Forms.Button();
+            this.btnPizzaItemAdd = new System.Windows.Forms.Button();
             this.lvwPizzaOrder = new System.Windows.Forms.ListView();
             this.grpClient = new System.Windows.Forms.GroupBox();
             this.grpClientAddress = new System.Windows.Forms.GroupBox();
@@ -100,12 +102,14 @@ namespace UserInterface.Routines
             // tbpInOrder
             // 
             this.tbpInOrder.BackColor = System.Drawing.Color.White;
-            this.tbpInOrder.Controls.Add(this.label3);
+            this.tbpInOrder.Controls.Add(this.btnSubTotal);
+            this.tbpInOrder.Controls.Add(this.btnTotalize);
+            this.tbpInOrder.Controls.Add(this.lblSubAdditional);
             this.tbpInOrder.Controls.Add(this.label4);
-            this.tbpInOrder.Controls.Add(this.label1);
+            this.tbpInOrder.Controls.Add(this.lblSubPizza);
             this.tbpInOrder.Controls.Add(this.label2);
             this.tbpInOrder.Controls.Add(this.lblOrderTotalPrice);
-            this.tbpInOrder.Controls.Add(this.lblsOrderTotalPrice);
+            this.tbpInOrder.Controls.Add(this.lblTitleTotalPrice);
             this.tbpInOrder.Controls.Add(this.grpDeliveryData);
             this.tbpInOrder.Controls.Add(this.flwAddtitionalCRUD);
             this.tbpInOrder.Controls.Add(this.grpOrder);
@@ -117,18 +121,54 @@ namespace UserInterface.Routines
             this.tbpInOrder.TabIndex = 0;
             this.tbpInOrder.Text = "Entrada de Pedido";
             // 
-            // label3
+            // btnSubTotal
             // 
-            this.label3.BackColor = System.Drawing.Color.Beige;
-            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label3.Font = new System.Drawing.Font("Futura Bk BT", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(592, 540);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(208, 24);
-            this.label3.TabIndex = 33;
-            this.label3.Text = "R$";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSubTotal.AutoSize = true;
+            this.btnSubTotal.BackgroundImage = global::UserInterface.Properties.Resources.subtotal;
+            this.btnSubTotal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSubTotal.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnSubTotal.FlatAppearance.BorderSize = 0;
+            this.btnSubTotal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSubTotal.Location = new System.Drawing.Point(806, 493);
+            this.btnSubTotal.Name = "btnSubTotal";
+            this.btnSubTotal.Size = new System.Drawing.Size(51, 50);
+            this.btnSubTotal.TabIndex = 35;
+            this.btnSubTotal.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.btnSubTotal.UseVisualStyleBackColor = true;
+            this.btnSubTotal.Click += new System.EventHandler(this.BtnSubTotal_Click);
+            // 
+            // btnTotalize
+            // 
+            this.btnTotalize.AutoSize = true;
+            this.btnTotalize.BackgroundImage = global::UserInterface.Properties.Resources.refreshcart;
+            this.btnTotalize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnTotalize.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnTotalize.FlatAppearance.BorderSize = 0;
+            this.btnTotalize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTotalize.Font = new System.Drawing.Font("Futura Md BT", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTotalize.ForeColor = System.Drawing.Color.Red;
+            this.btnTotalize.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.btnTotalize.Location = new System.Drawing.Point(806, 546);
+            this.btnTotalize.Name = "btnTotalize";
+            this.btnTotalize.Size = new System.Drawing.Size(83, 54);
+            this.btnTotalize.TabIndex = 34;
+            this.btnTotalize.Text = "1";
+            this.btnTotalize.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnTotalize.UseVisualStyleBackColor = true;
+            this.btnTotalize.Click += new System.EventHandler(this.BtnTotalize_Click);
+            // 
+            // lblSubAdditional
+            // 
+            this.lblSubAdditional.BackColor = System.Drawing.Color.Beige;
+            this.lblSubAdditional.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblSubAdditional.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblSubAdditional.Font = new System.Drawing.Font("Futura Bk BT", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSubAdditional.Location = new System.Drawing.Point(592, 540);
+            this.lblSubAdditional.Name = "lblSubAdditional";
+            this.lblSubAdditional.Size = new System.Drawing.Size(208, 24);
+            this.lblSubAdditional.TabIndex = 33;
+            this.lblSubAdditional.Text = "R$";
+            this.lblSubAdditional.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label4
             // 
@@ -139,18 +179,18 @@ namespace UserInterface.Routines
             this.label4.TabIndex = 32;
             this.label4.Text = "Valor Adicionais:";
             // 
-            // label1
+            // lblSubPizza
             // 
-            this.label1.BackColor = System.Drawing.Color.Beige;
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label1.Font = new System.Drawing.Font("Futura Bk BT", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(592, 507);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(208, 24);
-            this.label1.TabIndex = 31;
-            this.label1.Text = "R$";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblSubPizza.BackColor = System.Drawing.Color.Beige;
+            this.lblSubPizza.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblSubPizza.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblSubPizza.Font = new System.Drawing.Font("Futura Bk BT", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSubPizza.Location = new System.Drawing.Point(592, 507);
+            this.lblSubPizza.Name = "lblSubPizza";
+            this.lblSubPizza.Size = new System.Drawing.Size(208, 24);
+            this.lblSubPizza.TabIndex = 31;
+            this.lblSubPizza.Text = "R$";
+            this.lblSubPizza.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label2
             // 
@@ -175,14 +215,14 @@ namespace UserInterface.Routines
             this.lblOrderTotalPrice.Text = "R$";
             this.lblOrderTotalPrice.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lblsOrderTotalPrice
+            // lblTitleTotalPrice
             // 
-            this.lblsOrderTotalPrice.AutoSize = true;
-            this.lblsOrderTotalPrice.Location = new System.Drawing.Point(414, 576);
-            this.lblsOrderTotalPrice.Name = "lblsOrderTotalPrice";
-            this.lblsOrderTotalPrice.Size = new System.Drawing.Size(172, 20);
-            this.lblsOrderTotalPrice.TabIndex = 28;
-            this.lblsOrderTotalPrice.Text = "Valor Total Pedido:";
+            this.lblTitleTotalPrice.AutoSize = true;
+            this.lblTitleTotalPrice.Location = new System.Drawing.Point(414, 576);
+            this.lblTitleTotalPrice.Name = "lblTitleTotalPrice";
+            this.lblTitleTotalPrice.Size = new System.Drawing.Size(172, 20);
+            this.lblTitleTotalPrice.TabIndex = 28;
+            this.lblTitleTotalPrice.Text = "Valor Total Pedido:";
             // 
             // grpDeliveryData
             // 
@@ -214,7 +254,7 @@ namespace UserInterface.Routines
             this.txtDeliveryPrice.Name = "txtDeliveryPrice";
             this.txtDeliveryPrice.Size = new System.Drawing.Size(166, 28);
             this.txtDeliveryPrice.TabIndex = 11;
-            this.txtDeliveryPrice.Text = "R$";
+            this.txtDeliveryPrice.Validating += new System.ComponentModel.CancelEventHandler(this.TxtDeliveryPrice_Validating);
             // 
             // chkPhoneDelivery
             // 
@@ -225,15 +265,16 @@ namespace UserInterface.Routines
             this.chkPhoneDelivery.TabIndex = 0;
             this.chkPhoneDelivery.Text = "Pedido por Telefone?";
             this.chkPhoneDelivery.UseVisualStyleBackColor = true;
+            this.chkPhoneDelivery.CheckedChanged += new System.EventHandler(this.ChkPhoneDelivery_CheckedChanged);
             // 
             // flwAddtitionalCRUD
             // 
             this.flwAddtitionalCRUD.Controls.Add(this.btnCancel);
-            this.flwAddtitionalCRUD.Controls.Add(this.btnSave);
+            this.flwAddtitionalCRUD.Controls.Add(this.btnSendOrder);
             this.flwAddtitionalCRUD.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flwAddtitionalCRUD.Location = new System.Drawing.Point(841, 546);
+            this.flwAddtitionalCRUD.Location = new System.Drawing.Point(889, 546);
             this.flwAddtitionalCRUD.Name = "flwAddtitionalCRUD";
-            this.flwAddtitionalCRUD.Size = new System.Drawing.Size(325, 52);
+            this.flwAddtitionalCRUD.Size = new System.Drawing.Size(277, 52);
             this.flwAddtitionalCRUD.TabIndex = 6;
             // 
             // btnCancel
@@ -244,30 +285,31 @@ namespace UserInterface.Routines
             this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
             this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnCancel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnCancel.Location = new System.Drawing.Point(206, 3);
+            this.btnCancel.Location = new System.Drawing.Point(158, 3);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(116, 45);
             this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
-            // btnSave
+            // btnSendOrder
             // 
-            this.btnSave.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Futura Bk BT", 8.150944F, System.Drawing.FontStyle.Bold);
-            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
-            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnSave.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnSave.Location = new System.Drawing.Point(84, 3);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(116, 45);
-            this.btnSave.TabIndex = 0;
-            this.btnSave.Text = "Enviar Pedido";
-            this.btnSave.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSendOrder.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnSendOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSendOrder.Font = new System.Drawing.Font("Futura Bk BT", 8.150944F, System.Drawing.FontStyle.Bold);
+            this.btnSendOrder.Image = ((System.Drawing.Image)(resources.GetObject("btnSendOrder.Image")));
+            this.btnSendOrder.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnSendOrder.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnSendOrder.Location = new System.Drawing.Point(36, 3);
+            this.btnSendOrder.Name = "btnSendOrder";
+            this.btnSendOrder.Size = new System.Drawing.Size(116, 45);
+            this.btnSendOrder.TabIndex = 0;
+            this.btnSendOrder.Text = "Enviar Pedido";
+            this.btnSendOrder.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnSendOrder.UseVisualStyleBackColor = false;
+            this.btnSendOrder.Click += new System.EventHandler(this.btnSendOrder_Click);
             // 
             // grpOrder
             // 
@@ -282,9 +324,9 @@ namespace UserInterface.Routines
             // 
             // grpAdditionalOrder
             // 
-            this.grpAdditionalOrder.Controls.Add(this.button3);
-            this.grpAdditionalOrder.Controls.Add(this.button4);
-            this.grpAdditionalOrder.Controls.Add(this.listView1);
+            this.grpAdditionalOrder.Controls.Add(this.btnAddtionalDelete);
+            this.grpAdditionalOrder.Controls.Add(this.btnAdditionalAdd);
+            this.grpAdditionalOrder.Controls.Add(this.lvwPizzaAdditionals);
             this.grpAdditionalOrder.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.grpAdditionalOrder.Font = new System.Drawing.Font("Futura Bk BT", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpAdditionalOrder.Location = new System.Drawing.Point(3, 164);
@@ -294,47 +336,50 @@ namespace UserInterface.Routines
             this.grpAdditionalOrder.TabStop = false;
             this.grpAdditionalOrder.Text = "Seleção de Adicionais";
             // 
-            // button3
+            // btnAddtionalDelete
             // 
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Image = global::UserInterface.Properties.Resources.RedTrash;
-            this.button3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button3.Location = new System.Drawing.Point(1120, 55);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(26, 26);
-            this.button3.TabIndex = 22;
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnAddtionalDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddtionalDelete.Image = global::UserInterface.Properties.Resources.RedTrash;
+            this.btnAddtionalDelete.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnAddtionalDelete.Location = new System.Drawing.Point(1120, 55);
+            this.btnAddtionalDelete.Name = "btnAddtionalDelete";
+            this.btnAddtionalDelete.Size = new System.Drawing.Size(26, 26);
+            this.btnAddtionalDelete.TabIndex = 22;
+            this.btnAddtionalDelete.UseVisualStyleBackColor = true;
+            this.btnAddtionalDelete.Click += new System.EventHandler(this.BtnAddtionalDelete_Click);
             // 
-            // button4
+            // btnAdditionalAdd
             // 
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Image = global::UserInterface.Properties.Resources.Addnew1;
-            this.button4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button4.Location = new System.Drawing.Point(1120, 23);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(26, 26);
-            this.button4.TabIndex = 21;
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnAdditionalAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdditionalAdd.Image = global::UserInterface.Properties.Resources.Addnew1;
+            this.btnAdditionalAdd.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnAdditionalAdd.Location = new System.Drawing.Point(1120, 23);
+            this.btnAdditionalAdd.Name = "btnAdditionalAdd";
+            this.btnAdditionalAdd.Size = new System.Drawing.Size(26, 26);
+            this.btnAdditionalAdd.TabIndex = 21;
+            this.btnAdditionalAdd.UseVisualStyleBackColor = true;
+            this.btnAdditionalAdd.Click += new System.EventHandler(this.BtnAdditionalAdd_Click);
             // 
-            // listView1
+            // lvwPizzaAdditionals
             // 
-            this.listView1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.listView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listView1.CheckBoxes = true;
-            this.listView1.Font = new System.Drawing.Font("Futura Bk BT", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listView1.FullRowSelect = true;
-            this.listView1.GridLines = true;
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(6, 23);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(1108, 124);
-            this.listView1.TabIndex = 20;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.lvwPizzaAdditionals.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lvwPizzaAdditionals.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lvwPizzaAdditionals.CheckBoxes = true;
+            this.lvwPizzaAdditionals.Font = new System.Drawing.Font("Futura Bk BT", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lvwPizzaAdditionals.FullRowSelect = true;
+            this.lvwPizzaAdditionals.GridLines = true;
+            this.lvwPizzaAdditionals.HideSelection = false;
+            this.lvwPizzaAdditionals.Location = new System.Drawing.Point(6, 23);
+            this.lvwPizzaAdditionals.MultiSelect = false;
+            this.lvwPizzaAdditionals.Name = "lvwPizzaAdditionals";
+            this.lvwPizzaAdditionals.Size = new System.Drawing.Size(1108, 124);
+            this.lvwPizzaAdditionals.TabIndex = 20;
+            this.lvwPizzaAdditionals.UseCompatibleStateImageBehavior = false;
             // 
             // grpPizzaOrder
             // 
-            this.grpPizzaOrder.Controls.Add(this.button2);
-            this.grpPizzaOrder.Controls.Add(this.button1);
+            this.grpPizzaOrder.Controls.Add(this.btnPizzaItemDelete);
+            this.grpPizzaOrder.Controls.Add(this.btnPizzaItemAdd);
             this.grpPizzaOrder.Controls.Add(this.lvwPizzaOrder);
             this.grpPizzaOrder.Dock = System.Windows.Forms.DockStyle.Top;
             this.grpPizzaOrder.Font = new System.Drawing.Font("Futura Bk BT", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -345,27 +390,29 @@ namespace UserInterface.Routines
             this.grpPizzaOrder.TabStop = false;
             this.grpPizzaOrder.Text = "Seleção de Pizzas";
             // 
-            // button2
+            // btnPizzaItemDelete
             // 
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Image = global::UserInterface.Properties.Resources.RedTrash;
-            this.button2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button2.Location = new System.Drawing.Point(1120, 54);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(26, 26);
-            this.button2.TabIndex = 19;
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnPizzaItemDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPizzaItemDelete.Image = global::UserInterface.Properties.Resources.RedTrash;
+            this.btnPizzaItemDelete.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnPizzaItemDelete.Location = new System.Drawing.Point(1120, 54);
+            this.btnPizzaItemDelete.Name = "btnPizzaItemDelete";
+            this.btnPizzaItemDelete.Size = new System.Drawing.Size(26, 26);
+            this.btnPizzaItemDelete.TabIndex = 19;
+            this.btnPizzaItemDelete.UseVisualStyleBackColor = true;
+            this.btnPizzaItemDelete.Click += new System.EventHandler(this.BtnPizzaItemDelete_Click);
             // 
-            // button1
+            // btnPizzaItemAdd
             // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = global::UserInterface.Properties.Resources.Addnew1;
-            this.button1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button1.Location = new System.Drawing.Point(1120, 22);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(26, 26);
-            this.button1.TabIndex = 18;
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnPizzaItemAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPizzaItemAdd.Image = global::UserInterface.Properties.Resources.Addnew1;
+            this.btnPizzaItemAdd.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnPizzaItemAdd.Location = new System.Drawing.Point(1120, 22);
+            this.btnPizzaItemAdd.Name = "btnPizzaItemAdd";
+            this.btnPizzaItemAdd.Size = new System.Drawing.Size(26, 26);
+            this.btnPizzaItemAdd.TabIndex = 18;
+            this.btnPizzaItemAdd.UseVisualStyleBackColor = true;
+            this.btnPizzaItemAdd.Click += new System.EventHandler(this.BtnPizzaItemAdd_Click);
             // 
             // lvwPizzaOrder
             // 
@@ -377,6 +424,7 @@ namespace UserInterface.Routines
             this.lvwPizzaOrder.GridLines = true;
             this.lvwPizzaOrder.HideSelection = false;
             this.lvwPizzaOrder.Location = new System.Drawing.Point(6, 22);
+            this.lvwPizzaOrder.MultiSelect = false;
             this.lvwPizzaOrder.Name = "lvwPizzaOrder";
             this.lvwPizzaOrder.Size = new System.Drawing.Size(1108, 106);
             this.lvwPizzaOrder.TabIndex = 0;
@@ -450,7 +498,7 @@ namespace UserInterface.Routines
             this.btnChangeDeliveryAddress.Size = new System.Drawing.Size(26, 26);
             this.btnChangeDeliveryAddress.TabIndex = 24;
             this.btnChangeDeliveryAddress.UseVisualStyleBackColor = true;
-            this.btnChangeDeliveryAddress.Click += new System.EventHandler(this.btnChangeDeliveryAddress_Click);
+            this.btnChangeDeliveryAddress.Click += new System.EventHandler(this.BtnChangeDeliveryAddress_Click);
             // 
             // lblChangeDeliveryAddress
             // 
@@ -537,6 +585,7 @@ namespace UserInterface.Routines
             this.btnAddClient.Size = new System.Drawing.Size(26, 26);
             this.btnAddClient.TabIndex = 17;
             this.btnAddClient.UseVisualStyleBackColor = true;
+            this.btnAddClient.Click += new System.EventHandler(this.BtnAddClient_Click);
             // 
             // lblAddClient
             // 
@@ -558,7 +607,7 @@ namespace UserInterface.Routines
             this.btnClientEdit.Size = new System.Drawing.Size(26, 26);
             this.btnClientEdit.TabIndex = 15;
             this.btnClientEdit.UseVisualStyleBackColor = true;
-            this.btnClientEdit.Click += new System.EventHandler(this.btnClientEdit_Click);
+            this.btnClientEdit.Click += new System.EventHandler(this.BtnClientEdit_Click);
             // 
             // lblClientId
             // 
@@ -667,7 +716,7 @@ namespace UserInterface.Routines
         private System.Windows.Forms.TabPage tbpProdOrder;
         private System.Windows.Forms.FlowLayoutPanel flwAddtitionalCRUD;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnSendOrder;
         private System.Windows.Forms.GroupBox grpClientAddress;
         private System.Windows.Forms.Label lblDistrict;
         private System.Windows.Forms.Label lblStreetAdd2;
@@ -687,22 +736,24 @@ namespace UserInterface.Routines
         private System.Windows.Forms.Label lblChangeDeliveryAddress;
         private System.Windows.Forms.GroupBox grpAdditionalOrder;
         private System.Windows.Forms.GroupBox grpPizzaOrder;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnPizzaItemDelete;
+        private System.Windows.Forms.Button btnPizzaItemAdd;
         private System.Windows.Forms.ListView lvwPizzaOrder;
         private System.Windows.Forms.GroupBox grpDeliveryData;
         private System.Windows.Forms.CheckBox chkPhoneDelivery;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.Button btnAdditionalAdd;
+        private System.Windows.Forms.ListView lvwPizzaAdditionals;
         private System.Windows.Forms.Label lblDeliveryPrice;
         private System.Windows.Forms.TextBox txtDeliveryPrice;
         private System.Windows.Forms.Label lblOrderTotalPrice;
-        private System.Windows.Forms.Label lblsOrderTotalPrice;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblTitleTotalPrice;
+        private System.Windows.Forms.Label lblSubAdditional;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblSubPizza;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblDeliveryAddressId;
+        private System.Windows.Forms.Button btnTotalize;
+        private System.Windows.Forms.Button btnSubTotal;
+        private System.Windows.Forms.Button btnAddtionalDelete;
     }
 }

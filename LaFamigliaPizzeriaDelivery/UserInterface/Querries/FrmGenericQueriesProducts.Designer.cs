@@ -210,7 +210,6 @@ namespace UserInterface.Querries
 
         private System.Windows.Forms.GroupBox grbResult;
         private System.Windows.Forms.ListView lstResult;
-        private System.Windows.Forms.GroupBox grbStatus;
         private System.Windows.Forms.RadioButton rbtAll;
         private System.Windows.Forms.RadioButton rbtAllInactive;
         private System.Windows.Forms.RadioButton rbtAllActive;
@@ -219,5 +218,6 @@ namespace UserInterface.Querries
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnConfirmation;
+        public System.Windows.Forms.GroupBox grbStatus;
     }
 }

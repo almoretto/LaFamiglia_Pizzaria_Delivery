@@ -24,34 +24,40 @@ namespace DataContext.Products
                     command = dbContext.CreateCommand();
 
                     string query = @"Select 
-                                        Id, Descricao, Situacao, Valor 
+                                        Id, Descricao, Situacao, Valor, Observacao 
                                      From 
                                         saborborda";
 
                     if (status != Status.Todos)
                     {
                         query += " Where "
-                                + "situacao = @status;";
+                                + "Situacao = @Situacao;";
                     }
 
                     command.CommandText = query;
 
                     if (status != Status.Todos)
                     {
-                        command.Parameters.AddWithValue("situacao", (int)status);
+                        command.Parameters.AddWithValue("Situacao", (int)status);
                     }
 
                     MySqlDataReader dataReader = command.ExecuteReader();
 
                     while (dataReader.Read())
                     {
-                        EntityViewProducts newEntity = new EntityViewProducts
+                        EntityViewProducts newEntity = new EntityViewProducts();
+
+                        newEntity.Id = Convert.ToInt32(dataReader["Id"].ToString());
+                        
+                        string descrp = dataReader["Descricao"].ToString();
+                        if (dataReader["Observacao"] != null || dataReader["Observacao"].ToString() != string.Empty)
                         {
-                            Id = Convert.ToInt32(dataReader["Id"].ToString()),
-                            Description = dataReader["Descricao"].ToString(),
-                            Price = Convert.ToDouble(dataReader["Valor"].ToString()),
-                            Status = (Status)Convert.ToInt32(dataReader["Situacao"])
-                        };
+                            descrp += ": " + dataReader["Observacao"].ToString();
+                        }
+                        newEntity.Description = descrp;
+
+                        newEntity.Price = Convert.ToDouble(dataReader["Valor"].ToString());
+                        newEntity.Status = (Status)Convert.ToInt32(dataReader["Situacao"]);
 
                         entityList.Add(newEntity);
                     }

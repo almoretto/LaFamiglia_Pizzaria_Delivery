@@ -31,14 +31,14 @@ namespace DataContext.Products
                     if (status != Status.Todos)
                     {
                         query += " Where "
-                                + "situacao = @status;";
+                                + "Situacao = @status;";
                     }
 
                     command.CommandText = query;
 
                     if (status != Status.Todos)
                     {
-                        command.Parameters.AddWithValue("situacao", (int)status);
+                        command.Parameters.AddWithValue("status", (int)status);
                     }
 
                     MySqlDataReader dataReader = command.ExecuteReader();

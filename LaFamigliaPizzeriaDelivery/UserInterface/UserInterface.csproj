@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -129,6 +144,12 @@
     <Compile Include="Routines\FrmOrderRt.Designer.cs">
       <DependentUpon>FrmOrderRt.cs</DependentUpon>
     </Compile>
+    <Compile Include="Routines\FrmPizzaAddRt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Routines\FrmPizzaAddRt.Designer.cs">
+      <DependentUpon>FrmPizzaAddRt.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Controls\UserSituacaoCTRL.resx">
       <DependentUpon>UserSituacaoCTRL.cs</DependentUpon>
     </EmbeddedResource>
@@ -177,6 +198,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Routines\FrmOrderRt.resx">
       <DependentUpon>FrmOrderRt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Routines\FrmPizzaAddRt.resx">
+      <DependentUpon>FrmPizzaAddRt.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -311,6 +335,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ChangeAddress_resize.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cartSub.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cartSub_resize.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refreshcart.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refreshcart_resize.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\subtotal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pizzaSlice.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 e x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

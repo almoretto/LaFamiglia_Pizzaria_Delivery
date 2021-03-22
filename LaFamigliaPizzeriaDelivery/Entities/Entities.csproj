@@ -42,8 +42,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entity.cs" />
+    <Compile Include="Enums\OrderStatus.cs" />
     <Compile Include="Enums\Status.cs" />
     <Compile Include="IEntity.cs" />
+    <Compile Include="Order\OrderAdditional.cs" />
+    <Compile Include="Order\OrderItem.cs" />
+    <Compile Include="Order\OrderPizzaFlavors.cs" />
+    <Compile Include="Order\PizzaOrder.cs" />
     <Compile Include="People\Address.cs" />
     <Compile Include="People\Client.cs" />
     <Compile Include="People\User.cs" />

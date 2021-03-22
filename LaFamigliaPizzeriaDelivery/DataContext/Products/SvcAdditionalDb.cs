@@ -30,14 +30,14 @@ namespace DataContext.Products
                     if (status != Status.Todos)
                     {
                         query += " Where "
-                                + "situacao = @status;";
+                                + "Situacao = @status;";
                     }
 
                     command.CommandText = query;
 
                     if (status != Status.Todos)
                     {
-                        command.Parameters.AddWithValue("situacao", (int)status);
+                        command.Parameters.AddWithValue("status", (int)status);
                     }
 
                     MySqlDataReader dataReader = command.ExecuteReader();
@@ -117,7 +117,7 @@ namespace DataContext.Products
 
         public Additional FindById(int id)
         {
-            Additional additionalFound = new Additional();
+            Additional additionalFound=null;
             using (MySqlConnection dbContext = DbContext.GetInstance().GetConnection())
             {
                 try
@@ -132,7 +132,7 @@ namespace DataContext.Products
                     command.Parameters.AddWithValue("Id", id);
 
                     MySqlDataReader dataReader = command.ExecuteReader();
-
+                    additionalFound = new Additional();
                     while (dataReader.Read())
                     {
                         additionalFound.Id = Convert.ToInt32(dataReader["Id"].ToString());
@@ -204,7 +204,7 @@ namespace DataContext.Products
                 }
                 catch (MySqlException ex)
                 {
-                    throw new System.Exception(ex.Message);
+                    throw new Exception(ex.Message);
                 }
                 finally
                 {
