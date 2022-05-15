@@ -62,8 +62,13 @@ namespace UserInterface.People
             this.lblAddress = new System.Windows.Forms.Label();
             this.lblSaveOptimize = new System.Windows.Forms.Label();
             this.uscStatus = new UserInterface.Controls.UserSituacaoCTRL();
+            this.grpCEP = new System.Windows.Forms.GroupBox();
+            this.btnCEPSeek = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtCEPSeek = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel1.SuspendLayout();
             this.grpAddress.SuspendLayout();
+            this.grpCEP.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblUserName
@@ -303,11 +308,41 @@ namespace UserInterface.People
             resources.ApplyResources(this.uscStatus, "uscStatus");
             this.uscStatus.Name = "uscStatus";
             // 
+            // grpCEP
+            // 
+            this.grpCEP.Controls.Add(this.txtCEPSeek);
+            this.grpCEP.Controls.Add(this.label4);
+            this.grpCEP.Controls.Add(this.btnCEPSeek);
+            resources.ApplyResources(this.grpCEP, "grpCEP");
+            this.grpCEP.Name = "grpCEP";
+            this.grpCEP.TabStop = false;
+            // 
+            // btnCEPSeek
+            // 
+            this.btnCEPSeek.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnCEPSeek.BackgroundImage = global::UserInterface.Properties.Resources.busca_cep;
+            resources.ApplyResources(this.btnCEPSeek, "btnCEPSeek");
+            this.btnCEPSeek.Name = "btnCEPSeek";
+            this.btnCEPSeek.UseVisualStyleBackColor = false;
+            this.btnCEPSeek.Click += new System.EventHandler(this.btnCEPSeek_Click);
+            // 
+            // label4
+            // 
+            resources.ApplyResources(this.label4, "label4");
+            this.label4.Name = "label4";
+            // 
+            // txtCEPSeek
+            // 
+            this.txtCEPSeek.BackColor = System.Drawing.Color.Gainsboro;
+            resources.ApplyResources(this.txtCEPSeek, "txtCEPSeek");
+            this.txtCEPSeek.Name = "txtCEPSeek";
+            // 
             // FrmClientCRUD
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.grpCEP);
             this.Controls.Add(this.lblSaveOptimize);
             this.Controls.Add(this.grpAddress);
             this.Controls.Add(this.mTxtCellPhone);
@@ -330,6 +365,8 @@ namespace UserInterface.People
             this.flowLayoutPanel1.ResumeLayout(false);
             this.grpAddress.ResumeLayout(false);
             this.grpAddress.PerformLayout();
+            this.grpCEP.ResumeLayout(false);
+            this.grpCEP.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -369,5 +406,9 @@ namespace UserInterface.People
         private System.Windows.Forms.Button btnAddressSave;
         private System.Windows.Forms.Label lblAddressId;
         private System.Windows.Forms.Label lblSaveOptimize;
+        private System.Windows.Forms.GroupBox grpCEP;
+        private System.Windows.Forms.TextBox txtCEPSeek;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnCEPSeek;
     }
 }

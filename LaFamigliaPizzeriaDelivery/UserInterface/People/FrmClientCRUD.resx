@@ -151,7 +151,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblUserName.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="txtClientName.Location" type="System.Drawing.Point, System.Drawing">
     <value>187, 36</value>
@@ -172,7 +172,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtClientName.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="lblUserId.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -205,7 +205,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblUserId.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="btnClientSearch.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -250,7 +250,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnClientSearch.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>12</value>
   </data>
   <data name="txtClientId.Location" type="System.Drawing.Point, System.Drawing">
     <value>9, 34</value>
@@ -271,7 +271,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtClientId.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>13</value>
   </data>
   <data name="btnCancel.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -456,7 +456,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;flowLayoutPanel1.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="lblPhone.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -486,7 +486,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblPhone.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="mTxtPhone.Location" type="System.Drawing.Point, System.Drawing">
     <value>187, 97</value>
@@ -510,7 +510,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;mTxtPhone.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="mTxtCellPhone.Location" type="System.Drawing.Point, System.Drawing">
     <value>356, 97</value>
@@ -534,7 +534,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;mTxtCellPhone.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="lblCellPhone.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -564,7 +564,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblCellPhone.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="lblAddressId.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1038,7 +1038,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;grpAddress.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <metadata name="lblSaveOptimize.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -1071,7 +1071,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblSaveOptimize.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="uscStatus.Font" type="System.Drawing.Font, System.Drawing">
     <value>Futura Bk BT, 10.18868pt</value>
@@ -1107,7 +1107,106 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;uscStatus.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
+  </data>
+  <data name="txtCEPSeek.Location" type="System.Drawing.Point, System.Drawing">
+    <value>68, 35</value>
+  </data>
+  <data name="txtCEPSeek.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 28</value>
+  </data>
+  <data name="txtCEPSeek.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="&gt;&gt;txtCEPSeek.Name" xml:space="preserve">
+    <value>txtCEPSeek</value>
+  </data>
+  <data name="&gt;&gt;txtCEPSeek.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtCEPSeek.Parent" xml:space="preserve">
+    <value>grpCEP</value>
+  </data>
+  <data name="&gt;&gt;txtCEPSeek.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="label4.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>17, 38</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 20</value>
+  </data>
+  <data name="label4.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>CEP:</value>
+  </data>
+  <data name="&gt;&gt;label4.Name" xml:space="preserve">
+    <value>label4</value>
+  </data>
+  <data name="&gt;&gt;label4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
+    <value>grpCEP</value>
+  </data>
+  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnCEPSeek.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
+  </data>
+  <data name="btnCEPSeek.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnCEPSeek.Location" type="System.Drawing.Point, System.Drawing">
+    <value>17, 69</value>
+  </data>
+  <data name="btnCEPSeek.Size" type="System.Drawing.Size, System.Drawing">
+    <value>171, 62</value>
+  </data>
+  <data name="btnCEPSeek.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;btnCEPSeek.Name" xml:space="preserve">
+    <value>btnCEPSeek</value>
+  </data>
+  <data name="&gt;&gt;btnCEPSeek.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnCEPSeek.Parent" xml:space="preserve">
+    <value>grpCEP</value>
+  </data>
+  <data name="&gt;&gt;btnCEPSeek.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="grpCEP.Location" type="System.Drawing.Point, System.Drawing">
+    <value>187, 509</value>
+  </data>
+  <data name="grpCEP.Size" type="System.Drawing.Size, System.Drawing">
+    <value>205, 156</value>
+  </data>
+  <data name="grpCEP.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="grpCEP.Text" xml:space="preserve">
+    <value>Consultar CEP</value>
+  </data>
+  <data name="&gt;&gt;grpCEP.Name" xml:space="preserve">
+    <value>grpCEP</value>
+  </data>
+  <data name="&gt;&gt;grpCEP.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;grpCEP.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;grpCEP.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

@@ -307,6 +307,32 @@ namespace UserInterface.People
             btnDelete.Enabled = true;
         }
 
+        private void btnCEPSeek_Click(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrWhiteSpace(txtCEPSeek.Text))
+            {
+                using (var correios = new WSCorreios.AtendeClienteClient())
+                {
+                    try
+                    {
+                        var seekResult = correios.consultaCEP(txtCEPSeek.Text.Trim());
+                        txtAddress.Text = seekResult.end;
+                        txtCity.Text = seekResult.cidade;
+                        txtDistrict.Text = seekResult.bairro;
+                        txtAddress2nd.Text = seekResult.complemento2;
+                        txtAddress2nd.Text += " " + txtCEPSeek.Text.Trim();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "WebServiceCorreios", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Favor informar CEP", "WebServiceCorreios", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
         #endregion
 
         #region --== Auxiliary Methods ==--
@@ -549,5 +575,7 @@ namespace UserInterface.People
             }
         }
         #endregion
+
+       
     }
 }
