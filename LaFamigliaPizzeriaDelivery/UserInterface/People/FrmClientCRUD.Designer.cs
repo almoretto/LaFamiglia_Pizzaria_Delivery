@@ -1,4 +1,4 @@
-﻿
+﻿using UserInterface.Controls;
 namespace UserInterface.People
 {
     partial class FrmClientCRUD

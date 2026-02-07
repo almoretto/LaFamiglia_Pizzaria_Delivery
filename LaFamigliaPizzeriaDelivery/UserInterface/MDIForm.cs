@@ -74,7 +74,7 @@ namespace UserInterface
         private void TamanhosToolStripMenuItem_Click(object sender, EventArgs e)
         { OpenForms(new FrmPizzaSizeCRUD()); }
 
-        private void pedidosToolStripMenuItem_Click(object sender, EventArgs e)
+        private void PedidosToolStripMenuItem_Click(object sender, EventArgs e)
         { OpenForms(new FrmOrderRt()); }
 
         #endregion
